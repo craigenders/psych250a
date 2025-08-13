@@ -1,4 +1,4 @@
-Participant,Gender,Age,Treatment,Exercise,Depress1,Depress2,Depress3,Depress4,Depress5,Depress6,Depress7,Interfere1,Interfere2,Interfere3,Interfere4,Interfere5,Interfere6,Depression,Interference
+Participant,Gender,Age,Condition,Exercise,Depress1,Depress2,Depress3,Depress4,Depress5,Depress6,Depress7,Interfere1,Interfere2,Interfere3,Interfere4,Interfere5,Interfere6,Depression,Interference
 1,Female,24,Control,4.5,3,4,4,4,4,4,4,4,6,6,6,3,6,27,31
 2,Male,25,Control,3.8,1,1,1,1,1,1,1,2,3,2,1,1,2,7,11
 3,Female,58,Control,9.333,4,4,4,4,4,3,3,6,6,3,6,5,6,26,32
