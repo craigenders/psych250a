@@ -274,3 +274,28 @@ Participant,Gender,Age,Education,PainSeverity,Anxiety,Interference,Depression
 273,Male,49,Post BA,Severe Pain,11,28,21
 274,Female,41,College,Severe Pain,13,30,24
 275,Male,63,Some College or Less,Severe Pain,7,37,13
+276,Female,42,Some College or Less,Moderate Pain,8,30,8
+277,Female,58,College,Moderate Pain,19,30,21
+278,Female,52,College,Moderate Pain,12,28,20
+279,Male,51,College,Moderate Pain,14,24,9
+280,Female,58,College,Little or No Pain,7,25,9
+281,Female,69,Post BA,Severe Pain,8,33,15
+282,Female,41,College,Severe Pain,11,31,20
+283,Female,37,Some College or Less,Severe Pain,11,34,11
+284,Male,61,Some College or Less,Severe Pain,15,31,17
+285,Female,47,College,Moderate Pain,12,39,22
+286,Male,45,Some College or Less,Severe Pain,8,31,16
+287,Male,45,Post BA,Little or No Pain,9,26,7
+288,Female,36,Some College or Less,Severe Pain,8,29,7
+289,Female,47,Some College or Less,Severe Pain,7,32,8
+290,Male,57,Post BA,Moderate Pain,9,38,14
+291,Male,60,College,Little or No Pain,9,32,10
+292,Female,50,Post BA,Severe Pain,14,31,18
+293,Female,34,Some College or Less,Severe Pain,8,31,7
+294,Male,36,Some College or Less,Little or No Pain,10,22,10
+295,Female,20,Some College or Less,Severe Pain,9,36,22
+296,Male,74,College,Moderate Pain,7,12,7
+297,Male,75,Some College or Less,Moderate Pain,12,32,21
+298,Female,50,Post BA,Moderate Pain,7,30,10
+299,Male,61,College,Little or No Pain,10,8,8
+300,Female,53,Some College or Less,Severe Pain,12,38,13
