@@ -21,7 +21,7 @@ if(normal_data){ # simulate normal data
 }
 
 # graph the simulated sample data
-hist(mysample, breaks = 50, main = "Distribution of Population Data")
+hist(mysample, breaks = 50, main = 'Distribution of Population Data')
 
 # descriptive statistics for the simulated sample data
 describe(mysample)
@@ -42,6 +42,6 @@ for(s in 1:100000){
 }
 
 # graph sampling distribution of the sample means
-hist(samplemeans[samplemeans >= 0 & samplemeans <= 10], xlim = c(0,10), ylim = c(0,2000), breaks = seq(0,10, by = .02), main = "Distribution of 100,000 Sample Means")
-text(5, 2000, paste0("Average of the 100,000 Sample Means = ", round(mean(samplemeans), 3)))
-text(5, 1900, paste0("Standard Deviation of the 100,000 Sample Means = ", round(sd(samplemeans), 3)))
+hist(samplemeans[samplemeans >= 0 & samplemeans <= 10], xlim = c(0,10), ylim = c(0,2000), breaks = seq(0,10, by = .02), main = 'Distribution of 100,000 Sample Means')
+text(5, 2000, paste0('Average of the 100,000 Sample Means = ', round(mean(samplemeans), 3)))
+text(5, 1900, paste0('Standard Deviation of the 100,000 Sample Means = ', round(sd(samplemeans), 3)))

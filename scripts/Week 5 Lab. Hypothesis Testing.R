@@ -4,7 +4,7 @@ library(psych)
 library(summarytools)
 
 # github url for raw data
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/CancerPositiveData.csv"
+filepath <- 'https://raw.githubusercontent.com/craigenders/psych250a/main/data/CancerPositiveData.csv'
 
 # create data frame called Cancer from github data
 Cancer <- read.csv(filepath, stringsAsFactors = T)

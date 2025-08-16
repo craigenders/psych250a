@@ -7,7 +7,7 @@ library(summarytools)
 # READ DATA ----
 
 # github url for raw data
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/BodySatWideData.csv"
+filepath <- 'https://raw.githubusercontent.com/craigenders/psych250a/main/data/BodySatWideData.csv'
 
 # create data frame called BodySat from github data
 BodySat <- read.csv(filepath, stringsAsFactors = T)
@@ -35,9 +35,9 @@ results <- t.test(BodySat$BodySat18, BodySat$BodySat10, paired = TRUE)
 results
 
 # print standard error
-cat("standard error of mean difference:", results$stderr)
+cat('standard error of mean difference:', results$stderr)
 
 # STANDARIZED MEAN DIFFERENCE EFFECT SIZE ----
 
 # standardized mean difference effect size
-cat("standardized mean difference effect size:", mean(BodySat$BodySatCha) / sd(BodySat$BodySatCha))
+cat('standardized mean difference effect size:', mean(BodySat$BodySatCha) / sd(BodySat$BodySatCha))

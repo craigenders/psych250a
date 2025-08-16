@@ -9,7 +9,7 @@ library(summarytools)
 # READ DATA ----
 
 # github url for raw data
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrialData.csv"
+filepath <- 'https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrialData.csv'
 
 # create data frame called ClinicalTrial from github data
 ClinicalTrial <- read.csv(filepath, stringsAsFactors = T)
@@ -38,4 +38,4 @@ with(ClinicalTrial, tapply(COWeek8, Condition, smean.cl.normal))
 
 # means and 95% confidence interval error bars by group (ggplot2 package)
 ggplot(ClinicalTrial, aes(x = Condition, y = COWeek8)) +
-  stat_summary(fun.data = mean_cl_normal, geom = "pointrange")
+  stat_summary(fun.data = mean_cl_normal, geom = 'pointrange')

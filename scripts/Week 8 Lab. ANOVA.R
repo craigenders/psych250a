@@ -10,7 +10,7 @@ library(summarytools)
 # READ DATA ----
 
 # github url for raw data
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/PTSDData.csv"
+filepath <- 'https://raw.githubusercontent.com/craigenders/psych250a/main/data/PTSDData.csv'
 
 # create data frame called PTSD from github data
 PTSD <- read.csv(filepath, stringsAsFactors = T)
@@ -28,9 +28,9 @@ describeBy(AnxiousArousal ~ Race, data = PTSD)
 
 # means and 95% confidence interval error bars by group (ggplot2 package)
 ggplot(data = PTSD, aes(x = Race, y = AnxiousArousal, group = 1)) +
-  stat_summary(fun = mean, geom = "line") +
-  stat_summary(fun = mean, geom = "point", size = 3) +
-  stat_summary(fun.data = mean_cl_normal, geom = "pointrange")
+  stat_summary(fun = mean, geom = 'line') +
+  stat_summary(fun = mean, geom = 'point', size = 3) +
+  stat_summary(fun.data = mean_cl_normal, geom = 'pointrange')
 
 # ANOVA ANALYSIS ----
 

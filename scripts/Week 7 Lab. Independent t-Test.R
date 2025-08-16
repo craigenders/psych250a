@@ -7,7 +7,7 @@ library(summarytools)
 # READ DATA ----
 
 # github url for raw data
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrialData.csv"
+filepath <- 'https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrialData.csv'
 
 # create data frame called ClinicalTrial from github data
 ClinicalTrial <- read.csv(filepath, stringsAsFactors = T)
@@ -29,7 +29,7 @@ results <- t.test(COWeek8 ~ Condition, data = ClinicalTrial)
 results
 
 # print standard error
-cat("standard error of mean difference:", results$stderr)
+cat('standard error of mean difference:', results$stderr)
 
 # STANDARIZED MEAN DIFFERENCE EFFECT SIZE ----
 
