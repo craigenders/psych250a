@@ -42,8 +42,6 @@ ggplot(Cancer, aes(x = VisImpair)) +
 
 # HISTOGRAMS AND KERNEL DENSITY PLOTS BY GROUP ----
 
-describeBy(Cancer[,c('Depression','Optimism')], group = Cancer$Diagnosis)
-
 # histogram and kernal density plot separately by group (ggplot2 package)
 ggplot(Cancer, aes(x = Depression, colour = Diagnosis)) +
   geom_histogram(aes(y = after_stat(density)), bins = 40) +
