@@ -32,7 +32,7 @@ ggplot(Cancer, aes(x = Depression)) +
 
 # histogram and kernel density plot for numeric variable (ggplot2 package)
 ggplot(Cancer, aes(x = Optimism)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 15) +
+  geom_histogram(aes(y = after_stat(density)), bins = 13) +
   geom_density()
 
 # histogram and kernel density plot for numeric variable (ggplot2 package)
