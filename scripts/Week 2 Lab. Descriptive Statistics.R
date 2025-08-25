@@ -37,3 +37,14 @@ ggplot(ClinicalTrial, aes(x = COWeek8, colour = Condition)) +
 # descriptive statistics separately by group (psych package)
 describeBy(COWeek8 ~ Condition, data = ClinicalTrial)
 
+# Z-SCORE DESCRIPTIVES BY GROUP ----
+
+# convert to z-scores
+ClinicalTrial$zCOWeek8 <- scale(ClinicalTrial$COWeek8)
+
+# summarize a single variable (summarytools package)
+dfSummary(ClinicalTrial$zCOWeek8)
+
+# descriptive statistics separately by group (psych package)
+describeBy(zCOWeek8 ~ Condition, data = ClinicalTrial)
+
