@@ -6,7 +6,7 @@ library(psych)
 # SPECIFY POPULATION PARAMETERS ----
 
 # simulation inputs
-pop_mean <- 5         # population mean
+pop_mean <- 6         # population mean
 pop_sd <- 5.96        # population standard deviation
 sample_N <- 165       # sample size
 normal_data <- TRUE   # TRUE = normal data, FALSE = skewed data
@@ -21,7 +21,7 @@ if(normal_data){ # simulate normal data
 }
 
 # graph the simulated sample data
-hist(mysample, breaks = 50, main = 'Distribution of Population Data')
+hist(mysample, breaks = 25, main = 'Distribution of Sample Data')
 
 # descriptive statistics for the simulated sample data
 describe(mysample)
@@ -42,7 +42,7 @@ for(s in 1:100000){
 }
 
 # graph sampling distribution of the sample means
-xrange <- c(0,10)
+xrange <- c(0,12)
 hist(samplemeans[samplemeans >= xrange[1] & samplemeans <= xrange[2]], xlim = xrange, ylim = c(0,2500), breaks = seq(xrange[1],xrange[2], by = .02), main = 'Distribution of 100,000 Sample Means')
 text(5, 2500, paste0('Average of the 100,000 Sample Means = ', round(mean(samplemeans), 3)))
 text(5, 2400, paste0('Standard Deviation of the 100,000 Sample Means = ', round(sd(samplemeans), 3)))
