@@ -7,7 +7,7 @@ library(psych)
 
 # simulation inputs
 pop_mean <- 6         # population mean
-pop_sd <- 5.96        # population standard deviation
+pop_sd <- 6           # population standard deviation
 sample_N <- 165       # sample size
 normal_data <- TRUE   # TRUE = normal data, FALSE = skewed data
 
