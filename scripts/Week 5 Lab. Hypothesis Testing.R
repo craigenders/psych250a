@@ -23,7 +23,7 @@ dfSummary(Cancer)
 # descriptive statistics for entire data frame (psych package)
 describe(Cancer)
 
-# 95% T-TEST ----
+# T-TEST ----
 
 # default two-tailed test with null mean = 16 (base R)
 t.test(Cancer$Depression, mu = 16, alternative = 'two.sided')
