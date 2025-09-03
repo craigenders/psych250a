@@ -34,9 +34,12 @@ ggplot(data = PTSD, aes(x = Race, y = AnxiousArousal, group = 1)) +
 
 # ANOVA ANALYSIS ----
 
-# anova table with f statistic (base R)
+# anova table with classic f statistic (base R)
 anovaresults <- aov(AnxiousArousal ~ Race, data = PTSD) 
 summary(anovaresults)
+
+# welch's f statistic for heterogeneous variation (base R)
+oneway.test(AnxiousArousal ~ Race, data = PTSD)
 
 # R-SQUARE (PROPORTION VARIANCE EXPLAINED) EFFECT SIZE ----
 

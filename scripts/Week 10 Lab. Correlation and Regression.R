@@ -34,8 +34,8 @@ ggpairs(vars2corr,
 
 # CORRELATION MATRIX ----
 
-# correlation matrix and p-values (psych package)
-corr.test(vars2corr)
+# correlation matrix, confidence intervals, and p-values (psych package)
+print(corr.test(vars2corr), short = FALSE)
 
 # SCATTERPLOT WITH REGRESSION LINE ----
 
