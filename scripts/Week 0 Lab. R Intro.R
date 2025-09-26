@@ -73,7 +73,7 @@ dfSummary(Cancer$ClinicalSymp)
 # DEFINE FACTOR (NOMINAL) VARIABLE ----
 
 # recode a numeric variable into a binary variable (clinical = 1, subclinical = 0)
-Cancer$ClinicalSymp <- factor(
+Cancer$ClinicalSympF <- factor(
   Cancer$ClinicalSymp,
   levels = c(0, 1),
   labels = c('Subclinical Range', 'Clinical Range')
