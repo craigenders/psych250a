@@ -39,8 +39,8 @@ cat('standard error of mean difference:', results$stderr)
 # T-TEST ASSUMING EQUAL GROUP STANDARD DEVIATIONS  ----
 
 # independent t-test with default two-tailed alternate hypotheses (base R)
-results <- t.test(Discrimination ~ Gender, data = Discrim, var.equal = T)
-results
+results_hov <- t.test(Discrimination ~ Gender, data = Discrim, var.equal = T)
+results_hov
 
 # print standard error
 cat('standard error of mean difference:', results$stderr)
