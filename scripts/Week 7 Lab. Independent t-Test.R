@@ -49,3 +49,8 @@ cat('standard error of mean difference:', results$stderr)
 
 # standardized mean difference effect size (psych package)
 cohen.d(Discrimination ~ Gender, data = Discrim)
+
+# TEST HOMOGENEITY OF VARIANCE ----
+
+# H0: variances are equal; non-significance is desired
+var.test(Discrimination ~ Gender, data = Discrim)
