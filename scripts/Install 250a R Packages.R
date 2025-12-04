@@ -1,3 +1,4 @@
+install.packages('estimatr')
 install.packages('GGally', dependencies = T)
 install.packages('ggplot2', dependencies = T)
 install.packages('Hmisc', dependencies = T)

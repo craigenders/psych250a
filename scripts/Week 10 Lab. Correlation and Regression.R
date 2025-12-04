@@ -1,6 +1,10 @@
 # LOAD PACKAGES ----
 
+# install.packages('estimatr')
+
+
 # load R packages
+library(estimatr)
 library(GGally)
 library(ggplot2)
 library(psych)
@@ -49,6 +53,13 @@ ggplot(data = Diary, aes(x = NumStressors, y = Depress)) +
 # linear regression (base R)
 results <- lm(Depress ~ NumStressors, data = Diary)
 summary(results)
+
+# plot residuals
+hist(resid(results))
+
+# heteroscedasticity-robust standard errors (estimatr packatge)
+results_robust <- lm_robust(Depress ~ NumStressors, data = Diary, se_type = "HC3")
+summary(results_robust)
 
 # 95% confidence intervals (base R)
 confint(results)
