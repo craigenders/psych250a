@@ -11,7 +11,7 @@ library(rstudioapi)
 # Option 1: Read From the Course Website ----
 
 # store the web address of the raw data file
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/CancerData.csv"
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/Cancer.csv"
 
 # read the file at that address into a data frame named Cancer
 Cancer <- read.csv(filepath, stringsAsFactors = TRUE)
@@ -24,8 +24,8 @@ setwd(dirname(getActiveDocumentContext()$path))
 # print the working directory to confirm the location
 getwd()
 
-# read CancerData.csv from the working directory into a data frame named Cancer
-Cancer <- read.csv("CancerData.csv", stringsAsFactors = TRUE)
+# read Cancer.csv from the working directory into a data frame named Cancer
+Cancer <- read.csv("Cancer.csv", stringsAsFactors = TRUE)
 
 # VIEWING THE DATA ----
 
