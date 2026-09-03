@@ -1,4 +1,4 @@
-"id","cigsperday","hvysmoker","age","parsmoke","female","race","income","pareduc"
+ID,CigsPerDay,HvySmoker,Age,ParSmoke,Female,Race,Income,ParEduc
 1,4,0,19,1,0,1,9,1
 2,3,0,24,0,0,1,12,2
 3,5,0,20,1,0,1,6,2

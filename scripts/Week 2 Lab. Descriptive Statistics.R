@@ -17,7 +17,7 @@ library(rstudioapi)
 # Option 1: Read From the Course Website ----
 
 # store the web address of the raw data file
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrialData.csv"
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrial.csv"
 
 # read the file at that address into a data frame named ClinicalTrial
 ClinicalTrial <- read.csv(filepath, stringsAsFactors = TRUE)
@@ -30,8 +30,8 @@ setwd(dirname(getActiveDocumentContext()$path))
 # print the working directory to confirm the location
 getwd()
 
-# read ClinicalTrialData.csv from the working directory into a data frame named ClinicalTrial
-ClinicalTrial <- read.csv("ClinicalTrialData.csv", stringsAsFactors = TRUE)
+# read ClinicalTrial.csv from the working directory into a data frame named ClinicalTrial
+ClinicalTrial <- read.csv("ClinicalTrial.csv", stringsAsFactors = TRUE)
 
 # CONVERTING CATEGORICAL VARIABLES TO FACTORS ----
 

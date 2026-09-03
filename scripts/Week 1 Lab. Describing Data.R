@@ -115,5 +115,5 @@ print(freq(Cancer$Comorbids), method = "render")
 # bar plot of the number of participants in each Diagnosis group
 ggplot(Cancer, aes(x = factor(Diagnosis))) + geom_bar()
 
-# bar plot of the number of participants in each gender group
+# bar plot of the number of participants in each sex group
 ggplot(Cancer, aes(x = factor(Male))) + geom_bar()
