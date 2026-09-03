@@ -1,0 +1,149 @@
+---
+title: "Psych 250a — Assignment 2: Describing Data"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+```{r}
+library(ggplot2)
+library(psych)
+library(summarytools)
+```
+
+```{r}
+# Reads the data from the course repository. Requires an internet connection.
+file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment1.csv"
+assign1 <- read.csv(file_url, stringsAsFactors = TRUE)
+
+# To work offline instead, save assignment0.csv to the same folder as this script
+# Comment out the lines that read the data from online repository
+# Remove the hashtag from the three lines below
+# library(rstudioapi)
+# setwd(dirname(getActiveDocumentContext()$path))
+# assign1 <- read.csv("assignment1.csv", stringsAsFactors = TRUE)
+```
+
+# Question 1: Inflammation sum score
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 2: Histograms and density curves
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 3: Distribution shape of TNF
+
+TYPE YOUR ANSWER HERE
+
+# Question 4: Distribution shape of Inflammation
+
+TYPE YOUR ANSWER HERE
+
+# Question 5: Descriptive statistics
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 6: Skewness and kurtosis for TNF
+
+TYPE YOUR ANSWER HERE
+
+# Question 7: Skewness and kurtosis for Inflammation
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Q–Q plot prompt
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 9: Interpreting the Q–Q plot
+
+TYPE YOUR ANSWER HERE
+
+# Question 10: Group comparison graph
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 11: Improving the graph with AI
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Which suggestion I selected and why:
+
+TYPE YOUR ANSWER HERE
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 12: Conclusion
+
+TYPE YOUR ANSWER HERE

@@ -1,0 +1,159 @@
+---
+title: "Psych 250a — Assignment 1: Intro to R"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+```{r}
+library(psych)
+library(summarytools)
+```
+
+```{r}
+# Reads the data from the course repository. Requires an internet connection.
+file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment0.csv"
+assign0 <- read.csv(file_url, stringsAsFactors = TRUE)
+
+# To work offline instead, save assignment0.csv to the same folder as this script
+# Comment out the lines that read the data from online repository
+# Remove the hashtag from the three lines below
+# library(rstudioapi)
+# setwd(dirname(getActiveDocumentContext()$path))
+# assign0 <- read.csv("assignment0.csv", stringsAsFactors = TRUE)
+```
+
+# Question 1: Sum-score prompt
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 2: Audit of sum-score code
+
+a. Which part of the code selects depress1 to depress7?
+
+TYPE YOUR ANSWER HERE
+
+b. Which part sums the seven variables separately for each participant?
+
+TYPE YOUR ANSWER HERE
+
+c. Which part produces a missing sum score (NA) if any of the seven items
+is missing?
+
+TYPE YOUR ANSWER HERE
+
+d. Which part adds the sum score named depression to the data frame?
+
+TYPE YOUR ANSWER HERE
+
+# Question 3: Verification prompt
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 4: Explanation of verification code
+
+What does the code for Check 1 do?
+
+TYPE YOUR ANSWER HERE
+
+What does the code for Check 2 do?
+
+TYPE YOUR ANSWER HERE
+
+# Question 5: Clinical-depression recode prompt
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 6: Factor-conversion code
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 7: AI audit and verification of factor code
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```

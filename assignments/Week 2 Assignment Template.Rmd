@@ -1,0 +1,163 @@
+---
+title: "Psych 250a — Assignment 3: Descriptive Statistics"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+```{r}
+library(ggplot2)
+library(psych)
+library(summarytools)
+```
+
+```{r}
+# Reads the data from the course repository. Requires an internet connection.
+file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment2.csv"
+assign2 <- read.csv(file_url, stringsAsFactors = TRUE)
+
+# To work offline instead, save assignment0.csv to the same folder as this script
+# Comment out the lines that read the data from online repository
+# Remove the hashtag from the three lines below
+# library(rstudioapi)
+# setwd(dirname(getActiveDocumentContext()$path))
+# assign2 <- read.csv("assignment2.csv", stringsAsFactors = TRUE)
+```
+
+# Question 1: Attention sum score
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 2: Factor conversions
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 3: Verification prompt
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 4: Group-comparison figures
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 5: Conditions for the independent-samples t-test
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your explanation:
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: Standard deviation passage and AI critique
+
+Your original passage:
+
+TYPE YOUR ANSWER HERE
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Whether you accepted or rejected AI's evaluation of each requirement, and why:
+
+TYPE YOUR ANSWER HERE
+
+Your revised passage:
+
+TYPE YOUR ANSWER HERE
+
+# Question 7: Standardized scores
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Whether and how your results align with AI's predictions:
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Conclusion
+
+TYPE YOUR ANSWER HERE
