@@ -1,276 +1,276 @@
-Participant,Gender,Age,Education,PainSeverity,Anxiety,Interference,Depression
-1,Male,68,Some College or Less,Moderate Pain,9,30,15
-2,Male,38,College,Severe Pain,21,38,28
-3,Male,31,Post BA,Little or No Pain,10,18,8
-4,Male,31,Some College or Less,Severe Pain,21,39,28
-5,Female,52,Post BA,Moderate Pain,9,25,14
-6,Male,58,Post BA,Moderate Pain,11,26,12
-7,Male,63,Some College or Less,Severe Pain,20,37,13
-8,Male,38,College,Severe Pain,20,33,23
-9,Female,44,Some College or Less,Severe Pain,8,33,8
-10,Female,54,Post BA,Moderate Pain,7,21,12
-11,Male,66,College,Moderate Pain,8,19,9
-12,Male,67,Post BA,Severe Pain,10,39,22
-13,Female,31,Some College or Less,Little or No Pain,11,18,7
-14,Female,37,College,Moderate Pain,17,38,21
-15,Female,48,College,Moderate Pain,9,10,14
-16,Male,33,Some College or Less,Severe Pain,13,18,20
-17,Male,47,Some College or Less,Moderate Pain,16,28,12
-18,Female,30,College,Little or No Pain,7,32,15
-19,Male,48,Some College or Less,Little or No Pain,9,18,8
-20,Female,58,Some College or Less,Moderate Pain,7,32,13
-21,Female,51,Some College or Less,Moderate Pain,10,29,9
-22,Female,47,Some College or Less,Moderate Pain,10,28,15
-23,Female,41,College,Severe Pain,7,34,18
-24,Male,31,Some College or Less,Severe Pain,16,26,26
-25,Female,52,College,Moderate Pain,13,33,18
-26,Female,51,College,Little or No Pain,15,19,15
-27,Male,53,College,Moderate Pain,9,26,11
-28,Male,65,Post BA,Little or No Pain,25,24,17
-29,Female,47,College,Moderate Pain,16,32,14
-30,Female,36,Post BA,Little or No Pain,7,9,7
-31,Female,46,College,Little or No Pain,8,25,15
-32,Male,34,College,Severe Pain,15,38,22
-33,Male,61,Some College or Less,Severe Pain,8,36,8
-34,Male,47,Some College or Less,Little or No Pain,7,10,18
-35,Female,65,Some College or Less,Little or No Pain,16,32,14
-36,Female,37,Post BA,Moderate Pain,15,31,27
-37,Female,48,Post BA,Severe Pain,17,37,20
-38,Female,41,Post BA,Severe Pain,21,37,24
-39,Female,41,College,Little or No Pain,8,6,16
-40,Male,41,College,Moderate Pain,18,32,21
-41,Female,42,Some College or Less,Severe Pain,11,41,16
-42,Male,33,College,Moderate Pain,11,19,9
-43,Female,72,Some College or Less,Little or No Pain,9,25,9
-44,Female,54,Post BA,Little or No Pain,7,9,10
-45,Female,54,Some College or Less,Moderate Pain,9,25,14
-46,Female,49,Some College or Less,Moderate Pain,8,31,8
-47,Female,43,Some College or Less,Moderate Pain,9,33,10
-48,Female,40,Some College or Less,Little or No Pain,10,25,16
-49,Female,46,Post BA,Severe Pain,10,39,14
-50,Male,35,Post BA,Severe Pain,8,32,10
-51,Female,44,Some College or Less,Severe Pain,13,38,17
-52,Female,41,Some College or Less,Moderate Pain,8,17,7
-53,Female,30,Post BA,Moderate Pain,17,31,28
-54,Female,31,Post BA,Moderate Pain,20,11,19
-55,Male,43,Some College or Less,Severe Pain,8,31,8
-56,Female,31,Some College or Less,Moderate Pain,7,31,7
-57,Female,45,Some College or Less,Moderate Pain,7,34,13
-58,Female,55,College,Little or No Pain,21,13,11
-59,Female,50,Post BA,Severe Pain,14,40,10
-60,Female,58,Some College or Less,Little or No Pain,7,26,14
-61,Female,36,Post BA,Moderate Pain,12,41,9
-62,Female,20,Some College or Less,Severe Pain,7,29,8
-63,Female,45,Some College or Less,Moderate Pain,8,28,11
-64,Female,50,Some College or Less,Little or No Pain,9,25,8
-65,Male,32,Some College or Less,Moderate Pain,19,18,11
-66,Female,51,Some College or Less,Moderate Pain,11,38,8
-67,Male,32,Some College or Less,Severe Pain,18,35,16
-68,Male,54,College,Moderate Pain,12,19,12
-69,Male,48,College,Severe Pain,7,19,8
-70,Male,36,Some College or Less,Severe Pain,9,33,18
-71,Female,41,College,Moderate Pain,11,41,24
-72,Male,52,College,Severe Pain,10,32,7
-73,Male,61,Some College or Less,Moderate Pain,20,33,13
-74,Male,38,Some College or Less,Severe Pain,8,27,16
-75,Female,38,Some College or Less,Moderate Pain,8,29,25
-76,Male,46,Some College or Less,Little or No Pain,8,22,15
-77,Male,58,Post BA,Moderate Pain,8,15,7
-78,Female,37,Some College or Less,Severe Pain,13,35,19
-79,Female,46,Some College or Less,Moderate Pain,9,40,12
-80,Male,72,Some College or Less,Severe Pain,11,29,24
-81,Female,32,Post BA,Moderate Pain,23,36,27
-82,Male,49,Post BA,Moderate Pain,7,29,16
-83,Female,46,Some College or Less,Moderate Pain,17,33,11
-84,Male,38,Some College or Less,Little or No Pain,10,6,8
-85,Male,40,Some College or Less,Severe Pain,13,34,27
-86,Female,40,College,Severe Pain,9,36,11
-87,Female,53,Some College or Less,Moderate Pain,15,25,12
-88,Female,55,Some College or Less,Moderate Pain,16,35,17
-89,Female,23,College,Moderate Pain,8,30,9
-90,Male,47,College,Little or No Pain,9,22,8
-91,Female,49,Some College or Less,Moderate Pain,21,23,28
-92,Female,62,College,Moderate Pain,14,23,27
-93,Female,50,College,Little or No Pain,13,10,15
-94,Female,52,Some College or Less,Moderate Pain,9,27,15
-95,Male,26,College,Severe Pain,23,35,24
-96,Male,46,Some College or Less,Little or No Pain,12,35,25
-97,Male,45,Post BA,Severe Pain,20,28,22
-98,Female,70,Post BA,Severe Pain,11,22,9
-99,Female,26,Some College or Less,Moderate Pain,20,21,11
-100,Female,26,Post BA,Moderate Pain,8,38,17
-101,Female,53,College,Moderate Pain,12,22,19
-102,Female,52,Some College or Less,Moderate Pain,10,31,18
-103,Male,45,College,Little or No Pain,7,10,7
-104,Female,43,Some College or Less,Moderate Pain,9,27,15
-105,Female,22,Some College or Less,Moderate Pain,8,22,27
-106,Female,35,College,Little or No Pain,12,22,14
-107,Female,41,College,Moderate Pain,7,19,17
-108,Male,48,College,Moderate Pain,20,34,26
-109,Female,62,Some College or Less,Moderate Pain,7,22,14
-110,Male,53,Some College or Less,Severe Pain,14,37,13
-111,Female,46,Some College or Less,Severe Pain,7,28,22
-112,Female,59,College,Severe Pain,8,31,10
-113,Female,28,College,Moderate Pain,7,21,8
-114,Male,31,Some College or Less,Severe Pain,16,32,17
-115,Female,46,Post BA,Moderate Pain,10,28,15
-116,Female,45,Some College or Less,Severe Pain,9,31,15
-117,Male,23,College,Severe Pain,10,30,28
-118,Female,38,Some College or Less,Severe Pain,20,31,20
-119,Male,36,College,Little or No Pain,9,33,24
-120,Male,48,College,Moderate Pain,13,27,13
-121,Male,32,Post BA,Severe Pain,14,35,22
-122,Male,36,Some College or Less,Severe Pain,11,29,13
-123,Male,46,Some College or Less,Severe Pain,18,39,26
-124,Male,65,College,Little or No Pain,11,23,15
-125,Female,29,Some College or Less,Little or No Pain,8,20,8
-126,Female,34,Some College or Less,Little or No Pain,19,32,26
-127,Female,42,Post BA,Moderate Pain,23,31,20
-128,Female,39,Some College or Less,Severe Pain,10,38,14
-129,Female,38,College,Little or No Pain,7,15,10
-130,Female,53,College,Moderate Pain,10,34,13
-131,Female,43,College,Severe Pain,10,27,13
-132,Female,43,Post BA,Moderate Pain,7,14,8
-133,Female,36,Some College or Less,Moderate Pain,22,37,20
-134,Male,40,Some College or Less,Severe Pain,9,31,20
-135,Male,67,Some College or Less,Severe Pain,14,33,20
-136,Male,45,College,Moderate Pain,10,7,15
-137,Female,28,Some College or Less,Moderate Pain,11,15,13
-138,Female,59,Post BA,Little or No Pain,20,25,17
-139,Female,33,Some College or Less,Moderate Pain,12,24,16
-140,Female,43,Some College or Less,Severe Pain,12,41,10
-141,Male,28,Some College or Less,Moderate Pain,15,16,26
-142,Male,62,College,Severe Pain,8,39,8
-143,Female,30,College,Severe Pain,7,31,9
-144,Female,37,Some College or Less,Moderate Pain,7,12,7
-145,Male,41,College,Moderate Pain,7,13,7
-146,Male,47,College,Severe Pain,7,21,9
-147,Male,56,College,Moderate Pain,11,36,14
-148,Male,50,College,Moderate Pain,23,38,27
-149,Female,57,Some College or Less,Severe Pain,11,40,16
-150,Female,51,College,Little or No Pain,7,19,8
-151,Female,28,College,Moderate Pain,22,35,27
-152,Male,45,Post BA,Moderate Pain,10,26,8
-153,Female,34,Some College or Less,Severe Pain,11,33,15
-154,Female,44,College,Moderate Pain,7,28,8
-155,Female,37,College,Moderate Pain,9,28,15
-156,Female,43,College,Moderate Pain,22,17,17
-157,Female,38,Some College or Less,Moderate Pain,7,18,14
-158,Male,56,Some College or Less,Severe Pain,9,35,10
-159,Male,34,Some College or Less,Severe Pain,15,33,25
-160,Female,17,Post BA,Moderate Pain,9,14,7
-161,Male,67,Some College or Less,Moderate Pain,8,29,9
-162,Male,67,College,Moderate Pain,13,11,15
-163,Female,46,Some College or Less,Little or No Pain,11,23,8
-164,Male,48,Post BA,Severe Pain,9,35,27
-165,Female,46,Post BA,Little or No Pain,15,32,15
-166,Female,43,College,Little or No Pain,7,27,7
-167,Male,41,Some College or Less,Moderate Pain,15,26,22
-168,Female,41,College,Little or No Pain,9,15,8
-169,Female,51,College,Severe Pain,7,11,7
-170,Female,49,College,Moderate Pain,7,26,17
-171,Female,26,College,Moderate Pain,10,29,12
-172,Female,38,Post BA,Little or No Pain,8,7,9
-173,Male,48,Post BA,Severe Pain,15,35,24
-174,Female,19,Post BA,Moderate Pain,19,25,22
-175,Female,64,Some College or Less,Little or No Pain,10,15,8
-176,Male,65,Post BA,Moderate Pain,7,28,19
-177,Female,46,College,Moderate Pain,10,30,12
-178,Male,44,College,Little or No Pain,12,30,16
-179,Female,53,College,Severe Pain,19,41,28
-180,Male,59,College,Moderate Pain,8,31,12
-181,Male,60,Some College or Less,Moderate Pain,18,29,21
-182,Female,28,Post BA,Little or No Pain,9,17,7
-183,Male,45,Some College or Less,Moderate Pain,7,17,10
-184,Female,55,College,Moderate Pain,10,21,9
-185,Male,49,Some College or Less,Severe Pain,9,29,27
-186,Male,53,Post BA,Little or No Pain,7,23,13
-187,Female,37,College,Moderate Pain,10,13,8
-188,Female,51,Some College or Less,Moderate Pain,14,32,19
-189,Female,55,Some College or Less,Moderate Pain,9,21,8
-190,Female,63,Some College or Less,Little or No Pain,12,24,9
-191,Male,48,Post BA,Little or No Pain,7,11,7
-192,Female,58,Some College or Less,Severe Pain,8,29,9
-193,Male,57,Some College or Less,Severe Pain,12,22,13
-194,Male,49,Post BA,Severe Pain,8,32,12
-195,Male,32,Some College or Less,Severe Pain,13,28,25
-196,Male,51,Post BA,Moderate Pain,7,31,14
-197,Male,78,Some College or Less,Moderate Pain,13,29,27
-198,Male,56,College,Moderate Pain,11,36,10
-199,Female,46,Some College or Less,Moderate Pain,7,32,12
-200,Female,40,Post BA,Moderate Pain,16,35,22
-201,Female,55,Post BA,Little or No Pain,8,17,10
-202,Male,30,Some College or Less,Moderate Pain,12,35,21
-203,Female,45,Some College or Less,Severe Pain,8,37,10
-204,Female,54,Some College or Less,Moderate Pain,11,16,8
-205,Female,39,College,Moderate Pain,10,32,21
-206,Male,55,Some College or Less,Moderate Pain,7,16,8
-207,Female,42,Post BA,Little or No Pain,7,19,10
-208,Male,57,College,Severe Pain,12,40,9
-209,Female,42,Some College or Less,Severe Pain,17,22,19
-210,Female,37,Some College or Less,Severe Pain,14,33,13
-211,Male,47,Some College or Less,Moderate Pain,20,29,22
-212,Male,44,College,Severe Pain,11,41,7
-213,Female,34,Some College or Less,Severe Pain,14,40,24
-214,Female,31,Some College or Less,Severe Pain,23,38,28
-215,Male,58,Some College or Less,Severe Pain,11,33,10
-216,Female,53,Some College or Less,Moderate Pain,7,9,7
-217,Female,33,Some College or Less,Moderate Pain,12,28,21
-218,Male,56,College,Severe Pain,19,27,19
-219,Female,19,Some College or Less,Severe Pain,9,39,15
-220,Male,61,Some College or Less,Severe Pain,10,39,16
-221,Female,42,College,Little or No Pain,7,39,8
-222,Male,40,Post BA,Moderate Pain,9,36,7
-223,Male,42,Some College or Less,Moderate Pain,24,28,22
-224,Female,36,Post BA,Moderate Pain,7,27,10
-225,Female,58,Some College or Less,Severe Pain,9,32,8
-226,Female,40,Some College or Less,Severe Pain,7,39,12
-227,Male,68,College,Severe Pain,8,38,14
-228,Female,34,Post BA,Severe Pain,9,33,14
-229,Female,49,Some College or Less,Moderate Pain,9,36,22
-230,Female,42,Some College or Less,Severe Pain,23,39,27
-231,Male,41,College,Little or No Pain,10,15,20
-232,Female,32,College,Little or No Pain,7,13,12
-233,Female,50,College,Moderate Pain,14,25,19
-234,Female,31,Some College or Less,Moderate Pain,10,41,18
-235,Female,34,College,Moderate Pain,16,28,14
-236,Male,47,Some College or Less,Severe Pain,24,33,23
-237,Female,41,Some College or Less,Moderate Pain,9,21,9
-238,Female,33,Some College or Less,Severe Pain,9,30,8
-239,Female,46,Post BA,Moderate Pain,24,38,25
-240,Female,25,Some College or Less,Moderate Pain,15,18,9
-241,Male,30,College,Little or No Pain,7,10,7
-242,Male,41,Some College or Less,Severe Pain,12,41,13
-243,Male,48,Some College or Less,Severe Pain,26,35,28
-244,Male,42,Post BA,Severe Pain,7,26,26
-245,Female,46,Some College or Less,Moderate Pain,11,30,10
-246,Female,51,College,Moderate Pain,8,35,15
-247,Female,56,College,Severe Pain,15,34,22
-248,Female,47,College,Moderate Pain,9,28,8
-249,Female,37,Some College or Less,Moderate Pain,8,26,9
-250,Female,30,Post BA,Moderate Pain,12,27,28
-251,Female,38,College,Moderate Pain,13,14,10
-252,Female,49,College,Little or No Pain,8,17,15
-253,Female,42,College,Moderate Pain,10,17,7
-254,Male,58,Post BA,Severe Pain,9,35,7
-255,Male,47,Some College or Less,Severe Pain,18,33,12
-256,Female,55,Some College or Less,Moderate Pain,8,10,8
-257,Male,54,College,Moderate Pain,16,16,19
-258,Female,58,College,Severe Pain,7,25,9
-259,Female,49,Post BA,Little or No Pain,7,18,14
-260,Female,57,Post BA,Moderate Pain,14,36,13
-261,Male,46,Some College or Less,Moderate Pain,8,19,7
-262,Female,40,Some College or Less,Moderate Pain,9,23,9
-263,Female,29,College,Little or No Pain,9,13,7
-264,Female,53,College,Moderate Pain,10,34,12
-265,Female,41,Some College or Less,Moderate Pain,15,7,13
-266,Female,31,Some College or Less,Little or No Pain,8,18,14
-267,Male,48,Post BA,Moderate Pain,11,24,11
-268,Male,43,College,Severe Pain,7,37,10
-269,Female,34,College,Little or No Pain,12,25,11
-270,Male,66,College,Severe Pain,7,30,21
-271,Female,40,College,Moderate Pain,15,33,9
-272,Female,38,Some College or Less,Moderate Pain,8,12,8
-273,Male,49,Post BA,Severe Pain,11,28,21
-274,Female,41,College,Severe Pain,13,30,24
-275,Male,63,Some College or Less,Severe Pain,7,37,13
+Participant,Male,Age,Education,PainSeverity,Anxiety,Interference,Depression
+1,1,68,0,1,9,30,15
+2,1,38,1,2,21,38,28
+3,1,31,2,0,10,18,8
+4,1,31,0,2,21,39,28
+5,0,52,2,1,9,25,14
+6,1,58,2,1,11,26,12
+7,1,63,0,2,20,37,13
+8,1,38,1,2,20,33,23
+9,0,44,0,2,8,33,8
+10,0,54,2,1,7,21,12
+11,1,66,1,1,8,19,9
+12,1,67,2,2,10,39,22
+13,0,31,0,0,11,18,7
+14,0,37,1,1,17,38,21
+15,0,48,1,1,9,10,14
+16,1,33,0,2,13,18,20
+17,1,47,0,1,16,28,12
+18,0,30,1,0,7,32,15
+19,1,48,0,0,9,18,8
+20,0,58,0,1,7,32,13
+21,0,51,0,1,10,29,9
+22,0,47,0,1,10,28,15
+23,0,41,1,2,7,34,18
+24,1,31,0,2,16,26,26
+25,0,52,1,1,13,33,18
+26,0,51,1,0,15,19,15
+27,1,53,1,1,9,26,11
+28,1,65,2,0,25,24,17
+29,0,47,1,1,16,32,14
+30,0,36,2,0,7,9,7
+31,0,46,1,0,8,25,15
+32,1,34,1,2,15,38,22
+33,1,61,0,2,8,36,8
+34,1,47,0,0,7,10,18
+35,0,65,0,0,16,32,14
+36,0,37,2,1,15,31,27
+37,0,48,2,2,17,37,20
+38,0,41,2,2,21,37,24
+39,0,41,1,0,8,6,16
+40,1,41,1,1,18,32,21
+41,0,42,0,2,11,41,16
+42,1,33,1,1,11,19,9
+43,0,72,0,0,9,25,9
+44,0,54,2,0,7,9,10
+45,0,54,0,1,9,25,14
+46,0,49,0,1,8,31,8
+47,0,43,0,1,9,33,10
+48,0,40,0,0,10,25,16
+49,0,46,2,2,10,39,14
+50,1,35,2,2,8,32,10
+51,0,44,0,2,13,38,17
+52,0,41,0,1,8,17,7
+53,0,30,2,1,17,31,28
+54,0,31,2,1,20,11,19
+55,1,43,0,2,8,31,8
+56,0,31,0,1,7,31,7
+57,0,45,0,1,7,34,13
+58,0,55,1,0,21,13,11
+59,0,50,2,2,14,40,10
+60,0,58,0,0,7,26,14
+61,0,36,2,1,12,41,9
+62,0,20,0,2,7,29,8
+63,0,45,0,1,8,28,11
+64,0,50,0,0,9,25,8
+65,1,32,0,1,19,18,11
+66,0,51,0,1,11,38,8
+67,1,32,0,2,18,35,16
+68,1,54,1,1,12,19,12
+69,1,48,1,2,7,19,8
+70,1,36,0,2,9,33,18
+71,0,41,1,1,11,41,24
+72,1,52,1,2,10,32,7
+73,1,61,0,1,20,33,13
+74,1,38,0,2,8,27,16
+75,0,38,0,1,8,29,25
+76,1,46,0,0,8,22,15
+77,1,58,2,1,8,15,7
+78,0,37,0,2,13,35,19
+79,0,46,0,1,9,40,12
+80,1,72,0,2,11,29,24
+81,0,32,2,1,23,36,27
+82,1,49,2,1,7,29,16
+83,0,46,0,1,17,33,11
+84,1,38,0,0,10,6,8
+85,1,40,0,2,13,34,27
+86,0,40,1,2,9,36,11
+87,0,53,0,1,15,25,12
+88,0,55,0,1,16,35,17
+89,0,23,1,1,8,30,9
+90,1,47,1,0,9,22,8
+91,0,49,0,1,21,23,28
+92,0,62,1,1,14,23,27
+93,0,50,1,0,13,10,15
+94,0,52,0,1,9,27,15
+95,1,26,1,2,23,35,24
+96,1,46,0,0,12,35,25
+97,1,45,2,2,20,28,22
+98,0,70,2,2,11,22,9
+99,0,26,0,1,20,21,11
+100,0,26,2,1,8,38,17
+101,0,53,1,1,12,22,19
+102,0,52,0,1,10,31,18
+103,1,45,1,0,7,10,7
+104,0,43,0,1,9,27,15
+105,0,22,0,1,8,22,27
+106,0,35,1,0,12,22,14
+107,0,41,1,1,7,19,17
+108,1,48,1,1,20,34,26
+109,0,62,0,1,7,22,14
+110,1,53,0,2,14,37,13
+111,0,46,0,2,7,28,22
+112,0,59,1,2,8,31,10
+113,0,28,1,1,7,21,8
+114,1,31,0,2,16,32,17
+115,0,46,2,1,10,28,15
+116,0,45,0,2,9,31,15
+117,1,23,1,2,10,30,28
+118,0,38,0,2,20,31,20
+119,1,36,1,0,9,33,24
+120,1,48,1,1,13,27,13
+121,1,32,2,2,14,35,22
+122,1,36,0,2,11,29,13
+123,1,46,0,2,18,39,26
+124,1,65,1,0,11,23,15
+125,0,29,0,0,8,20,8
+126,0,34,0,0,19,32,26
+127,0,42,2,1,23,31,20
+128,0,39,0,2,10,38,14
+129,0,38,1,0,7,15,10
+130,0,53,1,1,10,34,13
+131,0,43,1,2,10,27,13
+132,0,43,2,1,7,14,8
+133,0,36,0,1,22,37,20
+134,1,40,0,2,9,31,20
+135,1,67,0,2,14,33,20
+136,1,45,1,1,10,7,15
+137,0,28,0,1,11,15,13
+138,0,59,2,0,20,25,17
+139,0,33,0,1,12,24,16
+140,0,43,0,2,12,41,10
+141,1,28,0,1,15,16,26
+142,1,62,1,2,8,39,8
+143,0,30,1,2,7,31,9
+144,0,37,0,1,7,12,7
+145,1,41,1,1,7,13,7
+146,1,47,1,2,7,21,9
+147,1,56,1,1,11,36,14
+148,1,50,1,1,23,38,27
+149,0,57,0,2,11,40,16
+150,0,51,1,0,7,19,8
+151,0,28,1,1,22,35,27
+152,1,45,2,1,10,26,8
+153,0,34,0,2,11,33,15
+154,0,44,1,1,7,28,8
+155,0,37,1,1,9,28,15
+156,0,43,1,1,22,17,17
+157,0,38,0,1,7,18,14
+158,1,56,0,2,9,35,10
+159,1,34,0,2,15,33,25
+160,0,17,2,1,9,14,7
+161,1,67,0,1,8,29,9
+162,1,67,1,1,13,11,15
+163,0,46,0,0,11,23,8
+164,1,48,2,2,9,35,27
+165,0,46,2,0,15,32,15
+166,0,43,1,0,7,27,7
+167,1,41,0,1,15,26,22
+168,0,41,1,0,9,15,8
+169,0,51,1,2,7,11,7
+170,0,49,1,1,7,26,17
+171,0,26,1,1,10,29,12
+172,0,38,2,0,8,7,9
+173,1,48,2,2,15,35,24
+174,0,19,2,1,19,25,22
+175,0,64,0,0,10,15,8
+176,1,65,2,1,7,28,19
+177,0,46,1,1,10,30,12
+178,1,44,1,0,12,30,16
+179,0,53,1,2,19,41,28
+180,1,59,1,1,8,31,12
+181,1,60,0,1,18,29,21
+182,0,28,2,0,9,17,7
+183,1,45,0,1,7,17,10
+184,0,55,1,1,10,21,9
+185,1,49,0,2,9,29,27
+186,1,53,2,0,7,23,13
+187,0,37,1,1,10,13,8
+188,0,51,0,1,14,32,19
+189,0,55,0,1,9,21,8
+190,0,63,0,0,12,24,9
+191,1,48,2,0,7,11,7
+192,0,58,0,2,8,29,9
+193,1,57,0,2,12,22,13
+194,1,49,2,2,8,32,12
+195,1,32,0,2,13,28,25
+196,1,51,2,1,7,31,14
+197,1,78,0,1,13,29,27
+198,1,56,1,1,11,36,10
+199,0,46,0,1,7,32,12
+200,0,40,2,1,16,35,22
+201,0,55,2,0,8,17,10
+202,1,30,0,1,12,35,21
+203,0,45,0,2,8,37,10
+204,0,54,0,1,11,16,8
+205,0,39,1,1,10,32,21
+206,1,55,0,1,7,16,8
+207,0,42,2,0,7,19,10
+208,1,57,1,2,12,40,9
+209,0,42,0,2,17,22,19
+210,0,37,0,2,14,33,13
+211,1,47,0,1,20,29,22
+212,1,44,1,2,11,41,7
+213,0,34,0,2,14,40,24
+214,0,31,0,2,23,38,28
+215,1,58,0,2,11,33,10
+216,0,53,0,1,7,9,7
+217,0,33,0,1,12,28,21
+218,1,56,1,2,19,27,19
+219,0,19,0,2,9,39,15
+220,1,61,0,2,10,39,16
+221,0,42,1,0,7,39,8
+222,1,40,2,1,9,36,7
+223,1,42,0,1,24,28,22
+224,0,36,2,1,7,27,10
+225,0,58,0,2,9,32,8
+226,0,40,0,2,7,39,12
+227,1,68,1,2,8,38,14
+228,0,34,2,2,9,33,14
+229,0,49,0,1,9,36,22
+230,0,42,0,2,23,39,27
+231,1,41,1,0,10,15,20
+232,0,32,1,0,7,13,12
+233,0,50,1,1,14,25,19
+234,0,31,0,1,10,41,18
+235,0,34,1,1,16,28,14
+236,1,47,0,2,24,33,23
+237,0,41,0,1,9,21,9
+238,0,33,0,2,9,30,8
+239,0,46,2,1,24,38,25
+240,0,25,0,1,15,18,9
+241,1,30,1,0,7,10,7
+242,1,41,0,2,12,41,13
+243,1,48,0,2,26,35,28
+244,1,42,2,2,7,26,26
+245,0,46,0,1,11,30,10
+246,0,51,1,1,8,35,15
+247,0,56,1,2,15,34,22
+248,0,47,1,1,9,28,8
+249,0,37,0,1,8,26,9
+250,0,30,2,1,12,27,28
+251,0,38,1,1,13,14,10
+252,0,49,1,0,8,17,15
+253,0,42,1,1,10,17,7
+254,1,58,2,2,9,35,7
+255,1,47,0,2,18,33,12
+256,0,55,0,1,8,10,8
+257,1,54,1,1,16,16,19
+258,0,58,1,2,7,25,9
+259,0,49,2,0,7,18,14
+260,0,57,2,1,14,36,13
+261,1,46,0,1,8,19,7
+262,0,40,0,1,9,23,9
+263,0,29,1,0,9,13,7
+264,0,53,1,1,10,34,12
+265,0,41,0,1,15,7,13
+266,0,31,0,0,8,18,14
+267,1,48,2,1,11,24,11
+268,1,43,1,2,7,37,10
+269,0,34,1,0,12,25,11
+270,1,66,1,2,7,30,21
+271,0,40,1,1,15,33,9
+272,0,38,0,1,8,12,8
+273,1,49,2,2,11,28,21
+274,0,41,1,2,13,30,24
+275,1,63,0,2,7,37,13

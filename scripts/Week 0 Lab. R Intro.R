@@ -1,118 +1,117 @@
-# LOAD R PACKAGES ----
+# PRELIMINARIES: LOADING PACKAGES ----
 
-# load R packages
-library(fdir) # use for data import method #2 below
-library(summarytools) # use for quick data summaries
+# summarytools provides dfSummary() for data summaries
+library(summarytools)
 
-# IMPORTING DATA METHOD 1: READ DATA FROM A LOCAL HARD DRIVE ----
+# rstudioapi talks to RStudio, used here to find the folder that contains this script
+library(rstudioapi)
 
-# location of file on the hard drive
-filepath <- '/Users/craig/Documents/GitHub/psych250a/data/CancerData.csv'
+# IMPORTING DATA ----
 
-# import CancerData.csv from the file path into an R data frame called Cancer
-# stringsAsFactors converts alphanumeric variables to "factors" (categorical variables)
-Cancer <- read.csv(filepath, stringsAsFactors = T)
+# Option 1: Read From the Course Website ----
 
-# print first and last six rows of the data
-head(Cancer)
-tail(Cancer)
+# store the web address of the raw data file
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/CancerData.csv"
 
-# IMPORTING DATA METHOD 2: READ DATA FROM THE FOLDER THAT CONTAINS THE R SCRIPT ----
+# read the file at that address into a data frame named Cancer
+Cancer <- read.csv(filepath, stringsAsFactors = TRUE)
 
-# set the default working directory to the location of this script (fdir package)
-set()
+# Option 2: Read From the Folder That Contains the Script ----
 
-# inspect the folder path of the default working directory
+# set the working directory to the folder that contains this script
+setwd(dirname(getActiveDocumentContext()$path))
+
+# print the working directory to confirm the location
 getwd()
 
-# import CancerData.csv from the working directory into an R data frame called Cancer
-# stringsAsFactors converts alphanumeric variables to "factors" (categorical variables)
-Cancer <- read.csv('CancerData.csv', stringsAsFactors = T)
+# read CancerData.csv from the working directory into a data frame named Cancer
+Cancer <- read.csv("CancerData.csv", stringsAsFactors = TRUE)
 
-# print first and last six rows of the data
+# VIEWING THE DATA ----
+
+# print the first six rows of the data frame
 head(Cancer)
+
+# print the last six rows of the data frame
 tail(Cancer)
 
-# IMPORTING DATA METHOD 3: EXTERNAL WEBSITE ----
+# CONVERTING CATEGORICAL VARIABLES TO FACTORS ----
 
-# url for raw data
-filepath <- 'https://raw.githubusercontent.com/craigenders/psych250a/main/data/CancerData.csv'
+# convert Diagnosis from 0/1 codes to a factor with descriptive labels
+Cancer$Diagnosis <- factor(Cancer$Diagnosis,
+                           levels = c(0, 1),
+                           labels = c("Non-malignant", "Malignant"))
 
-# import CancerData.csv from the url filepath into an R data frame called Cancer
-# stringsAsFactors converts alphanumeric variables to "factors" (categorical variables)
-Cancer <- read.csv(filepath, stringsAsFactors = T)
+# convert Male from 0/1 codes to a factor with descriptive labels
+Cancer$Male <- factor(Cancer$Male,
+                      levels = c(0, 1),
+                      labels = c("Female", "Male"))
 
-# print first and last six rows of the data
+# print the first few rows to confirm the labels replaced the codes
 head(Cancer)
-tail(Cancer)
 
-# INSPECT DATA ----
+# SUMMARIZING DATA ----
 
-# summarize entire data frame (summarytools package)
-dfSummary(Cancer)
+# overview of every variable in the data frame
+print(dfSummary(Cancer), method = "render")
 
-# summarize a single variable
-dfSummary(Cancer$Depression)
+# overview of the single variable Depression
+print(dfSummary(Cancer$Depression), method = "render")
 
-# COMPUTE NEW VARIABLE ----
+# COMPUTING A NEW VARIABLE ----
 
-# compute a new variable by taking the natural log of an existing variable
+# create logDepression as the natural log of Depression plus 1
 Cancer$logDepression <- log(Cancer$Depression + 1)
 
-# summarize a single variable
-dfSummary(Cancer$logDepression)
+# overview of the new variable
+print(dfSummary(Cancer$logDepression), method = "render")
 
-# RECODE EXISTING VARIABLE ----
+# RECODING A VARIABLE ----
 
-# recode a numeric variable into a binary variable (clinical = 1, subclinical = 0)
+# create ClinicalSymp: 1 if Depression is 16 or higher, otherwise 0
 Cancer$ClinicalSymp <- ifelse(Cancer$Depression >= 16, 1, 0)
 
-# summarize a single variable
-dfSummary(Cancer$ClinicalSymp)
+# overview of the new variable
+print(dfSummary(Cancer$ClinicalSymp), method = "render")
 
-# DEFINE FACTOR (NOMINAL) VARIABLE ----
+# DEFINING A FACTOR ----
 
-# recode a numeric variable into a binary variable (clinical = 1, subclinical = 0)
-Cancer$ClinicalSymp <- factor(
-  Cancer$ClinicalSymp,
-  levels = c(0, 1),
-  labels = c('Subclinical Range', 'Clinical Range')
-)
+# convert ClinicalSymp from 0/1 codes to a factor with descriptive labels
+Cancer$ClinicalSymp <- factor(Cancer$ClinicalSymp,
+                              levels = c(0, 1),
+                              labels = c("Subclinical Range", "Clinical Range"))
 
-# summarize a single variable
-dfSummary(Cancer$ClinicalSymp)
+# overview of the factor version
+print(dfSummary(Cancer$ClinicalSymp), method = "render")
 
-# SAVE DATA FRAME AS AN R DATA FILE  ----
+# SAVING AND LOADING AN R DATA FILE ----
 
-# save Cancer data frame to the desktop
-save(Cancer, file = '~/Desktop/Cancer.RData')
+# save the Cancer data frame to an R data file on the desktop
+save(Cancer, file = "~/Desktop/Cancer.RData")
 
-# LOAD DATA FRAME FROM AN R DATA FILE  ----
+# load the Cancer data frame from the R data file on the desktop
+load("~/Desktop/Cancer.RData")
 
-# load Cancer data frame from the desktop
-load('~/Desktop/Cancer.RData')
+# SUBSETTING DATA ----
 
-# SUBSET DATA (SELECT VARIABLES) ----
+# Selecting Variables ----
 
-# a data frame has rows (observations) and columns (variables)
-# elements of a data frame are indexed as DataFrame[row indices,column indices]
+# create CancerSubset containing only Optimism, Depression, and VisImpair
+CancerSubset <- Cancer[, c("Optimism", "Depression", "VisImpair")]
 
-# create new data frame with a subset of variables from the original
-# a subset of variable names appears in the column index after the comma
-CancerSubset <- Cancer[,c('Optimism','Depression','VisImpair')]
-
-# print dimensions of original and subset data
+# print the number of rows and columns of the original data frame
 dim(Cancer)
+
+# print the number of rows and columns of the subset
 dim(CancerSubset)
 
-# SUBSET DATA (SELECT CASES) ----
+# Selecting Cases ----
 
-# create new data frame with only participants with Diagnosis = Malignant
-# a selection criterion appears in the row index before the comma
-CancerMalig <- Cancer[Cancer$Diagnosis == 'Malignant',]
+# create CancerMalig containing only participants with a malignant diagnosis
+CancerMalig <- Cancer[Cancer$Diagnosis == "Malignant", ]
 
-# print dimensions of original and subset data
+# print the number of rows and columns of the original data frame
 dim(Cancer)
+
+# print the number of rows and columns of the subset
 dim(CancerMalig)
-
-

@@ -1,70 +1,119 @@
-# LOAD R PACKAGES ----
+# PRELIMINARIES: LOADING PACKAGES ----
 
-# load R packages
+# ggplot2 produces the histograms, density plots, and bar plots
 library(ggplot2)
+
+# psych provides the describe() function for descriptive statistics
 library(psych)
+
+# summarytools provides dfSummary() and freq() for data summaries
 library(summarytools)
 
-# READ DATA ----
+# rstudioapi talks to RStudio, used here to find the folder that contains this script
+library(rstudioapi)
 
-# github url for raw data
+# IMPORTING DATA ----
+
+# Option 1: Read From the Course Website ----
+
+# store the web address of the raw data file
 filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/CancerData.csv"
 
-# create data frame called Cancer
-Cancer <- read.csv(filepath, stringsAsFactors = T)
+# read the file at that address into a data frame named Cancer
+Cancer <- read.csv(filepath, stringsAsFactors = TRUE)
 
-# INSPECT DATA ----
+# Option 2: Read From the Folder That Contains the Script ----
 
-# summarize entire data frame (summarytools package)
-dfSummary(Cancer)
+# set the working directory to the folder that contains this script
+setwd(dirname(getActiveDocumentContext()$path))
+
+# print the working directory to confirm the location
+getwd()
+
+# read CancerData.csv from the working directory into a data frame named Cancer
+Cancer <- read.csv("CancerData.csv", stringsAsFactors = TRUE)
+
+# CONVERTING CATEGORICAL VARIABLES TO FACTORS ----
+
+# convert Diagnosis from 0/1 codes to a factor with descriptive labels
+Cancer$Diagnosis <- factor(Cancer$Diagnosis,
+                           levels = c(0, 1),
+                           labels = c("Non-malignant", "Malignant"))
+
+# convert Male from 0/1 codes to a factor with descriptive labels
+Cancer$Male <- factor(Cancer$Male,
+                      levels = c(0, 1),
+                      labels = c("Female", "Male"))
+
+# print the first few rows to confirm the labels replaced the codes
+head(Cancer)
+
+# SUMMARIZING DATA ----
+
+# overview of every variable in the data frame
+print(dfSummary(Cancer), method = "render")
 
 # DESCRIPTIVE STATISTICS ----
 
-# descriptive statistics for entire data frame (psych package)
+# descriptive statistics for every variable in the data frame
 describe(Cancer)
 
-# HISTOGRAMS AND KERNEL DENSITY PLOTS FOR NUMERIC VARIABLES ----
+# HISTOGRAMS AND KERNEL DENSITY PLOTS ----
 
-# histogram and kernel density plot for numeric variable (ggplot2 package)
+# Depression Distribution ----
+
+# histogram with overlaid kernel density curve for Depression
 ggplot(Cancer, aes(x = Depression)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 61) +
+  geom_histogram(aes(y = after_stat(density))) +
   geom_density()
 
-# histogram and kernel density plot for numeric variable (ggplot2 package)
+# Optimism Distribution ----
+
+# histogram with overlaid kernel density curve for Optimism
 ggplot(Cancer, aes(x = Optimism)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 13) +
+  geom_histogram(aes(y = after_stat(density))) +
   geom_density()
 
-# histogram and kernel density plot for numeric variable (ggplot2 package)
+# Visual Impairment Distribution ----
+
+# histogram with overlaid kernel density curve for VisImpair
 ggplot(Cancer, aes(x = VisImpair)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 50) +
+  geom_histogram(aes(y = after_stat(density))) +
   geom_density()
 
-# HISTOGRAMS AND KERNEL DENSITY PLOTS BY GROUP ----
+# DISTRIBUTION PLOTS BY GROUP ----
 
-# histogram and kernal density plot separately by group (ggplot2 package)
+# Depression Distributions by Diagnosis ----
+
+# histogram with density curve for Depression, one panel per Diagnosis group
 ggplot(Cancer, aes(x = Depression, colour = Diagnosis)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 40) +
+  geom_histogram(aes(y = after_stat(density))) +
   geom_density() +
   facet_wrap(~ Diagnosis)
 
-# histogram and kernal density plot separately by group (ggplot2 package)
+# Optimism Distributions by Diagnosis ----
+
+# histogram with density curve for Optimism, one panel per Diagnosis group
 ggplot(Cancer, aes(x = Optimism, colour = Diagnosis)) +
-  geom_histogram(aes(y = after_stat(density)), bins = 15) +
+  geom_histogram(aes(y = after_stat(density))) +
   geom_density() +
   facet_wrap(~ Diagnosis)
 
-# FREQUENCY DISTRIBUTIONS FOR DISCRETE VARIABLES  ----
+# FREQUENCY DISTRIBUTIONS FOR DISCRETE VARIABLES ----
 
-# frequency distributions for discrete or categorical variables (summarytools package)
-freq(Cancer$Diagnosis)
-freq(Cancer$Optimism)
-freq(Cancer$Comorbids)
+# frequency table for the categorical variable Diagnosis
+print(freq(Cancer$Diagnosis), method = "render")
 
-# BAR PLOTS FOR DISCRETE VARIABLES  ----
+# frequency table for the 13-point Optimism scale
+print(freq(Cancer$Optimism), method = "render")
 
-# bar plots for discrete or categorical variable (ggplot2 package)
+# frequency table for the three-category Comorbids variable
+print(freq(Cancer$Comorbids), method = "render")
+
+# BAR PLOTS FOR DISCRETE VARIABLES ----
+
+# bar plot of the number of participants in each Diagnosis group
 ggplot(Cancer, aes(x = factor(Diagnosis))) + geom_bar()
-ggplot(Cancer, aes(x = factor(Gender))) + geom_bar()
 
-
+# bar plot of the number of participants in each gender group
+ggplot(Cancer, aes(x = factor(Male))) + geom_bar()
