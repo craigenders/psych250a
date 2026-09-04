@@ -1,5 +1,5 @@
 ---
-title: "Psych 250a — Assignment 2: Describing Data"
+title: "Psych 250a — Week 1 Assignment: Describing Data"
 author: "YOUR NAME HERE"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
@@ -48,7 +48,7 @@ library(summarytools)
 file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment1.csv"
 assign1 <- read.csv(file_url, stringsAsFactors = TRUE)
 
-# To work offline instead, save assignment0.csv to the same folder as this script
+# To work offline instead, save assignment1.csv to the same folder as this script
 # Comment out the lines that read the data from online repository
 # Remove the hashtag from the three lines below
 # library(rstudioapi)
