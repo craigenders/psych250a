@@ -51,7 +51,9 @@ head(Cancer)
 # SUMMARIZING DATA ----
 
 # overview of every variable in the data frame
-print(dfSummary(Cancer), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(dfSummary(Cancer), method = "render")
+dfSummary(Cancer)
 
 # DESCRIPTIVE STATISTICS ----
 
@@ -102,13 +104,19 @@ ggplot(Cancer, aes(x = Optimism, colour = Diagnosis)) +
 # FREQUENCY DISTRIBUTIONS FOR DISCRETE VARIABLES ----
 
 # frequency table for the categorical variable Diagnosis
-print(freq(Cancer$Diagnosis), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(freq(Cancer$Diagnosis), method = "render")
+freq(Cancer$Diagnosis)
 
 # frequency table for the 13-point Optimism scale
-print(freq(Cancer$Optimism), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(freq(Cancer$Optimism), method = "render")
+freq(Cancer$Optimism)
 
 # frequency table for the three-category Comorbids variable
-print(freq(Cancer$Comorbids), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(freq(Cancer$Comorbids), method = "render")
+freq(Cancer$Comorbids)
 
 # BAR PLOTS FOR DISCRETE VARIABLES ----
 

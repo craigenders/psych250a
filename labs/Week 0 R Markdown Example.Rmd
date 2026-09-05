@@ -1,0 +1,89 @@
+---
+title: "Week 0 Example: Cancer Data"
+author: "YOUR NAME"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# Loading Packages
+
+The summarytools package provides dfSummary() for data summaries.
+
+```{r}
+# summarytools provides dfSummary() for data summaries
+library(summarytools)
+```
+
+# Importing Data
+
+The data file lives on the course GitHub site. Store the web address in an
+object, then hand that address to read.csv().
+
+```{r}
+# store the web address of the raw data file
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/Cancer.csv"
+
+# read the file at that address into a data frame named Cancer
+Cancer <- read.csv(filepath, stringsAsFactors = TRUE)
+```
+
+# Converting Categorical Variables to Factors
+
+Diagnosis and Male are stored as 0/1 codes. factor() converts each one
+to a categorical variable with descriptive labels.
+
+```{r}
+# convert Diagnosis from 0/1 codes to a factor with descriptive labels
+Cancer$Diagnosis <- factor(Cancer$Diagnosis,
+                           levels = c(0, 1),
+                           labels = c("Non-malignant", "Malignant"))
+
+# convert Male from 0/1 codes to a factor with descriptive labels
+Cancer$Male <- factor(Cancer$Male,
+                      levels = c(0, 1),
+                      labels = c("Female", "Male"))
+
+# print the first few rows to confirm the labels replaced the codes
+head(Cancer)
+```
+
+# Summarizing Data
+
+dfSummary() gives an overview of every variable in the data frame.
+
+```{r}
+# overview of every variable in the data frame
+dfSummary(Cancer)
+```

@@ -61,12 +61,16 @@ head(ClinicalTrial)
 # SUMMARIZING DATA ----
 
 # overview of every variable in the data frame
-print(dfSummary(ClinicalTrial), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(dfSummary(ClinicalTrial), method = "render")
+dfSummary(ClinicalTrial)
 
 # Summarizing a Subset of Variables ----
 
 # overview of just Condition and COWeek8
-print(dfSummary(ClinicalTrial[, c("Condition", "COWeek8")]), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(dfSummary(ClinicalTrial[, c("Condition", "COWeek8")]), method = "render")
+dfSummary(ClinicalTrial[, c("Condition", "COWeek8")])
 
 # DESCRIPTIVE STATISTICS ----
 

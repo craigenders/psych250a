@@ -1,3 +1,47 @@
+# R BASICS ----
+
+# The Assignment Operator ----
+
+# define a new object called Constant that equals 1
+Constant <- 1
+
+# print the contents of Constant
+Constant
+
+# Vectors ----
+
+# define a new object called vars2analyze with the names of three variables
+vars2analyze <- c("Depression", "Optimism", "VisImpair")
+
+# define a new object called axis_limits with two numeric values
+axis_limits <- c(0, 10)
+
+# print the contents of both objects
+vars2analyze
+axis_limits
+
+# Comments ----
+
+# this is a comment statement that will be ignored
+
+# define a new object called Constant that equals 1
+Constant <- 1
+
+# the next line is switched off, so Constant stays equal to 1
+# Constant <- 2
+
+# Section Headers ----
+
+# DEFINE A CONSTANT ----
+
+# define a new object called Constant that equals 1
+Constant <- 1
+
+# DEFINE A VECTOR ----
+
+# define a new object called axis_limits with two numeric values
+axis_limits <- c(0, 10)
+
 # PRELIMINARIES: LOADING PACKAGES ----
 
 # summarytools provides dfSummary() for data summaries
@@ -53,36 +97,48 @@ head(Cancer)
 # SUMMARIZING DATA ----
 
 # overview of every variable in the data frame
-print(dfSummary(Cancer), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(dfSummary(Cancer), method = "render")
+dfSummary(Cancer)
 
 # overview of the single variable Depression
-print(dfSummary(Cancer$Depression), method = "render")
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(dfSummary(Cancer$Depression), method = "render")
+dfSummary(Cancer$Depression)
 
 # COMPUTING A NEW VARIABLE ----
 
 # create logDepression as the natural log of Depression plus 1
 Cancer$logDepression <- log(Cancer$Depression + 1)
 
-# overview of the new variable
-print(dfSummary(Cancer$logDepression), method = "render")
+# overview of the original and the new variable
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(dfSummary(Cancer[, c("Depression", "logDepression")]), method = "render")
+dfSummary(Cancer[, c("Depression", "logDepression")])
+
+# the same computation without Cancer$ creates a vector outside the data frame
+logDepVector <- log(Cancer$Depression + 1)
+
+# print the first six values of the vector
+head(logDepVector)
+
+# the data frame still has the same columns as before
+names(Cancer)
 
 # RECODING A VARIABLE ----
 
 # create ClinicalSymp: 1 if Depression is 16 or higher, otherwise 0
 Cancer$ClinicalSymp <- ifelse(Cancer$Depression >= 16, 1, 0)
 
-# overview of the new variable
-print(dfSummary(Cancer$ClinicalSymp), method = "render")
-
-# DEFINING A FACTOR ----
-
 # convert ClinicalSymp from 0/1 codes to a factor with descriptive labels
 Cancer$ClinicalSymp <- factor(Cancer$ClinicalSymp,
                               levels = c(0, 1),
                               labels = c("Subclinical Range", "Clinical Range"))
 
-# overview of the factor version
-print(dfSummary(Cancer$ClinicalSymp), method = "render")
+# overview of the new variable
+# the print() wrapper with method = "render" is needed for the HTML output in Rmd
+# print(dfSummary(Cancer$ClinicalSymp), method = "render")
+dfSummary(Cancer$ClinicalSymp)
 
 # SAVING AND LOADING AN R DATA FILE ----
 

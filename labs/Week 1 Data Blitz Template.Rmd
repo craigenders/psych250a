@@ -13,6 +13,7 @@ output:
     highlight: haddock
 editor_options:
   chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
 ---
 
 ```{r include=FALSE}
