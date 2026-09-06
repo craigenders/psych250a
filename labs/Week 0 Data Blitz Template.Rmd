@@ -1,0 +1,104 @@
+---
+title: "Week 0 Data Blitz: R Basics"
+author: "GROUP MEMBER NAMES"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# 1. Loading Packages
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 2. Reading the Data
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 3. Data Frame Summary
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 4. Drinks per Day
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 5. Daily Drinker Variable
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 6. Factor Conversion
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 7. Summary of the New Variables
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 8. AI Code Audit
+
+Your entire chat with the AI:
+
+```
+PASTE YOUR PROMPTS AND AI'S RESPONSES HERE
+```
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+What you looked at to verify that your results were correct:
+
+TYPE YOUR ANSWER HERE

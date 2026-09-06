@@ -1,0 +1,277 @@
+---
+title: "Week 3 Data Blitz: Sampling Error"
+author: "GROUP MEMBER NAMES"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# Loading Packages
+
+```{r}
+library(psych)
+```
+
+# Reading the Data
+
+```{r}
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/Cancer.csv"
+blitz <- read.csv(filepath, stringsAsFactors = TRUE)
+```
+
+# 1. Standard Error of the Depression Mean
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Whether your calculation agrees with the descriptive statistics output, what the standard error quantifies, what a sampling distribution is, and how the standard error relates to that distribution:
+
+TYPE YOUR ANSWER HERE
+
+# 2. Central Limit Theorem Predictions
+
+What the central limit theorem predicts about the shape, center, and spread of the sampling distribution, and what you predict you will observe:
+
+TYPE YOUR ANSWER HERE
+
+# 3. Audit of the Simulation Code
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Your explanation of the simulation's goal and major steps:
+
+TYPE YOUR ANSWER HERE
+
+# 4. Running the Simulation
+
+The simulation code is below. Run the chunk as it is written.
+
+```{r}
+# ---------------------------------------------------------------------
+# SAMPLING ERROR SIMULATION
+# ---------------------------------------------------------------------
+
+# SIMULATION INPUTS ----
+
+pop_mean <- 16        # population mean
+pop_sd <- 11.44       # population standard deviation
+sample_N <- 299       # sample size
+
+# ---------------------------------------------------------------------
+# SIMULATION CODE
+# ---------------------------------------------------------------------
+
+# VERIFICATION AUDIT ----
+
+# makes the results identical every time the script is run
+set.seed(250)
+
+# draw a single sample of scores from the population
+mysample <- rnorm(n = sample_N, mean = pop_mean, sd = pop_sd)
+
+# mean, standard deviation, skewness, and excess kurtosis of the sample
+audit_mean <- mean(mysample)
+audit_sd <- sd(mysample)
+audit_skew <- mean((mysample - audit_mean)^3) / audit_sd^3
+audit_kurt <- mean((mysample - audit_mean)^4) / audit_sd^4 - 3
+
+# tallest bar in the audit histogram, used to leave room for the legend
+audit_barheight <- max(hist(mysample, breaks = 25, plot = FALSE)$counts)
+
+# graph the sample
+hist(mysample, breaks = 25,
+     ylim = c(0, audit_barheight * 1.35),
+     main = paste('Verification Audit: One Sample of Size =', sample_N),
+     xlab = 'Scores')
+
+legend('topright', bty = 'n',
+       legend = c(paste('Mean =', round(audit_mean, 3)),
+                  paste('SD =', round(audit_sd, 3)),
+                  paste('Skewness =', round(audit_skew, 3)),
+                  paste('Excess kurtosis =', round(audit_kurt, 3))))
+
+# DRAW 100,000 RANDOM SAMPLES ----
+
+# create an empty vector to hold the 100,000 sample means
+samplemeans <- rep(0, 100000)
+
+# draw a sample, compute its mean, and store the mean; repeat 100,000 times
+for(s in 1:100000){
+  sampledata <- rnorm(n = sample_N, mean = pop_mean, sd = pop_sd)
+  samplemeans[s] <- mean(sampledata)
+}
+
+# EXAMINE THE SAMPLING DISTRIBUTION ----
+
+# horizontal axis half-width
+plot_halfwidth <- 4
+
+# histogram bin width, also held constant so the bars are comparable
+bin_width <- 0.05
+
+# vertical axis maximum, held constant so bar heights are comparable
+plot_maxcount <- 6000
+
+# graph the 100,000 sample means with fixed bin width and axis ranges so graphs are comparable
+hist(samplemeans,
+     breaks = seq(pop_mean - 50, pop_mean + 50, by = bin_width),
+     xlim = c(pop_mean - plot_halfwidth, pop_mean + plot_halfwidth),
+     ylim = c(0, plot_maxcount),
+     main = 'Distribution of 100,000 Sample Means',
+     xlab = 'Sample Means')
+
+legend(x = pop_mean + plot_halfwidth, y = plot_maxcount, xjust = 1, yjust = 1, bty = 'n',
+       legend = c(paste('N =', sample_N),
+                  paste('Mean of the sample means =', round(mean(samplemeans), 3)),
+                  paste('SD of the sample means =', round(sd(samplemeans), 3)),
+                  paste('Standard error formula =', round(pop_sd / sqrt(sample_N), 3))))
+```
+
+Whether the sampling distribution is consistent with your predictions from Question 2, and how the standard deviation of the 100,000 sample means compares with the standard error from Question 1:
+
+TYPE YOUR ANSWER HERE
+
+# 5. How Unusual Is a Sample Mean of 14.85?
+
+TYPE YOUR ANSWER HERE
+
+# 6. Prediction for a Less Variable Population
+
+What should happen to the shape, center, and spread of the sampling distribution when the population standard deviation is reduced from 11.44 to 6:
+
+TYPE YOUR ANSWER HERE
+
+# 7. AI on Variability and Sampling Error
+
+Your prompt:
+
+PASTE YOUR PROMPT HERE
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Whether AI's response supports or contradicts your prediction from Question 6:
+
+TYPE YOUR ANSWER HERE
+
+# 8. Simulation With a Smaller Population Standard Deviation
+
+The simulation code is below. The only change is the population standard deviation.
+
+```{r}
+# ---------------------------------------------------------------------
+# SAMPLING ERROR SIMULATION
+# ---------------------------------------------------------------------
+
+# SIMULATION INPUTS ----
+
+pop_mean <- 16        # population mean
+pop_sd <- 6           # population standard deviation
+sample_N <- 299       # sample size
+
+# ---------------------------------------------------------------------
+# SIMULATION CODE
+# ---------------------------------------------------------------------
+
+# VERIFICATION AUDIT ----
+
+# makes the results identical every time the script is run
+set.seed(250)
+
+# draw a single sample of scores from the population
+mysample <- rnorm(n = sample_N, mean = pop_mean, sd = pop_sd)
+
+# mean, standard deviation, skewness, and excess kurtosis of the sample
+audit_mean <- mean(mysample)
+audit_sd <- sd(mysample)
+audit_skew <- mean((mysample - audit_mean)^3) / audit_sd^3
+audit_kurt <- mean((mysample - audit_mean)^4) / audit_sd^4 - 3
+
+# tallest bar in the audit histogram, used to leave room for the legend
+audit_barheight <- max(hist(mysample, breaks = 25, plot = FALSE)$counts)
+
+# graph the sample
+hist(mysample, breaks = 25,
+     ylim = c(0, audit_barheight * 1.35),
+     main = paste('Verification Audit: One Sample of Size =', sample_N),
+     xlab = 'Scores')
+
+legend('topright', bty = 'n',
+       legend = c(paste('Mean =', round(audit_mean, 3)),
+                  paste('SD =', round(audit_sd, 3)),
+                  paste('Skewness =', round(audit_skew, 3)),
+                  paste('Excess kurtosis =', round(audit_kurt, 3))))
+
+# DRAW 100,000 RANDOM SAMPLES ----
+
+# create an empty vector to hold the 100,000 sample means
+samplemeans <- rep(0, 100000)
+
+# draw a sample, compute its mean, and store the mean; repeat 100,000 times
+for(s in 1:100000){
+  sampledata <- rnorm(n = sample_N, mean = pop_mean, sd = pop_sd)
+  samplemeans[s] <- mean(sampledata)
+}
+
+# EXAMINE THE SAMPLING DISTRIBUTION ----
+
+# horizontal axis half-width
+plot_halfwidth <- 4
+
+# histogram bin width, also held constant so the bars are comparable
+bin_width <- 0.05
+
+# vertical axis maximum, held constant so bar heights are comparable
+plot_maxcount <- 6000
+
+# graph the 100,000 sample means with fixed bin width and axis ranges so graphs are comparable
+hist(samplemeans,
+     breaks = seq(pop_mean - 50, pop_mean + 50, by = bin_width),
+     xlim = c(pop_mean - plot_halfwidth, pop_mean + plot_halfwidth),
+     ylim = c(0, plot_maxcount),
+     main = 'Distribution of 100,000 Sample Means',
+     xlab = 'Sample Means')
+
+legend(x = pop_mean + plot_halfwidth, y = plot_maxcount, xjust = 1, yjust = 1, bty = 'n',
+       legend = c(paste('N =', sample_N),
+                  paste('Mean of the sample means =', round(mean(samplemeans), 3)),
+                  paste('SD of the sample means =', round(sd(samplemeans), 3)),
+                  paste('Standard error formula =', round(pop_sd / sqrt(sample_N), 3))))
+```
+
+Your comparison with the distribution from Question 4, whether your predictions were correct, and whether the standard error formula agrees with the standard deviation of the 100,000 sample means:
+
+TYPE YOUR ANSWER HERE
