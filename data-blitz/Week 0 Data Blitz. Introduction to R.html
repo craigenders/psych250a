@@ -12,7 +12,7 @@
 <meta name="author" content="Psych 250a" />
 
 
-<title>Week 0 Assignment. Intro to R</title>
+<title>Week 0 Data Blitz. Introduction to R</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1502,9 +1502,9 @@ font-size: 0.95em;
 
 
 
-<h1 class="title toc-ignore">Week 0 Assignment. Intro to R</h1>
+<h1 class="title toc-ignore">Week 0 Data Blitz. Introduction to R</h1>
 <h4 class="author">Psych 250a</h4>
-<h4 class="date">Due Friday October 2 by 1:30 PM</h4>
+<h4 class="date">Friday September 25</h4>
 
 </div>
 
@@ -1517,24 +1517,41 @@ font-size: 18px;
 max-width: 1500px !important;
 }
 </style>
-<div id="data" class="section level1">
-<h1>Data</h1>
-<p>The data for this assignment come from a study of an online chronic
-pain management program. A total of 275 individuals with chronic pain
-were randomly assigned to either a treatment (n = 133) or a control
-condition (n = 142). At the start of the study, researchers collected
-background variables (e.g., age, sex, frequency of exercise) and
-baseline depression scores. Individuals in the treatment group
-participated in the online pain management program for approximately 6
-weeks, whereas individuals in the control group received no treatment
-during the six-week period. At the end of the intervention period,
-researchers administered a questionnaire measuring the degree to which
-pain interferes with daily life. The table below provides detailed
-information about the variables in the data set. You don’t need to do
-anything with the table—it is meant to help you understand the meaning
-of each variable.</p>
+<div id="instructions" class="section level1">
+<h1>Instructions</h1>
+<p>The purpose of this activity is to import a text file into an R data
+frame, add variables to the data, then obtain basic descriptive
+summaries. The data from this exercise comes from a clinical trial
+designed to reduce smoking and drinking among heavy-drinking smokers
+Ray, Green, Enders, et al. (2021). Pharmacological treatments that can
+concomitantly address cigarette smoking and heavy drinking stand to
+improve health care delivery for these highly prevalent co-occurring
+conditions. This study compared two such treatments: a combination of
+varenicline and naltrexone and varenicline alone. The trial employed a
+longitudinal design and obtained measures of alcohol and cigarette use
+at baseline and at 4- and 8-week follow-ups.</p>
+<p>For all AI-related portions of this activity, you must use Microsoft
+Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
+UCLA logon credentials. UCLA provides the basic version of Copilot at no
+cost. Although you may have another large language model that you
+prefer, requiring everyone to use the same tool makes students’
+experiences and AI-generated responses as comparable as possible and
+promotes fairness across the class.</p>
+<p>After performing all of the data analysis tasks, you will use the
+provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%200%20Data%20Blitz%20Template.Rmd">Week
+0 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
+AI prompts, written explanations, R code, and analysis results. You may
+either develop your R code and written responses separately and paste
+them into the template when you are finished, or build the report in the
+template as you work. When you knit the file, all R results—including
+numerical output, tables, and graphs—will appear automatically. You only
+need to enter the R code in the appropriate code chunks.</p>
+</div>
+<div id="the-data" class="section level1">
+<h1>The Data</h1>
 <p>The URL for importing the data is:</p>
-<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment0.csv</code></pre>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrial.csv</code></pre>
+<p>A table describing the variables is shown below.</p>
 <table>
 <colgroup>
 <col width="33%" />
@@ -1550,268 +1567,160 @@ of each variable.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>ID</code></td>
+<td align="left"><code>Participant</code></td>
 <td align="left">Individual identifier</td>
 <td align="left">Integer index</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Female</code></td>
+<td align="left"><code>Condition</code></td>
+<td align="left">Medication condition</td>
+<td align="left">0 = Varenicline<br>1 = Varenicline + Naltrexone</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Male</code></td>
 <td align="left">Respondent sex</td>
-<td align="left">0 = Male<br>1 = Female</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Age</code></td>
-<td align="left">Age in years</td>
-<td align="left">19 to 78</td>
+<td align="left">0 = Female<br>1 = Male</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Treatment</code></td>
-<td align="left">Treatment condition</td>
-<td align="left">0 = Control<br>1 = Treatment</td>
+<td align="left"><code>COWeek0</code></td>
+<td align="left">Breath carbon monoxide (ppm) at baseline</td>
+<td align="left">Numeric (0 to 46)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Exercise</code></td>
-<td align="left">Frequency of exercise</td>
-<td align="left">0 to 16.22</td>
+<td align="left"><code>COWeek4</code></td>
+<td align="left">Breath carbon monoxide (ppm) at week 4</td>
+<td align="left">Numeric (0 to 24)</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Depress1</code></td>
-<td align="left">I couldn’t seem to experience any positive
-feelings.</td>
-<td align="left">1 to 4</td>
+<td align="left"><code>COWeek8</code></td>
+<td align="left">Breath carbon monoxide (ppm) at week 8</td>
+<td align="left">Numeric (0 to 29)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Depress2</code></td>
-<td align="left">I just couldn’t seem to get going.</td>
-<td align="left">1 to 4</td>
+<td align="left"><code>QuitCigsWeek4</code></td>
+<td align="left">Smoking quit status at week 4</td>
+<td align="left">0 = No quit<br>1 = Quit</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Depress3</code></td>
-<td align="left">I felt that I had nothing to look forward to.</td>
-<td align="left">1 to 4</td>
+<td align="left"><code>QuitCigsWeek8</code></td>
+<td align="left">Smoking quit status at week 8</td>
+<td align="left">0 = No quit<br>1 = Quit</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Depress4</code></td>
-<td align="left">I felt sad and depressed.</td>
-<td align="left">1 to 4</td>
+<td align="left"><code>DrinksWeek0</code></td>
+<td align="left">Drinks consumed in the past week at baseline</td>
+<td align="left">Count (1 to 35)</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Depress5</code></td>
-<td align="left">I felt that I had lost interest in just about
-everything.</td>
-<td align="left">1 to 4</td>
+<td align="left"><code>DrinksWeek4</code></td>
+<td align="left">Drinks consumed in the past week at week 4</td>
+<td align="left">Count (0 to 13)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Depress6</code></td>
-<td align="left">I felt I wasn’t worth much as a person.</td>
-<td align="left">1 to 4</td>
+<td align="left"><code>DrinksWeek8</code></td>
+<td align="left">Drinks consumed in the past week at week 8</td>
+<td align="left">Count (0 to 13)</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Depress7</code></td>
-<td align="left">I felt that life wasn’t worthwhile.</td>
-<td align="left">1 to 4</td>
+<td align="left"><code>CigsWeek0</code></td>
+<td align="left">Cigarettes smoked per day at baseline</td>
+<td align="left">Count (3 to 51)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Interf1</code></td>
-<td align="left">Pain interferes with enjoyable activities.</td>
-<td align="left">1 to 6</td>
+<td align="left"><code>CigsWeek4</code></td>
+<td align="left">Cigarettes smoked per day at week 4</td>
+<td align="left">Count (0 to 41)</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Interf2</code></td>
-<td align="left">Pain interferes with responsibilities at home.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Interf3</code></td>
-<td align="left">Pain interferes with relationships.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Interf4</code></td>
-<td align="left">Pain interferes with personal goals.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Interf5</code></td>
-<td align="left">Pain interferes with self-care.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Interf6</code></td>
-<td align="left">Pain interferes with thinking or concentrating.</td>
-<td align="left">1 to 6</td>
+<td align="left"><code>CigsWeek8</code></td>
+<td align="left">Cigarettes smoked per day at week 8</td>
+<td align="left">Count (0 to 35)</td>
 </tr>
 </tbody>
 </table>
 </div>
-<div id="completing-the-assignment" class="section level1">
-<h1>Completing the Assignment</h1>
-<p>Download the R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%200%20Assignment%20Template.Rmd">Week
-0 Assignment Template.Rmd</a>) and save it to your computer. Open the
-file in RStudio and enter your name on the <code>author:</code> line
-near the top of the file.</p>
-<p>The template loads the data directly from the course GitHub
-repository. You do not need to download a separate data file, but you
-must be connected to the internet when reading the data. The template
-file also contains alternate code that reads the data from your local
-machine if needed.</p>
-<p>The template contains a labeled section for each question, and it
-marks every place where you need to respond in caps (e.g., PASTE AI’S
-RESPONSE HERE, PASTE YOUR PROMPT HERE, etc.). Do not delete, rename, or
-reorder the section headings, as they are used to match your responses
-to the assignment questions. You do not need to copy output or take
-screenshots. When you knit the document, R runs each code chunk in order
-and places its output—including results, tables, and plots—directly
-below the corresponding code.</p>
-<p>For all AI-related portions of this assignment, you must use
-Microsoft Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
-UCLA logon credentials. UCLA provides the basic version of Copilot at no
-cost. Although you may have another large language model that you
-prefer, requiring everyone to use the same tool makes students’
-experiences and AI-generated responses as comparable as possible and
-promotes fairness across the class.</p>
+<div id="tasks" class="section level1">
+<h1>Tasks</h1>
+<p>Unless otherwise specified, you should reuse and adapt the code from
+the lecture analysis (<a href="https://craigenders.github.io/psych250a/labs/Week%200%20Lab.%20Introduction%20to%20R.html">Week
+0 Lab. Introduction to R.html</a>).</p>
+<div id="load-the-package" class="section level2">
+<h2>1. Load the package</h2>
+<p>Use the <code>library()</code> function to load the
+<code>summarytools</code> package.</p>
 </div>
-<div id="submitting-the-assignment" class="section level1">
-<h1>Submitting the Assignment</h1>
-<p>When you are finished, click the arrow next to the Knit button and
-select Knit to PDF. The PDF will be saved in the same folder as the .Rmd
-file. Upload that PDF to Gradescope. You can knit to HTML while working
-if you find its clickable table of contents more readable, but you must
-submit the PDF version.</p>
-<p><strong>The assignment is due Friday October 2 by 1:30 PM</strong>.
-The assignment is worth 16 points. Questions will be assigned a score of
-0 (no credit), 1 (partial credit), or a 2 (full credit). The one
-exception is Question 2, which has four components scored as 0
-(incorrect) and 1 (correct).</p>
+<div id="import-the-data" class="section level2">
+<h2>2. Import the data</h2>
+<p>Use the provided URL to import <code>ClinicalTrial.csv</code> into an
+R data frame named <code>Trial</code>.</p>
 </div>
-<div id="questions" class="section level1">
-<h1>Questions</h1>
-<div id="question-1-ai-prompt-for-sum-score" class="section level2">
-<h2>Question 1: AI Prompt for Sum Score</h2>
-<p>One of the main study variables, depressive symptoms, is measured by
-seven questionnaire items, each measuring a different aspect of the
-construct. When analyzing such data, researchers often form composite
-scores by summing measures of the same construct within each person. In
-this example, the sum score represents a person’s overall level of
-depressive symptoms. Ask AI the following question and paste its
-response into your answer:</p>
+<div id="summarize-the-data-frame" class="section level2">
+<h2>3. Summarize the data frame</h2>
+<p>Use the <code>dfSummary()</code> function from the
+<code>summarytools</code> package to obtain numeric and visual summaries
+of all variables in the data frame.</p>
+</div>
+<div id="compute-drinks-per-day" class="section level2">
+<h2>4. Compute drinks per day</h2>
+<p>Add a variable named <code>DrinksPerDayWeek8</code> to the
+<code>Trial</code> data frame. Compute each participant’s average number
+of drinks per day by dividing <code>DrinksWeek8</code> by 7.</p>
+</div>
+<div id="create-a-binary-drinking-variable" class="section level2">
+<h2>5. Create a binary drinking variable</h2>
+<p>Add a binary variable to the <code>Trial</code> data frame named
+<code>DailyDrinkerWeek8</code> that equals 1 if
+<code>DrinksPerDayWeek8</code> is greater than or equal to 1 and 0
+otherwise.</p>
+</div>
+<div id="convert-the-binary-variable-to-a-factor" class="section level2">
+<h2>6. Convert the binary variable to a factor</h2>
+<p>Convert <code>DailyDrinkerWeek8</code> to a factor and assign
+descriptive labels (“Non-daily drinker” and “Daily drinker”) to its two
+categories.</p>
+</div>
+<div id="summarize-the-new-variables" class="section level2">
+<h2>7. Summarize the new variables</h2>
+<p>Use the <code>dfSummary()</code> function to obtain numeric and
+visual summaries of the two new variables in the data frame.</p>
+</div>
+<div id="use-ai-to-audit-your-code" class="section level2">
+<h2>8. Use AI to audit your code</h2>
+<p>As the course progresses, we will learn how to incorporate AI into
+our workflow. One important application of AI involves auditing code.
+This includes code that you write and code that AI writes—AI models are
+usually very good at coding, but they still produce error rates that are
+far too high to trust in a research setting.</p>
+<p>Develop a free-standing prompt that describes the operations you just
+performed: adding a new variable that converts a sum to an average,
+recoding a continuous variable into a binary variable, and converting a
+numeric variable to a factor variable. Conclude your prompt with the
+following sentence:</p>
 <blockquote>
-<p>What decisions should a researcher make when using R to compute a sum
-score from multiple questionnaire items measuring the same
-construct?</p>
+<p>What types of checks can I perform in R to verify that my code
+produced the correct results?</p>
 </blockquote>
-<p>Review AI’s recommendations and determine which apply to these data.
+<p>Review AI’s recommendations and select checks that verify your work.
 Then write a self-contained prompt asking AI to generate R code that
-adds a sum score called <code>Depression</code> as a new variable in the
-<code>assign0</code> data frame. Some respondents did not answer all
-seven depression questionnaire items. Because a sum based on fewer than
-seven items would not be comparable to scores based on all seven, you
-should compute the <code>Depression</code> sum score only for
-participants who answered every item. The score should be missing (NA)
-otherwise. Make sure that your prompt provides the name of the data
-frame and the names of the variables you want in your audit. Without
-that, the AI will produce generic code that you need to modify.</p>
-<p>Your response should include: 1) the AI’s answer to your question, 2)
-your prompt, and 3) the resulting R code. Your response will be graded
-according to whether the prompt provides AI with the information
-necessary to create the requested variable correctly.</p>
+performs the check. Make sure that your prompt provides the name of the
+data frame and the names of the variables you want in your audit.
+Without that, the AI will produce generic code that you need to
+modify.</p>
+<p>Your response should include: 1) your entire chat with the AI, 2) the
+resulting R code, and 3) a statement describing what you looked at to
+verify that your results were correct.</p>
 </div>
-<div id="question-2-audit-the-sum-score-code" class="section level2">
-<h2>Question 2: Audit the Sum Score Code</h2>
-<p>AI models are usually very good at coding, but they still produce
-error rates that are far too high to trust in a research setting. Thus,
-you should audit the AI-generated code. The first step is to educate
-yourself about the code the AI generated. The code to compute a sum
-score involves four key ingredients:</p>
-<ol style="list-style-type: decimal">
-<li>Select <code>Depress1</code> to <code>Depress7</code>.</li>
-<li>Sum the seven variables separately for each participant.</li>
-<li>Produce a missing sum score (NA) if any of the seven items are
-missing.</li>
-<li>Add the resulting sum score named <code>Depression</code> to the
-data frame.</li>
-</ol>
-<p>For each of the four ingredients, describe which chunk of R code is
-responsible for carrying out that task. Your response should identify
-all four components. Each will be scored as 0 = incorrect and 1 =
-correct.</p>
-</div>
-<div id="question-3-ai-prompt-for-verification-checks" class="section level2">
-<h2>Question 3: AI Prompt for Verification Checks</h2>
-<p>Next, you will perform verification checks. Continue the same AI
-conversation. Ask AI the following question:</p>
-<blockquote>
-<p>What checks can I perform in R to verify that the
-<code>Depression</code> sum score was computed correctly?</p>
-</blockquote>
-<p>Review AI’s recommendations and select two checks that assess
-different possible errors in the computation of the sum score. Then
-write a self-contained prompt asking AI to generate R code that performs
-both checks. Make sure that your prompt provides the name of the data
-frame and the names of the variables you want in your audit. Without
-that, the AI will produce generic code that you need to modify.</p>
-<p>Your response should include: 1) the AI’s answer to your question, 2)
-your prompt, and 3) the resulting R code. Your response will be graded
-according to whether the prompt provides AI with the information
-necessary to perform the verification steps correctly.</p>
-</div>
-<div id="question-4-explain-the-verification-code" class="section level2">
-<h2>Question 4: Explain the Verification Code</h2>
-<p>Again, you should audit the AI-generated code by educating yourself
-about the syntax components it produced. Each of your verification steps
-is essentially a recipe that combines multiple instructions or tasks.
-Describe what the code for each verification step does. Write the
-explanation that would allow a colleague to look at the code and
-understand each component’s purpose.</p>
-</div>
-<div id="question-5-ai-prompt-for-clinical-cutoff" class="section level2">
-<h2>Question 5: AI Prompt for Clinical Cutoff</h2>
-<p>With this particular depression inventory, researchers routinely
-interpret a value of 17 or higher as indicating clinically elevated
-symptoms. Recode the <code>Depression</code> sum score into a new binary
-variable called <code>ClinicalDep</code> that captures whether or not a
-person is at or above the clinical cutoff. This new variable should
-implement the following coding scheme: 0 = below the cutoff, 1 = at or
-above the cutoff, NA whenever the <code>Depression</code> sum score
-being recoded is missing. Write a self-contained prompt asking AI to
-generate R code that adds the new variable to the <code>assign0</code>
-data frame and provides at least one check to verify the computations.
-Make sure that your prompt provides the name of the data frame and the
-names of the variables you want in your audit. Without that, the AI will
-produce generic code that you need to modify.</p>
-<p>Your response should include: 1) your prompt, and 2) AI’s resulting R
-code. Your response will be graded according to whether the prompt
-provides AI with the information necessary to perform the computation
-and verification steps correctly.</p>
-</div>
-<div id="question-6-convert-binary-variables-to-factors" class="section level2">
-<h2>Question 6: Convert Binary Variables to Factors</h2>
-<p>After adding the new variable, the data frame includes three binary
-categorical variables scored 0 and 1 (<code>Female</code>,
-<code>Treatment</code>, and <code>ClinicalDep</code>). Internally, R
-stores these as numeric variables. Convert all three variables to
-“factors” (the term R uses for nominal or categorical variables). For
-<code>Female</code> and <code>Treatment</code>, assign the labels from
-the data information table near the top of the assignment sheet. For the
-new <code>ClinicalDep</code> variable, use “Subclinical” and “Clinical”
-as the labels. Your task for this question is to assemble the R code
-that converts the binary variables to factors.</p>
-</div>
-<div id="question-7-ai-review-of-factor-code" class="section level2">
-<h2>Question 7: AI Review of Factor Code</h2>
-<p>After converting the three binary variables to factor variables,
-write a self-contained prompt asking AI to review your code and
-determine whether it correctly performed the requested conversions. Also
-ask AI to provide R code for tables or other output that can verify that
-the intended labels were assigned correctly. Assume that AI cannot see
-the assignment sheet or your data and therefore must rely entirely on
-the information in your prompt. Run the verification code suggested by
-AI.</p>
-<p>Your response should include: 1) your R code, 2) your prompt, 3) the
-AI’s response and code, and 4) your verification results. Your response
-will be graded according to whether the prompt provides AI with the
-information necessary to check your work and produce verification
-results.</p>
+<div id="create-the-report" class="section level2">
+<h2>9. Create the report</h2>
+<p>Use the provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%200%20Data%20Blitz%20Template.Rmd">Week
+0 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
+AI prompts, written explanations, R code, numerical results, and graphs.
+You may either develop your R code and written responses separately and
+paste them into the template when you are finished, or build the report
+in the template as you work. When you knit the file, all R
+results—including numerical output, tables, and graphs—will appear
+automatically. You only need to enter the R code in the appropriate code
+chunks.</p>
 </div>
 </div>
 
