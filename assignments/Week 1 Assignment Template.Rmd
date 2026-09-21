@@ -56,7 +56,7 @@ assign1 <- read.csv(file_url, stringsAsFactors = TRUE)
 # assign1 <- read.csv("assignment1.csv", stringsAsFactors = TRUE)
 ```
 
-# Question 1: Inflammation sum score
+# Question 1: Convert ELS and Female to Factors
 
 Your code:
 
@@ -64,7 +64,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 2: Histograms and density curves
+# Question 2: Inflammation Sum Score
 
 Your code:
 
@@ -72,15 +72,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 3: Distribution shape of TNF
-
-TYPE YOUR ANSWER HERE
-
-# Question 4: Distribution shape of Inflammation
-
-TYPE YOUR ANSWER HERE
-
-# Question 5: Descriptive statistics
+# Question 3: Histograms with Density Curves
 
 Your code:
 
@@ -88,21 +80,37 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 6: Skewness and kurtosis for TNF
+# Question 4: TNF Distribution Shape
 
 TYPE YOUR ANSWER HERE
 
-# Question 7: Skewness and kurtosis for Inflammation
+# Question 5: Inflammation Distribution Shape
 
 TYPE YOUR ANSWER HERE
 
-# Question 8: Q–Q plot prompt
+# Question 6: Descriptive Statistics
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 7: TNF Skewness and Kurtosis
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Inflammation Skewness and Kurtosis
+
+TYPE YOUR ANSWER HERE
+
+# Question 9: AI Prompt for Q-Q Plots
 
 Your prompt:
 
 PASTE YOUR PROMPT HERE
 
-AI's response:
+AI's explanation:
 
 ```
 PASTE AI'S RESPONSE HERE
@@ -114,11 +122,11 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 9: Interpreting the Q–Q plot
+# Question 10: Interpret the Q-Q Plot
 
 TYPE YOUR ANSWER HERE
 
-# Question 10: Group comparison graph
+# Question 11: Side-by-Side Histograms by ELS
 
 Your code:
 
@@ -126,24 +134,24 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 11: Improving the graph with AI
+# Question 12: AI Suggestions to Improve the Graph
 
-AI's response:
+AI's suggestions:
 
 ```
 PASTE AI'S RESPONSE HERE
 ```
 
-Which suggestion I selected and why:
+Which suggestion you selected and why it should improve the display:
 
 TYPE YOUR ANSWER HERE
 
-AI's code:
+The modified code:
 
 ```{r}
 # PASTE AI'S CODE HERE
 ```
 
-# Question 12: Conclusion
+# Question 13: Conclusion About ELS and Inflammation
 
 TYPE YOUR ANSWER HERE

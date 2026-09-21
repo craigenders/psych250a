@@ -56,7 +56,7 @@ assign2 <- read.csv(file_url, stringsAsFactors = TRUE)
 # assign2 <- read.csv("assignment2.csv", stringsAsFactors = TRUE)
 ```
 
-# Question 1: Attention sum score
+# Question 1: Convert ADHD and Male to Factors
 
 Your code:
 
@@ -64,7 +64,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 2: Factor conversions
+# Question 2: Group Comparison Graphs and Descriptive Statistics
 
 Your code:
 
@@ -72,51 +72,27 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 3: Verification prompt
-
-Your prompt:
-
-PASTE YOUR PROMPT HERE
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
-
-AI's code:
-
-```{r}
-# PASTE AI'S CODE HERE
-```
-
-# Question 4: Group-comparison figures
-
-Your code:
-
-```{r}
-# TYPE YOUR CODE HERE
-```
-
-# Question 5: Conditions for the independent-samples t-test
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
-
-Your code:
-
-```{r}
-# TYPE YOUR CODE HERE
-```
-
-Your explanation:
+# Question 3: AlphaEEG Mean Versus Median
 
 TYPE YOUR ANSWER HERE
 
-# Question 6: Standard deviation passage and AI critique
+# Question 4: Attention Group Means and Standard Deviations
+
+TYPE YOUR ANSWER HERE
+
+# Question 5: AI on t-Test Conditions
+
+AI's explanation:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Your evaluation of which outcome more closely satisfies the conditions, and why:
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: Explain the Standard Deviation
 
 Your original passage:
 
@@ -136,13 +112,13 @@ Your revised passage:
 
 TYPE YOUR ANSWER HERE
 
-# Question 7: Standardized scores
+# Question 7: z-Scores
 
 Your prompt:
 
 PASTE YOUR PROMPT HERE
 
-AI's response:
+AI's explanation:
 
 ```
 PASTE AI'S RESPONSE HERE
@@ -158,6 +134,14 @@ Whether and how your results align with AI's predictions:
 
 TYPE YOUR ANSWER HERE
 
-# Question 8: Conclusion
+# Question 8: Comparing Standardized Group Differences
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your conclusion about which measure shows more pronounced ADHD-related differences:
 
 TYPE YOUR ANSWER HERE
