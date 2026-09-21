@@ -55,7 +55,7 @@ assign0 <- read.csv(file_url, stringsAsFactors = TRUE)
 # assign0 <- read.csv("assignment0.csv", stringsAsFactors = TRUE)
 ```
 
-# Question 1: Sum-score prompt
+# Question 1: AI Prompt for Sum Score
 
 AI's response:
 
@@ -73,7 +73,7 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 2: Audit of sum-score code
+# Question 2: Audit the Sum Score Code
 
 a. Which part of the code selects depress1 to depress7?
 
@@ -92,7 +92,7 @@ d. Which part adds the sum score named depression to the data frame?
 
 TYPE YOUR ANSWER HERE
 
-# Question 3: Verification prompt
+# Question 3: AI Prompt for Verification Checks
 
 AI's response:
 
@@ -110,7 +110,7 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 4: Explanation of verification code
+# Question 4: Explain the Verification Code
 
 What does the code for Check 1 do?
 
@@ -120,7 +120,7 @@ What does the code for Check 2 do?
 
 TYPE YOUR ANSWER HERE
 
-# Question 5: Clinical-depression recode prompt
+# Question 5: AI Prompt for Clinical Cutoff
 
 Your prompt:
 
@@ -132,7 +132,7 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 6: Factor-conversion code
+# Question 6: Convert Binary Variables to Factors
 
 Your code:
 
@@ -140,7 +140,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 7: AI audit and verification of factor code
+# Question 7: AI Review of Factor Code
 
 Your prompt:
 
