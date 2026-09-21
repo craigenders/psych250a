@@ -1,5 +1,5 @@
 ---
-title: "Week 0 Data Blitz. R Basics"
+title: "Week 0 Data Blitz. Intro to R"
 author: "GROUP MEMBER NAMES"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
