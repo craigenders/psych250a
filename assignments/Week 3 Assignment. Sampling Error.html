@@ -1662,7 +1662,7 @@ file. Upload that PDF to Gradescope. You can knit to HTML while working
 if you find its clickable table of contents more readable, but you must
 submit the PDF version.</p>
 <p><strong>The assignment is due Friday October 23 by 1:30 PM</strong>.
-The assignment is worth 22 points. Questions will be assigned a score of
+The assignment is worth 18 points. Questions will be assigned a score of
 0 (no credit), 1 (partial credit), or a 2 (full credit).</p>
 </div>
 <div id="questions" class="section level1">
@@ -1715,22 +1715,8 @@ describe different sources of variability. Explain how the two
 statistics are similar and how they are different. Identify the set of
 values whose variability each statistic quantifies.</p>
 </div>
-<div id="question-4-ai-on-the-central-limit-theorem" class="section level2">
-<h2>Question 4: AI on the Central Limit Theorem</h2>
-<p>Next, you will perform a series of computer simulations. Provide the
-following question to AI exactly as it is written below.</p>
-<blockquote>
-<p>I am going to use computer simulation to model what happens when the
-mean is computed from many random samples drawn from a population.
-Conceptually describe what the central limit theorem predicts about the
-shape, center, and spread of the sampling distribution of sample means.
-Explain what these predictions imply about the corresponding sampling
-errors and how sample size affects them. Do not provide R code.</p>
-</blockquote>
-<p>Your response for this question should include AI’s explanation.</p>
-</div>
-<div id="question-5-audit-the-simulation-code" class="section level2">
-<h2>Question 5: Audit the Simulation Code</h2>
+<div id="question-4-audit-the-simulation-code" class="section level2">
+<h2>Question 4: Audit the Simulation Code</h2>
 <p>The R script <a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%203%20Assignment%20Simulation%20Code.R">Week
 3 Assignment Simulation Code.R</a> uses the sample size and standard
 deviation of the <code>Attention</code> variable (σ = 10.10, N = 939) to
@@ -1757,48 +1743,50 @@ inspect.</p>
 <p>&lt; PASTE YOUR SIMULATION CODE HERE. CO-PILOT DOES NOT ACCEPT .R
 FILES &gt;</p>
 </blockquote>
-<p>Your response for this question should include AI’s explanation.</p>
+<p>Your response for this question should include AI’s explanation and
+your brief assessment. Did AI identify any apparent errors in the
+script? For each item it raised, state whether you agree it is a genuine
+error and explain your reasoning. If AI raised nothing, say so.</p>
 </div>
-<div id="question-6-run-the-simulation" class="section level2">
-<h2>Question 6: Run the Simulation</h2>
+<div id="question-5-run-the-simulation" class="section level2">
+<h2>Question 5: Run the Simulation</h2>
+<p>Now you will run the simulation. First, provide the following
+question to AI exactly as it is written below.</p>
+<blockquote>
+<p>I am going to use computer simulation to model what happens when the
+mean is computed from many random samples drawn from a population.
+Conceptually describe what the central limit theorem predicts about the
+shape, center, and spread of the sampling distribution of sample means.
+Explain what these predictions imply about the corresponding sampling
+errors and how sample size affects them. Do not provide R code.</p>
+</blockquote>
 <p>Run the simulation. Evaluate whether the sampling distribution is
-consistent with the central limit theorem predictions described by AI in
-Question 4. Address the distribution’s shape, center, and standard
-deviation. The Week 3 Assignment Template file includes the simulation
-code and will include the simulation graph when you knit the file.</p>
+consistent with the central limit theorem predictions described by AI.
+Address the distribution’s shape, center, and standard deviation. The
+Week 3 Assignment Template file includes the simulation code and will
+include the simulation graph when you knit the file.</p>
+<p>Your response should include AI’s explanation and your
+evaluation.</p>
 </div>
-<div id="question-7-reduce-the-sample-size" class="section level2">
-<h2>Question 7: Reduce the Sample Size</h2>
+<div id="question-6-reduce-the-sample-size" class="section level2">
+<h2>Question 6: Reduce the Sample Size</h2>
 <p>The central limit theorem predicts that sample size influences the
 size of sampling errors. Describe what should happen to the center,
 shape, and spread of the sampling distribution if the sample size is
 reduced from 939 to 100. Modify the simulation code to use a sample size
 of 100 and run it again. Evaluate your predictions by comparing the new
-sampling distribution with the original distribution from Question 6.
+sampling distribution with the original distribution from Question 5.
 Explain whether the standard deviation of the 100,000 sample means is
 consistent with the standard error formula.</p>
 </div>
-<div id="question-8-ai-on-skewed-populations" class="section level2">
-<h2>Question 8: AI on Skewed Populations</h2>
+<div id="question-7-modify-the-simulation-for-a-skewed-population" class="section level2">
+<h2>Question 7: Modify the Simulation for a Skewed Population</h2>
 <p>The previous simulations drew samples from a normally distributed
 population. Many variables we have encountered in real data sets have
 skewed distributions. To understand the impact of non-normal data on
-sampling errors, ask AI the following question:</p>
-<blockquote>
-<p>Suppose I repeatedly draw random samples from a highly skewed
-population and calculate the mean of each sample. According to the
-central limit theorem, what should I expect the sampling distribution of
-the means to look like? Describe its shape, center, and standard
-deviation. Also explain how the sample size affects these predictions.
-Do not provide R code.</p>
-</blockquote>
-<p>Your response should include AI’s explanation.</p>
-</div>
-<div id="question-9-modify-the-simulation-for-a-skewed-population" class="section level2">
-<h2>Question 9: Modify the Simulation for a Skewed Population</h2>
-<p>Next, you will test AI’s predictions by modifying the original
-simulation code to generate skewed samples. Provide AI with the
-following instructions:</p>
+sampling errors, you will modify the original simulation code to draw
+samples from a skewed population. Provide AI with the following
+instructions:</p>
 <blockquote>
 <p>Modify the previous simulation code so that it draws 100,000 samples
 from a strongly positively skewed population rather than a normal
@@ -1818,8 +1806,8 @@ single block that I can copy and paste into RStudio.</p>
 <p>Your response will include the AI’s code, which will produce a
 graphical summary when you knit the file.</p>
 </div>
-<div id="question-10-audit-the-ai-generated-code" class="section level2">
-<h2>Question 10: Audit the AI-Generated Code</h2>
+<div id="question-8-audit-the-ai-generated-code" class="section level2">
+<h2>Question 8: Audit the AI-Generated Code</h2>
 <p>As an audit, the script was supposed to generate a single data set of
 individual scores from the skewed population. This is still a sample, so
 it won’t match the population values exactly. Nevertheless, it serves as
@@ -1828,13 +1816,24 @@ the descriptive statistics and histogram are consistent or inconsistent
 with the instructions you provided to AI. Include graphical and numeric
 evidence in your answer.</p>
 </div>
-<div id="question-11-compare-the-two-sampling-distributions" class="section level2">
-<h2>Question 11: Compare the Two Sampling Distributions</h2>
+<div id="question-9-compare-the-two-sampling-distributions" class="section level2">
+<h2>Question 9: Compare the Two Sampling Distributions</h2>
+<p>Ask AI the following question:</p>
+<blockquote>
+<p>Suppose I repeatedly draw random samples from a highly skewed
+population and calculate the mean of each sample. According to the
+central limit theorem, what should I expect the sampling distribution of
+the means to look like? Describe its shape, center, and standard
+deviation. Also explain how the sample size affects these predictions.
+Do not provide R code.</p>
+</blockquote>
 <p>Compare the results from the skewed-population simulation with those
-from the original normal-population simulation from Question 6. Compare
+from the original normal-population simulation in Question 5. Compare
 the shapes, centers, and standard deviations of the two sampling
 distributions. Are the simulation results consistent or inconsistent
-with the central limit theorem’s predictions?</p>
+with the predictions AI described above?</p>
+<p>Your response should include AI’s explanation and your
+comparison.</p>
 </div>
 </div>
 

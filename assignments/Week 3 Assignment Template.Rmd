@@ -92,7 +92,7 @@ TYPE YOUR ANSWER HERE
 
 TYPE YOUR ANSWER HERE
 
-# Question 4: AI on the Central Limit Theorem
+# Question 4: Audit the Simulation Code
 
 AI's response:
 
@@ -100,15 +100,17 @@ AI's response:
 PASTE AI'S RESPONSE HERE
 ```
 
-# Question 5: Audit the Simulation Code
+Your assessment of any errors AI identified:
+
+TYPE YOUR ANSWER HERE
+
+# Question 5: Run the Simulation
 
 AI's response:
 
 ```
 PASTE AI'S RESPONSE HERE
 ```
-
-# Question 6: Run the Simulation
 
 The simulation code is below. Run the chunk as it is written.
 
@@ -193,11 +195,11 @@ legend('topright', bty = 'n',
                   paste('Standard error formula =', round(pop_sd / sqrt(sample_N), 3))))
 ```
 
-Whether the sampling distribution is consistent with the central limit theorem predictions from Question 4:
+Whether the sampling distribution is consistent with the central limit theorem predictions AI described above:
 
 TYPE YOUR ANSWER HERE
 
-# Question 7: Reduce the Sample Size
+# Question 6: Reduce the Sample Size
 
 Your prediction about the center, shape, and spread at a sample size of 100:
 
@@ -290,15 +292,7 @@ Your evaluation of the predictions, including whether the standard deviation of 
 
 TYPE YOUR ANSWER HERE
 
-# Question 8: AI on Skewed Populations
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
-
-# Question 9: Modify the Simulation for a Skewed Population
+# Question 7: Modify the Simulation for a Skewed Population
 
 AI's code:
 
@@ -306,10 +300,16 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 10: Audit the AI-Generated Code
+# Question 8: Audit the AI-Generated Code
 
 TYPE YOUR ANSWER HERE
 
-# Question 11: Compare the Two Sampling Distributions
+# Question 9: Compare the Two Sampling Distributions
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
 
 TYPE YOUR ANSWER HERE
