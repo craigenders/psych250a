@@ -1,5 +1,5 @@
 ---
-title: "Psych 250a — Week 2 Assignment: Descriptive Statistics"
+title: "Psych 250a — Week 2 Assignment. Descriptive Statistics"
 author: "YOUR NAME HERE"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
