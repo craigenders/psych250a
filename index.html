@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Psych 250a Course Files</title>
+<style>
+  :root{
+    --bg:#ffffff; --panel:#f8f9fa; --ink:#333333; --muted:#6c757d;
+    --rule:#dee2e6; --link:#2780e3; --head:#212529;
+  }
+  @media (prefers-color-scheme: dark){
+    :root{ --bg:#16181b; --panel:#1e2125; --ink:#e4e6e8; --muted:#9aa0a6;
+           --rule:#2f3337; --link:#6cb2f0; --head:#f1f3f5; }
+  }
+  *{box-sizing:border-box;}
+  body{
+    margin:0; background:var(--bg); color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,"Helvetica Neue",Arial,sans-serif;
+    font-size:18px; line-height:1.6;
+  }
+  .wrap{max-width:900px;margin:0 auto;padding:44px 20px 80px;}
+  header{border-bottom:3px solid var(--link);padding-bottom:18px;margin-bottom:8px;}
+  h1{font-size:2.1rem;margin:0 0 4px;color:var(--head);font-weight:600;letter-spacing:-.01em;}
+  .sub{color:var(--muted);font-size:1rem;margin:0;}
+  .intro{color:var(--muted);font-size:.95rem;margin:22px 0 0;max-width:62ch;}
+  h2{
+    font-size:1.25rem;color:var(--head);font-weight:600;
+    margin:38px 0 0;padding-bottom:7px;border-bottom:1px solid var(--rule);
+  }
+  h2 .wk{color:var(--muted);font-weight:400;font-size:.85rem;margin-left:10px;}
+  .grp{margin-top:18px;}
+  h3{
+    font-size:.74rem;font-weight:700;letter-spacing:.09em;text-transform:uppercase;
+    color:var(--muted);margin:0 0 6px;
+  }
+  ul{list-style:none;margin:0 0 16px;padding:0;}
+  li{padding:3px 0;}
+  a{color:var(--link);text-decoration:none;}
+  a:hover{text-decoration:underline;}
+  a:focus-visible{outline:2px solid var(--link);outline-offset:2px;}
+  .kind{color:var(--muted);font-size:.8rem;margin-left:7px;}
+  .note{
+    background:var(--panel);border-left:3px solid var(--link);
+    padding:13px 16px;margin:26px 0 0;font-size:.92rem;border-radius:0 4px 4px 0;
+  }
+  .note p{margin:0;}
+  .note p + p{margin-top:8px;}
+  code{
+    font-family:ui-monospace,SFMono-Regular,Menlo,monospace;font-size:.86em;
+    background:var(--panel);padding:1px 5px;border-radius:3px;
+  }
+  footer{margin-top:50px;padding-top:16px;border-top:1px solid var(--rule);color:var(--muted);font-size:.86rem;}
+  @media (max-width:520px){ body{font-size:16px;} .wrap{padding:28px 16px 60px;} h1{font-size:1.6rem;} }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+<header>
+  <h1>Psych 250a</h1>
+  <p class="sub">Introduction to Statistical Methods &middot; UCLA Department of Psychology &middot; Fall 2026</p>
+</header>
+
+<p class="intro">Course files for lab, data blitz activities, and assignments. Bookmark this page &mdash; everything here stays current as the quarter goes on.</p>
+
+<div class="note">
+  <p><strong>How the links work.</strong> Handouts and instructions open in your browser. Scripts, templates, and data files open on GitHub, where the <strong>Download raw file</strong> button saves them to your computer.</p>
+  <p>Save R and R Markdown files somewhere you can find them again, then open them in RStudio.</p>
+</div>
+
+<h2>Getting Started<span class="wk">Before Week 0</span></h2>
+<div class="grp">
+  <ul>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/scripts/Install%20250a%20R%20Packages.R">R Package Installation Script</a><span class="kind">.R</span></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/labs/R%20Markdown%20Template.Rmd">R Markdown Template</a><span class="kind">.Rmd</span></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%200%20R%20Markdown%20Example.Rmd">R Markdown Example</a><span class="kind">.Rmd</span></li>
+  </ul>
+</div>
+
+<h2>Week 0<span class="wk">Intro to R</span></h2>
+<div class="grp">
+  <h3>Lab</h3>
+  <ul>
+    <li><a href="labs/Week%200%20Lab.%20Intro%20to%20R.html">Week 0 Lab: Intro to R</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/scripts/Week%200%20Lab.%20R%20Intro.R">Week 0 Lab R Script</a><span class="kind">.R</span></li>
+  </ul>
+  <h3>Data Blitz</h3>
+  <ul>
+    <li><a href="labs/Week%200%20Data%20Blitz%20Instructions.html">Data Blitz Instructions</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%200%20Data%20Blitz%20Template.Rmd">Data Blitz Template</a><span class="kind">.Rmd</span></li>
+  </ul>
+  <h3>Assignment</h3>
+  <ul>
+    <li><a href="assignments/Week%200%20Assignment.%20Intro%20to%20R.html">Week 0 Assignment: Intro to R</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%200%20Assignment%20Template.Rmd">Assignment Template</a><span class="kind">.Rmd</span></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/assignment0.csv">assignment0.csv</a><span class="kind">data</span></li>
+  </ul>
+</div>
+
+<h2>Week 1<span class="wk">Describing Data</span></h2>
+<div class="grp">
+  <h3>Lab</h3>
+  <ul>
+    <li><a href="labs/Week%201%20Lab.%20Describing%20Data.html">Week 1 Lab: Describing Data</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/scripts/Week%201%20Lab.%20Describing%20Data.R">Week 1 Lab R Script</a><span class="kind">.R</span></li>
+  </ul>
+  <h3>Data Blitz</h3>
+  <ul>
+    <li><a href="labs/Week%201%20Data%20Blitz%20Instructions.html">Data Blitz Instructions</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%201%20Data%20Blitz%20Template.Rmd">Data Blitz Template</a><span class="kind">.Rmd</span></li>
+  </ul>
+  <h3>Assignment</h3>
+  <ul>
+    <li><a href="assignments/Week%201%20Assignment.%20Describing%20Data.html">Week 1 Assignment: Describing Data</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%201%20Assignment%20Template.Rmd">Assignment Template</a><span class="kind">.Rmd</span></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/assignment1.csv">assignment1.csv</a><span class="kind">data</span></li>
+  </ul>
+</div>
+
+<h2>Week 2<span class="wk">Descriptive Statistics</span></h2>
+<div class="grp">
+  <h3>Lab</h3>
+  <ul>
+    <li><a href="labs/Week%202%20Lab.%20Descriptive%20Statistics.html">Week 2 Lab: Descriptive Statistics</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/scripts/Week%202%20Lab.%20Descriptive%20Statistics.R">Week 2 Lab R Script</a><span class="kind">.R</span></li>
+  </ul>
+  <h3>Data Blitz</h3>
+  <ul>
+    <li><a href="labs/Week%202%20Data%20Blitz%20Instructions.html">Data Blitz Instructions</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%202%20Data%20Blitz%20Template.Rmd">Data Blitz Template</a><span class="kind">.Rmd</span></li>
+  </ul>
+  <h3>Assignment</h3>
+  <ul>
+    <li><a href="assignments/Week%202%20Assignment.%20Descriptive%20Statistics.html">Week 2 Assignment: Descriptive Statistics</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%202%20Assignment%20Template.Rmd">Assignment Template</a><span class="kind">.Rmd</span></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/assignment2.csv">assignment2.csv</a><span class="kind">data</span></li>
+  </ul>
+</div>
+
+<h2>Week 3<span class="wk">Sampling Error</span></h2>
+<div class="grp">
+  <h3>Lab</h3>
+  <ul>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/scripts/Lab%20Week%203%20Simulation%20Code.R">Lab Week 3 Simulation Code</a><span class="kind">.R</span></li>
+  </ul>
+  <h3>Data Blitz</h3>
+  <ul>
+    <li><a href="labs/Week%203%20Data%20Blitz%20Instructions.html">Data Blitz Instructions</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%203%20Data%20Blitz%20Template.Rmd">Data Blitz Template</a><span class="kind">.Rmd</span></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/Cancer.csv">Cancer.csv</a><span class="kind">data</span></li>
+  </ul>
+  <h3>Assignment</h3>
+  <ul>
+    <li><a href="assignments/Week%203%20Assignment.%20Sampling%20Error.html">Week 3 Assignment: Sampling Error</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%203%20Assignment%20Template.Rmd">Assignment Template</a><span class="kind">.Rmd</span></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/assignments/Assignment%203%20Simulation%20Code.R">Assignment 3 Simulation Code</a><span class="kind">.R</span></li>
+  </ul>
+</div>
+
+<h2>Data Blitz Data Sets<span class="wk">Imported by URL</span></h2>
+<div class="grp">
+  <ul>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/Alcohol.csv">Alcohol.csv</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/PTSD.csv">PTSD.csv</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/Smoking.csv">Smoking.csv</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/VideoSpeed.csv">VideoSpeed.csv</a></li>
+    <li><a href="https://github.com/craigenders/psych250a/blob/main/data/Cancer.csv">Cancer.csv</a></li>
+  </ul>
+</div>
+
+<footer>
+  Craig Enders &middot; UCLA Department of Psychology
+</footer>
+
+</div>
+</body>
+</html>
