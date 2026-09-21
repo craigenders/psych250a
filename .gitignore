@@ -4,3 +4,5 @@
 # R history files
 .Rhistory
 .Rapp.history
+# FUSE placeholder files left by the folder bridge
+.fuse_hidden*
