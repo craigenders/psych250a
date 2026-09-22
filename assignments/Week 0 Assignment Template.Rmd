@@ -75,7 +75,7 @@ AI's code:
 
 # Question 2: Audit the Sum Score Code
 
-a. Which part of the code selects depress1 to depress7?
+a. Which part of the code selects `Depress1` to `Depress7`?
 
 TYPE YOUR ANSWER HERE
 
@@ -83,12 +83,12 @@ b. Which part sums the seven variables separately for each participant?
 
 TYPE YOUR ANSWER HERE
 
-c. Which part produces a missing sum score (NA) if any of the seven items
+c. Which part produces a missing sum score (`NA`) if any of the seven items
 is missing?
 
 TYPE YOUR ANSWER HERE
 
-d. Which part adds the sum score named depression to the data frame?
+d. Which part adds the sum score named `Depression` to the data frame?
 
 TYPE YOUR ANSWER HERE
 
