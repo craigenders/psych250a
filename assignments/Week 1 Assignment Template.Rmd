@@ -104,7 +104,7 @@ TYPE YOUR ANSWER HERE
 
 TYPE YOUR ANSWER HERE
 
-# Question 9: AI Prompt for Q-Q Plots
+# Question 9: AI Prompt for Q–Q Plots
 
 Your prompt:
 
@@ -122,7 +122,7 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 10: Interpret the Q-Q Plot
+# Question 10: Interpret the Q–Q Plot
 
 TYPE YOUR ANSWER HERE
 
