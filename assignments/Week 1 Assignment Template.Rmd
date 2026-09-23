@@ -37,26 +37,13 @@ knitr::opts_chunk$set(
 options(scipen = 999, width = 80)
 ```
 
-```{r}
-library(ggplot2)
-library(psych)
-library(summarytools)
-```
+# Question 1: Import and Summarize the Data
 
 ```{r}
-# Reads the data from the course repository. Requires an internet connection.
-file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment1.csv"
-assign1 <- read.csv(file_url, stringsAsFactors = TRUE)
-
-# To work offline instead, save assignment1.csv to the same folder as this script
-# Comment out the lines that read the data from online repository
-# Remove the hashtag from the three lines below
-# library(rstudioapi)
-# setwd(dirname(getActiveDocumentContext()$path))
-# assign1 <- read.csv("assignment1.csv", stringsAsFactors = TRUE)
+# TYPE YOUR CODE HERE
 ```
 
-# Question 1: Convert ELS and Female to Factors
+# Question 2: Convert ELS and Female to Factors
 
 Your code:
 
@@ -64,7 +51,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 2: Inflammation Sum Score
+# Question 3: Inflammation Sum Score
 
 Your code:
 
@@ -72,7 +59,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 3: Histograms with Density Curves
+# Question 4: Histograms with Density Curves
 
 Your code:
 
@@ -80,15 +67,15 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 4: TNF Distribution Shape
+# Question 5: TNF Distribution Shape
 
 TYPE YOUR ANSWER HERE
 
-# Question 5: Inflammation Distribution Shape
+# Question 6: Inflammation Distribution Shape
 
 TYPE YOUR ANSWER HERE
 
-# Question 6: Descriptive Statistics
+# Question 7: Descriptive Statistics
 
 Your code:
 
@@ -96,25 +83,19 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 7: TNF Skewness and Kurtosis
+Skewness and excess kurtosis for `TNF` and `Inflammation`:
 
 TYPE YOUR ANSWER HERE
 
-# Question 8: Inflammation Skewness and Kurtosis
+# Question 8: TNF Skewness and Kurtosis
 
 TYPE YOUR ANSWER HERE
 
-# Question 9: AI Prompt for Q–Q Plots
+# Question 9: Inflammation Skewness and Kurtosis
 
-Your prompt:
+TYPE YOUR ANSWER HERE
 
-PASTE YOUR PROMPT HERE
-
-AI's explanation:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 10: AI Prompt for Q–Q Plots
 
 AI's code:
 
@@ -122,11 +103,11 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 10: Interpret the Q–Q Plot
+# Question 11: Interpret the Q–Q Plot
 
 TYPE YOUR ANSWER HERE
 
-# Question 11: Side-by-Side Histograms by ELS
+# Question 12: Side-by-Side Histograms by ELS
 
 Your code:
 
@@ -134,13 +115,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 12: AI Suggestions to Improve the Graph
-
-AI's suggestions:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 13: AI Suggestions to Improve the Graph
 
 Which suggestion you selected and why it should improve the display:
 
@@ -152,6 +127,12 @@ The modified code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 13: Conclusion About ELS and Inflammation
+# Question 14: Conclusion About ELS and Inflammation
 
 TYPE YOUR ANSWER HERE
+
+# Question 15: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````

@@ -1613,14 +1613,9 @@ variable.</p>
 1 Assignment Template.Rmd</a>) and save it to your computer. Open the
 file in RStudio and enter your name on the <code>author:</code> line
 near the top of the file.</p>
-<p>The template loads the data directly from the course GitHub
-repository. You do not need to download a separate data file, but you
-must be connected to the internet when reading the data. The template
-file also contains alternate code that reads the data from your local
-machine if needed.</p>
 <p>The template contains a labeled section for each question, and it
-marks every place where you need to respond in caps (e.g., PASTE AI’S
-RESPONSE HERE, PASTE YOUR PROMPT HERE, etc.). Do not delete, rename, or
+marks every place where you need to respond in caps (e.g., TYPE YOUR
+CODE HERE, PASTE AI’S CODE HERE, etc.). Do not delete, rename, or
 reorder the section headings, as they are used to match your responses
 to the assignment questions. You do not need to copy output or take
 screenshots. When you knit the document, R runs each code chunk in order
@@ -1633,85 +1628,133 @@ cost. Although you may have another large language model that you
 prefer, requiring everyone to use the same tool makes students’
 experiences and AI-generated responses as comparable as possible and
 promotes fairness across the class.</p>
+<p>Before you begin the assignment, start a new chat in Copilot and use
+that single chat for everything in this assignment. If you close the
+window or take a break, reopen the same chat from Copilot’s chat history
+rather than starting a new one. Your prompts and AI’s responses are not
+pasted into the individual questions. Instead, the final question asks
+you to paste the complete chat log at the end of the template so that
+graders can locate the prompt and response for each question there. It
+is very important that you complete the assignment within the same
+chat.</p>
+<p>AI’s first response is often generic or partly wrong, especially when
+a prompt leaves something out. When that happens, revise your prompt and
+ask again rather than fixing the code by hand. If the code produces an
+error when you run it, paste the error message into the same chat and
+ask AI to explain what went wrong and to correct the code. Revising
+prompts and troubleshooting errors are normal parts of working with AI,
+and they are skills this course develops. Again, any revisions to your
+prompts must be made within the same chat, so that the full sequence of
+attempts appears in your chat log. You will be graded on your final
+prompt for each question, not on how many attempts it took.</p>
 </div>
 <div id="submitting-the-assignment" class="section level1">
 <h1>Submitting the Assignment</h1>
-<p>When you are finished, click the arrow next to the Knit button and
-select Knit to PDF. The PDF will be saved in the same folder as the .Rmd
-file. Upload that PDF to Gradescope. You can knit to HTML while working
-if you find its clickable table of contents more readable, but you must
-submit the PDF version.</p>
+<p>You import the data yourself in Question 1 using the URL above, so
+you must be connected to the internet when knitting. When you are
+finished, click the arrow next to the Knit button and select Knit to
+PDF. The PDF will be saved in the same folder as the .Rmd file. Upload
+that PDF to Gradescope. You can knit to HTML while working if you find
+its clickable table of contents more readable, but you must submit the
+PDF version.</p>
 <p><strong>The assignment is due Friday October 9 by 1:30 PM</strong>.
-The assignment is worth 26 points. Questions will be assigned a score of
-0 (no credit), 1 (partial credit), or a 2 (full credit).</p>
+The assignment is worth 28 points. Questions 1 through 14 will be
+assigned a score of 0 (no credit), 1 (partial credit), or a 2 (full
+credit). Question 15 is not graded.</p>
 </div>
 <div id="questions" class="section level1">
 <h1>Questions</h1>
-<div id="question-1-convert-els-and-female-to-factors" class="section level2">
-<h2>Question 1: Convert ELS and Female to Factors</h2>
-<p>The data contain two binary numeric variables, <code>ELS</code> and
-<code>Female</code>. The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html">Week
-1 Lab. Describing Data.html</a> handout contains code that converted
-binary numeric variables to factor variables with labels. Recycle that R
-code to convert <code>ELS</code> and <code>Female</code> to factor
-variables, applying the labels in the data information table. Obtain a
-frequency distribution table to verify that your labels are attached
-correctly.</p>
+<div id="question-1-import-and-summarize-the-data" class="section level2">
+<h2>Question 1: Import and Summarize the Data</h2>
+<ol style="list-style-type: decimal">
+<li>Use the <code>library()</code> function to load the
+<code>ggplot2</code>, <code>psych</code>, and <code>summarytools</code>
+packages. 2) Use the URL provided above to import
+<code>assignment1.csv</code> into an R data frame named
+<code>assign1</code>. 3) Use the <code>dfSummary()</code> function from
+the <code>summarytools</code> package to obtain numeric and visual
+summaries of all variables in the data frame. You should modify code
+from the <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html#preliminaries-loading-packages">Preliminaries:
+Loading Packages</a> and <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html#importing-data">Importing
+Data</a> sections of the Week 1 lab.</li>
+</ol>
+<p>Your response should include your R code.</p>
 </div>
-<div id="question-2-inflammation-sum-score" class="section level2">
-<h2>Question 2: Inflammation Sum Score</h2>
+<div id="question-2-convert-els-and-female-to-factors" class="section level2">
+<h2>Question 2: Convert ELS and Female to Factors</h2>
+<p>The data contain two binary numeric variables, <code>ELS</code> and
+<code>Female</code>. The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html#converting-categorical-variables-to-factors">Converting
+Categorical Variables to Factors</a> section of the Week 1 lab contains
+code that converted binary numeric variables to factor variables with
+labels. Modify that R code to convert <code>ELS</code> and
+<code>Female</code> to factor variables, applying the labels in the data
+information table. Obtain a frequency distribution table to verify that
+your labels are attached correctly.</p>
+<p>Your response should include your R code.</p>
+</div>
+<div id="question-3-inflammation-sum-score" class="section level2">
+<h2>Question 3: Inflammation Sum Score</h2>
 <p>One of the main study variables, inflammation, is measured by four
 biomarkers, each measuring a different physiological aspect of the
 construct. When analyzing such data, researchers often form composite
 scores by summing measures of the same construct within each person. In
 this example, the sum score represents a person’s overall level of
 inflammation. In the Week 0 Assignment, you created a similar sum score.
-Recycle your R code to add a variable named <code>Inflammation</code> to
-the <code>assign1</code> data frame.</p>
+Recycle R code from the Week 0 Assignment to add a variable named
+<code>Inflammation</code> to the <code>assign1</code> data frame.</p>
+<p>Your response should include your R code.</p>
 </div>
-<div id="question-3-histograms-with-density-curves" class="section level2">
-<h2>Question 3: Histograms with Density Curves</h2>
-<p>The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html">Week
-1 Lab. Describing Data.html</a> handout contained <code>ggplot2</code>
-code that creates a histogram with an overlaid kernel density curve.
-Adapt that code to get the same graphs for the <code>TNF</code> (tumor
-necrosis factor) biomarker and the <code>Inflammation</code>
-composite.</p>
+<div id="question-4-histograms-with-density-curves" class="section level2">
+<h2>Question 4: Histograms with Density Curves</h2>
+<p>The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html#histograms-and-kernel-density-plots">Histograms
+and Kernel Density Plots</a> section of the Week 1 lab contains
+<code>ggplot2</code> code that creates a histogram with an overlaid
+kernel density curve. Modify that code to get the same graphs for the
+<code>TNF</code> (tumor necrosis factor) biomarker and the
+<code>Inflammation</code> composite.</p>
+<p>Your response should include your R code. The graphs will appear
+automatically when you knit the file.</p>
 </div>
-<div id="question-4-tnf-distribution-shape" class="section level2">
-<h2>Question 4: TNF Distribution Shape</h2>
+<div id="question-5-tnf-distribution-shape" class="section level2">
+<h2>Question 5: TNF Distribution Shape</h2>
 <p>How would you characterize the distribution shape of the
 <code>TNF</code> biomarker? What specific features of the histogram and
 density curve support your conclusion?</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-5-inflammation-distribution-shape" class="section level2">
-<h2>Question 5: Inflammation Distribution Shape</h2>
+<div id="question-6-inflammation-distribution-shape" class="section level2">
+<h2>Question 6: Inflammation Distribution Shape</h2>
 <p>How would you characterize the distribution shape of the
 <code>Inflammation</code> composite variable? What specific features of
 the histogram and density curve support your conclusion?</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-6-descriptive-statistics" class="section level2">
-<h2>Question 6: Descriptive Statistics</h2>
-<p>The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html">Week
-1 Lab. Describing Data.html</a> handout showed code to obtain
-descriptive statistics. Adapt that code to get descriptives for the
+<div id="question-7-descriptive-statistics" class="section level2">
+<h2>Question 7: Descriptive Statistics</h2>
+<p>The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html#descriptive-statistics">Descriptive
+Statistics</a> section of the Week 1 lab contains code to obtain
+descriptive statistics. Modify that code to get descriptives for the
 entire sample. Report skewness and excess kurtosis for <code>TNF</code>
 and <code>Inflammation</code>.</p>
+<p>Your response should include your R code and a sentence reporting the
+two statistics for each variable.</p>
 </div>
-<div id="question-7-tnf-skewness-and-kurtosis" class="section level2">
-<h2>Question 7: TNF Skewness and Kurtosis</h2>
+<div id="question-8-tnf-skewness-and-kurtosis" class="section level2">
+<h2>Question 8: TNF Skewness and Kurtosis</h2>
 <p>For the <code>TNF</code> biomarker, explain what the numeric values
 of skewness and excess kurtosis mean and whether they support or
 challenge your interpretation of the variable’s distribution shape.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-8-inflammation-skewness-and-kurtosis" class="section level2">
-<h2>Question 8: Inflammation Skewness and Kurtosis</h2>
+<div id="question-9-inflammation-skewness-and-kurtosis" class="section level2">
+<h2>Question 9: Inflammation Skewness and Kurtosis</h2>
 <p>For the <code>Inflammation</code> composite, explain what the numeric
 values of skewness and excess kurtosis mean and whether they support or
 challenge your interpretation of the variable’s distribution shape.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-9-ai-prompt-for-qq-plots" class="section level2">
-<h2>Question 9: AI Prompt for Q–Q Plots</h2>
+<div id="question-10-ai-prompt-for-qq-plots" class="section level2">
+<h2>Question 10: AI Prompt for Q–Q Plots</h2>
 <p>A normal Q–Q plot provides another way to examine the shape of a
 distribution. Because we will not cover Q–Q plots in class, write a
 self-contained prompt asking AI to (1) provide R code that creates
@@ -1721,34 +1764,39 @@ explain what the axes and reference lines represent and how departures
 from the lines can provide evidence about distribution shape. Give your
 prompt to AI and run the resulting R code. Make sure that your prompt
 provides the name of the data frame and the names of the variables you
-want in your audit. Without that, the AI will produce generic code that
-you need to modify.</p>
-<p>Your response should include: 1) the exact prompt you wrote, 2) AI’s
-explanation, and 3) the R code. The graphs will appear automatically
-when you knit the file.</p>
+want in your audit. Without that, AI will produce generic code, and you
+will need to revise your prompt.</p>
+<p>Your response should include the R code; your prompt and AI’s
+explanation will appear in your chat log in Question 15. The graphs will
+appear automatically when you knit the file. Your response will be
+graded according to whether the prompt provides AI with the information
+necessary to produce the plots and the explanation.</p>
 </div>
-<div id="question-10-interpret-the-qq-plot" class="section level2">
-<h2>Question 10: Interpret the Q–Q Plot</h2>
-<p>Consider the Q–Q plot for the inflammation composite. Interpret the
-departures from the reference line at both the lower and upper ends of
-the Q–Q plot. For each end, explain whether the observed scores are
-closer to or farther from the center than expected under a normal
-distribution and how this pattern appears in the histogram.</p>
+<div id="question-11-interpret-the-qq-plot" class="section level2">
+<h2>Question 11: Interpret the Q–Q Plot</h2>
+<p>Using AI’s explanation from your chat log, consider the Q–Q plot for
+the inflammation composite. Interpret the departures from the reference
+line at both the lower and upper ends of the Q–Q plot. For each end,
+explain whether the observed scores are closer to or farther from the
+center than expected under a normal distribution and how this pattern
+appears in the histogram.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-11-side-by-side-histograms-by-els" class="section level2">
-<h2>Question 11: Side-by-Side Histograms by ELS</h2>
+<div id="question-12-side-by-side-histograms-by-els" class="section level2">
+<h2>Question 12: Side-by-Side Histograms by ELS</h2>
 <p>One of the main goals of the research study is to determine whether
 participants who report adverse early life stressors (<code>ELS</code> =
 1) have different levels of inflammation than participants who report no
-adverse stressors (<code>ELS</code> = 0). The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html">Week
-1 Lab. Describing Data.html</a> handout contains code that created
-side-by-side histograms with overlaid kernel density curves. Recycle and
-adapt that R code to create a corresponding graph of the
-<code>Inflammation</code> composite for the two <code>ELS</code>
-groups.</p>
+adverse stressors (<code>ELS</code> = 0). The <a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html#distribution-plots-by-group">Distribution
+Plots by Group</a> section of the Week 1 lab contains code that created
+side-by-side histograms with overlaid kernel density curves. Modify that
+R code to create a corresponding graph of the <code>Inflammation</code>
+composite for the two <code>ELS</code> groups.</p>
+<p>Your response should include your R code. The graph will appear
+automatically when you knit the file.</p>
 </div>
-<div id="question-12-ai-suggestions-to-improve-the-graph" class="section level2">
-<h2>Question 12: AI Suggestions to Improve the Graph</h2>
+<div id="question-13-ai-suggestions-to-improve-the-graph" class="section level2">
+<h2>Question 13: AI Suggestions to Improve the Graph</h2>
 <p>The goal is to determine whether adverse early-life stressors are
 associated with inflammation later in life. Give AI your
 <code>ggplot2</code> code and a screenshot of the side-by-side
@@ -1757,17 +1805,30 @@ differences between the two groups are easier to evaluate, while
 retaining histograms as the style of display. Select at least one
 suggestion that you believe would improve the display, and ask AI to
 modify your R code to implement it.</p>
-<p>Your response should include: 1) AI’s suggestions, 2) a brief
-explanation of which suggestion you selected and why it should improve
-the display, and 3) the modified R code. The revised graphs will appear
+<p>Your response should include: 1) a brief explanation of which
+suggestion you selected and why it should improve the display, and 2)
+the modified R code; your prompt and AI’s suggestions will appear in
+your chat log in Question 15. The revised graphs will appear
 automatically when you knit the file.</p>
 </div>
-<div id="question-13-conclusion-about-els-and-inflammation" class="section level2">
-<h2>Question 13: Conclusion About ELS and Inflammation</h2>
+<div id="question-14-conclusion-about-els-and-inflammation" class="section level2">
+<h2>Question 14: Conclusion About ELS and Inflammation</h2>
 <p>What is your conclusion about whether adverse early-life stressors
 are associated with different levels of inflammation later in life?
 Support your conclusion by identifying specific features of either the
 original side-by-side plot or your modified plot.</p>
+<p>Your response should include your written answer.</p>
+</div>
+<div id="question-15-chat-log" class="section level2">
+<h2>Question 15: Chat Log</h2>
+<p>This question is not graded. It collects your prompts and AI’s
+responses in one place so that graders can locate them for Questions 10
+and 13. After completing Question 14, click anywhere in the Copilot
+conversation, select the entire chat (Ctrl+A on Windows, Cmd+A on Mac),
+copy it, and paste it between the two lines of backticks in the Question
+15 section of the template. The pasted text will show “You said:” before
+your prompts and “Copilot said:” before AI’s responses. When you are
+done, knit the file to a PDF before submitting.</p>
 </div>
 </div>
 
