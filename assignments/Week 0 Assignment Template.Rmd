@@ -55,13 +55,20 @@ assign0 <- read.csv(file_url, stringsAsFactors = TRUE)
 # assign0 <- read.csv("assignment0.csv", stringsAsFactors = TRUE)
 ```
 
-# Question 1: AI Prompt for Sum Score
+# Question 1: Decisions About the Depression Sum Score
 
 AI's response:
 
 ```
 PASTE AI'S RESPONSE HERE
 ```
+
+Your explanation of which recommendations dictate how the sum score is computed, and why:
+
+TYPE YOUR ANSWER HERE
+
+# Question 2: AI Prompt for Sum Score
+
 
 Your prompt:
 
@@ -73,7 +80,8 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 2: Audit the Sum Score Code
+# Question 3: Audit the Sum Score Code
+
 
 a. Which part of the code selects `Depress1` to `Depress7`?
 
@@ -92,7 +100,8 @@ d. Which part adds the sum score named `Depression` to the data frame?
 
 TYPE YOUR ANSWER HERE
 
-# Question 3: AI Prompt for Verification Checks
+# Question 4: AI Prompt for Verification Checks
+
 
 AI's response:
 
@@ -110,17 +119,19 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 4: Explain the Verification Code
+# Question 5: Explain the Verification Code
 
-What does the code for Check 1 do?
 
-TYPE YOUR ANSWER HERE
-
-What does the code for Check 2 do?
+Codebook paragraph for Check 1:
 
 TYPE YOUR ANSWER HERE
 
-# Question 5: AI Prompt for Clinical Cutoff
+Codebook paragraph for Check 2:
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: AI Prompt for Clinical Cutoff
+
 
 Your prompt:
 
@@ -132,7 +143,8 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 6: Convert Binary Variables to Factors
+# Question 7: Convert Binary Variables to Factors
+
 
 Your code:
 
@@ -140,7 +152,8 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 7: AI Review of Factor Code
+# Question 8: AI Review of Factor Code
+
 
 Your prompt:
 

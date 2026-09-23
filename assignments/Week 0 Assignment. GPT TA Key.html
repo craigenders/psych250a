@@ -9,10 +9,10 @@
 <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
 
 
-<meta name="author" content="Psych 250a" />
+<meta name="author" content="Psych 250A" />
 
 
-<title>Week 0 Assignment. Introduction to R</title>
+<title>Week 0 Assignment. Introduction to R — TA Answer Key</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1502,329 +1502,297 @@ font-size: 0.95em;
 
 
 
-<h1 class="title toc-ignore">Week 0 Assignment. Introduction to R</h1>
-<h4 class="author">Psych 250a</h4>
-<h4 class="date">Due Friday October 2 by 1:30 PM</h4>
+<h1 class="title toc-ignore">Week 0 Assignment. Introduction to R — TA
+Answer Key</h1>
+<h4 class="author">Psych 250A</h4>
 
 </div>
 
 
-<style type="text/css">
-body {
-font-size: 18px;
-}
-.main-container {
-max-width: 1500px !important;
-}
-</style>
-<div id="data" class="section level1">
-<h1>Data</h1>
-<p>The data for this assignment come from a study of an online chronic
-pain management program. A total of 275 individuals with chronic pain
-were randomly assigned to either a treatment (n = 133) or a control
-condition (n = 142). At the start of the study, researchers collected
-background variables (e.g., age, sex, frequency of exercise) and
-baseline depression scores. Individuals in the treatment group
-participated in the online pain management program for approximately 6
-weeks, whereas individuals in the control group received no treatment
-during the six-week period. At the end of the intervention period,
-researchers administered a questionnaire measuring the degree to which
-pain interferes with daily life. The table below provides detailed
-information about the variables in the data set. You don’t need to do
-anything with the table—it is meant to help you understand the meaning
-of each variable.</p>
-<p>The URL for importing the data is:</p>
-<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment0.csv</code></pre>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Description</th>
-<th align="left">Scale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>ID</code></td>
-<td align="left">Individual identifier</td>
-<td align="left">Integer index</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Female</code></td>
-<td align="left">Respondent sex</td>
-<td align="left">0 = Male<br>1 = Female</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Age</code></td>
-<td align="left">Age in years</td>
-<td align="left">19 to 78</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Treatment</code></td>
-<td align="left">Treatment condition</td>
-<td align="left">0 = Control<br>1 = Treatment</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Exercise</code></td>
-<td align="left">Frequency of exercise</td>
-<td align="left">0 to 16.22</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Depress1</code></td>
-<td align="left">I couldn’t seem to experience any positive
-feelings.</td>
-<td align="left">1 to 4</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Depress2</code></td>
-<td align="left">I just couldn’t seem to get going.</td>
-<td align="left">1 to 4</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Depress3</code></td>
-<td align="left">I felt that I had nothing to look forward to.</td>
-<td align="left">1 to 4</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Depress4</code></td>
-<td align="left">I felt sad and depressed.</td>
-<td align="left">1 to 4</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Depress5</code></td>
-<td align="left">I felt that I had lost interest in just about
-everything.</td>
-<td align="left">1 to 4</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Depress6</code></td>
-<td align="left">I felt I wasn’t worth much as a person.</td>
-<td align="left">1 to 4</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Depress7</code></td>
-<td align="left">I felt that life wasn’t worthwhile.</td>
-<td align="left">1 to 4</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Interf1</code></td>
-<td align="left">Pain interferes with enjoyable activities.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Interf2</code></td>
-<td align="left">Pain interferes with responsibilities at home.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Interf3</code></td>
-<td align="left">Pain interferes with relationships.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Interf4</code></td>
-<td align="left">Pain interferes with personal goals.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Interf5</code></td>
-<td align="left">Pain interferes with self-care.</td>
-<td align="left">1 to 6</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Interf6</code></td>
-<td align="left">Pain interferes with thinking or concentrating.</td>
-<td align="left">1 to 6</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="completing-the-assignment" class="section level1">
-<h1>Completing the Assignment</h1>
-<p>Download the R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%200%20Assignment%20Template.Rmd">Week
-0 Assignment Template.Rmd</a>) and save it to your computer. Open the
-file in RStudio and enter your name on the <code>author:</code> line
-near the top of the file.</p>
-<p>The template loads the data directly from the course GitHub
-repository. You do not need to download a separate data file, but you
-must be connected to the internet when reading the data. The template
-file also contains alternate code that reads the data from your local
-machine if needed.</p>
-<p>The template contains a labeled section for each question, and it
-marks every place where you need to respond in caps (e.g., PASTE AI’S
-RESPONSE HERE, PASTE YOUR PROMPT HERE, etc.). Do not delete, rename, or
-reorder the section headings, as they are used to match your responses
-to the assignment questions. You do not need to copy output or take
-screenshots. When you knit the document, R runs each code chunk in order
-and places its output—including results, tables, and plots—directly
-below the corresponding code.</p>
-<p>For all AI-related portions of this assignment, you must use
-Microsoft Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
-UCLA logon credentials. UCLA provides the basic version of Copilot at no
-cost. Although you may have another large language model that you
-prefer, requiring everyone to use the same tool makes students’
-experiences and AI-generated responses as comparable as possible and
-promotes fairness across the class.</p>
-</div>
-<div id="submitting-the-assignment" class="section level1">
-<h1>Submitting the Assignment</h1>
-<p>When you are finished, click the arrow next to the Knit button and
-select Knit to PDF. The PDF will be saved in the same folder as the .Rmd
-file. Upload that PDF to Gradescope. You can knit to HTML while working
-if you find its clickable table of contents more readable, but you must
-submit the PDF version.</p>
-<p><strong>The assignment is due Friday October 2 by 1:30 PM</strong>.
-The assignment is worth 16 points. Questions will be assigned a score of
-0 (no credit), 1 (partial credit), or a 2 (full credit).</p>
-</div>
-<div id="questions" class="section level1">
-<h1>Questions</h1>
-<div id="question-1-decisions-about-the-depression-sum-score" class="section level2">
-<h2>Question 1: Decisions About the Depression Sum Score</h2>
-<p>One of the main study variables, depressive symptoms, is measured by
-seven questionnaire items, each measuring a different aspect of the
-construct. Researchers often combine such items into a sum score
-representing each person’s overall level of depressive symptoms. Ask AI
-the following question:</p>
+<p>This is an independent worked solution based on the Week 0 assignment
+instructions, template, lab code, and data. The AI responses below are
+<strong>illustrative responses</strong>, not records of a Microsoft
+Copilot conversation. A student’s exact AI wording and code may differ
+while still meeting the assignment’s requirements.</p>
+<pre class="r"><code>file_url &lt;- &quot;https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment0.csv&quot;
+assign0 &lt;- read.csv(file_url, stringsAsFactors = TRUE)
+dim(assign0)</code></pre>
+<pre><code>[1] 275  18</code></pre>
+<div id="question-1-ai-prompt-for-sum-score" class="section level1">
+<h1>Question 1: AI Prompt for Sum Score</h1>
+<p><strong>Illustrative AI response to the assigned question.</strong>
+Decide which items belong in the composite, whether their directions
+agree or some need reversing, how to handle missing answers, and whether
+a sum or average is appropriate. State the permissible score range,
+store the result as a new column, and verify that the computation
+follows those decisions. Here, all seven <code>Depress</code> items
+belong to the sum, higher values indicate more depressive symptoms, and
+the assignment requires an all-seven-items rule: any missing item makes
+the sum missing. With seven items scored 1–4, a complete sum can range
+from 7 to 28.</p>
+<p><strong>Self-contained prompt to Copilot.</strong></p>
 <blockquote>
-<p>What decisions should a researcher make when using R to compute a sum
-score from multiple questionnaire items measuring the same
-construct?</p>
+<p>I have an R data frame named <code>assign0</code> with seven
+depression questionnaire items named <code>Depress1</code>,
+<code>Depress2</code>, <code>Depress3</code>, <code>Depress4</code>,
+<code>Depress5</code>, <code>Depress6</code>, and <code>Depress7</code>.
+Write R code that adds a numeric column named <code>Depression</code> to
+<code>assign0</code>. For each participant (row), sum all seven items.
+If even one of the seven items is missing, make that participant’s
+<code>Depression</code> value <code>NA</code>; do not sum the available
+items. Show only runnable base-R code, using the exact data-frame and
+variable names above.</p>
 </blockquote>
-<p>In the next question, you will compute the <code>Depression</code>
-sum score. Most of AI’s recommendations may not be relevant or possible
-to evaluate here—for example, whether the items form a single dimension.
-Identify those that dictate how the sum score should be computed, and
-briefly explain why you selected them.</p>
-<p>Your response should include 1) AI’s answer and 2) your
-explanation.</p>
+<p><strong>Suitable resulting R code.</strong></p>
+<pre class="r"><code>depression_items &lt;- paste0(&quot;Depress&quot;, 1:7)
+assign0$Depression &lt;- rowSums(assign0[, depression_items])</code></pre>
+<p><code>rowSums()</code> has <code>na.rm = FALSE</code> by default.
+Thus it returns <code>NA</code> for any row with a missing selected
+item. Explicitly specifying <code>na.rm = FALSE</code> would be equally
+correct.</p>
 </div>
-<div id="question-2-ai-prompt-for-sum-score" class="section level2">
-<h2>Question 2: AI Prompt for Sum Score</h2>
-<p>Using the decisions you identified in Question 1, write a
-self-contained prompt asking AI to generate R code that adds a sum score
-called <code>Depression</code> as a new variable in the
-<code>assign0</code> data frame. Some respondents did not answer all
-seven depression questionnaire items. Because a sum based on fewer than
-seven items would not be comparable to scores based on all seven, you
-should compute the <code>Depression</code> sum score only for
-participants who answered every item. The score should be missing (NA)
-otherwise. Make sure that your prompt provides the name of the data
-frame and the names of the variables you want in your audit. Without
-that, the AI will produce generic code that you need to modify.</p>
-<p>Your response should include: 1) your prompt, and 2) the resulting R
-code. Your response will be graded according to whether the prompt
-provides AI with the information necessary to create the requested
-variable correctly.</p>
+<div id="question-2-audit-the-sum-score-code" class="section level1">
+<h1>Question 2: Audit the Sum Score Code</h1>
+<p><strong>a. Select the items.</strong>
+<code>paste0(&quot;Depress&quot;, 1:7)</code> creates the seven exact column
+names. <code>assign0[, depression_items]</code> selects those seven
+columns from <code>assign0</code>. This avoids unintentionally including
+the six <code>Interf</code> items or another variable.</p>
+<p><strong>b. Sum within participant.</strong>
+<code>rowSums(assign0[, depression_items])</code> adds values across
+columns separately for each row, producing one sum per participant.
+<code>colSums()</code> would instead produce one total per item and
+would not answer the question.</p>
+<p><strong>c. Preserve missingness.</strong> Because
+<code>rowSums()</code> defaults to <code>na.rm = FALSE</code>, a missing
+value in any selected item yields <code>NA</code> for that row’s sum. No
+explicit missing-data condition is needed here. Using
+<code>na.rm = TRUE</code> would violate the all-seven-items requirement
+by producing partial sums.</p>
+<p><strong>d. Store the new variable.</strong> The left side,
+<code>assign0$Depression &lt;-</code>, places the 275 computed values in
+a column called <code>Depression</code> in the existing data frame.
+Without <code>assign0$</code>, the result would be a separate vector
+rather than a variable in <code>assign0</code>.</p>
 </div>
-<div id="question-3-audit-the-sum-score-code" class="section level2">
-<h2>Question 3: Audit the Sum Score Code</h2>
-<p>AI models are usually very good at coding, but they still produce
-error rates that are far too high to trust in a research setting. Thus,
-you should audit the AI-generated code. The first step is to educate
-yourself about the code the AI generated. The code to compute a sum
-score involves four key ingredients:</p>
-<ol style="list-style-type: decimal">
-<li>Select <code>Depress1</code> to <code>Depress7</code>.</li>
-<li>Sum the seven variables separately for each participant.</li>
-<li>Produce a missing sum score (NA) if any of the seven items are
-missing.</li>
-<li>Add the resulting sum score named <code>Depression</code> to the
-data frame.</li>
-</ol>
-<p>For each of the four ingredients, describe which chunk of R code is
-responsible for carrying out that task. Some of these operations are
-carried out by a function’s default behavior rather than by an explicit
-argument; where that is the case, name the function and explain what its
-default does. If the code does not perform one of these operations, or
-performs it incorrectly, say so and explain what it does instead. Your
-response should address all four components.</p>
-</div>
-<div id="question-4-ai-prompt-for-verification-checks" class="section level2">
-<h2>Question 4: AI Prompt for Verification Checks</h2>
-<p>Next, you will perform verification checks. Continue the same AI
-conversation. Ask AI the following question:</p>
+<div id="question-3-ai-prompt-for-verification-checks" class="section level1">
+<h1>Question 3: AI Prompt for Verification Checks</h1>
+<p><strong>Illustrative AI response to the assigned question.</strong>
+Check that the pattern of missing sums matches the pattern of incomplete
+item responses. Separately, recalculate totals for participants with all
+seven items and compare them with the stored scores. These checks target
+different errors: incorrect missing-data handling and incorrect
+arithmetic/item selection. A possible third check is that complete sums
+lie between 7 and 28; that range check is useful but less diagnostic
+than the first two.</p>
+<p><strong>Self-contained prompt to Copilot.</strong></p>
 <blockquote>
-<p>What checks can I perform in R to verify that the
-<code>Depression</code> sum score was computed correctly?</p>
+<p>In the R data frame <code>assign0</code>, the seven item columns are
+exactly <code>Depress1</code> through <code>Depress7</code>, and the new
+sum-score column is <code>Depression</code>. The intended rule is to sum
+all seven items within each row only when every item is observed;
+otherwise <code>Depression</code> must be <code>NA</code>. Write
+runnable base-R code for two different checks. Check 1 must compare item
+completeness with whether <code>Depression</code> is missing, report the
+cross-tabulation, and indicate whether any row violates the rule. Check
+2 must independently recompute the seven-item sum for complete rows,
+report whether every stored <code>Depression</code> value agrees with
+that recomputation, and show any mismatched row numbers. Use the exact
+data-frame and column names; do not modify <code>assign0</code>.</p>
 </blockquote>
-<p>Review AI’s recommendations and select two checks that assess
-different possible errors in the computation of the sum score. Then
-write a self-contained prompt asking AI to generate R code that performs
-both checks. Make sure that your prompt provides the name of the data
-frame and the names of the variables you want in your audit. Without
-that, the AI will produce generic code that you need to modify.</p>
-<p>Your response should include: 1) the AI’s answer to your question, 2)
-your prompt, and 3) the resulting R code. Your response will be graded
-according to whether the prompt provides AI with the information
-necessary to perform the verification steps correctly.</p>
+<p><strong>Suitable resulting R code and verification
+results.</strong></p>
+<pre class="r"><code>items_to_check &lt;- assign0[, paste0(&quot;Depress&quot;, 1:7)]
+complete_items &lt;- complete.cases(items_to_check)
+
+# Check 1: missingness rule
+table(ItemResponsesComplete = complete_items,
+      DepressionMissing = is.na(assign0$Depression))</code></pre>
+<pre><code>                     DepressionMissing
+ItemResponsesComplete FALSE TRUE
+                FALSE     0   10
+                TRUE    265    0</code></pre>
+<pre class="r"><code>missingness_ok &lt;- identical(is.na(assign0$Depression), !complete_items)
+missingness_ok</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code># Check 2: sums for rows with all seven items
+independent_sums &lt;- apply(items_to_check[complete_items, , drop = FALSE],
+                          1, sum)
+sum_mismatches &lt;- which(
+  complete_items &amp;
+    !is.na(assign0$Depression) &amp;
+    assign0$Depression != rowSums(items_to_check)
+)
+sum_mismatches</code></pre>
+<pre><code>integer(0)</code></pre>
+<pre class="r"><code>all_sums_match &lt;- length(sum_mismatches) == 0L &amp;&amp;
+  isTRUE(all.equal(
+    unname(assign0$Depression[complete_items]),
+    unname(independent_sums),
+    check.attributes = FALSE
+  ))
+all_sums_match</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<p>The cross-tabulation should show 265 complete cases with nonmissing
+sums and 10 incomplete cases with missing sums; the two off-diagonal
+cells should be zero. <code>missingness_ok</code> and
+<code>all_sums_match</code> should both be <code>TRUE</code>, and
+<code>sum_mismatches</code> should be <code>integer(0)</code>.</p>
 </div>
-<div id="question-5-explain-the-verification-code" class="section level2">
-<h2>Question 5: Explain the Verification Code</h2>
-<p>Again, you should audit the AI-generated code by educating yourself
-about the syntax it produced. Suppose you were tasked with creating a
-documented codebook for the data in your lab. Write a brief
-(one-paragraph) explanation of each verification check that would be
-suitable for such a codebook. A colleague who reads your paragraph but
-not the code should be able to state what the check is looking for, how
-the code accomplishes it, and what result would indicate that the sum
-score was computed incorrectly. Your response should include a paragraph
-for each of your two checks.</p>
+<div id="question-4-explain-the-verification-code" class="section level1">
+<h1>Question 4: Explain the Verification Code</h1>
+<p><strong>Check 1.</strong> <code>items_to_check</code> isolates the
+seven item columns. <code>complete.cases(items_to_check)</code> gives
+one TRUE/FALSE value per participant, indicating whether all seven
+answers are present. <code>is.na(assign0$Depression)</code> gives one
+TRUE/FALSE value per participant for whether the computed sum is
+missing. <code>table()</code> crosses these two statuses: a correct
+result places every complete respondent in the “sum observed” cell and
+every incomplete respondent in the “sum missing” cell.
+<code>identical(is.na(assign0$Depression), !complete_items)</code> tests
+this expected row-by-row correspondence and returns a single logical
+result.</p>
+<p><strong>Check 2.</strong> The bracket expression keeps only rows with
+complete item data while retaining the seven-column matrix even if the
+subset becomes small (<code>drop = FALSE</code>).
+<code>apply(..., 1, sum)</code> independently sums across each retained
+row; the <code>1</code> specifies rows. <code>sum_mismatches</code>
+identifies rows where an observed stored score disagrees with a
+seven-item recomputation. <code>all.equal()</code> compares the
+independently obtained totals with the stored <code>Depression</code>
+values for all complete rows, while <code>isTRUE()</code> turns that
+comparison into a single TRUE/FALSE result. The final result requires
+both an empty mismatch list and equality of the two sets of sums. This
+check catches wrong arithmetic or the wrong item set even if the
+missing-data rule in Check 1 was followed.</p>
 </div>
-<div id="question-6-ai-prompt-for-clinical-cutoff" class="section level2">
-<h2>Question 6: AI Prompt for Clinical Cutoff</h2>
-<p>With this particular depression inventory, researchers routinely
-interpret a value of 17 or higher as indicating clinically elevated
-symptoms. Recode the <code>Depression</code> sum score into a new binary
-variable called <code>ClinicalDep</code> that captures whether or not a
-person is at or above the clinical cutoff. This new variable should
-implement the following coding scheme: 0 = below the cutoff, 1 = at or
-above the cutoff, NA whenever the <code>Depression</code> sum score
-being recoded is missing. Write a self-contained prompt asking AI to
-generate R code that adds the new variable to the <code>assign0</code>
-data frame and provides at least one check to verify the computations.
-Make sure that your prompt provides the name of the data frame and the
-names of the variables you want in your audit. Without that, the AI will
-produce generic code that you need to modify.</p>
-<p>Your response should include: 1) your prompt, and 2) AI’s resulting R
-code. Your response will be graded according to whether the prompt
-provides AI with the information necessary to perform the computation
-and verification steps correctly.</p>
+<div id="question-5-ai-prompt-for-clinical-cutoff" class="section level1">
+<h1>Question 5: AI Prompt for Clinical Cutoff</h1>
+<p><strong>Self-contained prompt to Copilot.</strong></p>
+<blockquote>
+<p>I have an R data frame named <code>assign0</code> with a numeric
+<code>Depression</code> sum score. Write runnable base-R code to add a
+binary numeric column <code>ClinicalDep</code>: assign 0 when
+<code>Depression</code> is below 17, assign 1 when
+<code>Depression</code> is 17 or higher, and retain <code>NA</code> when
+<code>Depression</code> is missing. Include a verification table
+crossing the cutoff categories with <code>ClinicalDep</code>, including
+missing values, and checks that specifically confirm the 16/17 boundary
+and the handling of missing scores. Use those exact column names. Do not
+convert <code>ClinicalDep</code> to a factor yet.</p>
+</blockquote>
+<p><strong>Suitable resulting R code and checks.</strong></p>
+<pre class="r"><code>assign0$ClinicalDep &lt;- ifelse(
+  is.na(assign0$Depression), NA_integer_,
+  ifelse(assign0$Depression &gt;= 17, 1L, 0L)
+)
+
+cutoff_category &lt;- ifelse(
+  is.na(assign0$Depression), &quot;Missing&quot;,
+  ifelse(assign0$Depression &gt;= 17, &quot;17 or higher&quot;, &quot;Below 17&quot;)
+)
+table(CutoffCategory = cutoff_category,
+      ClinicalDep = assign0$ClinicalDep,
+      useNA = &quot;ifany&quot;)</code></pre>
+<pre><code>              ClinicalDep
+CutoffCategory   0   1 &lt;NA&gt;
+  17 or higher   0  88    0
+  Below 17     177   0    0
+  Missing        0   0   10</code></pre>
+<pre class="r"><code>table(assign0$ClinicalDep, useNA = &quot;ifany&quot;)</code></pre>
+<pre><code>
+   0    1 &lt;NA&gt; 
+ 177   88   10 </code></pre>
+<pre class="r"><code>all(assign0$ClinicalDep[which(assign0$Depression == 16)] == 0L)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code>all(assign0$ClinicalDep[which(assign0$Depression == 17)] == 1L)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code>identical(is.na(assign0$ClinicalDep), is.na(assign0$Depression))</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<p>Expected counts are 177 below the cutoff, 88 at or above it, and 10
+missing. In these data, 13 participants score exactly 16 and receive 0;
+11 score exactly 17 and receive 1. All three logical checks should be
+<code>TRUE</code>.</p>
 </div>
-<div id="question-7-convert-binary-variables-to-factors" class="section level2">
-<h2>Question 7: Convert Binary Variables to Factors</h2>
-<p>After adding the new variable, the data frame includes three binary
-categorical variables scored 0 and 1 (<code>Female</code>,
-<code>Treatment</code>, and <code>ClinicalDep</code>). Internally, R
-stores these as numeric variables. Convert all three variables to
-“factors” (the term R uses for nominal or categorical variables). For
-<code>Female</code> and <code>Treatment</code>, assign the labels from
-the data information table near the top of the assignment sheet. For the
-new <code>ClinicalDep</code> variable, use “Subclinical” and “Clinical”
-as the labels. Your task for this question is to assemble the R code
-that converts the binary variables to factors.</p>
+<div id="question-6-convert-binary-variables-to-factors" class="section level1">
+<h1>Question 6: Convert Binary Variables to Factors</h1>
+<p>Saving the original codes before conversion makes the Q7 label audit
+unambiguous. The required result is still three labeled columns in
+<code>assign0</code>.</p>
+<pre class="r"><code>original_codes &lt;- assign0[, c(&quot;Female&quot;, &quot;Treatment&quot;, &quot;ClinicalDep&quot;)]
+
+assign0$Female &lt;- factor(assign0$Female,
+                         levels = c(0, 1),
+                         labels = c(&quot;Male&quot;, &quot;Female&quot;))
+assign0$Treatment &lt;- factor(assign0$Treatment,
+                            levels = c(0, 1),
+                            labels = c(&quot;Control&quot;, &quot;Treatment&quot;))
+assign0$ClinicalDep &lt;- factor(assign0$ClinicalDep,
+                              levels = c(0, 1),
+                              labels = c(&quot;Subclinical&quot;, &quot;Clinical&quot;))</code></pre>
+<p>A correct conversion preserves missing <code>ClinicalDep</code>
+values. The factor counts should be 179 Male and 96 Female; 142 Control
+and 133 Treatment; and 177 Subclinical, 88 Clinical, and 10 missing.</p>
 </div>
-<div id="question-8-ai-review-of-factor-code" class="section level2">
-<h2>Question 8: AI Review of Factor Code</h2>
-<p>After converting the three binary variables to factor variables,
-write a self-contained prompt asking AI to review your code and
-determine whether it correctly performed the requested conversions. Also
-ask AI to provide R code for tables or other output that can verify that
-the intended labels were assigned correctly. Assume that AI cannot see
-the assignment sheet or your data and therefore must rely entirely on
-the information in your prompt. Run the verification code suggested by
-AI.</p>
-<p>Your response should include: 1) your R code, 2) your prompt, 3) the
-AI’s response and code, and 4) your verification results. Your response
-will be graded according to whether the prompt provides AI with the
-information necessary to check your work and produce verification
-results.</p>
-</div>
+<div id="question-7-ai-review-of-factor-code" class="section level1">
+<h1>Question 7: AI Review of Factor Code</h1>
+<p><strong>Self-contained prompt to Copilot.</strong></p>
+<blockquote>
+<p>Review the R code below. I have an R data frame <code>assign0</code>
+with binary variables <code>Female</code>, <code>Treatment</code>, and
+<code>ClinicalDep</code>, originally coded 0/1. The intended mappings
+are <code>Female</code>: 0 = Male, 1 = Female; <code>Treatment</code>: 0
+= Control, 1 = Treatment; <code>ClinicalDep</code>: 0 = Subclinical, 1 =
+Clinical. Missing <code>ClinicalDep</code> values must remain missing.
+Immediately before conversion, I saved the three numeric variables in
+<code>original_codes &lt;- assign0[, c(&quot;Female&quot;, &quot;Treatment&quot;, &quot;ClinicalDep&quot;)]</code>.
+Determine whether each conversion correctly attaches the intended
+labels. Then give me runnable base-R code that cross-tabulates each
+original numeric variable against its converted factor, including
+missing values, so that I can verify the code-to-label mappings and
+counts. Do not assume that you can see my assignment sheet or data.</p>
+<p><code>assign0$Female &lt;- factor(assign0$Female, levels = c(0, 1), labels = c(&quot;Male&quot;, &quot;Female&quot;))</code></p>
+<p><code>assign0$Treatment &lt;- factor(assign0$Treatment, levels = c(0, 1), labels = c(&quot;Control&quot;, &quot;Treatment&quot;))</code></p>
+<p><code>assign0$ClinicalDep &lt;- factor(assign0$ClinicalDep, levels = c(0, 1), labels = c(&quot;Subclinical&quot;, &quot;Clinical&quot;))</code></p>
+</blockquote>
+<p><strong>Illustrative AI review.</strong> All three calls correctly
+map numeric 0 and 1 to the specified labels. <code>factor()</code>
+retains missing input values as missing, so the 10 missing
+<code>ClinicalDep</code> scores should remain <code>NA</code>. The most
+direct verification is to cross-tabulate each saved original code
+against its corresponding factor. Correct tables have entries only in
+the intended code-to-label cells.</p>
+<p><strong>Suitable AI-suggested verification code and
+results.</strong></p>
+<pre class="r"><code>table(OriginalFemale = original_codes$Female,
+      LabeledFemale = assign0$Female, useNA = &quot;ifany&quot;)</code></pre>
+<pre><code>              LabeledFemale
+OriginalFemale Male Female
+             0  179      0
+             1    0     96</code></pre>
+<pre class="r"><code>table(OriginalTreatment = original_codes$Treatment,
+      LabeledTreatment = assign0$Treatment, useNA = &quot;ifany&quot;)</code></pre>
+<pre><code>                 LabeledTreatment
+OriginalTreatment Control Treatment
+                0     142         0
+                1       0       133</code></pre>
+<pre class="r"><code>table(OriginalClinicalDep = original_codes$ClinicalDep,
+      LabeledClinicalDep = assign0$ClinicalDep, useNA = &quot;ifany&quot;)</code></pre>
+<pre><code>                   LabeledClinicalDep
+OriginalClinicalDep Subclinical Clinical &lt;NA&gt;
+               0            177        0    0
+               1              0       88    0
+               &lt;NA&gt;           0        0   10</code></pre>
+<pre class="r"><code>is.factor(assign0$Female)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code>is.factor(assign0$Treatment)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<pre class="r"><code>is.factor(assign0$ClinicalDep)</code></pre>
+<pre><code>[1] TRUE</code></pre>
+<p>Each 0 maps only to its first intended label and each 1 only to its
+second. The <code>ClinicalDep</code> table also shows the 10 missing
+cases in the <code>NA</code>-to-<code>NA</code> cell. All three factor
+checks should be <code>TRUE</code>.</p>
 </div>
 
 
