@@ -1650,14 +1650,9 @@ everything.</td>
 0 Assignment Template.Rmd</a>) and save it to your computer. Open the
 file in RStudio and enter your name on the <code>author:</code> line
 near the top of the file.</p>
-<p>The template loads the data directly from the course GitHub
-repository. You do not need to download a separate data file, but you
-must be connected to the internet when reading the data. The template
-file also contains alternate code that reads the data from your local
-machine if needed.</p>
 <p>The template contains a labeled section for each question, and it
-marks every place where you need to respond in caps (e.g., PASTE AI’S
-RESPONSE HERE, PASTE YOUR PROMPT HERE, etc.). Do not delete, rename, or
+marks every place where you need to respond in caps (e.g., TYPE YOUR
+CODE HERE, PASTE AI’S CODE HERE, etc.). Do not delete, rename, or
 reorder the section headings, as they are used to match your responses
 to the assignment questions. You do not need to copy output or take
 screenshots. When you knit the document, R runs each code chunk in order
@@ -1670,25 +1665,62 @@ cost. Although you may have another large language model that you
 prefer, requiring everyone to use the same tool makes students’
 experiences and AI-generated responses as comparable as possible and
 promotes fairness across the class.</p>
+<p>Before you begin the assignment, start a new chat in Copilot and use
+that single chat for everything in this assignment. If you close the
+window or take a break, reopen the same chat from Copilot’s chat history
+rather than starting a new one. Your prompts and AI’s responses are not
+pasted into the individual questions. Instead, the final question asks
+you to paste the complete chat log at the end of the template so that
+graders can locate the prompt and response for each question there. It
+is very important that you complete the assignment within the same
+chat.</p>
+<p>AI’s first response is often generic or partly wrong, especially when
+a prompt leaves something out. When that happens, revise your prompt and
+ask again rather than fixing the code by hand. If the code produces an
+error when you run it, paste the error message into the same chat and
+ask AI to explain what went wrong and to correct the code. Revising
+prompts and troubleshooting errors are normal parts of working with AI,
+and they are skills this course develops. Again, any revisions to your
+prompts must be made within the same chat, so that the full sequence of
+attempts appears in your chat log. You will be graded on your final
+prompt for each question, not on how many attempts it took.</p>
 </div>
 <div id="submitting-the-assignment" class="section level1">
 <h1>Submitting the Assignment</h1>
-<p>When you are finished, click the arrow next to the Knit button and
-select Knit to PDF. The PDF will be saved in the same folder as the .Rmd
-file. Upload that PDF to Gradescope. You can knit to HTML while working
-if you find its clickable table of contents more readable, but you must
-submit the PDF version.</p>
+<p>You import the data yourself in Question 1 using the URL above, so
+you must be connected to the internet when knitting. When you are
+finished, click the arrow next to the Knit button and select Knit to
+PDF. The PDF will be saved in the same folder as the .Rmd file. Upload
+that PDF to Gradescope. You can knit to HTML while working if you find
+its clickable table of contents more readable, but you must submit the
+PDF version.</p>
 <p><strong>The assignment is due Friday October 2 by 1:30 PM</strong>.
-The assignment is worth 16 points. Questions will be assigned a score of
-0 (no credit), 1 (partial credit), or a 2 (full credit).</p>
+The assignment is worth 18 points. Questions 1 through 9 will be
+assigned a score of 0 (no credit), 1 (partial credit), or a 2 (full
+credit). Question 10 is not graded.</p>
 </div>
 <div id="questions" class="section level1">
 <h1>Questions</h1>
-<div id="question-1-decisions-about-the-depression-sum-score" class="section level2">
-<h2>Question 1: Decisions About the Depression Sum Score</h2>
-<p>One of the main study variables, depressive symptoms, is measured by
-seven questionnaire items, each measuring a different aspect of the
-construct. Researchers often combine such items into a sum score
+<div id="question-1-import-and-summarize-the-data" class="section level2">
+<h2>Question 1: Import and Summarize the Data</h2>
+<ol style="list-style-type: decimal">
+<li>Use the <code>library()</code> function to load the
+<code>summarytools</code> package. 2) Use the URL provided above to
+import <code>assignment0.csv</code> into an R data frame named
+<code>assign0</code>. 3) Use the <code>dfSummary()</code> function from
+the <code>summarytools</code> package to obtain numeric and visual
+summaries of all variables in the data frame. You should modify code
+presented in the <a href="https://craigenders.github.io/psych250a/labs/Week%200%20Lab.%20Introduction%20to%20R.html">Week
+0 lab</a> and code you developed as part of the Week 0 Data Blitz.</li>
+</ol>
+<p>Your response should include your R code.</p>
+</div>
+<div id="question-2-decisions-about-the-depression-sum-score" class="section level2">
+<h2>Question 2: Decisions About the Depression Sum Score</h2>
+<p>Start a new Copilot chat for this assignment before asking AI
+anything. One of the main study variables, depressive symptoms, is
+measured by seven questionnaire items, each measuring a different aspect
+of the construct. Researchers often combine such items into a sum score
 representing each person’s overall level of depressive symptoms. Ask AI
 the following question:</p>
 <blockquote>
@@ -1701,12 +1733,12 @@ sum score. Most of AI’s recommendations may not be relevant or possible
 to evaluate here—for example, whether the items form a single dimension.
 Identify those that dictate how the sum score should be computed, and
 briefly explain why you selected them.</p>
-<p>Your response should include 1) AI’s answer and 2) your
-explanation.</p>
+<p>Your response should include your explanation. AI’s answer will
+appear in your chat log in Question 10.</p>
 </div>
-<div id="question-2-ai-prompt-for-sum-score" class="section level2">
-<h2>Question 2: AI Prompt for Sum Score</h2>
-<p>Using the decisions you identified in Question 1, write a
+<div id="question-3-ai-prompt-for-sum-score" class="section level2">
+<h2>Question 3: AI Prompt for Sum Score</h2>
+<p>Using the decisions you identified in Question 2, write a
 self-contained prompt asking AI to generate R code that adds a sum score
 called <code>Depression</code> as a new variable in the
 <code>assign0</code> data frame. Some respondents did not answer all
@@ -1716,14 +1748,15 @@ should compute the <code>Depression</code> sum score only for
 participants who answered every item. The score should be missing (NA)
 otherwise. Make sure that your prompt provides the name of the data
 frame and the names of the variables you want in your audit. Without
-that, the AI will produce generic code that you need to modify.</p>
-<p>Your response should include: 1) your prompt, and 2) the resulting R
-code. Your response will be graded according to whether the prompt
-provides AI with the information necessary to create the requested
-variable correctly.</p>
+that, AI will produce generic code, and you will need to revise your
+prompt.</p>
+<p>Your response should include the resulting R code; your prompt will
+appear in your chat log in Question 10. Your response will be graded
+according to whether the prompt provides AI with the information
+necessary to create the requested variable correctly.</p>
 </div>
-<div id="question-3-audit-the-sum-score-code" class="section level2">
-<h2>Question 3: Audit the Sum Score Code</h2>
+<div id="question-4-audit-the-sum-score-code" class="section level2">
+<h2>Question 4: Audit the Sum Score Code</h2>
 <p>AI models are usually very good at coding, but they still produce
 error rates that are far too high to trust in a research setting. Thus,
 you should audit the AI-generated code. The first step is to educate
@@ -1745,8 +1778,8 @@ default does. If the code does not perform one of these operations, or
 performs it incorrectly, say so and explain what it does instead. Your
 response should address all four components.</p>
 </div>
-<div id="question-4-ai-prompt-for-verification-checks" class="section level2">
-<h2>Question 4: AI Prompt for Verification Checks</h2>
+<div id="question-5-ai-prompt-for-verification-checks" class="section level2">
+<h2>Question 5: AI Prompt for Verification Checks</h2>
 <p>Next, you will perform verification checks. Continue the same AI
 conversation. Ask AI the following question:</p>
 <blockquote>
@@ -1758,14 +1791,15 @@ different possible errors in the computation of the sum score. Then
 write a self-contained prompt asking AI to generate R code that performs
 both checks. Make sure that your prompt provides the name of the data
 frame and the names of the variables you want in your audit. Without
-that, the AI will produce generic code that you need to modify.</p>
-<p>Your response should include: 1) the AI’s answer to your question, 2)
-your prompt, and 3) the resulting R code. Your response will be graded
-according to whether the prompt provides AI with the information
-necessary to perform the verification steps correctly.</p>
+that, AI will produce generic code, and you will need to revise your
+prompt.</p>
+<p>Your response should include the resulting R code; AI’s answer and
+your prompt will appear in your chat log in Question 10. Your response
+will be graded according to whether the prompt provides AI with the
+information necessary to perform the verification steps correctly.</p>
 </div>
-<div id="question-5-explain-the-verification-code" class="section level2">
-<h2>Question 5: Explain the Verification Code</h2>
+<div id="question-6-explain-the-verification-code" class="section level2">
+<h2>Question 6: Explain the Verification Code</h2>
 <p>Again, you should audit the AI-generated code by educating yourself
 about the syntax it produced. Suppose you were tasked with creating a
 documented codebook for the data in your lab. Write a brief
@@ -1776,28 +1810,21 @@ the code accomplishes it, and what result would indicate that the sum
 score was computed incorrectly. Your response should include a paragraph
 for each of your two checks.</p>
 </div>
-<div id="question-6-ai-prompt-for-clinical-cutoff" class="section level2">
-<h2>Question 6: AI Prompt for Clinical Cutoff</h2>
+<div id="question-7-recode-depression-into-a-binary-variable" class="section level2">
+<h2>Question 7: Recode Depression into a Binary Variable</h2>
 <p>With this particular depression inventory, researchers routinely
 interpret a value of 17 or higher as indicating clinically elevated
 symptoms. Recode the <code>Depression</code> sum score into a new binary
-variable called <code>ClinicalDep</code> that captures whether or not a
-person is at or above the clinical cutoff. This new variable should
-implement the following coding scheme: 0 = below the cutoff, 1 = at or
-above the cutoff, NA whenever the <code>Depression</code> sum score
-being recoded is missing. Write a self-contained prompt asking AI to
-generate R code that adds the new variable to the <code>assign0</code>
-data frame and provides at least one check to verify the computations.
-Make sure that your prompt provides the name of the data frame and the
-names of the variables you want in your audit. Without that, the AI will
-produce generic code that you need to modify.</p>
-<p>Your response should include: 1) your prompt, and 2) AI’s resulting R
-code. Your response will be graded according to whether the prompt
-provides AI with the information necessary to perform the computation
-and verification steps correctly.</p>
+variable called <code>ClinicalDep</code> in the <code>assign0</code>
+data frame, coded 0 = below the cutoff, 1 = at or above the cutoff, and
+NA whenever the <code>Depression</code> sum score is missing. Modify the
+code from the <a href="https://craigenders.github.io/psych250a/labs/Week%200%20Lab.%20Introduction%20to%20R.html#recoding-a-variable">Recoding
+a Variable</a> section of the Week 0 lab and the code you developed as
+part of the Week 0 Data Blitz.</p>
+<p>Your response should include your R code.</p>
 </div>
-<div id="question-7-convert-binary-variables-to-factors" class="section level2">
-<h2>Question 7: Convert Binary Variables to Factors</h2>
+<div id="question-8-convert-binary-variables-to-factors" class="section level2">
+<h2>Question 8: Convert Binary Variables to Factors</h2>
 <p>After adding the new variable, the data frame includes three binary
 categorical variables scored 0 and 1 (<code>Female</code>,
 <code>Treatment</code>, and <code>ClinicalDep</code>). Internally, R
@@ -1808,22 +1835,39 @@ the data information table near the top of the assignment sheet. For the
 new <code>ClinicalDep</code> variable, use “Subclinical” and “Clinical”
 as the labels. Your task for this question is to assemble the R code
 that converts the binary variables to factors.</p>
+<p>Your response should include your R code.</p>
 </div>
-<div id="question-8-ai-review-of-factor-code" class="section level2">
-<h2>Question 8: AI Review of Factor Code</h2>
-<p>After converting the three binary variables to factor variables,
-write a self-contained prompt asking AI to review your code and
-determine whether it correctly performed the requested conversions. Also
+<div id="question-9-ai-review-of-recoding-and-factor-code" class="section level2">
+<h2>Question 9: AI Review of Recoding and Factor Code</h2>
+<p>After completing Questions 7 and 8, write a self-contained prompt
+asking AI to review your recoding and factor-conversion code and
+determine whether it correctly performed the requested operations. Also
 ask AI to provide R code for tables or other output that can verify that
-the intended labels were assigned correctly. Assume that AI cannot see
-the assignment sheet or your data and therefore must rely entirely on
-the information in your prompt. Run the verification code suggested by
-AI.</p>
-<p>Your response should include: 1) your R code, 2) your prompt, 3) the
-AI’s response and code, and 4) your verification results. Your response
-will be graded according to whether the prompt provides AI with the
-information necessary to check your work and produce verification
-results.</p>
+the cutoff was applied correctly and the intended labels were assigned.
+AI cannot see the assignment sheet or your data, so your prompt must
+include two things: a description of what the code is supposed to do
+(the cutoff rule, how missing values should be handled, and which label
+each 0 and 1 should receive), and the code itself. Without the
+description, AI can only tell you what your code does, not whether it
+does what you intended. Run the verification code suggested by AI, then
+write a brief statement describing what the output shows and whether it
+confirms that your code is correct. If AI’s review flagged a problem,
+state whether you agree and what you changed.</p>
+<p>Your response should include: 1) AI’s verification code and its
+output, and 2) your statement about what the verification shows; your
+prompt (including your code) and AI’s response will appear in your chat
+log in Question 10.</p>
+</div>
+<div id="question-10-chat-log" class="section level2">
+<h2>Question 10: Chat Log</h2>
+<p>This question is not graded. It collects your prompts and AI’s
+responses in one place so that graders can locate them for Questions 2
+through 9. After completing Question 9, click anywhere in the Copilot
+conversation, select the entire chat (Ctrl+A on Windows, Cmd+A on Mac),
+copy it, and paste it between the two lines of backticks in the Question
+10 section of the template. The pasted text will show “You said:” before
+your prompts and “Copilot said:” before AI’s responses. When you are
+done, knit the file to a PDF before submitting.</p>
 </div>
 </div>
 

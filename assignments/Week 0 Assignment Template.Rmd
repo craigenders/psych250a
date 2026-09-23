@@ -39,40 +39,22 @@ options(scipen = 999, width = 80)
 
 ```{r}
 library(psych)
-library(summarytools)
 ```
+
+# Question 1: Import and Summarize the Data
 
 ```{r}
-# Reads the data from the course repository. Requires an internet connection.
-file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment0.csv"
-assign0 <- read.csv(file_url, stringsAsFactors = TRUE)
-
-# To work offline instead, save assignment0.csv to the same folder as this script
-# Comment out the lines that read the data from online repository
-# Remove the hashtag from the three lines below
-# library(rstudioapi)
-# setwd(dirname(getActiveDocumentContext()$path))
-# assign0 <- read.csv("assignment0.csv", stringsAsFactors = TRUE)
+# TYPE YOUR CODE HERE
 ```
 
-# Question 1: Decisions About the Depression Sum Score
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 2: Decisions About the Depression Sum Score
 
 Your explanation of which recommendations dictate how the sum score is computed, and why:
 
 TYPE YOUR ANSWER HERE
 
-# Question 2: AI Prompt for Sum Score
+# Question 3: AI Prompt for Sum Score
 
-
-Your prompt:
-
-PASTE YOUR PROMPT HERE
 
 AI's code:
 
@@ -80,7 +62,7 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 3: Audit the Sum Score Code
+# Question 4: Audit the Sum Score Code
 
 
 a. Which part of the code selects `Depress1` to `Depress7`?
@@ -100,18 +82,8 @@ d. Which part adds the sum score named `Depression` to the data frame?
 
 TYPE YOUR ANSWER HERE
 
-# Question 4: AI Prompt for Verification Checks
+# Question 5: AI Prompt for Verification Checks
 
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
-
-Your prompt:
-
-PASTE YOUR PROMPT HERE
 
 AI's code:
 
@@ -119,7 +91,7 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 5: Explain the Verification Code
+# Question 6: Explain the Verification Code
 
 
 Codebook paragraph for Check 1:
@@ -130,20 +102,7 @@ Codebook paragraph for Check 2:
 
 TYPE YOUR ANSWER HERE
 
-# Question 6: AI Prompt for Clinical Cutoff
-
-
-Your prompt:
-
-PASTE YOUR PROMPT HERE
-
-AI's code:
-
-```{r}
-# PASTE AI'S CODE HERE
-```
-
-# Question 7: Convert Binary Variables to Factors
+# Question 7: Recode Depression into a Binary Variable
 
 
 Your code:
@@ -152,21 +111,30 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 8: AI Review of Factor Code
+# Question 8: Convert Binary Variables to Factors
 
 
-Your prompt:
+Your code:
 
-PASTE YOUR PROMPT HERE
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
+```{r}
+# TYPE YOUR CODE HERE
 ```
 
-AI's code:
+# Question 9: AI Review of Recoding and Factor Code
+
+
+AI's verification code:
 
 ```{r}
 # PASTE AI'S CODE HERE
 ```
+
+Your statement about what the verification shows:
+
+TYPE YOUR ANSWER HERE
+
+# Question 10: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````
