@@ -24,14 +24,17 @@ ClinicalTrial <- read.csv(filepath, stringsAsFactors = TRUE)
 
 # Option 2: Read From the Folder That Contains the Script ----
 
+# this block is switched off because the data file is not in the same folder as this script
+# to use it, save the data file next to this script and remove the # from the three code lines below
+
 # set the working directory to the folder that contains this script
-setwd(dirname(getActiveDocumentContext()$path))
+# setwd(dirname(getActiveDocumentContext()$path))
 
 # print the working directory to confirm the location
-getwd()
+# getwd()
 
 # read ClinicalTrial.csv from the working directory into a data frame named ClinicalTrial
-ClinicalTrial <- read.csv("ClinicalTrial.csv", stringsAsFactors = TRUE)
+# ClinicalTrial <- read.csv("ClinicalTrial.csv", stringsAsFactors = TRUE)
 
 # CONVERTING CATEGORICAL VARIABLES TO FACTORS ----
 

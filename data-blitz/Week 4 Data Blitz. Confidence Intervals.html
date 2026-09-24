@@ -12,7 +12,7 @@
 <meta name="author" content="Psych 250a" />
 
 
-<title>Week 3 Data Blitz. Sampling Error</title>
+<title>Week 4 Data Blitz. Confidence Intervals</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1502,9 +1502,10 @@ font-size: 0.95em;
 
 
 
-<h1 class="title toc-ignore">Week 3 Data Blitz. Sampling Error</h1>
+<h1 class="title toc-ignore">Week 4 Data Blitz. Confidence
+Intervals</h1>
 <h4 class="author">Psych 250a</h4>
-<h4 class="date">Friday October 16</h4>
+<h4 class="date">Friday October 23</h4>
 
 </div>
 
@@ -1519,9 +1520,25 @@ max-width: 1500px !important;
 </style>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>
-<p>The purpose of this activity is to use computer simulation to examine
-sampling errors. For illustration, we will use the
-<code>Cancer.csv</code> data file.</p>
+<p>The purpose of this activity is to use confidence intervals to draw
+conclusions about group differences. Specifically, your group will
+investigate whether groups defined by a categorical explanatory variable
+(also called an independent variable) differ on a numeric outcome
+variable (also called a dependent variable), using the mean and 95%
+confidence interval for each group. This activity extends the Week 2
+Data Blitz: you may reuse the research question, data set, and variables
+your group analyzed in Week 2, or choose new ones. As in Week 2, the
+categorical explanatory variable must identify three or more groups of
+people (do not use a variable with only two groups!).</p>
+<p>Four datasets are available, and each group may choose which one to
+analyze. Review the dataset descriptions and variable-information
+tables, and select a dataset containing a grouping variable and numeric
+outcome that your group finds interesting. Reading ahead, the first task
+asks your group to formulate a research question: Do groups defined by
+____ differ with respect to ____? The selection of the dataset and
+variables should occur alongside the development of that question.
+Again, you may reuse your research question from the Week 2 Data
+Blitz.</p>
 <p>For all AI-related portions of this activity, you must use Microsoft
 Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
 UCLA logon credentials. UCLA provides the basic version of Copilot at no
@@ -1530,24 +1547,112 @@ prefer, requiring everyone to use the same tool makes students’
 experiences and AI-generated responses as comparable as possible and
 promotes fairness across the class.</p>
 <p>After performing all of the data analysis tasks, you will use the
-provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%203%20Data%20Blitz%20Template.Rmd">Week
-3 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
-written explanations, AI prompts, R code, numerical results, graphs, and
-your reflection on AI. You may either develop your R code and written
-responses separately and paste them into the template when you are
-finished, or build the report in the template as you work. When you knit
-the file, all R results—including numerical output, tables, and
-graphs—will appear automatically. You only need to enter the R code in
-the appropriate code chunks.</p>
+provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%204%20Data%20Blitz%20Template.Rmd">Week
+4 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
+research question, AI prompts, written explanations, R code, numerical
+results, graphs, and your reflection on AI. You may either develop your
+R code and written responses separately and paste them into the template
+when you are finished, or build the report in the template as you work.
+When you knit the file, all R results—including numerical output,
+tables, and graphs—will appear automatically. You only need to enter the
+R code in the appropriate code chunks.</p>
 </div>
-<div id="data" class="section level1">
-<h1>Data</h1>
-<p>Uveal melanoma is a rare eye cancer that can threaten both vision and
-survival. These data are from a study that examined the predictive
-utility of visual impairment and optimism/pessimism on depressive
-symptoms in 299 adults undergoing diagnostic evaluation.</p>
+<div id="data-sets" class="section level1">
+<h1>Data Sets</h1>
+<p>The data set descriptions are given below.</p>
+<div id="alcohol.csv" class="section level2">
+<h2>Alcohol.csv</h2>
+<p>The data come from a national survey of 1,500 adults that measured
+patterns of cigarette and alcohol use, along with sociodemographic
+characteristics such as sex, age, and education. Respondents reported
+the ages at which they first tried cigarettes and alcohol and the number
+of days per month they currently smoke and drink. Drinking frequency is
+also represented as a categorical variable based on the number of
+drinking days per month.</p>
 <p>The URL for importing the data is:</p>
-<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Cancer.csv</code></pre>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Alcohol.csv</code></pre>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+<th align="left">Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>ID</code></td>
+<td align="left">Individual identifier</td>
+<td align="left">Integer index</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Male</code></td>
+<td align="left">Respondent sex</td>
+<td align="left">0 = Female<br>1 = Male</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Age</code></td>
+<td align="left">Age in years</td>
+<td align="left">Numeric (12 to 85)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>College</code></td>
+<td align="left">College education</td>
+<td align="left">0 = High school or less<br>1 = Some college or
+more</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>AgeTryCig</code></td>
+<td align="left">Age first tried cigarettes</td>
+<td align="left">Numeric (10 to 48)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>CigDays</code></td>
+<td align="left">Smoking days per month</td>
+<td align="left">Count (0 to 30)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>AgeTryAlc</code></td>
+<td align="left">Age first tried alcohol</td>
+<td align="left">Numeric (10 to 47)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>AlcDays</code></td>
+<td align="left">Drinking days per month</td>
+<td align="left">Count (0 to 30)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Drinker</code></td>
+<td align="left">Regular drinker status</td>
+<td align="left">0 = Nondrinker<br>1 = Drinker</td>
+</tr>
+<tr class="even">
+<td align="left"><code>DrinkFreq</code></td>
+<td align="left">Alcohol use frequency classification</td>
+<td align="left">0 = Nondrinker<br>1 = Occasional drinker<br>2 =
+Frequent drinker</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="ptsd.csv" class="section level2">
+<h2>PTSD.csv</h2>
+<p>People of color in the United States disproportionately experience
+trauma and posttraumatic stress disorder (PTSD). Pregnant women of color
+may be at particular risk because perinatal PTSD is associated with
+adverse maternal and child health outcomes. Because PTSD comprises
+distinct symptom dimensions, researchers may need to examine more than
+overall symptom severity. These data are from a study of 1,663 Latina,
+Black, and non-Hispanic White postpartum women in the United States that
+examined racial and ethnic differences across multiple dimensions of
+PTSD symptoms.</p>
+<p>The URL for importing the data is:</p>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/PTSD.csv</code></pre>
 <table>
 <colgroup>
 <col width="33%" />
@@ -1568,174 +1673,370 @@ symptoms in 299 adults undergoing diagnostic evaluation.</p>
 <td align="left">Integer index</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Diagnosis</code></td>
-<td align="left">Result of the diagnostic biopsy</td>
-<td align="left">0 = Non-malignant<br>1 = Malignant</td>
-</tr>
-<tr class="odd">
 <td align="left"><code>Age</code></td>
 <td align="left">Age in years</td>
-<td align="left">Numeric (19 to 91)</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Male</code></td>
-<td align="left">Respondent sex</td>
-<td align="left">0 = Female<br>1 = Male</td>
+<td align="left">Numeric (15 to 43)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Comorbids</code></td>
-<td align="left">Number of medical comorbidities</td>
-<td align="left">0 = None<br>1 = One<br>2 = Two or more</td>
+<td align="left"><code>Nativity</code></td>
+<td align="left">Country of birth</td>
+<td align="left">0 = US born<br>1 = Foreign born</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Optimism</code></td>
-<td align="left">LOT-R optimism composite (sum of 3 items)</td>
-<td align="left">Numeric (0 to 12)</td>
+<td align="left"><code>Race</code></td>
+<td align="left">Racial/ethnic identity</td>
+<td align="left">0 = Black<br>1 = Latina<br>2 = White</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Depression</code></td>
-<td align="left">CES-D depressive symptoms composite (sum of 20
-items)</td>
-<td align="left">Numeric (0 to 60)</td>
+<td align="left"><code>Education</code></td>
+<td align="left">Highest education</td>
+<td align="left">0 = Less than high school<br>1 = High school<br>2 =
+Some college<br>3 = BA or higher</td>
 </tr>
 <tr class="even">
-<td align="left"><code>VisImpair</code></td>
-<td align="left">MOOD-V visual impairment (transformed to 0–100)</td>
-<td align="left">Numeric (10 to 90)</td>
+<td align="left"><code>Poverty</code></td>
+<td align="left">Household poverty status</td>
+<td align="left">0 = Above poverty line<br>1 = Below poverty line</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Reexperiencing</code></td>
+<td align="left">PTSD re-experiencing symptom score</td>
+<td align="left">Numeric (3 to 25)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Avoidance</code></td>
+<td align="left">PTSD avoidance symptom score</td>
+<td align="left">Numeric (0 to 11)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>DysphoricArousal</code></td>
+<td align="left">PTSD dysphoric arousal symptom score</td>
+<td align="left">Numeric (1 to 16)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Numbing</code></td>
+<td align="left">PTSD emotional numbing symptom score</td>
+<td align="left">Numeric (4 to 23)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>AnxiousArousal</code></td>
+<td align="left">PTSD anxious arousal (hyperarousal) symptom score</td>
+<td align="left">Numeric (1 to 11)</td>
 </tr>
 </tbody>
 </table>
-<p>Using the <code>describe</code> function from the <code>psych</code>
-package in R produced the following table of descriptive statistics. You
-will focus on the <code>Depression</code> variable for this
-exercise.</p>
-<pre><code>            vars   n   mean    sd median min max range  skew kurtosis   se
-Participant    1 299 150.00 86.46    150   1 299   298  0.00    -1.21 5.00
-Diagnosis      2 299   0.36  0.48      0   0   1     1  0.59    -1.66 0.03
-Age            3 299  58.99 13.94     60  19  91    72 -0.33    -0.15 0.81
-Male           4 299   0.54  0.50      1   0   1     1 -0.15    -1.98 0.03
-Comorbids      5 299   0.94  0.74      1   0   2     2  0.10    -1.17 0.04
-Optimism       6 299   8.56  2.95      9   0  12    12 -0.77    -0.16 0.17
-Depression     7 299  14.85 11.44     11   0  60    60  1.46     1.97 0.66
-VisImpair      8 299  42.04 15.11     40  10  90    80  0.44    -0.02 0.87</code></pre>
+</div>
+<div id="smoking.csv" class="section level2">
+<h2>Smoking.csv</h2>
+<p>The data come from a national survey of young adults (N = 2,000) that
+measured smoking behavior and its sociodemographic correlates. Smoking
+intensity is captured by the number of cigarettes smoked per day.
+Background characteristics include age, sex, whether the respondent’s
+parents smoked, race/ethnicity, household income, and parental
+educational attainment.</p>
+<p>The URL for importing the data is:</p>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Smoking.csv</code></pre>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+<th align="left">Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>ID</code></td>
+<td align="left">Individual identifier</td>
+<td align="left">Integer index</td>
+</tr>
+<tr class="even">
+<td align="left"><code>CigsPerDay</code></td>
+<td align="left">Cigarettes smoked per day</td>
+<td align="left">Score (0 to 50)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>HvySmoker</code></td>
+<td align="left">Heavy smoker status</td>
+<td align="left">0 = No<br>1 = Yes</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Age</code></td>
+<td align="left">Age in years</td>
+<td align="left">Numeric (18 to 25)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ParSmoke</code></td>
+<td align="left">Parental smoking status</td>
+<td align="left">0 = Nonsmoking parents<br>1 = Smoker parent</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Female</code></td>
+<td align="left">Respondent sex</td>
+<td align="left">0 = Male<br>1 = Female</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Race</code></td>
+<td align="left">Race/ethnicity category</td>
+<td align="left">1 = White<br>2 = Black<br>3 = Hispanic<br>4 =
+Other</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Income</code></td>
+<td align="left">Household income category</td>
+<td align="left">Numeric (1 to 20)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ParEduc</code></td>
+<td align="left">Parent educational attainment</td>
+<td align="left">1 = Less than HS<br>2 = HS or some college<br>3 =
+Bachelor’s degree</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="videospeed.csv" class="section level2">
+<h2>VideoSpeed.csv</h2>
+<p>These data come from a cognitive experiment involving 173
+participants that investigated whether video playback speed influences
+recall of learned material. Participants were assigned to one of three
+groups, each of which watched lecture videos at a different playback
+speed: 1x, 1.5x, or 2.5x. Recall was measured with an exam administered
+immediately after viewing the videos and a delayed-recall test
+administered approximately nine days later.</p>
+<p>The URL for importing the data is:</p>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/VideoSpeed.csv</code></pre>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+<th align="left">Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>Participant</code></td>
+<td align="left">Individual identifier</td>
+<td align="left">Integer index</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Age</code></td>
+<td align="left">Age in years</td>
+<td align="left">Numeric (12 to 41)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>VideoSpeed</code></td>
+<td align="left">Video playback speed condition</td>
+<td align="left">0 = 1.0x<br>1 = 1.5x<br>2 = 2.5x</td>
+</tr>
+<tr class="even">
+<td align="left"><code>TwoSpeeds</code></td>
+<td align="left">Playback speed (two groups)</td>
+<td align="left">0 = 1.0x<br>1 = 1.5x or 2.5x</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>ImmediateRecall</code></td>
+<td align="left">Immediate recall test (% correct)</td>
+<td align="left">Numeric (20 to 93)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Delay</code></td>
+<td align="left">Days until the delayed test</td>
+<td align="left">Numeric (4 to 15)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>DelayedRecall</code></td>
+<td align="left">Delayed recall test (% correct)</td>
+<td align="left">Numeric (17 to 93)</td>
+</tr>
+</tbody>
+</table>
+</div>
 </div>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
-<div id="calculate-the-standard-error" class="section level2">
-<h2>1. Calculate the standard error</h2>
-<p>Use the standard error formula from the lecture slides to calculate
-the standard error of the <code>Depression</code> mean from its reported
-sample size and standard deviation. Does your calculation agree with the
-value in the descriptive statistics output? Briefly explain what the
-standard error quantifies, what a sampling distribution is, and how the
-standard error relates to that distribution.</p>
+<p>Unless otherwise specified, you should reuse and adapt the code from
+the <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html">Week
+4 Lab. Confidence Intervals.html</a> handout for the tasks below.</p>
+<div id="write-your-research-question" class="section level2">
+<h2>1. Write your research question</h2>
+<p>Clearly identify the groups you will compare and the numeric outcome
+on which you will compare them. You may reuse your research question
+from the Week 2 Data Blitz. If you have a hypothesis about which groups
+will have higher or lower scores, state that prediction and briefly
+explain your reasoning.</p>
 </div>
-<div id="predict-the-sampling-distribution" class="section level2">
-<h2>2. Predict the sampling distribution</h2>
-<p>Next, you will use computer simulation to model the process of
-drawing repeated samples of 299 people from a population. The <a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%203%20Lab%20Simulation%20Code.R">Week
-3 Lab Simulation Code.R</a> script draws 100,000 random samples from a
-hypothetical population. Because the true population mean is unknown,
-the simulation uses an arbitrary population mean of μ = 16. This value
-was chosen because an individual CES-D score of 16 is commonly used as a
-screening threshold for elevated depressive symptoms. The choice of
-population mean does not affect the conclusions about sampling error.
-Because the population standard deviation is also unknown, the
-simulation uses the observed sample standard deviation, s = 11.44, as a
-best guess about the true population standard deviation.</p>
-<p>Review the lecture slides. Describe what the central limit theorem
-predicts about the shape, center, and spread of the sampling
-distribution of sample means. Before running the simulation, predict
-what you will observe.</p>
+<div id="load-packages-and-import-the-data" class="section level2">
+<h2>2. Load packages and import the data</h2>
+<p>Use <code>library()</code> to load the <code>ggplot2</code>,
+<code>Rmisc</code>, <code>summarytools</code>, and <code>psych</code>
+packages. Import your chosen data set from its URL above into an R data
+frame. Use <code>dfSummary()</code> from the <code>summarytools</code>
+package to obtain numeric and visual summaries of all variables, and use
+<code>describe()</code> to obtain descriptive statistics for the entire
+data frame. Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#preliminaries-loading-packages">Preliminaries:
+Loading Packages</a>, <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#importing-data">Importing
+Data</a>, <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#summarizing-data">Summarizing
+Data</a>, and <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#descriptive-statistics">Descriptive
+Statistics</a> sections of the Week 4 lab. If you are reusing your Week
+2 Data Blitz example, you may simply reuse the code from that
+report.</p>
 </div>
-<div id="audit-the-simulation-code" class="section level2">
-<h2>3. Audit the simulation code</h2>
-<p>It is important to audit unfamiliar code before using it. Give AI the
-<a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%203%20Lab%20Simulation%20Code.R">Week
-3 Lab Simulation Code.R</a> script and use the following prompt exactly
-as written:</p>
+<div id="prepare-and-inspect-the-grouping-variable" class="section level2">
+<h2>3. Prepare and inspect the grouping variable</h2>
+<p>The categorical grouping variable is stored numerically. Convert it
+to a factor and assign informative labels to its values. Use the
+<code>freq()</code> function from the <code>summarytools</code> package
+to obtain a frequency distribution of the grouping variable and inspect
+how participants are distributed across the groups.</p>
+</div>
+<div id="obtain-the-full-sample-confidence-interval" class="section level2">
+<h2>4. Obtain the full-sample confidence interval</h2>
+<p>Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#confidence-interval">95%
+Confidence Interval</a> section of the Week 4 lab to obtain the mean and
+95% confidence interval for your outcome variable in the full
+sample.</p>
+</div>
+<div id="interpret-the-confidence-limits" class="section level2">
+<h2>5. Interpret the confidence limits</h2>
+<p>Using the “extreme populations” interpretation presented in the
+lecture slides (attributable to Cumming &amp; Finch, 2001), explain what
+the lower and upper limits of the 95% confidence interval from the
+previous task represent. Include both numerical limits in your answer
+and interpret each in terms of the population mean of your outcome
+variable.</p>
+</div>
+<div id="simulate-100-sample-means" class="section level2">
+<h2>6. Simulate 100 sample means</h2>
+<p>Next, you will use computer simulation to explore what “95%
+confidence” means. First, you will treat the sample mean and standard
+deviation of your outcome variable from Task 2 as if they were the true
+population parameters, μ and σ. Next, you will draw 100 random samples
+of the same size as your data set from a normal population with those
+parameters and compute the mean of each sample. Because every sample
+comes from the same population, the 100 sample means differ from one
+another only because of sampling error. This is the same idea as the
+Week 3 simulation, but with 100 samples instead of 100,000 so that each
+sample can be displayed individually.</p>
+<p>Provide the following instructions to AI exactly as they are written
+below, replacing the three bracketed placeholders with the mean,
+standard deviation, and sample size of your outcome variable from Task
+2.</p>
 <blockquote>
-<p>I will use the R code below to simulate what happens when the mean is
-computed from many random samples drawn from a population. Inspect the
-code and provide a high-level conceptual recipe for what it does. Use
-one bullet for each major step, beginning with the simulation inputs and
-ending with the numerical and graphical results. Explain the statistical
-purpose of each step in plain language. Do not explain the code line by
-line, rewrite the code, suggest stylistic improvements, or discuss
-individual R commands. Identify any apparent errors that I should
-inspect.</p>
-<p>&lt; PASTE YOUR SIMULATION CODE HERE. COPILOT DOES NOT ACCEPT .R
-FILES &gt;</p>
+<p>I am using R to simulate sampling error. Treat μ = [INSERT MEAN HERE]
+and σ = [INSERT SD HERE] as the true population mean and standard
+deviation of a normally distributed variable, and let N = [INSERT SAMPLE
+SIZE HERE]. Set a random seed. Draw 100 random samples of size N from
+this population and compute the mean of each sample. Print the standard
+deviation of the 100 sample means. Then use ggplot2 to graph the sample
+means: sample number (1 to 100) on the x-axis, sample mean on the
+y-axis, each mean as a black dot, a dashed horizontal line at μ, and
+y-axis limits fixed at μ − 5σ/√N and μ + 5σ/√N. Add a brief single-line
+comment above each step and return the code in a single block.</p>
 </blockquote>
-<p>Using AI’s response as a resource, write a brief passage of
-approximately three to five sentences explaining the simulation’s goal
-and major steps to an undergraduate research assistant. Include AI’s
-response and your explanation in the report.</p>
+<p>Run the code. Examine the comments AI left in the code and indicate
+whether there are any discrepancies between the logic of the code and
+the instructions you gave.</p>
 </div>
-<div id="run-the-simulation" class="section level2">
-<h2>4. Run the simulation</h2>
-<p>Run the simulation. Evaluate whether the sampling distribution is
-consistent with your central limit theorem predictions from Question 2.
-Address the distribution’s shape, center, and standard deviation.
-Compare the standard deviation of the 100,000 sample means with the
-standard error you calculated in Question 1.</p>
+<div id="explain-the-standard-error" class="section level2">
+<h2>7. Explain the standard error</h2>
+<p>Locate the standard error of your outcome variable’s mean in the
+descriptive statistics from Task 2. Write approximately three to five
+sentences explaining this value to an undergraduate research assistant
+who has seen your simulation graph. Your explanation should 1) state
+what the standard error quantifies, using the dots and the dashed line
+as your reference point, and 2) give a one-sentence interpretation of
+the numerical value in your study.</p>
 </div>
-<div id="evaluate-the-observed-sample-mean" class="section level2">
-<h2>5. Evaluate the observed sample mean</h2>
-<p>The mean of the original sample is 14.85. Suppose the population mean
-is truly μ = 16. Based on the sampling distribution, how unusual would
-it be to obtain a sample mean of 14.85 from a random sample of 299
-people? Use specific features of the graph and numerical results to
-support your answer.</p>
+<div id="add-the-95-confidence-intervals" class="section level2">
+<h2>8. Add the 95% confidence intervals</h2>
+<p>Use the following prompt to ask AI to add 95% confidence intervals to
+your simulation graph. Then run the revised code.</p>
+<blockquote>
+<p>Modify the code you just created so that the 100 samples stay the
+same. For each sample, compute a 95% confidence interval for the mean as
+the sample mean ± 1.96 × σ/√N. Add the intervals to the graph as
+vertical lines through the dots, colored red when the interval does not
+contain μ and gray otherwise. Print the number of intervals that contain
+μ. Do not change anything else about the graph—keep the same title, axis
+labels, y-axis limits, dashed line, and theme. Comment each new step and
+return the complete code in a single block.</p>
+</blockquote>
 </div>
-<div id="predict-the-effect-of-reduced-variability" class="section level2">
-<h2>6. Predict the effect of reduced variability</h2>
-<p>Next, you will reduce the population standard deviation from 11.44 to
-6. This represents a population in which people are more homogeneous in
-their depressive symptoms. Predict what should happen to the shape,
-center, and spread of the sampling distribution when the population
-standard deviation is reduced. Leave the population mean and sample size
-unchanged.</p>
+<div id="explain-95-confidence" class="section level2">
+<h2>9. Explain 95% confidence</h2>
+<p>Explain what it means to be “95% confident.” Use the simulation graph
+from the previous task as a visual aid, explaining how the pattern of
+intervals that include or exclude the true population mean illustrates
+this meaning.</p>
 </div>
-<div id="consult-ai-about-variability-and-sampling-error" class="section level2">
-<h2>7. Consult AI about variability and sampling error</h2>
-<p>Before running the new simulation, write a prompt asking AI to
-explain conceptually why increasing or decreasing the variability of
-individual scores influences the size of the sampling errors. Submit
-your prompt to AI. Briefly explain whether AI’s response supports or
-contradicts your prediction from Question 6.</p>
+<div id="obtain-descriptives-and-confidence-intervals-by-group" class="section level2">
+<h2>10. Obtain descriptives and confidence intervals by group</h2>
+<p>Researchers often use group-specific confidence intervals to examine
+differences between groups. First, modify the <code>describeBy()</code>
+code in the <a href="https://craigenders.github.io/psych250a/labs/Week%202%20Lab.%20Descriptive%20Statistics.html#descriptive-statistics-by-group">Descriptive
+Statistics by Group</a> section of the Week 2 lab to obtain descriptive
+statistics for your outcome variable within each group. Then modify the
+code in the <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#confidence-interval-by-group">95%
+Confidence Interval by Group</a> section of the Week 4 lab to obtain a
+table of the mean and 95% confidence interval for each group and a graph
+displaying them.</p>
 </div>
-<div id="reduce-the-population-standard-deviation" class="section level2">
-<h2>8. Reduce the population standard deviation</h2>
-<p>Modify the simulation code to use a population standard deviation of
-6 and run it again. Leave all other values unchanged. Compare the new
-sampling distribution with the original distribution from Question 4.
-Evaluate whether your predictions about its shape, center, and spread
-were correct. Calculate the new standard error using the formula and
-determine whether it agrees with the standard deviation of the 100,000
-sample means.</p>
+<div id="explain-differences-in-confidence-interval-width" class="section level2">
+<h2>11. Explain differences in confidence interval width</h2>
+<p>Provide AI with the following prompt:</p>
+<blockquote>
+<p>Briefly explain what the width of a confidence interval for a
+population mean is, how to compute it, and what it tells us. Keep your
+explanation conceptual.</p>
+</blockquote>
+<p>Compute the width of each group’s 95% confidence interval. Explain
+why the intervals have similar or different widths. Hint: inspect the
+group-specific descriptive statistics from Task 10. Support your
+explanation with specific numerical values.</p>
+</div>
+<div id="compare-the-groups" class="section level2">
+<h2>12. Compare the groups</h2>
+<p>Do the results suggest that the groups differ on the outcome
+variable? Apply the “inference by eye” rule for two independent groups
+from Cumming and Finch (2005, pp. 175–176) to each pair of groups in the
+graph from the previous task. For each pair, describe the overlap or
+separation of the confidence intervals and explain how this pattern
+relates to the rule’s criterion. State your conclusion, identifying
+which group(s) appear to differ, if any.</p>
 </div>
 <div id="reflect-on-your-use-of-ai" class="section level2">
-<h2>9. Reflect on your use of AI</h2>
+<h2>13. Reflect on your use of AI</h2>
 <p>Reflect on your use of AI during this Data Blitz. Did you discover
 any new techniques, uses, or prompting strategies that you could carry
 forward into your research workflow? Were there limitations or issues
 you encountered?</p>
 </div>
 <div id="create-the-report" class="section level2">
-<h2>10. Create the report</h2>
-<p>Create the report. Use the <a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%203%20Data%20Blitz%20Template.Rmd">Week
-3 Data Blitz Template.Rmd</a> to produce an HTML report containing your
-predictions, AI prompts and responses, written explanations, R code,
-numerical results, graphs, and your reflection on AI. You may either
-develop your code and written responses separately and paste them into
-the template when you are finished or build the report in the template
-as you work. When you knit the file, all R results—including numerical
-output, tables, and graphs—will appear automatically. You only need to
-enter the R code in the appropriate code chunks.</p>
+<h2>14. Create the report</h2>
+<p>Use the provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%204%20Data%20Blitz%20Template.Rmd">Week
+4 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
+research question, AI prompts, written explanations, R code, numerical
+results, graphs, and your reflection on AI. You may either develop your
+R code and written responses separately and paste them into the template
+when you are finished, or build the report in the template as you work.
+When you knit the file, all R results—including numerical output,
+tables, and graphs—will appear automatically. You only need to enter the
+R code in the appropriate code chunks.</p>
 </div>
 <div id="be-prepared-to-present-your-results" class="section level2">
-<h2>11. Be prepared to present your results</h2>
+<h2>15. Be prepared to present your results</h2>
 <p>Groups will be selected at random to give informal five-minute
 presentations using their HTML reports. These will be off-the-cuff
 presentations and require no preparation beyond completing the

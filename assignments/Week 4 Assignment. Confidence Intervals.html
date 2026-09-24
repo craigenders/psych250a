@@ -12,7 +12,7 @@
 <meta name="author" content="Psych 250a" />
 
 
-<title>Week 3 Data Blitz. Sampling Error</title>
+<title>Week 4 Assignment. Confidence Intervals</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1502,9 +1502,10 @@ font-size: 0.95em;
 
 
 
-<h1 class="title toc-ignore">Week 3 Data Blitz. Sampling Error</h1>
+<h1 class="title toc-ignore">Week 4 Assignment. Confidence
+Intervals</h1>
 <h4 class="author">Psych 250a</h4>
-<h4 class="date">Friday October 16</h4>
+<h4 class="date">Due Friday October 30 by 1:30 PM</h4>
 
 </div>
 
@@ -1517,43 +1518,24 @@ font-size: 18px;
 max-width: 1500px !important;
 }
 </style>
-<div id="instructions" class="section level1">
-<h1>Instructions</h1>
-<p>The purpose of this activity is to use computer simulation to examine
-sampling errors. For illustration, we will use the
-<code>Cancer.csv</code> data file.</p>
-<p>For all AI-related portions of this activity, you must use Microsoft
-Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
-UCLA logon credentials. UCLA provides the basic version of Copilot at no
-cost. Although you may have another large language model that you
-prefer, requiring everyone to use the same tool makes students’
-experiences and AI-generated responses as comparable as possible and
-promotes fairness across the class.</p>
-<p>After performing all of the data analysis tasks, you will use the
-provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%203%20Data%20Blitz%20Template.Rmd">Week
-3 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
-written explanations, AI prompts, R code, numerical results, graphs, and
-your reflection on AI. You may either develop your R code and written
-responses separately and paste them into the template when you are
-finished, or build the report in the template as you work. When you knit
-the file, all R results—including numerical output, tables, and
-graphs—will appear automatically. You only need to enter the R code in
-the appropriate code chunks.</p>
-</div>
 <div id="data" class="section level1">
 <h1>Data</h1>
-<p>Uveal melanoma is a rare eye cancer that can threaten both vision and
-survival. These data are from a study that examined the predictive
-utility of visual impairment and optimism/pessimism on depressive
-symptoms in 299 adults undergoing diagnostic evaluation.</p>
+<p>These data come from a sample of N = 640 rural Latinx adolescents
+between 14 and 17 years of age. The study measured perceived
+discrimination, peer and family relationships, and internalizing
+symptoms. Its purpose was to examine whether perceived discrimination
+was associated with internalizing symptoms through its effects on
+adolescents’ peer and family relationships. The researchers were also
+interested in whether key study variables differed by sex. In this
+assignment, you will compare perceived discrimination
+(<code>Discrim</code>) between male (<code>Female</code> = 0) and female
+(<code>Female</code> = 1) adolescents. The table below provides detailed
+information about the variables in the data set. You don’t need to do
+anything with the table—it is meant to help you understand the meaning
+of each variable.</p>
 <p>The URL for importing the data is:</p>
-<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Cancer.csv</code></pre>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Discrimination.csv</code></pre>
 <table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Name</th>
@@ -1563,183 +1545,223 @@ symptoms in 299 adults undergoing diagnostic evaluation.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>Participant</code></td>
+<td align="left"><code>ID</code></td>
 <td align="left">Individual identifier</td>
 <td align="left">Integer index</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Diagnosis</code></td>
-<td align="left">Result of the diagnostic biopsy</td>
-<td align="left">0 = Non-malignant<br>1 = Malignant</td>
+<td align="left"><code>Female</code></td>
+<td align="left">Respondent sex</td>
+<td align="left">0 = Male<br>1 = Female</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>Age</code></td>
 <td align="left">Age in years</td>
-<td align="left">Numeric (19 to 91)</td>
+<td align="left">Integer (14 to 17)</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Male</code></td>
-<td align="left">Respondent sex</td>
-<td align="left">0 = Female<br>1 = Male</td>
+<td align="left"><code>Discrim</code></td>
+<td align="left">Perceived discrimination composite</td>
+<td align="left">Numeric (7 to 31)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Comorbids</code></td>
-<td align="left">Number of medical comorbidities</td>
-<td align="left">0 = None<br>1 = One<br>2 = Two or more</td>
+<td align="left"><code>Victim</code></td>
+<td align="left">Peer victimization composite</td>
+<td align="left">Numeric (0 to 20)</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Optimism</code></td>
-<td align="left">LOT-R optimism composite (sum of 3 items)</td>
-<td align="left">Numeric (0 to 12)</td>
+<td align="left"><code>Familism</code></td>
+<td align="left">Familism composite</td>
+<td align="left">Numeric (5 to 40)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Depression</code></td>
-<td align="left">CES-D depressive symptoms composite (sum of 20
-items)</td>
+<td align="left"><code>Internalize</code></td>
+<td align="left">Internalizing symptoms composite</td>
 <td align="left">Numeric (0 to 60)</td>
-</tr>
-<tr class="even">
-<td align="left"><code>VisImpair</code></td>
-<td align="left">MOOD-V visual impairment (transformed to 0–100)</td>
-<td align="left">Numeric (10 to 90)</td>
 </tr>
 </tbody>
 </table>
-<p>Using the <code>describe</code> function from the <code>psych</code>
-package in R produced the following table of descriptive statistics. You
-will focus on the <code>Depression</code> variable for this
-exercise.</p>
-<pre><code>            vars   n   mean    sd median min max range  skew kurtosis   se
-Participant    1 299 150.00 86.46    150   1 299   298  0.00    -1.21 5.00
-Diagnosis      2 299   0.36  0.48      0   0   1     1  0.59    -1.66 0.03
-Age            3 299  58.99 13.94     60  19  91    72 -0.33    -0.15 0.81
-Male           4 299   0.54  0.50      1   0   1     1 -0.15    -1.98 0.03
-Comorbids      5 299   0.94  0.74      1   0   2     2  0.10    -1.17 0.04
-Optimism       6 299   8.56  2.95      9   0  12    12 -0.77    -0.16 0.17
-Depression     7 299  14.85 11.44     11   0  60    60  1.46     1.97 0.66
-VisImpair      8 299  42.04 15.11     40  10  90    80  0.44    -0.02 0.87</code></pre>
 </div>
-<div id="tasks" class="section level1">
-<h1>Tasks</h1>
-<div id="calculate-the-standard-error" class="section level2">
-<h2>1. Calculate the standard error</h2>
-<p>Use the standard error formula from the lecture slides to calculate
-the standard error of the <code>Depression</code> mean from its reported
-sample size and standard deviation. Does your calculation agree with the
-value in the descriptive statistics output? Briefly explain what the
-standard error quantifies, what a sampling distribution is, and how the
-standard error relates to that distribution.</p>
+<div id="completing-the-assignment" class="section level1">
+<h1>Completing the Assignment</h1>
+<p>Download the R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%204%20Assignment%20Template.Rmd">Week
+4 Assignment Template.Rmd</a>) and save it to your computer. Open the
+file in RStudio and enter your name on the <code>author:</code> line
+near the top of the file.</p>
+<p>The template contains a labeled section for each question, and it
+marks every place where you need to respond in caps (e.g., TYPE YOUR
+CODE HERE, PASTE AI’S CODE HERE, etc.). Do not delete, rename, or
+reorder the section headings, as they are used to match your responses
+to the assignment questions. You do not need to copy output or take
+screenshots. When you knit the document, R runs each code chunk in order
+and places its output—including results, tables, and plots—directly
+below the corresponding code.</p>
+<p>For all AI-related portions of this assignment, you must use
+Microsoft Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
+UCLA logon credentials. UCLA provides the basic version of Copilot at no
+cost. Although you may have another large language model that you
+prefer, requiring everyone to use the same tool makes students’
+experiences and AI-generated responses as comparable as possible and
+promotes fairness across the class.</p>
+<p>Before you begin the assignment, start a new chat in Copilot and use
+that single chat for everything in this assignment. If you close the
+window or take a break, reopen the same chat from Copilot’s chat history
+rather than starting a new one. Your prompts and AI’s responses are not
+pasted into the individual questions. Instead, the final question asks
+you to paste the complete chat log at the end of the template so that
+graders can locate the prompt and response for each question there. It
+is very important that you complete the assignment within the same
+chat.</p>
+<p>AI’s first response is often generic or partly wrong, especially when
+a prompt leaves something out. When that happens, revise your prompt and
+ask again rather than fixing the code by hand. If the code produces an
+error when you run it, paste the error message into the same chat and
+ask AI to explain what went wrong and to correct the code. Revising
+prompts and troubleshooting errors are normal parts of working with AI,
+and they are skills this course develops. Again, any revisions to your
+prompts must be made within the same chat, so that the full sequence of
+attempts appears in your chat log. You will be graded on your final
+prompt for each question, not on how many attempts it took.</p>
 </div>
-<div id="predict-the-sampling-distribution" class="section level2">
-<h2>2. Predict the sampling distribution</h2>
-<p>Next, you will use computer simulation to model the process of
-drawing repeated samples of 299 people from a population. The <a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%203%20Lab%20Simulation%20Code.R">Week
-3 Lab Simulation Code.R</a> script draws 100,000 random samples from a
-hypothetical population. Because the true population mean is unknown,
-the simulation uses an arbitrary population mean of μ = 16. This value
-was chosen because an individual CES-D score of 16 is commonly used as a
-screening threshold for elevated depressive symptoms. The choice of
-population mean does not affect the conclusions about sampling error.
-Because the population standard deviation is also unknown, the
-simulation uses the observed sample standard deviation, s = 11.44, as a
-best guess about the true population standard deviation.</p>
-<p>Review the lecture slides. Describe what the central limit theorem
-predicts about the shape, center, and spread of the sampling
-distribution of sample means. Before running the simulation, predict
-what you will observe.</p>
+<div id="submitting-the-assignment" class="section level1">
+<h1>Submitting the Assignment</h1>
+<p>You import the data yourself in Question 1 using the URL above, so
+you must be connected to the internet when knitting. When you are
+finished, click the arrow next to the Knit button and select Knit to
+PDF. The PDF will be saved in the same folder as the .Rmd file. Upload
+that PDF to Gradescope. You can knit to HTML while working if you find
+its clickable table of contents more readable, but you must submit the
+PDF version.</p>
+<p><strong>The assignment is due Friday October 30 by 1:30 PM</strong>.
+The assignment is worth 18 points. Questions 1 through 9 will be
+assigned a score of 0 (no credit), 1 (partial credit), or a 2 (full
+credit). Question 10 is not graded.</p>
 </div>
-<div id="audit-the-simulation-code" class="section level2">
-<h2>3. Audit the simulation code</h2>
-<p>It is important to audit unfamiliar code before using it. Give AI the
-<a href="https://github.com/craigenders/psych250a/blob/main/labs/Week%203%20Lab%20Simulation%20Code.R">Week
-3 Lab Simulation Code.R</a> script and use the following prompt exactly
-as written:</p>
+<div id="questions" class="section level1">
+<h1>Questions</h1>
+<div id="question-1-import-and-summarize-the-data" class="section level2">
+<h2>Question 1: Import and Summarize the Data</h2>
+<p>Use <code>library()</code> to load the <code>ggplot2</code>,
+<code>Rmisc</code>, <code>summarytools</code>, and <code>psych</code>
+packages. Import <code>Discrimination.csv</code> from the URL above into
+an R data frame named <code>assign4</code>. Use <code>dfSummary()</code>
+from the <code>summarytools</code> package to obtain numeric and visual
+summaries of all variables, and use <code>describe()</code> to obtain
+descriptive statistics for the entire data frame. Modify the code in the
+<a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#preliminaries-loading-packages">Preliminaries:
+Loading Packages</a>, <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#importing-data">Importing
+Data</a>, <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#summarizing-data">Summarizing
+Data</a>, and <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#descriptive-statistics">Descriptive
+Statistics</a> sections of the Week 4 lab.</p>
+<p>Your response should include your R code. The results will appear
+automatically when you knit the file.</p>
+</div>
+<div id="question-2-convert-female-to-a-factor" class="section level2">
+<h2>Question 2: Convert Female to a Factor</h2>
+<p>The data contain a binary numeric variable, <code>Female</code>. The
+<a href="https://craigenders.github.io/psych250a/labs/Week%201%20Lab.%20Describing%20Data.html#converting-categorical-variables-to-factors">Converting
+Categorical Variables to Factors</a> section of the Week 1 lab contains
+code that converted binary numeric variables to factor variables with
+labels. Modify that R code to convert <code>Female</code> to a factor
+variable, applying the labels in the data information table. Obtain a
+frequency distribution table to verify that your labels are attached
+correctly.</p>
+<p>Your response should include your R code.</p>
+</div>
+<div id="question-3-95-confidence-interval-for-perceived-discrimination" class="section level2">
+<h2>Question 3: 95% Confidence Interval for Perceived
+Discrimination</h2>
+<p>Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#confidence-interval">95%
+Confidence Interval</a> section of the Week 4 lab to obtain the mean and
+95% confidence interval for perceived discrimination
+(<code>Discrim</code>) in the full sample.</p>
+<p>Your response should include your R code. The results will appear
+automatically when you knit the file.</p>
+</div>
+<div id="question-4-interpret-the-confidence-limits" class="section level2">
+<h2>Question 4: Interpret the Confidence Limits</h2>
+<p>Using the “extreme populations” interpretation presented in the
+lecture slides (attributable to Cumming &amp; Finch, 2001), explain what
+the lower and upper limits of the 95% confidence interval from Question
+3 represent. Include both numerical limits in your answer. Make sure
+your explanation specifies which quantities are variable and which are
+fixed.</p>
+<p>Your response should include your written answer.</p>
+</div>
+<div id="question-5-ai-alternative-explanation-of-a-confidence-interval" class="section level2">
+<h2>Question 5: AI Alternative Explanation of a Confidence Interval</h2>
+<p>Give AI your interpretation of the confidence interval from Question
+4 and ask the following:</p>
 <blockquote>
-<p>I will use the R code below to simulate what happens when the mean is
-computed from many random samples drawn from a population. Inspect the
-code and provide a high-level conceptual recipe for what it does. Use
-one bullet for each major step, beginning with the simulation inputs and
-ending with the numerical and graphical results. Explain the statistical
-purpose of each step in plain language. Do not explain the code line by
-line, rewrite the code, suggest stylistic improvements, or discuss
-individual R commands. Identify any apparent errors that I should
-inspect.</p>
-<p>&lt; PASTE YOUR SIMULATION CODE HERE. COPILOT DOES NOT ACCEPT .R
-FILES &gt;</p>
+<p>Here is my interpretation of a 95% confidence interval: [PASTE YOUR
+ANSWER TO QUESTION 4]. Give me an alternative explanation of a
+confidence interval.</p>
 </blockquote>
-<p>Using AI’s response as a resource, write a brief passage of
-approximately three to five sentences explaining the simulation’s goal
-and major steps to an undergraduate research assistant. Include AI’s
-response and your explanation in the report.</p>
+<p>Select one new idea from AI’s response. Explain it in your own words
+and describe how it differs from the interpretation you gave in the
+previous question.</p>
+<p>Your response should include your explanation; your prompt and AI’s
+response will appear in your chat log in Question 10.</p>
 </div>
-<div id="run-the-simulation" class="section level2">
-<h2>4. Run the simulation</h2>
-<p>Run the simulation. Evaluate whether the sampling distribution is
-consistent with your central limit theorem predictions from Question 2.
-Address the distribution’s shape, center, and standard deviation.
-Compare the standard deviation of the 100,000 sample means with the
-standard error you calculated in Question 1.</p>
+<div id="question-6-frequentist-meaning-of-95-confidence" class="section level2">
+<h2>Question 6: Frequentist Meaning of 95% Confidence</h2>
+<p>Consider the following statement: “There is a 95% probability that
+the interval from 13.26 to 13.86 contains the true population mean.”
+Evaluate this statement using the frequentist definition of probability
+presented in class. Explain what “95% confident” means for this
+interval, specifying what quantity is fixed and what varies.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="evaluate-the-observed-sample-mean" class="section level2">
-<h2>5. Evaluate the observed sample mean</h2>
-<p>The mean of the original sample is 14.85. Suppose the population mean
-is truly μ = 16. Based on the sampling distribution, how unusual would
-it be to obtain a sample mean of 14.85 from a random sample of 299
-people? Use specific features of the graph and numerical results to
-support your answer.</p>
+<div id="question-7-frequentist-versus-bayesian-confidence" class="section level2">
+<h2>Question 7: Frequentist Versus Bayesian Confidence</h2>
+<p>Give AI the following prompt:</p>
+<blockquote>
+<p>Here is my explanation of 95% confidence in the frequentist
+framework: [PASTE YOUR RESPONSE TO QUESTION 6]. Suppose the interval
+from 13.26 to 13.86 were a 95% Bayesian credible interval. Explain what
+“95% confident” or “95% probability” would mean for this interval from
+the Bayesian perspective.</p>
+</blockquote>
+<p>Summarize the key difference between the frequentist and Bayesian
+meanings of confidence or probability in your own words. Specify what is
+fixed and what varies in the frequentist framework.</p>
+<p>Your response should include your summary; your prompt and AI’s
+response will appear in your chat log in Question 10.</p>
 </div>
-<div id="predict-the-effect-of-reduced-variability" class="section level2">
-<h2>6. Predict the effect of reduced variability</h2>
-<p>Next, you will reduce the population standard deviation from 11.44 to
-6. This represents a population in which people are more homogeneous in
-their depressive symptoms. Predict what should happen to the shape,
-center, and spread of the sampling distribution when the population
-standard deviation is reduced. Leave the population mean and sample size
-unchanged.</p>
+<div id="question-8-confidence-intervals-by-sex" class="section level2">
+<h2>Question 8: Confidence Intervals by Sex</h2>
+<p>Researchers often use group-specific confidence intervals to examine
+differences between groups. In this study, the researchers want to
+determine whether male and female adolescents differ in perceived
+discrimination. Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%204%20Lab.%20Confidence%20Intervals.html#confidence-interval-by-group">95%
+Confidence Interval by Group</a> section of the Week 4 lab to obtain
+numerical and graphical summaries of the mean perceived discrimination
+score (<code>Discrim</code>) and its 95% confidence interval for each
+sex (<code>Female</code>).</p>
+<p>Your response should include your R code. The numerical results and
+graph will appear automatically when you knit the file.</p>
 </div>
-<div id="consult-ai-about-variability-and-sampling-error" class="section level2">
-<h2>7. Consult AI about variability and sampling error</h2>
-<p>Before running the new simulation, write a prompt asking AI to
-explain conceptually why increasing or decreasing the variability of
-individual scores influences the size of the sampling errors. Submit
-your prompt to AI. Briefly explain whether AI’s response supports or
-contradicts your prediction from Question 6.</p>
+<div id="question-9-compare-the-groups" class="section level2">
+<h2>Question 9: Compare the Groups</h2>
+<p>Do the results suggest that male and female adolescents differ in
+mean perceived discrimination? Apply the “inference by eye” rule for two
+independent groups from Cumming and Finch (2005, pp. 175–176) to the
+graph from Question 8. Describe the overlap or separation of the
+confidence intervals, and explain how this pattern relates to the rule’s
+criterion. State your conclusion, including which group has the higher
+mean.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="reduce-the-population-standard-deviation" class="section level2">
-<h2>8. Reduce the population standard deviation</h2>
-<p>Modify the simulation code to use a population standard deviation of
-6 and run it again. Leave all other values unchanged. Compare the new
-sampling distribution with the original distribution from Question 4.
-Evaluate whether your predictions about its shape, center, and spread
-were correct. Calculate the new standard error using the formula and
-determine whether it agrees with the standard deviation of the 100,000
-sample means.</p>
-</div>
-<div id="reflect-on-your-use-of-ai" class="section level2">
-<h2>9. Reflect on your use of AI</h2>
-<p>Reflect on your use of AI during this Data Blitz. Did you discover
-any new techniques, uses, or prompting strategies that you could carry
-forward into your research workflow? Were there limitations or issues
-you encountered?</p>
-</div>
-<div id="create-the-report" class="section level2">
-<h2>10. Create the report</h2>
-<p>Create the report. Use the <a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%203%20Data%20Blitz%20Template.Rmd">Week
-3 Data Blitz Template.Rmd</a> to produce an HTML report containing your
-predictions, AI prompts and responses, written explanations, R code,
-numerical results, graphs, and your reflection on AI. You may either
-develop your code and written responses separately and paste them into
-the template when you are finished or build the report in the template
-as you work. When you knit the file, all R results—including numerical
-output, tables, and graphs—will appear automatically. You only need to
-enter the R code in the appropriate code chunks.</p>
-</div>
-<div id="be-prepared-to-present-your-results" class="section level2">
-<h2>11. Be prepared to present your results</h2>
-<p>Groups will be selected at random to give informal five-minute
-presentations using their HTML reports. These will be off-the-cuff
-presentations and require no preparation beyond completing the
-activity.</p>
+<div id="question-10-chat-log" class="section level2">
+<h2>Question 10: Chat Log</h2>
+<p>This question is not graded. It collects your prompts and AI’s
+responses in one place so that graders can locate them for Questions 5
+and 7. After completing Question 9, click anywhere in the Copilot
+conversation, select the entire chat (Ctrl+A on Windows, Cmd+A on Mac),
+copy it, and paste it between the two lines of backticks in the Question
+10 section of the template. The pasted text will show “You said:” before
+your prompts and “Copilot said:” before AI’s responses. When you are
+done, knit the file to a PDF before submitting.</p>
 </div>
 </div>
 

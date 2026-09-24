@@ -275,3 +275,7 @@ legend(x = pop_mean + plot_halfwidth, y = plot_maxcount, xjust = 1, yjust = 1, b
 Your comparison with the distribution from Question 4, whether your predictions were correct, and whether the standard error formula agrees with the standard deviation of the 100,000 sample means:
 
 TYPE YOUR ANSWER HERE
+
+# 9. Reflection on AI
+
+TYPE YOUR ANSWER HERE

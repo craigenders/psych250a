@@ -1,5 +1,5 @@
 ---
-title: "Week 1 Data Blitz. Describing Data"
+title: "Week 4 Data Blitz. Confidence Intervals"
 author: "GROUP MEMBER NAMES"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
@@ -29,26 +29,11 @@ knitr::opts_chunk$set(
 options(scipen = 999, width = 80)
 ```
 
-# Loading Packages
-
-```{r}
-library(ggplot2)
-library(psych)
-library(summarytools)
-```
-
-# Reading the Data
-
-```{r}
-filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/FILENAME.csv"
-blitz <- read.csv(filepath, stringsAsFactors = TRUE)
-```
-
 # 1. Research Question
 
 TYPE YOUR ANSWER HERE
 
-# 2. Factor Conversion and Frequency Distribution
+# 2. Packages, Data Import, and Summaries
 
 Your code:
 
@@ -56,7 +41,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# 3. Full-Sample Distribution
+# 3. Factor Conversion and Frequency Distribution
 
 Your code:
 
@@ -64,11 +49,19 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-Your characterization of the distribution's shape:
+# 4. Full-Sample Confidence Interval
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 5. Interpretation of the Confidence Limits
 
 TYPE YOUR ANSWER HERE
 
-# 4. Presentation-Ready Graph
+# 6. Simulation of 100 Sample Means
 
 Your prompt and AI's response:
 
@@ -82,51 +75,15 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# 5. Grouped Frequency Distribution
-
-Your dfSummary() code for the number of unique values:
-
-```{r}
-# TYPE YOUR CODE HERE
-```
-
-Your prompt and AI's response (if you consulted AI):
-
-```
-PASTE YOUR PROMPT AND AI'S RESPONSE HERE
-```
-
-Your code for the grouped frequency distribution:
-
-```{r}
-# TYPE YOUR CODE HERE
-```
-
-# 6. Connecting the Table and Graph
+Your inspection of AI's comments:
 
 TYPE YOUR ANSWER HERE
 
-# 7. Group-Comparison Histograms
-
-Your code:
-
-```{r}
-# TYPE YOUR CODE HERE
-```
-
-# 8. AI Graph Recommendations
-
-Your prompt and AI's response:
-
-```
-PASTE YOUR PROMPT AND AI'S RESPONSE HERE
-```
-
-# 9. Alternative Graph
-
-Which recommendation you selected and why:
+# 7. Explanation of the Standard Error
 
 TYPE YOUR ANSWER HERE
+
+# 8. Simulation With 95% Confidence Intervals
 
 Your prompt and AI's response:
 
@@ -140,14 +97,34 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-What this display reveals that was difficult to see in the histograms:
+# 9. Explanation of 95% Confidence
 
 TYPE YOUR ANSWER HERE
 
-# 10. Conclusion
+# 10. Descriptives and Confidence Intervals by Group
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 11. Differences in Confidence Interval Width
+
+Your prompt and AI's response:
+
+```
+PASTE YOUR PROMPT AND AI'S RESPONSE HERE
+```
+
+The width of each group's interval and why the widths are similar or different:
 
 TYPE YOUR ANSWER HERE
 
-# 11. Reflection on AI
+# 12. Comparison of the Groups
+
+TYPE YOUR ANSWER HERE
+
+# 13. Reflection on AI
 
 TYPE YOUR ANSWER HERE

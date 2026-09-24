@@ -1,0 +1,106 @@
+---
+title: "Psych 250a — Week 4 Assignment. Confidence Intervals"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# Question 1: Import and Summarize the Data
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 2: Convert Female to a Factor
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 3: 95% Confidence Interval for Perceived Discrimination
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 4: Interpret the Confidence Limits
+
+Your interpretation of the lower and upper limits:
+
+TYPE YOUR ANSWER HERE
+
+# Question 5: AI Alternative Explanation of a Confidence Interval
+
+The new idea you selected, in your own words, and how it differs from your Question 4 interpretation:
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: Frequentist Meaning of 95% Confidence
+
+Your evaluation:
+
+TYPE YOUR ANSWER HERE
+
+# Question 7: Frequentist Versus Bayesian Confidence
+
+Your summary of the key difference:
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Confidence Intervals by Sex
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 9: Compare the Groups
+
+Your answer:
+
+TYPE YOUR ANSWER HERE
+
+# Question 10: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````

@@ -102,3 +102,7 @@ AI's code:
 What you looked at to verify that your results were correct:
 
 TYPE YOUR ANSWER HERE
+
+# 9. Reflection on AI
+
+TYPE YOUR ANSWER HERE
