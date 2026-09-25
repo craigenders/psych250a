@@ -37,26 +37,13 @@ knitr::opts_chunk$set(
 options(scipen = 999, width = 80)
 ```
 
-```{r}
-library(ggplot2)
-library(psych)
-library(summarytools)
-```
+# Question 1: Import and Summarize the Data
 
 ```{r}
-# Reads the data from the course repository. Requires an internet connection.
-file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment2.csv"
-assign2 <- read.csv(file_url, stringsAsFactors = TRUE)
-
-# To work offline instead, save assignment2.csv to the same folder as this script
-# Comment out the lines that read the data from online repository
-# Remove the hashtag from the three lines below
-# library(rstudioapi)
-# setwd(dirname(getActiveDocumentContext()$path))
-# assign2 <- read.csv("assignment2.csv", stringsAsFactors = TRUE)
+# TYPE YOUR CODE HERE
 ```
 
-# Question 1: Standard Error of the Attention Mean
+# Question 2: Standard Error of the Attention Mean
 
 Your code:
 
@@ -68,17 +55,11 @@ Whether your calculation agrees with the descriptive statistics output:
 
 TYPE YOUR ANSWER HERE
 
-# Question 2: Explain the Standard Error
+# Question 3: Explain the Standard Error
 
 Your original passage:
 
 TYPE YOUR ANSWER HERE
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
 
 Whether you accepted or rejected AI's evaluation of each requirement, and why:
 
@@ -88,29 +69,17 @@ Your revised passage:
 
 TYPE YOUR ANSWER HERE
 
-# Question 3: Standard Deviation Versus Standard Error
+# Question 4: Standard Deviation Versus Standard Error
 
 TYPE YOUR ANSWER HERE
 
-# Question 4: Audit the Simulation Code
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 5: Audit the Simulation Code
 
 Your assessment of any errors AI identified:
 
 TYPE YOUR ANSWER HERE
 
-# Question 5: Run the Simulation
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 6: Run the Simulation
 
 The simulation code is below. Run the chunk as it is written.
 
@@ -199,7 +168,7 @@ Whether the sampling distribution is consistent with the central limit theorem p
 
 TYPE YOUR ANSWER HERE
 
-# Question 6: Reduce the Sample Size
+# Question 7: Reduce the Sample Size
 
 Your prediction about the center, shape, and spread at a sample size of 100:
 
@@ -292,7 +261,7 @@ Your evaluation of the predictions, including whether the standard deviation of 
 
 TYPE YOUR ANSWER HERE
 
-# Question 7: Modify the Simulation for a Skewed Population
+# Question 8: Modify the Simulation for a Skewed Population
 
 AI's code:
 
@@ -300,16 +269,16 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 8: Audit the AI-Generated Code
+# Question 9: Audit the AI-Generated Code
 
 TYPE YOUR ANSWER HERE
 
-# Question 9: Compare the Two Sampling Distributions
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 10: Compare the Two Sampling Distributions
 
 TYPE YOUR ANSWER HERE
+
+# Question 11: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````

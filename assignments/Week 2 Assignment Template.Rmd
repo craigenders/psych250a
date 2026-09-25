@@ -37,26 +37,13 @@ knitr::opts_chunk$set(
 options(scipen = 999, width = 80)
 ```
 
-```{r}
-library(ggplot2)
-library(psych)
-library(summarytools)
-```
+# Question 1: Import and Summarize the Data
 
 ```{r}
-# Reads the data from the course repository. Requires an internet connection.
-file_url <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/assignment2.csv"
-assign2 <- read.csv(file_url, stringsAsFactors = TRUE)
-
-# To work offline instead, save assignment2.csv to the same folder as this script
-# Comment out the lines that read the data from online repository
-# Remove the hashtag from the three lines below
-# library(rstudioapi)
-# setwd(dirname(getActiveDocumentContext()$path))
-# assign2 <- read.csv("assignment2.csv", stringsAsFactors = TRUE)
+# TYPE YOUR CODE HERE
 ```
 
-# Question 1: Convert ADHD and Male to Factors
+# Question 2: Convert ADHD and Male to Factors
 
 Your code:
 
@@ -64,7 +51,7 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 2: Group Comparison Graphs and Descriptive Statistics
+# Question 3: Group Comparison Graphs and Descriptive Statistics
 
 Your code:
 
@@ -72,37 +59,25 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 3: AlphaEEG Mean Versus Median
+# Question 4: AlphaEEG Mean Versus Median
 
 TYPE YOUR ANSWER HERE
 
-# Question 4: Attention Group Means and Standard Deviations
+# Question 5: Attention Group Means and Standard Deviations
 
 TYPE YOUR ANSWER HERE
 
-# Question 5: AI on t-Test Conditions
-
-AI's explanation:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 6: AI on t-Test Conditions
 
 Your evaluation of which outcome more closely satisfies the conditions, and why:
 
 TYPE YOUR ANSWER HERE
 
-# Question 6: Explain the Standard Deviation
+# Question 7: Explain the Standard Deviation
 
 Your original passage:
 
 TYPE YOUR ANSWER HERE
-
-AI's response:
-
-```
-PASTE AI'S RESPONSE HERE
-```
 
 Whether you accepted or rejected AI's evaluation of each requirement, and why:
 
@@ -112,17 +87,7 @@ Your revised passage:
 
 TYPE YOUR ANSWER HERE
 
-# Question 7: z-Scores
-
-Your prompt:
-
-PASTE YOUR PROMPT HERE
-
-AI's explanation:
-
-```
-PASTE AI'S RESPONSE HERE
-```
+# Question 8: z-Scores
 
 Your code:
 
@@ -134,7 +99,7 @@ Whether and how your results align with AI's predictions:
 
 TYPE YOUR ANSWER HERE
 
-# Question 8: Comparing Standardized Group Differences
+# Question 9: Comparing Standardized Group Differences
 
 Your code:
 
@@ -145,3 +110,9 @@ Your code:
 Your conclusion about which measure shows more pronounced ADHD-related differences:
 
 TYPE YOUR ANSWER HERE
+
+# Question 10: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````

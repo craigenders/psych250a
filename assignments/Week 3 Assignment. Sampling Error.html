@@ -1633,19 +1633,20 @@ engagement.</p>
 3 Assignment Template.Rmd</a>) and save it to your computer. Open the
 file in RStudio and enter your name on the <code>author:</code> line
 near the top of the file.</p>
-<p>The template loads the data directly from the course GitHub
-repository. You do not need to download a separate data file, but you
-must be connected to the internet when reading the data. The template
-file also contains alternate code that reads the data from your local
-machine if needed.</p>
 <p>The template contains a labeled section for each question, and it
-marks every place where you need to respond in caps (e.g., PASTE AI’S
-RESPONSE HERE, PASTE YOUR PROMPT HERE, etc.). Do not delete, rename, or
+marks every place where you need to respond in caps (e.g., TYPE YOUR
+CODE HERE, PASTE AI’S CODE HERE, etc.). Do not delete, rename, or
 reorder the section headings, as they are used to match your responses
 to the assignment questions. You do not need to copy output or take
 screenshots. When you knit the document, R runs each code chunk in order
 and places its output—including results, tables, and plots—directly
 below the corresponding code.</p>
+<p>Most questions call for a short written answer. As a rough guide, you
+should be able to convey your ideas in a single, thorough paragraph.
+There are exceptions, but a one- or two-sentence response is generally
+insufficient to show your reasoning, and an excessively long response
+usually indicates that the ideas have not been worked out well enough to
+state them concisely and precisely.</p>
 <p>For all AI-related portions of this assignment, you must use
 Microsoft Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
 UCLA logon credentials. UCLA provides the basic version of Copilot at no
@@ -1653,32 +1654,70 @@ cost. Although you may have another large language model that you
 prefer, requiring everyone to use the same tool makes students’
 experiences and AI-generated responses as comparable as possible and
 promotes fairness across the class.</p>
+<p>Before you begin the assignment, start a new chat in Copilot and use
+that single chat for everything in this assignment. If you close the
+window or take a break, reopen the same chat from Copilot’s chat history
+rather than starting a new one. Your prompts and AI’s responses are not
+pasted into the individual questions. Instead, the final question asks
+you to paste the complete chat log at the end of the template so that
+graders can locate the prompt and response for each question there. It
+is very important that you complete the assignment within the same
+chat.</p>
+<p>AI’s first response is often generic or partly wrong, especially when
+a prompt leaves something out. When that happens, revise your prompt and
+ask again rather than fixing the code by hand. If the code produces an
+error when you run it, paste the error message into the same chat and
+ask AI to explain what went wrong and to correct the code. Revising
+prompts and troubleshooting errors are normal parts of working with AI,
+and they are skills this course develops. Again, any revisions to your
+prompts must be made within the same chat, so that the full sequence of
+attempts appears in your chat log. You will be graded on your final
+prompt for each question, not on how many attempts it took.</p>
 </div>
 <div id="submitting-the-assignment" class="section level1">
 <h1>Submitting the Assignment</h1>
-<p>When you are finished, click the arrow next to the Knit button and
-select Knit to PDF. The PDF will be saved in the same folder as the .Rmd
-file. Upload that PDF to Gradescope. You can knit to HTML while working
-if you find its clickable table of contents more readable, but you must
-submit the PDF version.</p>
+<p>You import the data yourself in Question 1 using the URL above, so
+you must be connected to the internet when knitting. When you are
+finished, click the arrow next to the Knit button and select Knit to
+PDF. The PDF will be saved in the same folder as the .Rmd file. Upload
+that PDF to Gradescope. You can knit to HTML while working if you find
+its clickable table of contents more readable, but you must submit the
+PDF version.</p>
 <p><strong>The assignment is due Friday October 23 by 1:30 PM</strong>.
-The assignment is worth 18 points. Questions will be assigned a score of
-0 (no credit), 1 (partial credit), or a 2 (full credit).</p>
+The assignment is worth 20 points. Questions 1 through 10 will be
+assigned a score of 0 (no credit), 1 (partial credit), or a 2 (full
+credit). Question 11 is not graded.</p>
 </div>
 <div id="questions" class="section level1">
 <h1>Questions</h1>
-<div id="question-1-standard-error-of-the-attention-mean" class="section level2">
-<h2>Question 1: Standard Error of the Attention Mean</h2>
-<p>Continue using the data from the previous assignment. Obtain
-descriptive statistics for the <code>Attention</code> composite. Use the
-standard error formula from the lecture slides to calculate the standard
-error from the reported sample size and standard deviation. Does your
-calculation agree with the value in the descriptive statistics
-output?</p>
+<div id="question-1-import-and-summarize-the-data" class="section level2">
+<h2>Question 1: Import and Summarize the Data</h2>
+<ol style="list-style-type: decimal">
+<li>Use the <code>library()</code> function to load the
+<code>ggplot2</code>, <code>psych</code>, and <code>summarytools</code>
+packages. 2) Use the URL provided above to import
+<code>assignment2.csv</code> into an R data frame named
+<code>assign2</code>. 3) Use the <code>dfSummary()</code> function from
+the <code>summarytools</code> package to obtain numeric and visual
+summaries of all variables in the data frame. You should modify code
+from the <a href="https://craigenders.github.io/psych250a/labs/Week%202%20Lab.%20Descriptive%20Statistics.html#preliminaries-loading-packages">Preliminaries:
+Loading Packages</a> and <a href="https://craigenders.github.io/psych250a/labs/Week%202%20Lab.%20Descriptive%20Statistics.html#importing-data">Importing
+Data</a> sections of the Week 2 lab.</li>
+</ol>
+<p>Your response should include your R code.</p>
 </div>
-<div id="question-2-explain-the-standard-error" class="section level2">
-<h2>Question 2: Explain the Standard Error</h2>
-<p>Using the numeric value from Question 1, write a brief passage of
+<div id="question-2-standard-error-of-the-attention-mean" class="section level2">
+<h2>Question 2: Standard Error of the Attention Mean</h2>
+<p>Obtain descriptive statistics for the <code>Attention</code>
+composite. Use the standard error formula from the lecture slides to
+calculate the standard error from the reported sample size and standard
+deviation. Does your calculation agree with the value in the descriptive
+statistics output?</p>
+<p>Your response should include your R code and your written answer.</p>
+</div>
+<div id="question-3-explain-the-standard-error" class="section level2">
+<h2>Question 3: Explain the Standard Error</h2>
+<p>Using the numeric value from Question 2, write a brief passage of
 approximately three to five sentences explaining the standard error of
 the <code>Attention</code> mean to an undergraduate research assistant.
 Your explanation should 1) identify what the standard error quantifies,
@@ -1700,23 +1739,24 @@ provide alternative wording, or suggest improvements. End your response
 after listing your evaluation of the three requirements.</p>
 <p>&lt; PASTE YOUR PASSAGE HERE &gt;</p>
 </blockquote>
-<p>Your response should include: 1) your original passage, 2) AI’s
-response, 3) a brief statement explaining whether you accepted or
-rejected AI’s evaluation of each requirement and why, and 4) your
-revised passage. If you decide that no revision is necessary, repeat
-your original passage as the revised passage and explain why you
-retained it.</p>
+<p>Your response should include: 1) your original passage, 2) a brief
+statement explaining whether you accepted or rejected AI’s evaluation of
+each requirement and why, and 3) your revised passage; your prompt and
+AI’s response will appear in your chat log in Question 11. If you decide
+that no revision is necessary, repeat your original passage as the
+revised passage and explain why you retained it.</p>
 </div>
-<div id="question-3-standard-deviation-versus-standard-error" class="section level2">
-<h2>Question 3: Standard Deviation Versus Standard Error</h2>
+<div id="question-4-standard-deviation-versus-standard-error" class="section level2">
+<h2>Question 4: Standard Deviation Versus Standard Error</h2>
 <p>The standard deviation and standard error are both expressed in
 attention-score points, and both quantify variability. However, they
 describe different sources of variability. Explain how the two
 statistics are similar and how they are different. Identify the set of
 values whose variability each statistic quantifies.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-4-audit-the-simulation-code" class="section level2">
-<h2>Question 4: Audit the Simulation Code</h2>
+<div id="question-5-audit-the-simulation-code" class="section level2">
+<h2>Question 5: Audit the Simulation Code</h2>
 <p>The R script <a href="https://github.com/craigenders/psych250a/blob/main/assignments/Week%203%20Assignment%20Simulation%20Code.R">Week
 3 Assignment Simulation Code.R</a> uses the sample size and standard
 deviation of the <code>Attention</code> variable (σ = 10.10, N = 939) to
@@ -1743,13 +1783,14 @@ inspect.</p>
 <p>&lt; PASTE YOUR SIMULATION CODE HERE. CO-PILOT DOES NOT ACCEPT .R
 FILES &gt;</p>
 </blockquote>
-<p>Your response for this question should include AI’s explanation and
-your brief assessment. Did AI identify any apparent errors in the
-script? For each item it raised, state whether you agree it is a genuine
-error and explain your reasoning. If AI raised nothing, say so.</p>
+<p>Your response should include your brief assessment; your prompt and
+AI’s explanation will appear in your chat log in Question 11. Did AI
+identify any apparent errors in the script? For each item it raised,
+state whether you agree it is a genuine error and explain your
+reasoning. If AI raised nothing, say so.</p>
 </div>
-<div id="question-5-run-the-simulation" class="section level2">
-<h2>Question 5: Run the Simulation</h2>
+<div id="question-6-run-the-simulation" class="section level2">
+<h2>Question 6: Run the Simulation</h2>
 <p>Now you will run the simulation. First, provide the following
 question to AI exactly as it is written below.</p>
 <blockquote>
@@ -1765,22 +1806,24 @@ consistent with the central limit theorem predictions described by AI.
 Address the distribution’s shape, center, and standard deviation. The
 Week 3 Assignment Template file includes the simulation code and will
 include the simulation graph when you knit the file.</p>
-<p>Your response should include AI’s explanation and your
-evaluation.</p>
+<p>Your response should include your evaluation; AI’s explanation will
+appear in your chat log in Question 11.</p>
 </div>
-<div id="question-6-reduce-the-sample-size" class="section level2">
-<h2>Question 6: Reduce the Sample Size</h2>
+<div id="question-7-reduce-the-sample-size" class="section level2">
+<h2>Question 7: Reduce the Sample Size</h2>
 <p>The central limit theorem predicts that sample size influences the
 size of sampling errors. Describe what should happen to the center,
 shape, and spread of the sampling distribution if the sample size is
 reduced from 939 to 100. Modify the simulation code to use a sample size
 of 100 and run it again. Evaluate your predictions by comparing the new
-sampling distribution with the original distribution from Question 5.
+sampling distribution with the original distribution from Question 6.
 Explain whether the standard deviation of the 100,000 sample means is
 consistent with the standard error formula.</p>
+<p>Your response should include your modified simulation code and your
+written answer.</p>
 </div>
-<div id="question-7-modify-the-simulation-for-a-skewed-population" class="section level2">
-<h2>Question 7: Modify the Simulation for a Skewed Population</h2>
+<div id="question-8-modify-the-simulation-for-a-skewed-population" class="section level2">
+<h2>Question 8: Modify the Simulation for a Skewed Population</h2>
 <p>The previous simulations drew samples from a normally distributed
 population. Many variables we have encountered in real data sets have
 skewed distributions. To understand the impact of non-normal data on
@@ -1803,11 +1846,12 @@ introduce new inputs. Preserve all existing code except the statements
 that generate random data. Return the modified simulation code in a
 single block that I can copy and paste into RStudio.</p>
 </blockquote>
-<p>Your response will include the AI’s code, which will produce a
-graphical summary when you knit the file.</p>
+<p>Your response should include AI’s code; your prompt will appear in
+your chat log in Question 11. The graphical summary will appear
+automatically when you knit the file.</p>
 </div>
-<div id="question-8-audit-the-ai-generated-code" class="section level2">
-<h2>Question 8: Audit the AI-Generated Code</h2>
+<div id="question-9-audit-the-ai-generated-code" class="section level2">
+<h2>Question 9: Audit the AI-Generated Code</h2>
 <p>As an audit, the script was supposed to generate a single data set of
 individual scores from the skewed population. This is still a sample, so
 it won’t match the population values exactly. Nevertheless, it serves as
@@ -1815,9 +1859,10 @@ a useful quality-control check on the AI-generated code. Explain whether
 the descriptive statistics and histogram are consistent or inconsistent
 with the instructions you provided to AI. Include graphical and numeric
 evidence in your answer.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-9-compare-the-two-sampling-distributions" class="section level2">
-<h2>Question 9: Compare the Two Sampling Distributions</h2>
+<div id="question-10-compare-the-two-sampling-distributions" class="section level2">
+<h2>Question 10: Compare the Two Sampling Distributions</h2>
 <p>Ask AI the following question:</p>
 <blockquote>
 <p>Suppose I repeatedly draw random samples from a highly skewed
@@ -1828,12 +1873,23 @@ deviation. Also explain how the sample size affects these predictions.
 Do not provide R code.</p>
 </blockquote>
 <p>Compare the results from the skewed-population simulation with those
-from the original normal-population simulation in Question 5. Compare
+from the original normal-population simulation in Question 6. Compare
 the shapes, centers, and standard deviations of the two sampling
 distributions. Are the simulation results consistent or inconsistent
 with the predictions AI described above?</p>
-<p>Your response should include AI’s explanation and your
-comparison.</p>
+<p>Your response should include your comparison; AI’s explanation will
+appear in your chat log in Question 11.</p>
+</div>
+<div id="question-11-chat-log" class="section level2">
+<h2>Question 11: Chat Log</h2>
+<p>This question is not graded. It collects your prompts and AI’s
+responses in one place so that graders can locate them for Questions 3,
+5, 6, 8, and 10. After completing Question 10, click anywhere in the
+Copilot conversation, select the entire chat (Ctrl+A on Windows, Cmd+A
+on Mac), copy it, and paste it between the two lines of backticks in the
+Question 11 section of the template. The pasted text will show “You
+said:” before your prompts and “Copilot said:” before AI’s responses.
+When you are done, knit the file to a PDF before submitting.</p>
 </div>
 </div>
 
