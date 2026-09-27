@@ -1,8 +1,12 @@
 ---
 title: "Week 0 Example: Cancer Data"
-author: "YOUR NAME"
+author: "Craig Enders"
 date: "`r format(Sys.Date(), '%B %d, %Y')`"
 output:
+  pdf_document:
+    toc: true
+    toc_depth: 2
+    latex_engine: xelatex
   html_document:
     toc: true
     toc_float:
@@ -11,10 +15,6 @@ output:
     toc_depth: 2
     theme: cosmo
     highlight: haddock
-  pdf_document:
-    toc: true
-    toc_depth: 2
-    latex_engine: xelatex
 header-includes:
   - \usepackage{fvextra}
   - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
