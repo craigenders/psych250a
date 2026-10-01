@@ -12,7 +12,7 @@
 <meta name="author" content="Psych 250a" />
 
 
-<title>Week 2 Data Blitz. Descriptive Statistics</title>
+<title>Week 6 Data Blitz. Paired-Samples t-Test</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1502,10 +1502,10 @@ font-size: 0.95em;
 
 
 
-<h1 class="title toc-ignore">Week 2 Data Blitz. Descriptive
-Statistics</h1>
+<h1 class="title toc-ignore">Week 6 Data Blitz. Paired-Samples
+t-Test</h1>
 <h4 class="author">Psych 250a</h4>
-<h4 class="date">Friday October 9</h4>
+<h4 class="date">Friday November 6</h4>
 
 </div>
 
@@ -1520,22 +1520,23 @@ max-width: 1500px !important;
 </style>
 <div id="instructions" class="section level1">
 <h1>Instructions</h1>
-<p>The purpose of this activity is to use graphical displays and
-descriptive statistics to understand data. Specifically, your group will
-investigate whether groups defined by a categorical explanatory variable
-(also called an independent variable) differ on a numeric outcome
-variable (also called a dependent variable). The categorical explanatory
-variable must identify <em>three or more groups</em> of people (do not
-use a variable with only two groups!). Your analysis is not restricted
-to comparisons between three groups; some of the available datasets
-contain categorical variables with three or four groups.</p>
+<p>The purpose of this activity is to use the paired-samples
+<em>t</em>-test to compare two means that come from the same people.
+Specifically, your group will investigate whether the means of two
+numeric variables measured on the same participants differ—for example,
+the same outcome measured at two points in time or two related behaviors
+reported by the same respondents. Unlike previous Data Blitz activities,
+this activity does not involve a grouping variable: every participant
+contributes a score on both variables.</p>
 <p>Four datasets are available, and each group may choose which one to
 analyze. Review the dataset descriptions and variable-information
-tables, and select a dataset containing a grouping variable and numeric
-outcome that your group finds interesting. Reading ahead, the first task
-asks your group to formulate a research question: Do groups defined by
-____ differ with respect to ____? The selection of the dataset and
-variables should occur alongside the development of that question.</p>
+tables, and select a dataset containing two numeric variables measured
+on the same people that your group finds interesting. Each description
+ends by identifying variables that could be compared. Reading ahead, the
+first task asks your group to formulate a research question: Does the
+mean of ____ differ from the mean of ____? The selection of the dataset
+and variables should occur alongside the development of that
+question.</p>
 <p>For all AI-related portions of this activity, you must use Microsoft
 Copilot. Access Copilot at <a href="https://copilot.microsoft.com/" class="uri">https://copilot.microsoft.com/</a> and sign in using your
 UCLA logon credentials. UCLA provides the basic version of Copilot at no
@@ -1544,8 +1545,8 @@ prefer, requiring everyone to use the same tool makes students’
 experiences and AI-generated responses as comparable as possible and
 promotes fairness across the class.</p>
 <p>After performing all of the data analysis tasks, you will use the
-provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%202%20Data%20Blitz%20Template.Rmd">Week
-2 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
+provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%206%20Data%20Blitz%20Template.Rmd">Week
+6 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
 research question, AI prompts, written explanations, R code, numerical
 results, graphs, and your reflection on AI. You may either develop your
 R code and written responses separately and paste them into the template
@@ -1565,7 +1566,11 @@ characteristics such as sex, age, and education. Respondents reported
 the ages at which they first tried cigarettes and alcohol and the number
 of days per month they currently smoke and drink. Drinking frequency is
 also represented as a categorical variable based on the number of
-drinking days per month.</p>
+drinking days per month. Your group could compare the ages at which
+respondents first tried cigarettes and alcohol (<code>AgeTryCig</code>
+and <code>AgeTryAlc</code>) or the number of days per month that
+respondents smoke and drink (<code>CigDays</code> and
+<code>AlcDays</code>).</p>
 <p>The URL for importing the data is:</p>
 <pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Alcohol.csv</code></pre>
 <table>
@@ -1637,102 +1642,21 @@ Frequent drinker</td>
 </tbody>
 </table>
 </div>
-<div id="ptsd.csv" class="section level2">
-<h2>PTSD.csv</h2>
-<p>People of color in the United States disproportionately experience
-trauma and posttraumatic stress disorder (PTSD). Pregnant women of color
-may be at particular risk because perinatal PTSD is associated with
-adverse maternal and child health outcomes. Because PTSD comprises
-distinct symptom dimensions, researchers may need to examine more than
-overall symptom severity. These data are from a study of 1,663 Latina,
-Black, and non-Hispanic White postpartum women in the United States that
-examined racial and ethnic differences across multiple dimensions of
-PTSD symptoms.</p>
+<div id="clinicaltrial.csv" class="section level2">
+<h2>ClinicalTrial.csv</h2>
+<p>Pharmacological treatments that can concomitantly address cigarette
+smoking and heavy drinking stand to improve health care delivery for
+these highly prevalent co-occurring conditions. These data are from a
+clinical trial that compared two such treatments: a combination of
+varenicline and naltrexone and varenicline alone. The trial employed a
+longitudinal design and obtained measures of alcohol and cigarette use
+at baseline and at 4- and 8-week follow-ups. Your group could compare
+the number of drinks consumed in the past week at any two assessments
+(e.g., <code>DrinksWeek0</code> and <code>DrinksWeek8</code>) or the
+number of cigarettes smoked per day at any two assessments (e.g.,
+<code>CigsWeek0</code> and <code>CigsWeek8</code>).</p>
 <p>The URL for importing the data is:</p>
-<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/PTSD.csv</code></pre>
-<table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
-<thead>
-<tr class="header">
-<th align="left">Name</th>
-<th align="left">Description</th>
-<th align="left">Scale</th>
-</tr>
-</thead>
-<tbody>
-<tr class="odd">
-<td align="left"><code>Participant</code></td>
-<td align="left">Individual identifier</td>
-<td align="left">Integer index</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Age</code></td>
-<td align="left">Age in years</td>
-<td align="left">Numeric (15 to 43)</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Nativity</code></td>
-<td align="left">Country of birth</td>
-<td align="left">0 = US born<br>1 = Foreign born</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Race</code></td>
-<td align="left">Racial/ethnic identity</td>
-<td align="left">0 = Black<br>1 = Latina<br>2 = White</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Education</code></td>
-<td align="left">Highest education</td>
-<td align="left">0 = Less than high school<br>1 = High school<br>2 =
-Some college<br>3 = BA or higher</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Poverty</code></td>
-<td align="left">Household poverty status</td>
-<td align="left">0 = Above poverty line<br>1 = Below poverty line</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>Reexperiencing</code></td>
-<td align="left">PTSD re-experiencing symptom score</td>
-<td align="left">Numeric (3 to 25)</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Avoidance</code></td>
-<td align="left">PTSD avoidance symptom score</td>
-<td align="left">Numeric (0 to 11)</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>DysphoricArousal</code></td>
-<td align="left">PTSD dysphoric arousal symptom score</td>
-<td align="left">Numeric (1 to 16)</td>
-</tr>
-<tr class="even">
-<td align="left"><code>Numbing</code></td>
-<td align="left">PTSD emotional numbing symptom score</td>
-<td align="left">Numeric (4 to 23)</td>
-</tr>
-<tr class="odd">
-<td align="left"><code>AnxiousArousal</code></td>
-<td align="left">PTSD anxious arousal (hyperarousal) symptom score</td>
-<td align="left">Numeric (1 to 11)</td>
-</tr>
-</tbody>
-</table>
-</div>
-<div id="smoking.csv" class="section level2">
-<h2>Smoking.csv</h2>
-<p>The data come from a national survey of young adults (N = 2,000) that
-measured smoking behavior and its sociodemographic correlates. Smoking
-intensity is captured by the number of cigarettes smoked per day.
-Background characteristics include age, sex, whether the respondent’s
-parents smoked, race/ethnicity, household income, and parental
-educational attainment.</p>
-<p>The URL for importing the data is:</p>
-<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Smoking.csv</code></pre>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/ClinicalTrial.csv</code></pre>
 <table>
 <colgroup>
 <col width="33%" />
@@ -1753,24 +1677,104 @@ educational attainment.</p>
 <td align="left">Integer index</td>
 </tr>
 <tr class="even">
-<td align="left"><code>CigsPerDay</code></td>
-<td align="left">Cigarettes smoked per day</td>
-<td align="left">Score (0 to 50)</td>
+<td align="left"><code>Condition</code></td>
+<td align="left">Medication condition</td>
+<td align="left">0 = Varenicline<br>1 = Varenicline + Naltrexone</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>HvySmoker</code></td>
-<td align="left">Heavy smoker status</td>
-<td align="left">0 = No<br>1 = Yes</td>
+<td align="left"><code>Male</code></td>
+<td align="left">Respondent sex</td>
+<td align="left">0 = Female<br>1 = Male</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Age</code></td>
-<td align="left">Age in years</td>
-<td align="left">Numeric (18 to 25)</td>
+<td align="left"><code>COWeek0</code></td>
+<td align="left">Breath carbon monoxide (ppm) at baseline</td>
+<td align="left">Numeric (0 to 46)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>ParSmoke</code></td>
-<td align="left">Parental smoking status</td>
-<td align="left">0 = Nonsmoking parents<br>1 = Smoker parent</td>
+<td align="left"><code>COWeek4</code></td>
+<td align="left">Breath carbon monoxide (ppm) at week 4</td>
+<td align="left">Numeric (0 to 24)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>COWeek8</code></td>
+<td align="left">Breath carbon monoxide (ppm) at week 8</td>
+<td align="left">Numeric (0 to 29)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>QuitCigsWeek4</code></td>
+<td align="left">Smoking quit status at week 4</td>
+<td align="left">0 = No quit<br>1 = Quit</td>
+</tr>
+<tr class="even">
+<td align="left"><code>QuitCigsWeek8</code></td>
+<td align="left">Smoking quit status at week 8</td>
+<td align="left">0 = No quit<br>1 = Quit</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>DrinksWeek0</code></td>
+<td align="left">Drinks consumed in the past week at baseline</td>
+<td align="left">Count (1 to 35)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>DrinksWeek4</code></td>
+<td align="left">Drinks consumed in the past week at week 4</td>
+<td align="left">Count (0 to 13)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>DrinksWeek8</code></td>
+<td align="left">Drinks consumed in the past week at week 8</td>
+<td align="left">Count (0 to 13)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>CigsWeek0</code></td>
+<td align="left">Cigarettes smoked per day at baseline</td>
+<td align="left">Count (3 to 51)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>CigsWeek4</code></td>
+<td align="left">Cigarettes smoked per day at week 4</td>
+<td align="left">Count (0 to 41)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>CigsWeek8</code></td>
+<td align="left">Cigarettes smoked per day at week 8</td>
+<td align="left">Count (0 to 35)</td>
+</tr>
+</tbody>
+</table>
+</div>
+<div id="loneliness.csv" class="section level2">
+<h2>Loneliness.csv</h2>
+<p>The data were inspired by a longitudinal study of 1,508 Norwegian
+adolescents who completed annual assessments of loneliness and symptoms
+of anxiety and depression across four years of high school (Kristensen
+et al., 2023). Each construct was measured once per year, giving four
+loneliness scores and four anxiety-and-depression scores per adolescent.
+The data also include sex. Your group could compare loneliness scores at
+any two assessments (e.g., <code>Lonely1</code> and
+<code>Lonely4</code>) or anxiety and depression scores at any two
+assessments (e.g., <code>AnxDep1</code> and <code>AnxDep4</code>).</p>
+<p>The URL for importing the data is:</p>
+<pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/Loneliness.csv</code></pre>
+<table>
+<colgroup>
+<col width="33%" />
+<col width="33%" />
+<col width="33%" />
+</colgroup>
+<thead>
+<tr class="header">
+<th align="left">Name</th>
+<th align="left">Description</th>
+<th align="left">Scale</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td align="left"><code>ID</code></td>
+<td align="left">Individual identifier</td>
+<td align="left">Integer index</td>
 </tr>
 <tr class="even">
 <td align="left"><code>Female</code></td>
@@ -1778,21 +1782,44 @@ educational attainment.</p>
 <td align="left">0 = Male<br>1 = Female</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Race</code></td>
-<td align="left">Race/ethnicity category</td>
-<td align="left">1 = White<br>2 = Black<br>3 = Hispanic<br>4 =
-Other</td>
+<td align="left"><code>AnxDep1</code></td>
+<td align="left">Anxiety and depression score, year 1</td>
+<td align="left">Numeric (1 to 5)</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Income</code></td>
-<td align="left">Household income category</td>
-<td align="left">Numeric (1 to 20)</td>
+<td align="left"><code>AnxDep2</code></td>
+<td align="left">Anxiety and depression score, year 2</td>
+<td align="left">Numeric (1 to 4.75)</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>ParEduc</code></td>
-<td align="left">Parent educational attainment</td>
-<td align="left">1 = Less than HS<br>2 = HS or some college<br>3 =
-Bachelor’s degree</td>
+<td align="left"><code>AnxDep3</code></td>
+<td align="left">Anxiety and depression score, year 3</td>
+<td align="left">Numeric (1 to 4.5)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>AnxDep4</code></td>
+<td align="left">Anxiety and depression score, year 4</td>
+<td align="left">Numeric (1 to 5)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Lonely1</code></td>
+<td align="left">Loneliness score, year 1</td>
+<td align="left">Numeric (1 to 4.5)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Lonely2</code></td>
+<td align="left">Loneliness score, year 2</td>
+<td align="left">Numeric (1 to 5)</td>
+</tr>
+<tr class="odd">
+<td align="left"><code>Lonely3</code></td>
+<td align="left">Loneliness score, year 3</td>
+<td align="left">Numeric (1 to 5)</td>
+</tr>
+<tr class="even">
+<td align="left"><code>Lonely4</code></td>
+<td align="left">Loneliness score, year 4</td>
+<td align="left">Numeric (1 to 5)</td>
 </tr>
 </tbody>
 </table>
@@ -1805,7 +1832,9 @@ recall of learned material. Participants were assigned to one of three
 groups, each of which watched lecture videos at a different playback
 speed: 1x, 1.5x, or 2.5x. Recall was measured with an exam administered
 immediately after viewing the videos and a delayed-recall test
-administered approximately nine days later.</p>
+administered approximately nine days later. Your group could compare
+scores on the immediate and delayed recall tests
+(<code>ImmediateRecall</code> and <code>DelayedRecall</code>).</p>
 <p>The URL for importing the data is:</p>
 <pre><code>https://raw.githubusercontent.com/craigenders/psych250a/main/data/VideoSpeed.csv</code></pre>
 <table>
@@ -1864,96 +1893,173 @@ administered approximately nine days later.</p>
 <div id="tasks" class="section level1">
 <h1>Tasks</h1>
 <p>Unless otherwise specified, you should reuse and adapt the code from
-the <a href="https://craigenders.github.io/psych250a/labs/Week%202%20Lab.%20Descriptive%20Statistics.html">Week
-2 Lab. Descriptive Statistics.html</a> handout for the tasks below.</p>
+the <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html">Week
+6 Lab. Paired-Samples t-Test.html</a> handout for the tasks below.</p>
 <div id="write-your-research-question" class="section level2">
 <h2>1. Write your research question</h2>
-<p>Clearly identify the groups you will compare and the numeric outcome
-on which you will compare them. If you have a hypothesis about which
-groups will have higher or lower scores, state that prediction and
-briefly explain your reasoning.</p>
+<p>Select two numeric variables from your chosen data set whose means
+can be compared with a paired-samples <em>t</em>-test. State your
+research question in the form: Does the mean of ____ differ from the
+mean of ____?</p>
+<p>Do you have a hypothesis about which variable will have the higher
+mean, or could either mean plausibly be higher? Briefly explain your
+reasoning. Two-tailed tests are the norm in psychology. Explain why it
+would be defensible to perform a two-tailed test, even if you had a
+directional hypothesis.</p>
 </div>
-<div id="prepare-and-inspect-the-grouping-variable" class="section level2">
-<h2>2. Prepare and inspect the grouping variable</h2>
-<p>The categorical grouping variable is stored numerically. Convert it
-to a factor and assign informative labels to its values. Use the
-<code>freq()</code> function from the <code>summarytools</code> package
-to obtain a frequency distribution of the grouping variable and inspect
-how participants are distributed across the groups.</p>
+<div id="load-packages-and-import-the-data" class="section level2">
+<h2>2. Load packages and import the data</h2>
+<p>Use <code>library()</code> to load the <code>ggplot2</code>,
+<code>summarytools</code>, and <code>psych</code> packages. Import your
+chosen data set from its URL above into an R data frame. Use
+<code>dfSummary()</code> from the <code>summarytools</code> package to
+obtain numeric and visual summaries of all variables, and use
+<code>describe()</code> to obtain descriptive statistics for the entire
+data frame. Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html">Week
+6 lab</a>.</p>
 </div>
-<div id="compare-the-groups-graphically" class="section level2">
-<h2>3. Compare the groups graphically</h2>
-<p>Reuse and adapt the <code>ggplot2</code> code from the handout to
-create side-by-side histograms with overlaid kernel density curves, with
-one graph for each group.</p>
+<div id="examine-the-descriptive-statistics" class="section level2">
+<h2>3. Examine the descriptive statistics</h2>
+<p>Look at the means of the two variables you are comparing. Is the
+direction of the difference consistent with your prediction from Task 1?
+Provide a subjective evaluation of the magnitude of the difference
+between the two means, considering the range of scores in the
+<code>dfSummary()</code> output. Before performing the <em>t</em>-test,
+predict whether the difference between the means will be judged
+consistent or inconsistent with the null hypothesis of no difference,
+and explain your rationale.</p>
 </div>
-<div id="consult-ai-about-an-alternative-comparison" class="section level2">
-<h2>4. Consult AI about an alternative comparison</h2>
-<p>Give AI the research question, the meanings of the variables and
-group labels, your <code>ggplot2</code> code, and a screenshot of the
-group-comparison figure. Ask AI to recommend two or three alternative
-types of graphs that could make differences between the group means
-easier to evaluate.</p>
+<div id="perform-the-paired-samples-t-test" class="section level2">
+<h2>4. Perform the paired-samples <em>t</em>-test</h2>
+<p>Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#paired-samples-t-test">Paired-Samples
+t-Test</a> section of the Week 6 lab to perform a two-tailed
+paired-samples <em>t</em>-test comparing the means of your two
+variables. R subtracts the second variable listed in
+<code>t.test()</code> from the first, so order the variables such that a
+positive mean difference reflects an increase and a negative mean
+difference reflects a decrease.</p>
 </div>
-<div id="evaluate-and-implement-an-ai-recommendation" class="section level2">
-<h2>5. Evaluate and implement an AI recommendation</h2>
-<p>Review AI’s suggestions and select one that you believe would improve
-the comparison. Ask AI to modify your R code to create that graph. Apply
-the same presentation-ready color scheme, labels, and font used in your
-earlier figure. Briefly explain why you selected this display and what
-it reveals that was difficult to see in the side-by-side histograms.</p>
-</div>
-<div id="design-the-graph-for-a-presentation" class="section level2">
-<h2>6. Design the graph for a presentation</h2>
-<p>Give AI your graph code and explain that you want a polished figure
-suitable for inclusion in a PowerPoint presentation. Ask AI to modify
-the code to add an appropriate color scheme, informative axis labels,
-and a custom font. Implement a design of your choosing.</p>
-</div>
-<div id="obtain-descriptive-statistics-by-group" class="section level2">
-<h2>7. Obtain descriptive statistics by group</h2>
-<p>Obtain descriptive statistics on your outcome variable separately for
-each group. Examine the means and standard deviations for each group,
-noting which groups have larger or smaller values. Describe how these
-numeric values show up in the graphical display. That is, what features
-of the graphical display show mean differences and standard deviation
-differences. Cite specific features of the graphs and specific numerical
-values to support your evaluation.</p>
-</div>
-<div id="evaluate-the-distributional-conditions-for-anova" class="section level2">
-<h2>8. Evaluate the distributional conditions for ANOVA</h2>
-<p>Ask AI the following question:</p>
+<div id="evaluate-the-assumptions-of-the-paired-samples-t-test" class="section level2">
+<h2>5. Evaluate the assumptions of the paired-samples
+<em>t</em>-test</h2>
+<p>Provide AI with the following prompt, replacing the bracketed
+placeholders with the name of your data frame and the names of your two
+variables:</p>
 <blockquote>
-<p>I am comparing &lt;DESCRIBE THE GROUPS&gt; on an outcome variable
-measuring &lt;DESCRIBE THE OUTCOME&gt;. Later in the course, I will use
-an inferential procedure called ANOVA to determine whether the means
-differ. What distributional conditions should I consider when deciding
-whether this statistical test will provide trustworthy results?</p>
+<p>I am using R to perform a paired-samples <em>t</em>-test comparing
+[VARIABLE 1] and [VARIABLE 2] in a data frame named [DATA FRAME NAME].
+Explain the assumptions of the paired-samples <em>t</em>-test and the
+consequences of violating each one. Then provide R code that uses
+graphical displays, not significance tests, to evaluate the assumptions
+that can be checked with the data, using only base R and the ggplot2
+package. Add a brief single-line comment above each step and return the
+code in a single block.</p>
 </blockquote>
-<p>Evaluate how well the data satisfy the distributional conditions for
-an ANOVA procedure. Cite specific features of the graphs and specific
-numerical values to support your evaluation.</p>
+<p>Run the code. Examine the comments AI left in the code and indicate
+whether there are any discrepancies between the logic of the code and
+AI’s explanation of the assumptions. Then, for each assumption, make a
+judgment about whether it is met in your data, citing specific features
+of the graphs. Considering AI’s explanation of the consequences of
+violating the assumptions, explain whether any violations are likely to
+threaten the validity of your <em>t</em>-test results.</p>
 </div>
-<div id="answer-the-research-question" class="section level2">
-<h2>9. Answer the research question</h2>
-<p>State your conclusion about whether the groups appear to differ on
-the numeric outcome. Describe the direction of any apparent difference
-and support the conclusion with specific graphical or numerical
-evidence. Identify anything about the distributions—such as overlap,
-skewness, unusual observations, or differences in variability—that gives
-you pause or deserves further attention.</p>
+<div id="explain-the-standard-error" class="section level2">
+<h2>6. Explain the standard error</h2>
+<p>Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#standard-error">Standard
+Error</a> section of the Week 6 lab to print the standard error of the
+mean difference from your <em>t</em>-test results. Write approximately
+three to five sentences explaining this value to an undergraduate
+research assistant. Your explanation should 1) state what the standard
+error of the mean difference quantifies, 2) explain the role the
+standard error plays in computing the <em>t</em> statistic, and 3) give
+a one-sentence interpretation of the numerical value in your study.</p>
+</div>
+<div id="interpret-the-confidence-interval" class="section level2">
+<h2>7. Interpret the confidence interval</h2>
+<p>The output from Task 4 includes a 95% confidence interval for the
+mean difference. Using the “extreme populations” interpretation
+presented in the lecture slides (attributable to Cumming &amp; Finch,
+2001), explain what the lower and upper limits of this interval
+represent. Include both numerical limits in your answer and interpret
+each in terms of the population mean difference. Make sure your
+explanation specifies which quantities are variable and which are
+fixed.</p>
+</div>
+<div id="evaluate-the-null-hypothesis" class="section level2">
+<h2>8. Evaluate the null hypothesis</h2>
+<p>Use the confidence interval from Task 4 to evaluate the null
+hypothesis. Based on the interval, is it plausible that these data
+originated from a population in which the mean difference is 0? Explain
+your reasoning, and state whether your conclusion agrees with the
+<em>p</em>-value from Task 4.</p>
+</div>
+<div id="the-p-value-as-a-conditional-probability" class="section level2">
+<h2>9. The <em>p</em>-value as a conditional probability</h2>
+<p>Next, consider the <em>p</em>-value from the <em>t</em>-test. Provide
+AI with the following prompt:</p>
+<blockquote>
+<p>The <em>p</em>-value from a paired-samples <em>t</em>-test is a
+conditional probability. Explain what that means. Keep your explanation
+conceptual.</p>
+</blockquote>
+<p>Using AI’s explanation as a guide, write an interpretation of the
+<em>p</em>-value from Task 4 that clearly reflects this conditioning.
+Your interpretation should 1) identify the condition, that is, what is
+assumed to be true about the population, 2) identify the outcome whose
+probability the <em>p</em>-value describes, and 3) include the numerical
+value from your results. If your <em>p</em>-value is less than .001, use
+.001 (1 out of 1,000) as its value.</p>
+</div>
+<div id="explain-the-t-statistic" class="section level2">
+<h2>10. Explain the <em>t</em> statistic</h2>
+<p>Write approximately three to five sentences explaining the <em>t</em>
+statistic from Task 4 to an undergraduate research assistant. Your
+explanation should 1) state what the <em>t</em> statistic quantifies, 2)
+give a one-sentence interpretation of its numerical value in your study,
+and 3) explain what the sign of the <em>t</em> statistic tells you and
+whether the sign would matter if you had listed the two variables in
+<code>t.test()</code> in the opposite order.</p>
+</div>
+<div id="compute-the-effect-size" class="section level2">
+<h2>11. Compute the effect size</h2>
+<p>In addition to determining whether there was a “statistically
+significant” difference between the two means, researchers also want to
+determine the magnitude of the difference. Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#computing-a-change-score-variable">Computing
+a Change Score Variable</a> and <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#standardized-mean-difference-effect-size">Standardized
+Mean Difference Effect Size</a> sections of the Week 6 lab to compute
+the standardized mean difference effect size (Cohen’s <em>d</em>) for
+your two variables.</p>
+</div>
+<div id="interpret-the-effect-size" class="section level2">
+<h2>12. Interpret the effect size</h2>
+<p>Provide an interpretation of the standardized mean difference effect
+size from Task 11. Explain what the numeric value means and how it
+compares to Cohen’s “off-the-shelf” benchmarks.</p>
+</div>
+<div id="compare-the-p-value-and-the-effect-size" class="section level2">
+<h2>13. Compare the <em>p</em>-value and the effect size</h2>
+<p>Compare the <em>p</em>-value from Task 4 with the effect size from
+Task 11. Do the two statistics agree or disagree in their impressions of
+the difference between the two means? For example, is the
+<em>p</em>-value very small but the effect size small, or is the
+<em>p</em>-value very small and the effect size large? Explain why a
+very small <em>p</em>-value does not guarantee a large effect (or,
+conversely, why a large <em>p</em>-value does not guarantee a small
+effect). Hint: holding the means and standard deviations constant, what
+would happen to the <em>p</em>-value if the sample size were half as
+large? What would happen to the effect size?</p>
 </div>
 <div id="reflect-on-your-use-of-ai" class="section level2">
-<h2>10. Reflect on your use of AI</h2>
+<h2>14. Reflect on your use of AI</h2>
 <p>Reflect on your use of AI during this Data Blitz. Did you discover
 any new techniques, uses, or prompting strategies that you could carry
 forward into your research workflow? Were there limitations or issues
 you encountered?</p>
 </div>
 <div id="create-the-report" class="section level2">
-<h2>11. Create the report</h2>
-<p>Use the provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%202%20Data%20Blitz%20Template.Rmd">Week
-2 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
+<h2>15. Create the report</h2>
+<p>Use the provided R Markdown template (<a href="https://github.com/craigenders/psych250a/blob/main/data-blitz/Week%206%20Data%20Blitz%20Template.Rmd">Week
+6 Data Blitz Template.Rmd</a>) to produce an HTML report containing your
 research question, AI prompts, written explanations, R code, numerical
 results, graphs, and your reflection on AI. You may either develop your
 R code and written responses separately and paste them into the template
@@ -1963,7 +2069,7 @@ tables, and graphs—will appear automatically. You only need to enter the
 R code in the appropriate code chunks.</p>
 </div>
 <div id="be-prepared-to-present-your-results" class="section level2">
-<h2>12. Be prepared to present your results</h2>
+<h2>16. Be prepared to present your results</h2>
 <p>Groups will be selected at random to give informal five-minute
 presentations using their HTML reports. These will be off-the-cuff
 presentations and require no preparation beyond completing the
