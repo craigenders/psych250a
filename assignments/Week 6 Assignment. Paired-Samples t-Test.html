@@ -1529,10 +1529,11 @@ thioridazine). In this file, the three medication conditions are
 combined into a single medication group. Illness severity was rated at
 baseline, before random assignment, and again 3 weeks later, with higher
 scores indicating more severe symptoms. The central question is whether
-the medication produces greater improvement in illness severity than a
-placebo. In this assignment, you will examine the change in illness
-severity between baseline (<code>SeverityWk0</code>) and week 3
-(<code>SeverityWk3</code>) separately for the medication and placebo
+participants who receive the medication show greater improvement in
+illness severity from baseline to the 3-week follow-up than participants
+who receive a placebo. In this assignment, you will examine the change
+in illness severity between baseline (<code>SeverityWk0</code>) and week
+3 (<code>SeverityWk3</code>) separately for the medication and placebo
 groups, and you will consider what the pattern of results across the two
 groups says about the effectiveness of the medication. The table below
 provides detailed information about the variables in the data set. You
@@ -1666,22 +1667,24 @@ data information table. Obtain frequency distribution tables to verify
 that your labels are attached correctly.</p>
 <p>Your response should include your R code.</p>
 </div>
-<div id="question-3-predict-the-pattern-of-results" class="section level2">
-<h2>Question 3: Predict the Pattern of Results</h2>
-<p>Participants were randomly assigned to the medication or placebo
-condition after their baseline assessment. Before examining the group
-summaries, predict how the groups’ mean illness-severity scores should
-compare at baseline. What pattern of change from baseline to week 3
-across the two groups would suggest that the medication reduced illness
-severity beyond any improvement observed with the placebo? Explain the
-reasoning behind both predictions.</p>
-<p>Your response should include your written answer.</p>
+<div id="question-3-group-by-time-interaction" class="section level2">
+<h2>Question 3: Group-by-Time Interaction</h2>
+<p>This study has a within-subjects component (two repeated
+measurements) and a between-subjects component (two experimental
+conditions). Ask AI to explain the concept of a group-by-time
+interaction.</p>
+<p>Using AI’s explanation, describe the pattern of baseline and week 3
+means you would expect to see within each experimental condition if
+there is a group-by-time interaction. Then describe the pattern of means
+you would expect if there is no group-by-time interaction.</p>
+<p>Your response should include your written answer; your prompt and
+AI’s response will appear in your chat log in Question 14.</p>
 </div>
 <div id="question-4-ai-prompt-for-the-line-graph" class="section level2">
 <h2>Question 4: AI Prompt for the Line Graph</h2>
 <p>Write a self-contained prompt asking AI to generate R code for a line
 graph showing mean illness severity at baseline and the 3-week follow-up
-for each treatment group, with each group’s means connected by a
+for each experimental condition, with each group’s means connected by a
 separate line. Your prompt should specify the data frame, variable
 names, group labels, and the possible range of illness severity scores
 (see the data information table) so that the vertical axis spans the
@@ -1703,12 +1706,11 @@ investigating the code. A colleague should be able to understand its
 main steps from your explanation without reading the code.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-6-compare-the-graph-with-your-predictions" class="section level2">
-<h2>Question 6: Compare the Graph With Your Predictions</h2>
-<p>Compare the graph from Question 4 with your predictions from Question
-3. Which features of the graph align with your predictions, and which,
-if any, do not? Support your answer with specific features of the
-graph.</p>
+<div id="question-6-evaluate-the-interaction-in-the-graph" class="section level2">
+<h2>Question 6: Evaluate the Interaction in the Graph</h2>
+<p>Compare the graph from Question 4 with the patterns you described in
+Question 3. Does the graph suggest a group-by-time interaction or not?
+Support your answer with specific features of the graph.</p>
 <p>Your response should include your written answer.</p>
 </div>
 <div id="question-7-subset-the-data-by-medication-group" class="section level2">
@@ -1772,17 +1774,17 @@ a Change Score Variable</a> and <a href="https://craigenders.github.io/psych250a
 Mean Difference Effect Size</a> sections of the Week 6 lab to compute
 the standardized mean difference effect size (Cohen’s <em>d</em>)
 separately for the <code>medgroup</code> and <code>placebo</code> data
-frames.</p>
-<p>Your response should include your R code. The results will appear
-automatically when you knit the file.</p>
+frames. Then explain the meaning of the standardized mean difference
+effect sizes.</p>
+<p>Your response should include your R code and your written
+explanation. The results will appear automatically when you knit the
+file.</p>
 </div>
-<div id="question-12-interpret-the-effect-sizes" class="section level2">
-<h2>Question 12: Interpret the Effect Sizes</h2>
-<p>Explain the meaning of the standardized mean difference effect sizes
-from Question 11. The original research question was whether the
-medication produced a change in illness severity. Explain whether the
-effect sizes for the two groups support or fail to support this
-conclusion, citing specific values from your results.</p>
+<div id="question-12-effect-sizes-and-the-group-by-time-interaction" class="section level2">
+<h2>Question 12: Effect Sizes and the Group-by-Time Interaction</h2>
+<p>Explain whether the effect sizes for the two experimental conditions
+from Question 11 are consistent or inconsistent with the presence of a
+group-by-time interaction. Cite specific values from your results.</p>
 <p>Your response should include your written answer.</p>
 </div>
 <div id="question-13-evaluate-the-t-test-assumptions" class="section level2">
@@ -1799,9 +1801,9 @@ code.</p>
 <p>Because journal page space is limited, researchers often provide more
 detailed results in an online supplement. Write a paragraph suitable for
 such a supplement describing your assessment of the paired-samples
-<em>t</em>-test assumptions for each treatment group. Support your
-assessment with specific features of the diagnostic graphs, assuming
-that the graphs are included in the supplement.</p>
+<em>t</em>-test assumptions for each experimental condition. Support
+your assessment with specific features of the diagnostic graphs,
+assuming that the graphs are included in the supplement.</p>
 <p>Your response should include the R code and your written assessment;
 your prompt and AI’s response will appear in your chat log in Question
 14.</p>
@@ -1809,8 +1811,8 @@ your prompt and AI’s response will appear in your chat log in Question
 <div id="question-14-chat-log" class="section level2">
 <h2>Question 14: Chat Log</h2>
 <p>This question is not graded. It collects your prompts and AI’s
-responses in one place so that graders can locate them for Questions 4
-and 13. After completing Question 13, click anywhere in the Copilot
+responses in one place so that graders can locate them for Questions 3,
+4, and 13. After completing Question 13, click anywhere in the Copilot
 conversation, select the entire chat (Ctrl+A on Windows, Cmd+A on Mac),
 copy it, and paste it between the two lines of backticks in the Question
 14 section of the template. The pasted text will show “You said:” before

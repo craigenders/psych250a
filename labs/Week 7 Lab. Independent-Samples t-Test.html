@@ -12,7 +12,7 @@
 <meta name="author" content="Craig Enders" />
 
 
-<title>Week 5 Lab. Hypothesis Testing</title>
+<title>Week 7 Lab. Independent-Samples t-Test</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -1561,9 +1561,9 @@ font-size: 0.95em;
 
 
 
-<h1 class="title toc-ignore">Week 5 Lab. Hypothesis Testing</h1>
+<h1 class="title toc-ignore">Week 7 Lab. Independent-Samples t-Test</h1>
 <h4 class="author">Craig Enders</h4>
-<h4 class="date">Wednesday October 28</h4>
+<h4 class="date">Friday November 13</h4>
 
 </div>
 
@@ -1598,38 +1598,20 @@ numeric variable   <span class="cat">■</span> categorical variable
 </p>
 <div id="the-data" class="section level1">
 <h1>The Data</h1>
-<p>The data for this lab come from a study of uveal melanoma, a rare eye
-cancer that can threaten vision and life. This prospective longitudinal
-study examined whether visual impairment predicted depressive symptoms
-in 299 adults undergoing diagnostic evaluation and whether optimism and
-pessimism moderated that relationship (MacDonald, Jorge-Miller, Enders,
-McCannel, Beran, &amp; Stanton, 2021, <em>Health Psychology</em>, 40,
-408–417).</p>
-<p>Based on a clinical evaluation for a possible intraocular malignancy,
-participants were classified as having malignant or nonmalignant
-diagnoses. Three numeric variables are of primary interest.</p>
-<p><strong>Depressive symptoms.</strong> The Center for Epidemiologic
-Studies Depression Scale (CES-D) is a 20-item inventory that asks people
-to rate how often they experience depressive symptoms such as restless
-sleep, poor appetite, and feeling lonely. Each item is scored 0 (rarely
-or none of the time) to 3 (most or all of the time), so the summed score
-ranges from 0 to 60. Higher scores indicate greater depressive symptoms,
-and scores of 16 or higher indicate clinically elevated symptoms.</p>
-<p><strong>Dispositional optimism.</strong> The Life Orientation
-Test–Revised (LOT-R) optimism subscale consists of three items that ask
-people to rate their tendency to expect positive outcomes in life, each
-on a five-point scale from 0 (I disagree a lot) to 4 (I agree a lot).
-The summed score ranges from 0 to 12.</p>
-<p><strong>Visual impairment.</strong> The Measure of Outcome in Ocular
-Disease vision subscale (MOOD-V) is a 13-item measure. Scores were
-summed and transformed to a 0–100 scale, with higher scores indicating
-greater impairment.</p>
+<p>The data for this lab come from a sample of 639 rural Latinx
+adolescents between 14 and 17 years of age. The study measured perceived
+discrimination, peer and family relationships, and internalizing
+symptoms. Its purpose was to examine whether perceived discrimination
+was associated with internalizing symptoms through its effects on
+adolescents’ peer and family relationships. The researchers were also
+interested in whether key study variables differed by sex.</p>
+<p>You have seen these data before. In the Week 4 assignment, you
+compared perceived discrimination (<code>Discrim</code>) between male
+and female adolescents by inspecting the overlap of the two groups’ 95%
+confidence intervals. This lab answers the same question with an
+independent-samples <em>t</em>-test, which compares the means of two
+separate groups of people.</p>
 <table>
-<colgroup>
-<col width="33%" />
-<col width="33%" />
-<col width="33%" />
-</colgroup>
 <thead>
 <tr class="header">
 <th align="left">Variable</th>
@@ -1639,54 +1621,46 @@ greater impairment.</p>
 </thead>
 <tbody>
 <tr class="odd">
-<td align="left"><code>Participant</code></td>
-<td align="left">Participant identifier</td>
-<td align="left">1 to 299</td>
+<td align="left"><code>ID</code></td>
+<td align="left">Individual identifier</td>
+<td align="left">Integer index</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Diagnosis</code></td>
-<td align="left">Result of the diagnostic biopsy</td>
-<td align="left">0 = Non-malignant, 1 = Malignant</td>
+<td align="left"><code>Female</code></td>
+<td align="left">Respondent sex</td>
+<td align="left">0 = Male, 1 = Female</td>
 </tr>
 <tr class="odd">
 <td align="left"><code>Age</code></td>
 <td align="left">Age in years</td>
-<td align="left">19 to 91</td>
+<td align="left">14 to 17</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Male</code></td>
-<td align="left">Respondent sex</td>
-<td align="left">0 = Female, 1 = Male</td>
+<td align="left"><code>Discrim</code></td>
+<td align="left">Perceived discrimination composite</td>
+<td align="left">7 to 31</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Comorbids</code></td>
-<td align="left">Number of medical comorbidities</td>
-<td align="left">0 = none, 1 = one, 2 = two or more</td>
+<td align="left"><code>Victim</code></td>
+<td align="left">Peer victimization composite</td>
+<td align="left">0 to 20</td>
 </tr>
 <tr class="even">
-<td align="left"><code>Optimism</code></td>
-<td align="left">LOT-R optimism subscale (sum of 3 items)</td>
-<td align="left">0 to 12</td>
+<td align="left"><code>Familism</code></td>
+<td align="left">Familism composite</td>
+<td align="left">5 to 40</td>
 </tr>
 <tr class="odd">
-<td align="left"><code>Depression</code></td>
-<td align="left">CES-D depressive symptoms (sum of 20 items)</td>
+<td align="left"><code>Internalize</code></td>
+<td align="left">Internalizing symptoms composite</td>
 <td align="left">0 to 60</td>
-</tr>
-<tr class="even">
-<td align="left"><code>VisImpair</code></td>
-<td align="left">MOOD-V visual impairment (transformed)</td>
-<td align="left">0 to 100</td>
 </tr>
 </tbody>
 </table>
-<p>Notice that the categorical variables are entered as numbers, not
-labels: <code>Diagnosis</code> and <code>Male</code> are coded 0 and 1,
-and <code>Comorbids</code> is coded 0, 1, and 2. In the raw file there
-is nothing to tell R that these codes are categories rather than
-quantities, which is why the labels in the table above matter. A later
-step uses the <code>factor()</code> function to attach those labels to
-the data.</p>
+<p>Higher scores on <code>Discrim</code> indicate greater perceived
+discrimination. The categorical variable <code>Female</code> is entered
+as 0 and 1, not as labels; a later step uses the <code>factor()</code>
+function to attach those labels to the data.</p>
 </div>
 <div id="preliminaries-loading-packages" class="section level1">
 <h1>Preliminaries: Loading Packages</h1>
@@ -1695,10 +1669,11 @@ this lab come from add-on packages. <code>library()</code> makes a
 package’s functions available for the current session; it has to be run
 each time you open R, and it assumes the package was installed
 beforehand (see the Week 0 R Package Installation Script).</p>
-<p>No new packages are needed this week. The one-sample <em>t</em>-test
-uses <code>t.test()</code>, which is part of base R.</p>
+<p>No new packages are needed this week. The independent-samples
+<em>t</em>-test uses <code>t.test()</code>, which is part of base R, and
+the effect size uses <code>cohen.d()</code> from the psych package.</p>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># psych provides describe() for descriptive statistics</span>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># psych provides describe(), describeBy(), and cohen.d()</span>
 library(psych)
 
 <span class="cm"># summarytools provides dfSummary() for data summaries</span>
@@ -1716,22 +1691,19 @@ use with data files stored on your own computer.</p>
 <p>Both methods call <code>read.csv()</code> with
 <code>stringsAsFactors = TRUE</code>, the same call used in the
 assignments. The argument converts any text column to a factor, but this
-file has none: the categorical variables <code>Diagnosis</code> and
-<code>Male</code> are stored as 0/1 codes, so every column, including
-these, is read as numeric. The next section converts those codes to
-factors by hand.</p>
+file has none: the categorical variable <code>Female</code> is stored as
+0/1 codes, so every column is read as numeric. The next section converts
+those codes to a factor by hand.</p>
 <div id="option-1-read-from-the-course-website" class="section level2">
 <h2>Option 1: Read From the Course Website</h2>
 <p>The data file lives on the course GitHub site. Store the web address
-in an object, then hand that address to <code>read.csv()</code>. Keeping
-the address in its own object is a small convenience: if the file moves,
-only one line changes.</p>
+in an object, then hand that address to <code>read.csv()</code>.</p>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># store the web address of the raw data file</span>
-filepath &lt;- &quot;https://raw.githubusercontent.com/craigenders/psych250a/main/data/<span class="file">Cancer.csv</span>&quot;
+filepath &lt;- &quot;https://raw.githubusercontent.com/craigenders/psych250a/main/data/<span class="file">Discrimination.csv</span>&quot;
 
-<span class="cm"># read the file at that address into a data frame named Cancer</span>
-<span class="df">Cancer</span> &lt;- read.csv(filepath, stringsAsFactors = TRUE)</code></pre>
+<span class="cm"># read the file at that address into a data frame named Discrimination</span>
+<span class="df">Discrimination</span> &lt;- read.csv(filepath, stringsAsFactors = TRUE)</code></pre>
 </div>
 </div>
 <div id="option-2-read-from-the-folder-that-contains-the-script" class="section level2">
@@ -1746,8 +1718,8 @@ confirm it landed where you expected. After that,
 <code>read.csv()</code> needs only the file name.</p>
 <p>This block is displayed but not run, because a knitted document has
 no script to locate. Run it from an R script saved next to
-<code>Cancer.csv</code>. In the lab script the same lines are commented
-out; remove the leading <code>#</code> to use them.</p>
+<code>Discrimination.csv</code>. In the lab script the same lines are
+commented out; remove the leading <code>#</code> to use them.</p>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># set the working directory to the folder that contains this script</span>
 setwd(dirname(getActiveDocumentContext()$path))
@@ -1755,69 +1727,62 @@ setwd(dirname(getActiveDocumentContext()$path))
 <span class="cm"># print the working directory to confirm the location</span>
 getwd()
 
-<span class="cm"># read Cancer.csv from the working directory into a data frame named Cancer</span>
-<span class="df">Cancer</span> &lt;- read.csv(&quot;<span class="file">Cancer.csv</span>&quot;, stringsAsFactors = TRUE)</code></pre>
+<span class="cm"># read Discrimination.csv from the working directory into a data frame named Discrimination</span>
+<span class="df">Discrimination</span> &lt;- read.csv(&quot;<span class="file">Discrimination.csv</span>&quot;, stringsAsFactors = TRUE)</code></pre>
 </div>
 </div>
 </div>
 <div id="converting-categorical-variables-to-factors" class="section level1">
 <h1>Converting Categorical Variables to Factors</h1>
-<p>R does not know that <code>Diagnosis</code> and <code>Male</code> are
-categorical; it sees two numeric columns of 0s and 1s. Left that way,
-plotting and summary functions would treat them as continuous variables.
-The <code>factor()</code> function converts a numeric column to a
-<em>factor</em>, R’s term for a categorical variable. The
+<p>R does not know that <code>Female</code> is categorical; it sees a
+numeric column of 0s and 1s. The <code>factor()</code> function converts
+a numeric column to a factor, R’s term for a categorical variable. The
 <code>levels</code> argument lists the codes in the data, and the
 <code>labels</code> argument gives each code a name; the two are matched
-in order, so 0 becomes the first label and 1 the second.</p>
-<p>The conversion replaces each column in place. Once a column is a
+in order, so 0 becomes Male and 1 becomes Female.</p>
+<p>The order of the levels matters this week. The <em>t</em>-test and
+effect size functions subtract the second group’s mean from the first
+group’s mean, and the first group is the first level of the factor
+(here, Male).</p>
+<p>Run this block only once after reading the data. Once a column is a
 factor, re-running <code>factor()</code> on it with the same
-<code>levels</code> would produce all <code>NA</code> values, because
-the codes no longer exist, so run this block only once after reading the
-data.</p>
+<code>levels</code> produces all <code>NA</code> values, because the
+numeric codes no longer exist.</p>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># convert Diagnosis from 0/1 codes to a factor with descriptive labels</span>
-<span class="df">Cancer</span>$<span class="cat">Diagnosis</span> &lt;- factor(<span class="df">Cancer</span>$<span class="cat">Diagnosis</span>,
-                           levels = c(0, 1),
-                           labels = c(&quot;Non-malignant&quot;, &quot;Malignant&quot;))
-
-<span class="cm"># convert Male from 0/1 codes to a factor with descriptive labels</span>
-<span class="df">Cancer</span>$<span class="cat">Male</span> &lt;- factor(<span class="df">Cancer</span>$<span class="cat">Male</span>,
-                      levels = c(0, 1),
-                      labels = c(&quot;Female&quot;, &quot;Male&quot;))
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># convert Female from 0/1 codes to a factor with descriptive labels</span>
+<span class="df">Discrimination</span>$<span class="cat">Female</span> &lt;- factor(<span class="df">Discrimination</span>$<span class="cat">Female</span>,
+                                levels = c(0, 1),
+                                labels = c(&quot;Male&quot;, &quot;Female&quot;))
 
 <span class="cm"># print the first few rows to confirm the labels replaced the codes</span>
-head(<span class="df">Cancer</span>)</code></pre>
+head(<span class="df">Discrimination</span>)</code></pre>
 </div>
-<pre><code>  Participant     Diagnosis Age   Male Comorbids Optimism Depression VisImpair
-1           1 Non-malignant  43 Female         1        7         42        52
-2           2 Non-malignant  25 Female         1        6          3        43
-3           3 Non-malignant  55 Female         0       10          8        61
-4           4 Non-malignant  46   Male         0        8         22        50
-5           5 Non-malignant  73   Male         2       12          3        24
-6           6     Malignant  60 Female         1       12         10        30</code></pre>
+<pre><code>  ID Female Age Discrim Victim Familism Internalize
+1  1   Male  17      12      1       32           4
+2  2 Female  16      12      2       33          18
+3  3 Female  14      14      3       19          15
+4  4   Male  15      17      3       26           8
+5  5 Female  16      10      0       33           9
+6  6   Male  15      14      1       30          11</code></pre>
 </div>
 <div id="summarizing-data" class="section level1">
 <h1>Summarizing Data</h1>
 <p>Before computing anything, look at the whole data frame at once.
 <code>dfSummary()</code> from the summarytools package produces one row
 per variable showing its type, a compact summary of its values, a small
-graph of its distribution, and the number of valid and missing cases. It
-is the fastest way to confirm that a file read in correctly and to
-notice anything odd — a variable stored as the wrong type, an impossible
-value, unexpected missingness — before it contaminates later analyses.
-In the HTML version of this lab, the table is handed to
+graph of its distribution, and the number of valid and missing cases. In
+the HTML version of this lab, the table is handed to
 <code>print()</code> with <code>method = &quot;render&quot;</code> so that it
 displays as formatted HTML; that wrapper is not needed in your own
 documents.</p>
 <div class="sourceCode">
 <pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># overview of every variable in the data frame</span>
-print(dfSummary(<span class="df">Cancer</span>), method = &quot;render&quot;)</code></pre>
+print(dfSummary(<span class="df">Discrimination</span>), method = &quot;render&quot;)</code></pre>
 </div>
 <div class="container st-container">
 <h3>Data Frame Summary</h3>
-<h4>Cancer</h4>
-<strong>Dimensions</strong>: 299 x 8
+<h4>Discrimination</h4>
+<strong>Dimensions</strong>: 639 x 7
   <br /><strong>Duplicates</strong>: 0
 <br />
 <table class="table table-striped table-bordered st-table st-table-striped st-table-bordered st-multiline ">
@@ -1835,25 +1800,25 @@ print(dfSummary(<span class="df">Cancer</span>), method = &quot;render&quot;)</c
   <tbody>
     <tr>
       <td align="center">1</td>
-      <td align="left">Participant
+      <td align="left">ID
 [integer]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 150 (86.5)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">1 ≤ 150 ≤ 299</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 149 (0.6)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle">299 distinct values
+      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 320 (184.6)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">1 ≤ 320 ≤ 639</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 319 (0.6)</td></tr></table></td>
+      <td align="left" style="vertical-align:middle">639 distinct values
 (Integer sequence)</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
-      <td align="center">299
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
+      <td align="center">639
 (100.0%)</td>
       <td align="center">0
 (0.0%)</td>
     </tr>
     <tr>
       <td align="center">2</td>
-      <td align="left">Diagnosis
+      <td align="left">Female
 [factor]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">1. Non-malignant</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">2. Malignant</td></tr></table></td>
-      <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 5px 0 7px;margin:0;border:0" align="right">192</td><td style="padding:0 2px 0 0;border:0;" align="left">(</td><td style="padding:0;border:0" align="right">64.2%</td><td style="padding:0 4px 0 2px;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 5px 0 7px;margin:0;border:0" align="right">107</td><td style="padding:0 2px 0 0;border:0;" align="left">(</td><td style="padding:0;border:0" align="right">35.8%</td><td style="padding:0 4px 0 2px;border:0" align="left">)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAG0AAAA3CAQAAACs5AxMAAAD+mlDQ1BpY2MAADiNjVVdaBxVFD6bubMrJM6D1Kamkg7+NZS0bFLRhNro/mWzbdwsk2y0QZDJ7N2daSYz4/ykaSk+FEEQwajgk+D/W8EnIWqr7YstorRQogSDKPjQ+keh0hcJ67kzs7uTuGu9y9z55pzvfufec+7eC5C4LFuW3iUCLBquLeXT4rPH5sTEOnTBfdANfdAtK46VKpUmARvjwr/a7e8gxt7X9rf3/2frrlBHAYjdhdisOMoi4mUA/hXFsl2ABEH7yAnXYvgJxDtsnCDiEsO1AFcYng/wss+ZkTKIX0UsKKqM/sTbiAfnI/ZaBAdz8NuOPDWorSkiy0XJNquaTiPTvYP7f7ZF3WvE24NPj7MwfRTfA7j2lypyluGHEJ9V5Nx0iK8uabPFEP9luWkJ8SMAXbu8hXIK8T7EY1V7vBzodKmqN9HAK6fUmWcQ34N4dcE8ysbuRPy1MV+cCnV+UpwM5g8eAODiKi2wevcjHrBNaSqIy41XaDbH8oj4uOYWZgJ97i1naTrX0DmlZopBLO6L4/IRVqc+xFepnpdC/V8ttxTGJT2GXpwMdMgwdfz1+nZXnZkI4pI5FwsajCUvVrXxQsh/V7UnpBBftnR/j+LcyE3bk8oBn7+fGuVQkx+T7Vw+xBWYjclAwYR57BUwYBNEkCAPaXxbYKOnChroaKHopWih+NXg7N/CKfn+ALdUav7I6+jRMEKm/yPw0KrC72hVI7wMfnloq3XQCWZwI9QxSS9JkoP4HCKT5DAZIaMgkifJU2SMZNE6Sg41x5Yic2TzudHUeQEjUp83i7yL6HdBxv5nZJjgtM/FSp83ENjP2M9rypXXbl46fW5Xi7tGVp+71nPpdCRnGmotdMja1J1yz//CX+fXsF/nN1oM/gd+A3/r21a3Nes0zFYKfbpvW8RH8z1OZD6lLVVsYbOjolk1VvoCH8sAfbl4uwhnBlv85PfJP5JryfeSHyZ/497kPuHOc59yn3HfgMhd4C5yX3JfcR9zn0dq1HnvNGvur6OxCuZpl1Hcn0Ja2C08KGSFPcLDwmRLT+gVhoQJYS96djerE40XXbsGx7BvZKt9rIAXqXPsbqyz1uE/VEaWBid8puPvMwNObuOEI0k/GSKFbbt6hO31pnZ+Sz3ar4HGc/FsPAVifF98ND4UP8Jwgxnfi75R7PHUcumyyw7ijGmdtLWa6orDyeTjYgqvMioWDOXAoCjruui7HNGmDrWXaOUAsHsyOMJvSf79F9t5pWVznwY4/Cc791q2OQ/grAPQ+2jLNoBn473vAKw+pnj2UngnxGLfAjjVg8PBV08az6sf6/VbeG4l3gDYfL1e//v9en3zA9TfALig/wP/JXgLtNfFGQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfqCgQSJDB2SrumAAAAn0lEQVRo3u3YQQ5AMBBA0Vbc0R04D3dwSrYlsalQf/y360b6k6nF5C1F1bW+gGmmlfrysOAf3pgv0lIaWt/tlvVwCjyQphGZRmQakWlEphGZRmQakWlEphGddiNr3Vc+KZdLrFz9ma8oawIPZOC0w1ubX1yxTo9Pf6MV6xu/q8ADaRqRaUSmEZlGZBqRaUSmEZlGZBrRX1assQQeSNOIdn6XC8dz19nLAAAAPXRFWHRpY2M6Y29weXJpZ2h0AENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQunmbcKQAAACN0RVh0aWNjOmRlc2NyaXB0aW9uAEdlbmVyaWMgUkdCIFByb2ZpbGUapziOAAAAAElFTkSuQmCC"></td>
-      <td align="center">299
+      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">1. Male</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">2. Female</td></tr></table></td>
+      <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 5px 0 7px;margin:0;border:0" align="right">301</td><td style="padding:0 2px 0 0;border:0;" align="left">(</td><td style="padding:0;border:0" align="right">47.1%</td><td style="padding:0 4px 0 2px;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 5px 0 7px;margin:0;border:0" align="right">338</td><td style="padding:0 2px 0 0;border:0;" align="left">(</td><td style="padding:0;border:0" align="right">52.9%</td><td style="padding:0 4px 0 2px;border:0" align="left">)</td></tr></table></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFwAAAA3CAQAAAAr1eVKAAAD+mlDQ1BpY2MAADiNjVVdaBxVFD6bubMrJM6D1Kamkg7+NZS0bFLRhNro/mWzbdwsk2y0QZDJ7N2daSYz4/ykaSk+FEEQwajgk+D/W8EnIWqr7YstorRQogSDKPjQ+keh0hcJ67kzs7uTuGu9y9z55pzvfufec+7eC5C4LFuW3iUCLBquLeXT4rPH5sTEOnTBfdANfdAtK46VKpUmARvjwr/a7e8gxt7X9rf3/2frrlBHAYjdhdisOMoi4mUA/hXFsl2ABEH7yAnXYvgJxDtsnCDiEsO1AFcYng/wss+ZkTKIX0UsKKqM/sTbiAfnI/ZaBAdz8NuOPDWorSkiy0XJNquaTiPTvYP7f7ZF3WvE24NPj7MwfRTfA7j2lypyluGHEJ9V5Nx0iK8uabPFEP9luWkJ8SMAXbu8hXIK8T7EY1V7vBzodKmqN9HAK6fUmWcQ34N4dcE8ysbuRPy1MV+cCnV+UpwM5g8eAODiKi2wevcjHrBNaSqIy41XaDbH8oj4uOYWZgJ97i1naTrX0DmlZopBLO6L4/IRVqc+xFepnpdC/V8ttxTGJT2GXpwMdMgwdfz1+nZXnZkI4pI5FwsajCUvVrXxQsh/V7UnpBBftnR/j+LcyE3bk8oBn7+fGuVQkx+T7Vw+xBWYjclAwYR57BUwYBNEkCAPaXxbYKOnChroaKHopWih+NXg7N/CKfn+ALdUav7I6+jRMEKm/yPw0KrC72hVI7wMfnloq3XQCWZwI9QxSS9JkoP4HCKT5DAZIaMgkifJU2SMZNE6Sg41x5Yic2TzudHUeQEjUp83i7yL6HdBxv5nZJjgtM/FSp83ENjP2M9rypXXbl46fW5Xi7tGVp+71nPpdCRnGmotdMja1J1yz//CX+fXsF/nN1oM/gd+A3/r21a3Nes0zFYKfbpvW8RH8z1OZD6lLVVsYbOjolk1VvoCH8sAfbl4uwhnBlv85PfJP5JryfeSHyZ/497kPuHOc59yn3HfgMhd4C5yX3JfcR9zn0dq1HnvNGvur6OxCuZpl1Hcn0Ja2C08KGSFPcLDwmRLT+gVhoQJYS96djerE40XXbsGx7BvZKt9rIAXqXPsbqyz1uE/VEaWBid8puPvMwNObuOEI0k/GSKFbbt6hO31pnZ+Sz3ar4HGc/FsPAVifF98ND4UP8Jwgxnfi75R7PHUcumyyw7ijGmdtLWa6orDyeTjYgqvMioWDOXAoCjruui7HNGmDrWXaOUAsHsyOMJvSf79F9t5pWVznwY4/Cc791q2OQ/grAPQ+2jLNoBn473vAKw+pnj2UngnxGLfAjjVg8PBV08az6sf6/VbeG4l3gDYfL1e//v9en3zA9TfALig/wP/JXgLtNfFGQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfqCgQSJDPvQ+ocAAAAm0lEQVRo3u3YwQmAMAxGYSPd0SGcR3dwSr1JWoUWD+0fee+mBfkOQUjtnGI2jwYAj1LyD7vUwK9WvvG8lB8to7V3R+U87KgABw5cNODAgYsGHDhw0YADb6zYOWubnk7mN2f7/Jk+eWvYUQkLz2Z8k7oQesnNsuyF0LP8xxF2VIADBy4acODARQMOHLhowIE39o8LoUiFHRXgvbsAeqoMXPL7w58AAAA9dEVYdGljYzpjb3B5cmlnaHQAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC6eZtwpAAAAI3RFWHRpY2M6ZGVzY3JpcHRpb24AR2VuZXJpYyBSR0IgUHJvZmlsZRqnOI4AAAAASUVORK5CYII="></td>
+      <td align="center">639
 (100.0%)</td>
       <td align="center">0
 (0.0%)</td>
@@ -1862,70 +1827,58 @@ print(dfSummary(<span class="df">Cancer</span>), method = &quot;render&quot;)</c
       <td align="center">3</td>
       <td align="left">Age
 [integer]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 59 (13.9)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">19 ≤ 60 ≤ 91</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 17.5 (0.2)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle">61 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
-      <td align="center">299
+      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 15.6 (1.1)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">14 ≤ 16 ≤ 17</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 2 (0.1)</td></tr></table></td>
+      <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 2px 0 7px;margin:0;border:0" align="right">14</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">117</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">18.3%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 2px 0 7px;margin:0;border:0" align="right">15</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">175</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">27.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 2px 0 7px;margin:0;border:0" align="right">16</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">175</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">27.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 2px 0 7px;margin:0;border:0" align="right">17</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">172</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">26.9%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAADYAAABmCAQAAAAqwqqhAAAD+mlDQ1BpY2MAADiNjVVdaBxVFD6bubMrJM6D1Kamkg7+NZS0bFLRhNro/mWzbdwsk2y0QZDJ7N2daSYz4/ykaSk+FEEQwajgk+D/W8EnIWqr7YstorRQogSDKPjQ+keh0hcJ67kzs7uTuGu9y9z55pzvfufec+7eC5C4LFuW3iUCLBquLeXT4rPH5sTEOnTBfdANfdAtK46VKpUmARvjwr/a7e8gxt7X9rf3/2frrlBHAYjdhdisOMoi4mUA/hXFsl2ABEH7yAnXYvgJxDtsnCDiEsO1AFcYng/wss+ZkTKIX0UsKKqM/sTbiAfnI/ZaBAdz8NuOPDWorSkiy0XJNquaTiPTvYP7f7ZF3WvE24NPj7MwfRTfA7j2lypyluGHEJ9V5Nx0iK8uabPFEP9luWkJ8SMAXbu8hXIK8T7EY1V7vBzodKmqN9HAK6fUmWcQ34N4dcE8ysbuRPy1MV+cCnV+UpwM5g8eAODiKi2wevcjHrBNaSqIy41XaDbH8oj4uOYWZgJ97i1naTrX0DmlZopBLO6L4/IRVqc+xFepnpdC/V8ttxTGJT2GXpwMdMgwdfz1+nZXnZkI4pI5FwsajCUvVrXxQsh/V7UnpBBftnR/j+LcyE3bk8oBn7+fGuVQkx+T7Vw+xBWYjclAwYR57BUwYBNEkCAPaXxbYKOnChroaKHopWih+NXg7N/CKfn+ALdUav7I6+jRMEKm/yPw0KrC72hVI7wMfnloq3XQCWZwI9QxSS9JkoP4HCKT5DAZIaMgkifJU2SMZNE6Sg41x5Yic2TzudHUeQEjUp83i7yL6HdBxv5nZJjgtM/FSp83ENjP2M9rypXXbl46fW5Xi7tGVp+71nPpdCRnGmotdMja1J1yz//CX+fXsF/nN1oM/gd+A3/r21a3Nes0zFYKfbpvW8RH8z1OZD6lLVVsYbOjolk1VvoCH8sAfbl4uwhnBlv85PfJP5JryfeSHyZ/497kPuHOc59yn3HfgMhd4C5yX3JfcR9zn0dq1HnvNGvur6OxCuZpl1Hcn0Ja2C08KGSFPcLDwmRLT+gVhoQJYS96djerE40XXbsGx7BvZKt9rIAXqXPsbqyz1uE/VEaWBid8puPvMwNObuOEI0k/GSKFbbt6hO31pnZ+Sz3ar4HGc/FsPAVifF98ND4UP8Jwgxnfi75R7PHUcumyyw7ijGmdtLWa6orDyeTjYgqvMioWDOXAoCjruui7HNGmDrWXaOUAsHsyOMJvSf79F9t5pWVznwY4/Cc791q2OQ/grAPQ+2jLNoBn473vAKw+pnj2UngnxGLfAjjVg8PBV08az6sf6/VbeG4l3gDYfL1e//v9en3zA9TfALig/wP/JXgLtNfFGQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfqCgQSJDPvQ+ocAAAAp0lEQVRo3u3ZwQmAMBBEUVfSo0VYj/ZglXrdBJS4JBHGPzeJ7DtswAHtnMZlHmgJY8k/7MEFrnZ/5kem/GgJUEf1m7o7AwMDAwMDU8CKWlD/iY/EfCGx8Jj7+Pk/2dnWo/i73TTojU/JL5zuzsDAwMDAwBQwemOT6GKU1CYBAwMDAwMDexlKapMo9cb8d3nX3lheN92dgYGBgYGBKWDf9cbe0d3ZUOwCftwXqe5Ncf0AAAA9dEVYdGljYzpjb3B5cmlnaHQAQ29weXJpZ2h0IDIwMDcgQXBwbGUgSW5jLiwgYWxsIHJpZ2h0cyByZXNlcnZlZC6eZtwpAAAAI3RFWHRpY2M6ZGVzY3JpcHRpb24AR2VuZXJpYyBSR0IgUHJvZmlsZRqnOI4AAAAASUVORK5CYII="></td>
+      <td align="center">639
 (100.0%)</td>
       <td align="center">0
 (0.0%)</td>
     </tr>
     <tr>
       <td align="center">4</td>
-      <td align="left">Male
-[factor]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">1. Female</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">2. Male</td></tr></table></td>
-      <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 5px 0 7px;margin:0;border:0" align="right">138</td><td style="padding:0 2px 0 0;border:0;" align="left">(</td><td style="padding:0;border:0" align="right">46.2%</td><td style="padding:0 4px 0 2px;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 5px 0 7px;margin:0;border:0" align="right">161</td><td style="padding:0 2px 0 0;border:0;" align="left">(</td><td style="padding:0;border:0" align="right">53.8%</td><td style="padding:0 4px 0 2px;border:0" align="left">)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAF0AAAA3CAQAAADEF450AAAD+mlDQ1BpY2MAADiNjVVdaBxVFD6bubMrJM6D1Kamkg7+NZS0bFLRhNro/mWzbdwsk2y0QZDJ7N2daSYz4/ykaSk+FEEQwajgk+D/W8EnIWqr7YstorRQogSDKPjQ+keh0hcJ67kzs7uTuGu9y9z55pzvfufec+7eC5C4LFuW3iUCLBquLeXT4rPH5sTEOnTBfdANfdAtK46VKpUmARvjwr/a7e8gxt7X9rf3/2frrlBHAYjdhdisOMoi4mUA/hXFsl2ABEH7yAnXYvgJxDtsnCDiEsO1AFcYng/wss+ZkTKIX0UsKKqM/sTbiAfnI/ZaBAdz8NuOPDWorSkiy0XJNquaTiPTvYP7f7ZF3WvE24NPj7MwfRTfA7j2lypyluGHEJ9V5Nx0iK8uabPFEP9luWkJ8SMAXbu8hXIK8T7EY1V7vBzodKmqN9HAK6fUmWcQ34N4dcE8ysbuRPy1MV+cCnV+UpwM5g8eAODiKi2wevcjHrBNaSqIy41XaDbH8oj4uOYWZgJ97i1naTrX0DmlZopBLO6L4/IRVqc+xFepnpdC/V8ttxTGJT2GXpwMdMgwdfz1+nZXnZkI4pI5FwsajCUvVrXxQsh/V7UnpBBftnR/j+LcyE3bk8oBn7+fGuVQkx+T7Vw+xBWYjclAwYR57BUwYBNEkCAPaXxbYKOnChroaKHopWih+NXg7N/CKfn+ALdUav7I6+jRMEKm/yPw0KrC72hVI7wMfnloq3XQCWZwI9QxSS9JkoP4HCKT5DAZIaMgkifJU2SMZNE6Sg41x5Yic2TzudHUeQEjUp83i7yL6HdBxv5nZJjgtM/FSp83ENjP2M9rypXXbl46fW5Xi7tGVp+71nPpdCRnGmotdMja1J1yz//CX+fXsF/nN1oM/gd+A3/r21a3Nes0zFYKfbpvW8RH8z1OZD6lLVVsYbOjolk1VvoCH8sAfbl4uwhnBlv85PfJP5JryfeSHyZ/497kPuHOc59yn3HfgMhd4C5yX3JfcR9zn0dq1HnvNGvur6OxCuZpl1Hcn0Ja2C08KGSFPcLDwmRLT+gVhoQJYS96djerE40XXbsGx7BvZKt9rIAXqXPsbqyz1uE/VEaWBid8puPvMwNObuOEI0k/GSKFbbt6hO31pnZ+Sz3ar4HGc/FsPAVifF98ND4UP8Jwgxnfi75R7PHUcumyyw7ijGmdtLWa6orDyeTjYgqvMioWDOXAoCjruui7HNGmDrWXaOUAsHsyOMJvSf79F9t5pWVznwY4/Cc791q2OQ/grAPQ+2jLNoBn473vAKw+pnj2UngnxGLfAjjVg8PBV08az6sf6/VbeG4l3gDYfL1e//v9en3zA9TfALig/wP/JXgLtNfFGQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfqCgQSJDB2SrumAAAAnElEQVRo3u3YywmAMBBFUSP2aBHWoz1YpW5cTCRC4sK8J/fu/CBnMQiTdAyujb0B0L2a4sUmNPhLKt2NwCl/NPcWX+0V7xgPDHTo0OWDDh26fNChQ5cPOvSmbrtpzU6oUoo7dnr9ma+KWuOBMaZns74KHSE9FGZa9AipXP4TMR4Y6NChywcdOnT5oEOHLh906E395QjJK+OBgd6jE8Q1DFwLV7J1AAAAPXRFWHRpY2M6Y29weXJpZ2h0AENvcHlyaWdodCAyMDA3IEFwcGxlIEluYy4sIGFsbCByaWdodHMgcmVzZXJ2ZWQunmbcKQAAACN0RVh0aWNjOmRlc2NyaXB0aW9uAEdlbmVyaWMgUkdCIFByb2ZpbGUapziOAAAAAElFTkSuQmCC"></td>
-      <td align="center">299
+      <td align="left">Discrim
+[integer]</td>
+      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 13.6 (3.9)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">7 ≤ 13 ≤ 31</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 4 (0.3)</td></tr></table></td>
+      <td align="left" style="vertical-align:middle">23 distinct values</td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
+      <td align="center">639
 (100.0%)</td>
       <td align="center">0
 (0.0%)</td>
     </tr>
     <tr>
       <td align="center">5</td>
-      <td align="left">Comorbids
+      <td align="left">Victim
 [integer]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 0.9 (0.7)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">0 ≤ 1 ≤ 2</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 1 (0.8)</td></tr></table></td>
-      <td align="left" style="padding:0;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0 2px 0 7px;margin:0;border:0" align="right">0</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">91</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">30.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 2px 0 7px;margin:0;border:0" align="right">1</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">135</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">45.2%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr><tr style="background-color:transparent"><td style="padding:0 2px 0 7px;margin:0;border:0" align="right">2</td><td style="padding:0 2px;border:0;" align="left">:</td><td style="padding:0 4px 0 6px;margin:0;border:0" align="right">73</td><td style="padding:0;border:0" align="left">(</td><td style="padding:0 2px;margin:0;border:0" align="right">24.4%</td><td style="padding:0 4px 0 0;border:0" align="left">)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, iVBORw0KGgoAAAANSUhEUgAAAFAAAABOCAQAAAAdxFnNAAAD+mlDQ1BpY2MAADiNjVVdaBxVFD6bubMrJM6D1Kamkg7+NZS0bFLRhNro/mWzbdwsk2y0QZDJ7N2daSYz4/ykaSk+FEEQwajgk+D/W8EnIWqr7YstorRQogSDKPjQ+keh0hcJ67kzs7uTuGu9y9z55pzvfufec+7eC5C4LFuW3iUCLBquLeXT4rPH5sTEOnTBfdANfdAtK46VKpUmARvjwr/a7e8gxt7X9rf3/2frrlBHAYjdhdisOMoi4mUA/hXFsl2ABEH7yAnXYvgJxDtsnCDiEsO1AFcYng/wss+ZkTKIX0UsKKqM/sTbiAfnI/ZaBAdz8NuOPDWorSkiy0XJNquaTiPTvYP7f7ZF3WvE24NPj7MwfRTfA7j2lypyluGHEJ9V5Nx0iK8uabPFEP9luWkJ8SMAXbu8hXIK8T7EY1V7vBzodKmqN9HAK6fUmWcQ34N4dcE8ysbuRPy1MV+cCnV+UpwM5g8eAODiKi2wevcjHrBNaSqIy41XaDbH8oj4uOYWZgJ97i1naTrX0DmlZopBLO6L4/IRVqc+xFepnpdC/V8ttxTGJT2GXpwMdMgwdfz1+nZXnZkI4pI5FwsajCUvVrXxQsh/V7UnpBBftnR/j+LcyE3bk8oBn7+fGuVQkx+T7Vw+xBWYjclAwYR57BUwYBNEkCAPaXxbYKOnChroaKHopWih+NXg7N/CKfn+ALdUav7I6+jRMEKm/yPw0KrC72hVI7wMfnloq3XQCWZwI9QxSS9JkoP4HCKT5DAZIaMgkifJU2SMZNE6Sg41x5Yic2TzudHUeQEjUp83i7yL6HdBxv5nZJjgtM/FSp83ENjP2M9rypXXbl46fW5Xi7tGVp+71nPpdCRnGmotdMja1J1yz//CX+fXsF/nN1oM/gd+A3/r21a3Nes0zFYKfbpvW8RH8z1OZD6lLVVsYbOjolk1VvoCH8sAfbl4uwhnBlv85PfJP5JryfeSHyZ/497kPuHOc59yn3HfgMhd4C5yX3JfcR9zn0dq1HnvNGvur6OxCuZpl1Hcn0Ja2C08KGSFPcLDwmRLT+gVhoQJYS96djerE40XXbsGx7BvZKt9rIAXqXPsbqyz1uE/VEaWBid8puPvMwNObuOEI0k/GSKFbbt6hO31pnZ+Sz3ar4HGc/FsPAVifF98ND4UP8Jwgxnfi75R7PHUcumyyw7ijGmdtLWa6orDyeTjYgqvMioWDOXAoCjruui7HNGmDrWXaOUAsHsyOMJvSf79F9t5pWVznwY4/Cc791q2OQ/grAPQ+2jLNoBn473vAKw+pnj2UngnxGLfAjjVg8PBV08az6sf6/VbeG4l3gDYfL1e//v9en3zA9TfALig/wP/JXgLtNfFGQAAACBjSFJNAAB6JgAAgIQAAPoAAACA6AAAdTAAAOpgAAA6mAAAF3CculE8AAAAAmJLR0QA/4ePzL8AAAAHdElNRQfqCgQSJDB2SrumAAAAvklEQVRo3u3ZwQ2DMBBEUYzcI0VQD/SQKsN1zQk7bGYQ/9+iBOlJ6yA2Kd/Ju1kNAJhdjS/2xAO5luufjYzavrUk8T7DV9qPGCBAdQABqgMIUB1AgOrsgadH/vFH86xKXFA69prUosl+xPbA5gxuLj/UhLP2p724p/aLaj9igADVAQSoDiBAdQABqrMHshePxF78KmDS4t7z93UH8K7F/c57gf2IAQJUBxCgOoAA1QEEqM4e+KzF3TH7EQP8tQN0chI3rIQemAAAAD10RVh0aWNjOmNvcHlyaWdodABDb3B5cmlnaHQgMjAwNyBBcHBsZSBJbmMuLCBhbGwgcmlnaHRzIHJlc2VydmVkLp5m3CkAAAAjdEVYdGljYzpkZXNjcmlwdGlvbgBHZW5lcmljIFJHQiBQcm9maWxlGqc4jgAAAABJRU5ErkJggg=="></td>
-      <td align="center">299
+      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 2.3 (3.8)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">0 ≤ 1 ≤ 20</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 2 (1.6)</td></tr></table></td>
+      <td align="left" style="vertical-align:middle">20 distinct values</td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
+      <td align="center">639
 (100.0%)</td>
       <td align="center">0
 (0.0%)</td>
     </tr>
     <tr>
       <td align="center">6</td>
-      <td align="left">Optimism
+      <td align="left">Familism
 [integer]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 8.6 (2.9)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">0 ≤ 9 ≤ 12</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 4 (0.3)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle">13 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
-      <td align="center">299
+      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 27.9 (5.9)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">5 ≤ 29 ≤ 40</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 7 (0.2)</td></tr></table></td>
+      <td align="left" style="vertical-align:middle">35 distinct values</td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
+      <td align="center">639
 (100.0%)</td>
       <td align="center">0
 (0.0%)</td>
     </tr>
     <tr>
       <td align="center">7</td>
-      <td align="left">Depression
+      <td align="left">Internalize
 [integer]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 14.9 (11.4)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">0 ≤ 11 ≤ 60</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 13 (0.8)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle">50 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
-      <td align="center">299
-(100.0%)</td>
-      <td align="center">0
-(0.0%)</td>
-    </tr>
-    <tr>
-      <td align="center">8</td>
-      <td align="left">VisImpair
-[integer]</td>
-      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 42 (15.1)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">10 ≤ 40 ≤ 90</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 20.5 (0.4)</td></tr></table></td>
-      <td align="left" style="vertical-align:middle">66 distinct values</td>
-      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
-      <td align="center">299
+      <td align="left" style="padding:8;vertical-align:middle"><table style="border-collapse:collapse;border:none;margin:0"><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">Mean (sd) : 14.8 (10.5)</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">min ≤ med ≤ max:</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">0 ≤ 13 ≤ 60</td></tr><tr style="background-color:transparent"><td style="padding:0;margin:0;border:0" align="left">IQR (CV) : 12 (0.7)</td></tr></table></td>
+      <td align="left" style="vertical-align:middle">51 distinct values</td>
+      <td align="left" style="vertical-align:middle;padding:0;background-color:transparent;"><img role="img" style="border:none;background-color:transparent;padding:0;max-width:max-content;" src="data:image/png;base64, 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"></td>
+      <td align="center">639
 (100.0%)</td>
       <td align="center">0
 (0.0%)</td>
@@ -1934,134 +1887,196 @@ print(dfSummary(<span class="df">Cancer</span>), method = &quot;render&quot;)</c
 </table>
 <p>Generated by <a href="https://github.com/dcomtois/summarytools">summarytools</a> 1.1.5 (<a href="https://www.r-project.org/">R</a> version 4.6.1)<br />2026-10-04</p>
 </div>
+<p>The sample includes 301 male and 338 female adolescents, and no
+variable has missing data.</p>
 </div>
 <div id="descriptive-statistics" class="section level1">
 <h1>Descriptive Statistics</h1>
 <p><code>describe()</code> from the psych package computes the standard
-numeric summaries for every variable in a data frame. The rows for
-<code>Diagnosis</code> and <code>Male</code> carry an asterisk because
-they are now factors; their numbers describe the internal codes and can
-be ignored. This week the columns to watch for <code>Depression</code>
-are <code>n</code>, <code>mean</code>, <code>sd</code>, and
-<code>se</code>, because those are the ingredients of the
-<em>t</em>-statistic.</p>
+numeric summaries for every variable in a data frame. The row for
+<code>Female</code> carries an asterisk because it is now a factor; its
+numbers describe the internal codes and can be ignored.</p>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># descriptive statistics for every variable in the data frame</span>
-describe(<span class="df">Cancer</span>)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># descriptive statistics for entire data frame (psych package)</span>
+describe(<span class="df">Discrimination</span>)</code></pre>
 </div>
-<pre><code>            vars   n   mean    sd median trimmed    mad min max range  skew kurtosis   se
-Participant    1 299 150.00 86.46    150  150.00 111.19   1 299   298  0.00    -1.21 5.00
-Diagnosis*     2 299   1.36  0.48      1    1.32   0.00   1   2     1  0.59    -1.66 0.03
-Age            3 299  58.99 13.94     60   59.47  11.86  19  91    72 -0.33    -0.15 0.81
-Male*          4 299   1.54  0.50      2    1.55   0.00   1   2     1 -0.15    -1.98 0.03
-Comorbids      5 299   0.94  0.74      1    0.93   1.48   0   2     2  0.10    -1.17 0.04
-Optimism       6 299   8.56  2.95      9    8.87   2.97   0  12    12 -0.77    -0.16 0.17
-Depression     7 299  14.85 11.44     11   13.12   7.41   0  60    60  1.46     1.97 0.66
-VisImpair      8 299  42.04 15.11     40   41.29  14.83  10  90    80  0.44    -0.02 0.87</code></pre>
-<p>For <code>Depression</code>, the mean is 14.85, the standard
-deviation is 11.44, and the sample size is 299, so the standard error is
-11.44 / √299 = 0.66. The standard error is the typical distance between
-a sample mean from 299 people and the population mean. The significance
-test in the next section uses it as the ruler for deciding whether 14.85
-is far from the null hypothesis value.</p>
+<pre><code>            vars   n   mean     sd median trimmed    mad min max range  skew kurtosis   se
+ID             1 639 320.00 184.61    320  320.00 237.22   1 639   638  0.00    -1.21 7.30
+Female*        2 639   1.53   0.50      2    1.54   0.00   1   2     1 -0.12    -1.99 0.02
+Age            3 639  15.63   1.07     16   15.66   1.48  14  17     3 -0.13    -1.24 0.04
+Discrim        4 639  13.56   3.85     13   13.07   2.97   7  31    24  1.30     1.80 0.15
+Victim         5 639   2.34   3.77      1    1.44   1.48   0  20    20  2.83     8.45 0.15
+Familism       6 639  27.86   5.93     29   28.35   4.45   5  40    35 -0.91     1.14 0.23
+Internalize    7 639  14.79  10.48     13   13.61   8.90   0  60    60  1.23     1.94 0.41</code></pre>
 </div>
-<div id="one-sample-t-test" class="section level1">
-<h1>One-Sample t-Test</h1>
-<p>The research question from lecture asks whether adults evaluated for
-a possible eye cancer experience depressive symptoms at the level
-typical of cancer patients in treatment. Published CES-D means for
-cancer patients in treatment are about 13 (Hann, Winter, &amp; Jacobsen,
-1999), so the null hypothesis is that the population mean in this study
-is also 13: H<sub>0</sub>: μ = 13.</p>
-<p>A one-sample <em>t</em>-test compares a sample mean to a single
-hypothesized population mean. The <em>t</em>-statistic is the distance
-between the sample mean and the null value expressed in standard error
-units:</p>
-<p><em>t</em> = (sample mean − null mean) / SE</p>
-<p><code>t.test()</code> computes it along with the <em>p</em>-value.
-Three arguments matter:</p>
-<ul>
-<li>The first argument is the numeric variable,
-<code>Cancer$Depression</code>.</li>
-<li><code>mu</code> is the null hypothesis value of the population
-mean.</li>
-<li><code>alternative</code> sets the alternate hypothesis.
-<code>&quot;two.sided&quot;</code> is the default and allows a difference in
-either direction; <code>&quot;greater&quot;</code> and <code>&quot;less&quot;</code> give
-one-tailed tests in the positive and negative directions.</li>
-</ul>
-<div id="two-tailed-test" class="section level2">
-<h2>Two-Tailed Test</h2>
+<div id="descriptive-statistics-by-group" class="section level1">
+<h1>Descriptive Statistics by Group</h1>
+<p>An independent-samples <em>t</em>-test compares two group means, so
+the first step is to look at each group’s descriptive statistics.
+<code>describeBy()</code> works like <code>describe()</code>, but its
+<code>group</code> argument names a grouping variable. The function then
+produces a separate table of descriptive statistics for every variable
+within each group: one table for males and one for females.</p>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># two-tailed test with null mean = 13</span>
-t.test(<span class="df">Cancer</span>$<span class="num">Depression</span>, mu = 13, alternative = &quot;two.sided&quot;)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># descriptive statistics for every variable separately for each group (psych package)</span>
+describeBy(<span class="df">Discrimination</span>, group = <span class="df">Discrimination</span>$<span class="cat">Female</span>)</code></pre>
 </div>
 <pre><code>
-    One Sample t-test
-
-data:  Cancer$Depression
-t = 2.8013, df = 298, p-value = 0.005422
-alternative hypothesis: true mean is not equal to 13
-95 percent confidence interval:
- 13.55121 16.15448
-sample estimates:
-mean of x 
- 14.85284 </code></pre>
-<p>The output reports the sample mean at the bottom (14.85) and the test
-results at the top: <em>t</em> = 2.80 with <em>df</em> = 298 (<em>N</em>
-− 1), and <em>p</em> = .005. Check the <em>t</em>-statistic against the
-descriptive statistics: (14.85 − 13) / 0.66 = 2.80. The sample mean is
-2.80 standard errors above the null value.</p>
-<p>The <em>p</em>-value answers a specific question: if the population
-mean really were 13, how often would a sample of 299 people produce a
-<em>t</em>-statistic at least as far from zero as 2.80, in either
-direction? The answer is about 0.5% of the time. Because .005 is below
-the .05 criterion, the result is statistically significant and we reject
-the null hypothesis. Adults evaluated for a possible eye cancer are more
-depressed, on average, than cancer patients in treatment.</p>
-<p>The <em>p</em>-value is not the probability that the null hypothesis
-is true. Under the frequentist view the population mean is a fixed
-number, so the null is either true or false; the .005 describes how
-unusual the data would be if it were true.</p>
-<p>The output also includes the 95% confidence interval from Week 4,
-13.55 to 16.15. The interval excludes 13, which agrees with the decision
-to reject the null: a two-tailed test at the .05 level rejects exactly
-when the 95% interval excludes the null value. The interval also
-includes 16, the CES-D threshold for clinically elevated symptoms, so
-the data cannot say whether the average person in this population is
-above or below that threshold.</p>
+ Descriptive statistics by group 
+group: Male
+            vars   n   mean     sd median trimmed    mad min max range  skew kurtosis    se
+ID             1 301 316.11 185.50    300  314.40 247.59   1 639   638  0.07    -1.28 10.69
+Female         2 301   1.00   0.00      1    1.00   0.00   1   1     0   NaN      NaN  0.00
+Age            3 301  15.61   1.04     16   15.63   1.48  14  17     3 -0.03    -1.21  0.06
+Discrim        4 301  13.19   3.78     12   12.66   2.97   7  31    24  1.52     2.83  0.22
+Victim         5 301   2.42   4.12      1    1.37   1.48   0  20    20  2.82     7.80  0.24
+Familism       6 301  28.18   5.84     29   28.67   4.45   5  40    35 -0.99     1.61  0.34
+Internalize    7 301  11.64   9.28     10   10.54   7.41   0  56    56  1.39     2.90  0.53
+--------------------------------------------------------------------------- 
+group: Female
+            vars   n   mean     sd median trimmed    mad min max range  skew kurtosis    se
+ID             1 338 323.46 184.01  329.5  324.70 231.29   2 638   636 -0.06    -1.14 10.01
+Female         2 338   2.00   0.00    2.0    2.00   0.00   2   2     0   NaN      NaN  0.00
+Age            3 338  15.65   1.09   16.0   15.68   1.48  14  17     3 -0.20    -1.27  0.06
+Discrim        4 338  13.89   3.89   13.0   13.43   2.97   8  29    21  1.12     1.09  0.21
+Victim         5 338   2.28   3.44    1.0    1.50   1.48   0  20    20  2.71     8.38  0.19
+Familism       6 338  27.58   6.00   29.0   28.08   5.93   6  40    34 -0.84     0.77  0.33
+Internalize    7 338  17.59  10.70   15.0   16.35   7.41   0  60    60  1.19     1.54  0.58</code></pre>
+<p>The rows for <code>Female</code> carry an asterisk and can be
+ignored, as in the full descriptive statistics. In the
+<code>Discrim</code> rows, mean perceived discrimination is 13.19
+(<em>SD</em> = 3.78) for the 301 males and 13.89 (<em>SD</em> = 3.89)
+for the 338 females, a difference of 0.70 points.</p>
 </div>
-<div id="one-tailed-test" class="section level2">
-<h2>One-Tailed Test</h2>
-<p>If the researchers had specified in advance that only an increase in
-depression could refute the null, the alternate hypothesis would be
-H<sub>A</sub>: μ &gt; 13, and <code>alternative = &quot;greater&quot;</code> gives
-the matching one-tailed test.</p>
+<div id="independent-samples-t-test" class="section level1">
+<h1>Independent-Samples t-Test</h1>
+<p><code>t.test()</code> compares the two group means when it is given a
+formula, outcome by group, and the data frame. By default, R performs
+Welch’s <em>t</em>-test, which differs from the classic <em>t</em>-test
+(see below) because it allows the two groups to have different amounts
+of variation. The default alternate hypothesis is two-tailed. The output
+is stored in an object named <code>results</code>, and typing the
+object’s name prints it.</p>
 <div class="sourceCode">
-<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># one-tailed test in the positive direction with null mean = 13</span>
-t.test(<span class="df">Cancer</span>$<span class="num">Depression</span>, mu = 13, alternative = &quot;greater&quot;)</code></pre>
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># Welch&#39;s independent-samples t-test with default two-tailed alternate hypothesis (base R)</span>
+results &lt;- t.test(<span class="num">Discrim</span> ~ <span class="cat">Female</span>, data = <span class="df">Discrimination</span>)
+results</code></pre>
 </div>
 <pre><code>
-    One Sample t-test
+    Welch Two Sample t-test
 
-data:  Cancer$Depression
-t = 2.8013, df = 298, p-value = 0.002711
-alternative hypothesis: true mean is greater than 13
+data:  Discrim by Female
+t = -2.3184, df = 632.01, p-value = 0.02074
+alternative hypothesis: true difference in means between group Male and group Female is not equal to 0
 95 percent confidence interval:
- 13.76152      Inf
+ -1.3005185 -0.1077262
 sample estimates:
-mean of x 
- 14.85284 </code></pre>
-<p>The <em>t</em>-statistic is unchanged at 2.80, because the sample
-mean, null value, and standard error are the same. The <em>p</em>-value
-is .003, half of the two-tailed value, because the entire 5% rejection
-region now sits in the upper tail. The confidence interval becomes
-one-sided, running from 13.76 to infinity.</p>
-<p>A one-tailed test is legitimate only when the direction is chosen
-before the data are seen. Had the researchers predicted a decrease
-(<code>alternative = &quot;less&quot;</code>), the same data would give <em>p</em>
-= .997: a sample mean above 13 provides no evidence at all for a
-population mean below 13.</p>
+  mean in group Male mean in group Female 
+            13.18937             13.89349 </code></pre>
+<p>The heading reads Welch Two Sample t-test. The first line of results
+gives the <em>t</em>-statistic, <em>df</em>, and <em>p</em>-value
+(<em>t</em> = −2.32, <em>df</em> = 632.01, <em>p</em> = .021); Welch’s
+<em>df</em> is usually not a whole number. Below that are the 95%
+confidence interval for the mean difference (−1.30 to −0.11) and the two
+group means. The difference is male minus female because Male is the
+first level of the factor.</p>
+<div id="standard-error" class="section level2">
+<h2>Standard Error</h2>
+<p>The printed output does not show the standard error, but
+<code>results</code> contains it, and the dollar sign extracts it by
+name.</p>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># print standard error of the mean difference</span>
+results$stderr</code></pre>
+</div>
+<pre><code>[1] 0.3037066</code></pre>
+</div>
+</div>
+<div id="standardized-mean-difference-effect-size" class="section level1">
+<h1>Standardized Mean Difference Effect Size</h1>
+<p><code>cohen.d()</code> from the psych package computes the
+standardized mean difference (the mean difference divided by the pooled
+standard deviation) and its confidence interval from the same
+outcome-by-group formula.</p>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># standardized mean difference effect size (psych package)</span>
+cohen.d(<span class="num">Discrim</span> ~ <span class="cat">Female</span>, data = <span class="df">Discrimination</span>)</code></pre>
+</div>
+<pre><code>Call: cohen.d(x = Discrim ~ Female, data = Discrimination)
+Cohen d statistic of difference between two means
+        lower effect upper
+Discrim  0.03   0.18  0.34
+
+Multivariate (Mahalanobis) distance between groups
+[1] 0.18
+r equivalent of difference between two means
+Discrim 
+   0.09 </code></pre>
+<p>The effect size is in the <code>effect</code> column (about 0.18 in
+absolute value). Check its sign against the group means, because the
+direction of the subtraction depends on how the function orders the
+groups.</p>
+</div>
+<div id="the-classic-t-test" class="section level1">
+<h1>The Classic t-Test</h1>
+<p>The classic independent-samples <em>t</em>-test assumes that the two
+groups have equal population variances (homogeneity of variance), so it
+requires an adjunct test of that condition. There is little reason to
+use it in practice when Welch’s test is available; it is included here
+for completeness.</p>
+<div id="performing-the-classic-t-test" class="section level2">
+<h2>Performing the Classic t-Test</h2>
+<p>Adding <code>var.equal = TRUE</code> to <code>t.test()</code>
+requests the classic test.</p>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># classic independent-samples t-test that assumes equal variances (base R)</span>
+results_equal &lt;- t.test(<span class="num">Discrim</span> ~ <span class="cat">Female</span>, data = <span class="df">Discrimination</span>, var.equal = TRUE)
+results_equal</code></pre>
+</div>
+<pre><code>
+    Two Sample t-test
+
+data:  Discrim by Female
+t = -2.3148, df = 637, p-value = 0.02094
+alternative hypothesis: true difference in means between group Male and group Female is not equal to 0
+95 percent confidence interval:
+ -1.3014543 -0.1067904
+sample estimates:
+  mean in group Male mean in group Female 
+            13.18937             13.89349 </code></pre>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># print standard error of the mean difference</span>
+results_equal$stderr</code></pre>
+</div>
+<pre><code>[1] 0.3041877</code></pre>
+<p>The heading now reads Two Sample t-test, and <em>df</em> = <em>N</em>
+− 2 = 637.</p>
+</div>
+<div id="testing-homogeneity-of-variance" class="section level2">
+<h2>Testing Homogeneity of Variance</h2>
+<p><code>var.test()</code> evaluates the classic test’s equal-variance
+assumption. It computes an <em>F</em> ratio, the first group’s variance
+divided by the second group’s, and tests the null hypothesis that the
+population variances are equal. The goal is to retain the null
+hypothesis, so a nonsignificant <em>p</em>-value supports the
+assumption.</p>
+<div class="sourceCode">
+<pre class="sourceCode r"><code class="sourceCode r"><span class="cm"># F test comparing the two group variances, where the null hypothesis is equal variances (base R)</span>
+var.test(<span class="num">Discrim</span> ~ <span class="cat">Female</span>, data = <span class="df">Discrimination</span>)</code></pre>
+</div>
+<pre><code>
+    F test to compare two variances
+
+data:  Discrim by Female
+F = 0.94686, num df = 300, denom df = 337, p-value = 0.6287
+alternative hypothesis: true ratio of variances is not equal to 1
+95 percent confidence interval:
+ 0.7601031 1.1811954
+sample estimates:
+ratio of variances 
+          0.946862 </code></pre>
+<p>Here <em>F</em> = 0.95 and <em>p</em> = .63, so the equal-variance
+assumption is plausible for these data.</p>
 </div>
 </div>
 

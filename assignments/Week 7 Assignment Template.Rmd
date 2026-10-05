@@ -1,0 +1,134 @@
+---
+title: "Psych 250a — Week 7 Assignment. Independent-Samples t-Test"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# Question 1: Import the Data and Convert Factors
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 2: Descriptive Statistics by Condition
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 3: Predict the Baseline Comparison
+
+Your predictions and reasoning:
+
+TYPE YOUR ANSWER HERE
+
+# Question 4: Baseline *t*-Test and Effect Size
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 5: Report the Baseline Comparison
+
+Your passage (no more than two sentences):
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: Week 3 *t*-Test and Effect Size
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 7: AI Prompt for the Bar Graph
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+Your description of each layer (one bullet point per layer):
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Report the Results in APA Format
+
+Your APA-style passage:
+
+TYPE YOUR ANSWER HERE
+
+# Question 9: AI Prompt on Evaluating Within-Group Normality
+
+No response is needed here; your prompt and AI's response will appear in your chat log in Question 13.
+
+# Question 10: Choose and Implement a Normality Check
+
+Your chosen method and your rationale:
+
+TYPE YOUR ANSWER HERE
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 11: Assumptions for an Online Supplement
+
+Your supplement paragraph:
+
+TYPE YOUR ANSWER HERE
+
+# Question 12: Interpret the Confidence Interval
+
+Your interpretation of the confidence limits and whether the interval is consistent with the *p*-value:
+
+TYPE YOUR ANSWER HERE
+
+# Question 13: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````

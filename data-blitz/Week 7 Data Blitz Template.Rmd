@@ -1,0 +1,114 @@
+---
+title: "Week 7 Data Blitz. Independent-Samples t-Test"
+author: "GROUP MEMBER NAMES"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# 1. Research Question
+
+TYPE YOUR ANSWER HERE
+
+# 2. Packages, Data Import, and Factor Conversion
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 3. Descriptive Statistics by Group
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 4. Evaluation of the Mean Difference
+
+TYPE YOUR ANSWER HERE
+
+# 5. Standard Error
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your explanation of the standard error and how it refines your conclusion from Task 4:
+
+TYPE YOUR ANSWER HERE
+
+# 6. Independent-Samples *t*-Test and Effect Size
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 7. Interpretation of the *p*-Value
+
+TYPE YOUR ANSWER HERE
+
+# 8. Interpretation of the Confidence Interval
+
+TYPE YOUR ANSWER HERE
+
+# 9. Welch’s and Student’s *t*-Tests
+
+Your prompt and AI's response:
+
+```
+PASTE YOUR PROMPT AND AI'S RESPONSE HERE
+```
+
+Your one-paragraph summary:
+
+TYPE YOUR ANSWER HERE
+
+# 10. Within-Group Normality
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your evaluation of within-group normality:
+
+TYPE YOUR ANSWER HERE
+
+# 11. Answer to the Research Question
+
+TYPE YOUR ANSWER HERE
+
+# 12. Reflection on AI
+
+TYPE YOUR ANSWER HERE

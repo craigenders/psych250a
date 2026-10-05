@@ -1,0 +1,148 @@
+---
+title: "Psych 250a — Week 6 Assignment. Paired-Samples t-Test"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# Question 1: Import and Summarize the Data
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 2: Convert Male and Drug to Factors
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 3: Group-by-Time Interaction
+
+The pattern of means you would expect with and without a group-by-time interaction:
+
+TYPE YOUR ANSWER HERE
+
+# Question 4: AI Prompt for the Line Graph
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 5: Explain the Graph Code
+
+Your explanation of how the code works and what you learned:
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: Evaluate the Interaction in the Graph
+
+Your evaluation of whether the graph suggests a group-by-time interaction:
+
+TYPE YOUR ANSWER HERE
+
+# Question 7: Subset the Data by Medication Group
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your explanation of how the outputs confirm (or fail to confirm) the subsets:
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Paired-Samples *t*-Tests
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 9: Report the Results in APA Format
+
+Your APA-style passage:
+
+TYPE YOUR ANSWER HERE
+
+# Question 10: Comparing Groups With *t* and *p*
+
+Your evaluation:
+
+TYPE YOUR ANSWER HERE
+
+# Question 11: Effect Sizes by Group
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your explanation of the effect sizes:
+
+TYPE YOUR ANSWER HERE
+
+# Question 12: Effect Sizes and the Group-by-Time Interaction
+
+Your answer:
+
+TYPE YOUR ANSWER HERE
+
+# Question 13: Evaluate the *t*-Test Assumptions
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+Your supplement paragraph:
+
+TYPE YOUR ANSWER HERE
+
+# Question 14: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````

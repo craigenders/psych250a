@@ -1,0 +1,132 @@
+---
+title: "Week 6 Data Blitz. Paired-Samples t-Test"
+author: "GROUP MEMBER NAMES"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# 1. Research Question
+
+TYPE YOUR ANSWER HERE
+
+# 2. Packages, Data Import, and Summaries
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 3. Descriptive Statistics
+
+TYPE YOUR ANSWER HERE
+
+# 4. Paired-Samples *t*-Test
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 5. Assumptions of the Paired-Samples *t*-Test
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+Discrepancies between AI's code comments and its explanation of the assumptions:
+
+TYPE YOUR ANSWER HERE
+
+Your judgment about each assumption and whether any violations threaten the validity of your results:
+
+TYPE YOUR ANSWER HERE
+
+# 6. Standard Error
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your explanation of the standard error:
+
+TYPE YOUR ANSWER HERE
+
+# 7. Interpretation of the Confidence Interval
+
+TYPE YOUR ANSWER HERE
+
+# 8. Evaluation of the Null Hypothesis
+
+TYPE YOUR ANSWER HERE
+
+# 9. The *p*-Value as a Conditional Probability
+
+AI's response:
+
+```
+PASTE AI'S RESPONSE HERE
+```
+
+Your interpretation of the *p*-value:
+
+TYPE YOUR ANSWER HERE
+
+# 10. Explanation of the *t* Statistic
+
+TYPE YOUR ANSWER HERE
+
+# 11. Effect Size
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 12. Interpretation of the Effect Size
+
+TYPE YOUR ANSWER HERE
+
+# 13. Comparison of the *p*-Value and the Effect Size
+
+TYPE YOUR ANSWER HERE
+
+# 14. Reflection on AI
+
+TYPE YOUR ANSWER HERE
