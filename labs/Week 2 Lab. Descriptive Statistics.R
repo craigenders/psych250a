@@ -93,6 +93,9 @@ ggplot(ClinicalTrial, aes(x = COWeek8, colour = Condition)) +
 # descriptive statistics for COWeek8 within each Condition group
 describeBy(COWeek8 ~ Condition, data = ClinicalTrial)
 
+# descriptive statistics for every variable within each Condition group
+describeBy(ClinicalTrial, group = ClinicalTrial$Condition)
+
 # STANDARDIZING VARIABLES AS Z-SCORES ----
 
 # convert COWeek8 to z-scores and store them as a new variable zCOWeek8
