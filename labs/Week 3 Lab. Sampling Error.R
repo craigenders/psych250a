@@ -8,7 +8,7 @@ library(psych)
 # simulation inputs
 pop_mean <- 6         # population mean
 pop_sd <- 6           # population standard deviation
-sample_N <- 165       # sample size
+sample_N <- 10       # sample size
 normal_data <- TRUE   # TRUE = normal data, FALSE = skewed data
 
 # GENERATE AND INSPECT ONE SAMPLE OF DATA ----
@@ -30,6 +30,7 @@ describe(mysample)
 
 # initialize data set to hold 100,000 sample means
 samplemeans <- rep(0, 100000)
+samplesds <- rep(0, 100000)
 # loop to draw 100,000 random samples
 for(s in 1:100000){
   if(normal_data){ # normal data
@@ -39,10 +40,13 @@ for(s in 1:100000){
   }
   # store the sample mean in element of s
   samplemeans[s] <- mean(sampledata)
+  samplesds[s] <- sd(sampledata)
 }
 
 # graph sampling distribution of the sample means
 xrange <- c(0,12)
 hist(samplemeans[samplemeans >= xrange[1] & samplemeans <= xrange[2]], xlim = xrange, ylim = c(0,2500), breaks = seq(xrange[1],xrange[2], by = .02), main = 'Distribution of 100,000 Sample Means')
 text(5, 2500, paste0('Average of the 100,000 Sample Means = ', round(mean(samplemeans), 3)))
-text(5, 2400, paste0('Standard Deviation of the 100,000 Sample Means = ', round(sd(samplemeans), 3)))
+text(5, 2400, paste0('Std. Dev. of the 100,000 Sample Means = ', round(sd(samplemeans), 3)))
+
+hist(samplesds, breaks = 100)
