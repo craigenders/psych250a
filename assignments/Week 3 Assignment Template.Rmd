@@ -168,11 +168,13 @@ Whether the sampling distribution is consistent with the central limit theorem p
 
 TYPE YOUR ANSWER HERE
 
-# Question 7: Reduce the Sample Size
+# Question 7: Predict the Effect of Sample Size
 
 Your prediction about the center, shape, and spread at a sample size of 100:
 
 TYPE YOUR ANSWER HERE
+
+# Question 8: Compare the Sampling Distributions
 
 The simulation code is below. The only change is the sample size.
 
@@ -257,11 +259,11 @@ legend('topright', bty = 'n',
                   paste('Standard error formula =', round(pop_sd / sqrt(sample_N), 3))))
 ```
 
-Your evaluation of the predictions, including whether the standard deviation of the 100,000 sample means is consistent with the standard error formula:
+The range containing about 95% of the sample means at each sample size, and whether the difference is consistent with the central limit theorem’s predictions:
 
 TYPE YOUR ANSWER HERE
 
-# Question 8: Modify the Simulation for a Skewed Population
+# Question 9: Modify the Simulation for a Skewed Population
 
 AI's code:
 
@@ -269,7 +271,7 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 9: Audit the AI-Generated Code
+Your evaluation of the single test sample:
 
 TYPE YOUR ANSWER HERE
 

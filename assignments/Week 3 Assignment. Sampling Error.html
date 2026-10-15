@@ -1809,21 +1809,27 @@ include the simulation graph when you knit the file.</p>
 <p>Your response should include your evaluation; AI’s explanation will
 appear in your chat log in Question 11.</p>
 </div>
-<div id="question-7-reduce-the-sample-size" class="section level2">
-<h2>Question 7: Reduce the Sample Size</h2>
+<div id="question-7-predict-the-effect-of-sample-size" class="section level2">
+<h2>Question 7: Predict the Effect of Sample Size</h2>
 <p>The central limit theorem predicts that sample size influences the
 size of sampling errors. Describe what should happen to the center,
 shape, and spread of the sampling distribution if the sample size is
-reduced from 939 to 100. Modify the simulation code to use a sample size
-of 100 and run it again. Evaluate your predictions by comparing the new
-sampling distribution with the original distribution from Question 6.
-Explain whether the standard deviation of the 100,000 sample means is
-consistent with the standard error formula.</p>
-<p>Your response should include your modified simulation code and your
-written answer.</p>
+reduced from 939 to 100.</p>
+<p>Your response should include your written answer.</p>
 </div>
-<div id="question-8-modify-the-simulation-for-a-skewed-population" class="section level2">
-<h2>Question 8: Modify the Simulation for a Skewed Population</h2>
+<div id="question-8-compare-the-sampling-distributions" class="section level2">
+<h2>Question 8: Compare the Sampling Distributions</h2>
+<p>Run the Question 8 simulation code in the Week 3 Assignment Template.
+It is identical to the Question 6 code except that the sample size is
+100. Both graphs use the same axis scales, so you can compare them
+directly. Use the two sampling distribution graphs to describe the range
+within which most sample means (about 95%) fall at each sample size. Is
+the difference between these ranges consistent or inconsistent with the
+central limit theorem’s predictions?</p>
+<p>Your response should include your written answer.</p>
+</div>
+<div id="question-9-modify-the-simulation-for-a-skewed-population" class="section level2">
+<h2>Question 9: Modify the Simulation for a Skewed Population</h2>
 <p>The previous simulations drew samples from a normally distributed
 population. Many variables we have encountered in real data sets have
 skewed distributions. To understand the impact of non-normal data on
@@ -1846,20 +1852,17 @@ introduce new inputs. Preserve all existing code except the statements
 that generate random data. Return the modified simulation code in a
 single block that I can copy and paste into RStudio.</p>
 </blockquote>
-<p>Your response should include AI’s code; your prompt will appear in
-your chat log in Question 11. The graphical summary will appear
-automatically when you knit the file.</p>
-</div>
-<div id="question-9-audit-the-ai-generated-code" class="section level2">
-<h2>Question 9: Audit the AI-Generated Code</h2>
 <p>As an audit, the script was supposed to generate a single data set of
 individual scores from the skewed population. This is still a sample, so
 it won’t match the population values exactly. Nevertheless, it serves as
 a useful quality-control check on the AI-generated code. Explain whether
-the descriptive statistics and histogram are consistent or inconsistent
-with the instructions you provided to AI. Include graphical and numeric
-evidence in your answer.</p>
-<p>Your response should include your written answer.</p>
+the descriptive statistics and histogram from the single test sample are
+consistent or inconsistent with the instructions you provided to AI—does
+this look like a sample from the population you described? Include
+graphical and numeric evidence in your answer.</p>
+<p>Your response should include AI’s code and your written answer; your
+prompt will appear in your chat log in Question 11. The graphical
+summary will appear automatically when you knit the file.</p>
 </div>
 <div id="question-10-compare-the-two-sampling-distributions" class="section level2">
 <h2>Question 10: Compare the Two Sampling Distributions</h2>
@@ -1884,7 +1887,7 @@ appear in your chat log in Question 11.</p>
 <h2>Question 11: Chat Log</h2>
 <p>This question is not graded. It collects your prompts and AI’s
 responses in one place so that graders can locate them for Questions 3,
-5, 6, 8, and 10. After completing Question 10, click anywhere in the
+5, 6, 9, and 10. After completing Question 10, click anywhere in the
 Copilot conversation, select the entire chat (Ctrl+A on Windows, Cmd+A
 on Mac), copy it, and paste it between the two lines of backticks in the
 Question 11 section of the template. The pasted text will show “You
