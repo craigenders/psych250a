@@ -1635,14 +1635,14 @@ that PDF to Gradescope. You can knit to HTML while working if you find
 its clickable table of contents more readable, but you must submit the
 PDF version.</p>
 <p><strong>The assignment is due Friday November 13 by 1:30 PM</strong>.
-The assignment is worth 26 points. Questions 1 through 13 will be
+The assignment is worth 22 points. Questions 1 through 11 will be
 assigned a score of 0 (no credit), 1 (partial credit), or a 2 (full
-credit). Question 14 is not graded.</p>
+credit). Question 12 is not graded.</p>
 </div>
 <div id="questions" class="section level1">
 <h1>Questions</h1>
-<div id="question-1-import-and-summarize-the-data" class="section level2">
-<h2>Question 1: Import and Summarize the Data</h2>
+<div id="question-1-import-and-prepare-the-data" class="section level2">
+<h2>Question 1: Import and Prepare the Data</h2>
 <p>Use <code>library()</code> to load the <code>ggplot2</code>,
 <code>summarytools</code>, and <code>psych</code> packages. Import
 <code>assignment6.csv</code> from the URL above into an R data frame
@@ -1652,11 +1652,6 @@ of all variables. Modify the code in the <a href="https://craigenders.github.io/
 Loading Packages</a>, <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#importing-data">Importing
 Data</a>, and <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#summarizing-data">Summarizing
 Data</a> sections of the Week 6 lab.</p>
-<p>Your response should include your R code. The results will appear
-automatically when you knit the file.</p>
-</div>
-<div id="question-2-convert-male-and-drug-to-factors" class="section level2">
-<h2>Question 2: Convert Male and Drug to Factors</h2>
 <p>The data contain two binary numeric variables, <code>Male</code> and
 <code>Drug</code>. The <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#converting-categorical-variables-to-factors">Converting
 Categorical Variables to Factors</a> section of the Week 6 lab contains
@@ -1665,10 +1660,11 @@ variables with labels. Modify that R code to convert <code>Male</code>
 and <code>Drug</code> to factor variables, applying the labels in the
 data information table. Obtain frequency distribution tables to verify
 that your labels are attached correctly.</p>
-<p>Your response should include your R code.</p>
+<p>Your response should include your R code. The results will appear
+automatically when you knit the file.</p>
 </div>
-<div id="question-3-group-by-time-interaction" class="section level2">
-<h2>Question 3: Group-by-Time Interaction</h2>
+<div id="question-2-group-by-time-interaction" class="section level2">
+<h2>Question 2: Group-by-Time Interaction</h2>
 <p>This study has a within-subjects component (two repeated
 measurements) and a between-subjects component (two experimental
 conditions). Ask AI to explain the concept of a group-by-time
@@ -1678,10 +1674,10 @@ means you would expect to see within each experimental condition if
 there is a group-by-time interaction. Then describe the pattern of means
 you would expect if there is no group-by-time interaction.</p>
 <p>Your response should include your written answer; your prompt and
-AI’s response will appear in your chat log in Question 14.</p>
+AI’s response will appear in your chat log in Question 12.</p>
 </div>
-<div id="question-4-ai-prompt-for-the-line-graph" class="section level2">
-<h2>Question 4: AI Prompt for the Line Graph</h2>
+<div id="question-3-create-and-explain-the-line-graph" class="section level2">
+<h2>Question 3: Create and Explain the Line Graph</h2>
 <p>Write a self-contained prompt asking AI to generate R code for a line
 graph showing mean illness severity at baseline and the 3-week follow-up
 for each experimental condition, with each group’s means connected by a
@@ -1691,30 +1687,27 @@ names, group labels, and the possible range of illness severity scores
 full scale, and it should instruct AI to use only base R and the
 <code>ggplot2</code> package so that no additional packages need to be
 installed. Run the resulting code.</p>
-<p>Your response should include the resulting R code; the graph will
-appear automatically when you knit the file. Your prompt and AI’s
-response will appear in your chat log in Question 14.</p>
+<p>Then examine the AI-generated code and investigate any unfamiliar
+functions or operations. Suppose you were documenting this code for
+other researchers in your lab. Write a brief, one-paragraph explanation
+of how it works, referring to specific functions or operations in your
+code. Explain something you learned while investigating the code. A
+colleague should be able to understand its main steps from your
+explanation without reading the code.</p>
+<p>Your response should include the resulting R code and your written
+explanation; the graph will appear automatically when you knit the file.
+Your prompt and AI’s response will appear in your chat log in Question
+12.</p>
 </div>
-<div id="question-5-explain-the-graph-code" class="section level2">
-<h2>Question 5: Explain the Graph Code</h2>
-<p>Examine the AI-generated code from Question 4 and investigate any
-unfamiliar functions or operations. Suppose you were documenting this
-code for other researchers in your lab. Write a brief, one-paragraph
-explanation of how it works, referring to specific functions or
-operations in your code. Explain something you learned while
-investigating the code. A colleague should be able to understand its
-main steps from your explanation without reading the code.</p>
-<p>Your response should include your written answer.</p>
-</div>
-<div id="question-6-evaluate-the-interaction-in-the-graph" class="section level2">
-<h2>Question 6: Evaluate the Interaction in the Graph</h2>
-<p>Compare the graph from Question 4 with the patterns you described in
-Question 3. Does the graph suggest a group-by-time interaction or not?
+<div id="question-4-evaluate-the-interaction-in-the-graph" class="section level2">
+<h2>Question 4: Evaluate the Interaction in the Graph</h2>
+<p>Compare the graph from Question 3 with the patterns you described in
+Question 2. Does the graph suggest a group-by-time interaction or not?
 Support your answer with specific features of the graph.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-7-subset-the-data-by-medication-group" class="section level2">
-<h2>Question 7: Subset the Data by Medication Group</h2>
+<div id="question-5-subset-the-data-by-medication-group" class="section level2">
+<h2>Question 5: Subset the Data by Medication Group</h2>
 <p>Next, you will perform a paired-samples <em>t</em>-test separately
 for each medication group. To do so, you must first create a separate
 data frame for each group, a process called subsetting the data. The <a href="https://craigenders.github.io/psych250a/labs/Week%200%20Lab.%20Introduction%20to%20R.html#selecting-cases">Selecting
@@ -1733,8 +1726,8 @@ each data frame contains the correct participants.</p>
 <p>Your response should include your R code and your written answer. The
 results will appear automatically when you knit the file.</p>
 </div>
-<div id="question-8-paired-samples-t-tests" class="section level2">
-<h2>Question 8: Paired-Samples <em>t</em>-Tests</h2>
+<div id="question-6-paired-samples-t-tests" class="section level2">
+<h2>Question 6: Paired-Samples <em>t</em>-Tests</h2>
 <p>Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#paired-samples-t-test">Paired-Samples
 t-Test</a> section of the Week 6 lab to perform a two-tailed
 paired-samples <em>t</em>-test comparing illness severity at baseline
@@ -1744,8 +1737,8 @@ Perform the test separately for the <code>medgroup</code> and
 <p>Your response should include your R code. The results will appear
 automatically when you knit the file.</p>
 </div>
-<div id="question-9-report-the-results-in-apa-format" class="section level2">
-<h2>Question 9: Report the Results in APA Format</h2>
+<div id="question-7-report-the-results-in-apa-format" class="section level2">
+<h2>Question 7: Report the Results in APA Format</h2>
 <p>Write a brief passage that reports the results of the two
 paired-samples <em>t</em>-tests in APA format. For each group, report
 the mean illness severity at baseline and at week 3, the <em>t</em>
@@ -1754,8 +1747,8 @@ illness severity changed significantly within each group and the
 direction of the change.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-10-comparing-groups-with-t-and-p" class="section level2">
-<h2>Question 10: Comparing Groups With <em>t</em> and <em>p</em></h2>
+<div id="question-8-comparing-groups-with-t-and-p" class="section level2">
+<h2>Question 8: Comparing Groups With <em>t</em> and <em>p</em></h2>
 <p>Consider the following statement: “The medication group’s <em>t</em>
 statistic is about four times larger than the placebo group’s, and its
 <em>p</em>-value is much smaller. From this, we can conclude that the
@@ -1764,11 +1757,11 @@ in the placebo group.” Evaluate this reasoning. In this particular
 application, can the <em>t</em> statistic and <em>p</em>-value be used
 to compare the relative size of the change across the two groups?
 Explain why or why not, using your <code>describe()</code> results from
-Question 7. Under what circumstances could the statement be valid?</p>
+Question 5. Under what circumstances could the statement be valid?</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-11-effect-sizes-by-group" class="section level2">
-<h2>Question 11: Effect Sizes by Group</h2>
+<div id="question-9-effect-sizes-by-group" class="section level2">
+<h2>Question 9: Effect Sizes by Group</h2>
 <p>Modify the code in the <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#computing-a-change-score-variable">Computing
 a Change Score Variable</a> and <a href="https://craigenders.github.io/psych250a/labs/Week%206%20Lab.%20Paired-Samples%20t-Test.html#standardized-mean-difference-effect-size">Standardized
 Mean Difference Effect Size</a> sections of the Week 6 lab to compute
@@ -1780,15 +1773,15 @@ effect sizes.</p>
 explanation. The results will appear automatically when you knit the
 file.</p>
 </div>
-<div id="question-12-effect-sizes-and-the-group-by-time-interaction" class="section level2">
-<h2>Question 12: Effect Sizes and the Group-by-Time Interaction</h2>
+<div id="question-10-effect-sizes-and-the-group-by-time-interaction" class="section level2">
+<h2>Question 10: Effect Sizes and the Group-by-Time Interaction</h2>
 <p>Explain whether the effect sizes for the two experimental conditions
-from Question 11 are consistent or inconsistent with the presence of a
+from Question 9 are consistent or inconsistent with the presence of a
 group-by-time interaction. Cite specific values from your results.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-13-evaluate-the-t-test-assumptions" class="section level2">
-<h2>Question 13: Evaluate the <em>t</em>-Test Assumptions</h2>
+<div id="question-11-evaluate-the-t-test-assumptions" class="section level2">
+<h2>Question 11: Evaluate the <em>t</em>-Test Assumptions</h2>
 <p>Suppose a manuscript reviewer asks you to address whether the
 assumptions of your paired-samples <em>t</em>-tests are satisfied. Write
 a self-contained prompt asking AI to explain the assumptions and
@@ -1806,16 +1799,16 @@ your assessment with specific features of the diagnostic graphs,
 assuming that the graphs are included in the supplement.</p>
 <p>Your response should include the R code and your written assessment;
 your prompt and AI’s response will appear in your chat log in Question
-14.</p>
+12.</p>
 </div>
-<div id="question-14-chat-log" class="section level2">
-<h2>Question 14: Chat Log</h2>
+<div id="question-12-chat-log" class="section level2">
+<h2>Question 12: Chat Log</h2>
 <p>This question is not graded. It collects your prompts and AI’s
-responses in one place so that graders can locate them for Questions 3,
-4, and 13. After completing Question 13, click anywhere in the Copilot
+responses in one place so that graders can locate them for Questions 2,
+3, and 11. After completing Question 11, click anywhere in the Copilot
 conversation, select the entire chat (Ctrl+A on Windows, Cmd+A on Mac),
 copy it, and paste it between the two lines of backticks in the Question
-14 section of the template. The pasted text will show “You said:” before
+12 section of the template. The pasted text will show “You said:” before
 your prompts and “Copilot said:” before AI’s responses. When you are
 done, knit the file to a PDF before submitting.</p>
 </div>
