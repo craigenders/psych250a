@@ -1,0 +1,116 @@
+---
+title: "Psych 250a — Week 8 Assignment. ANOVA"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# Question 1: Import the Data and Convert the Factor
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 2: AI Prompt for the Bar Graph
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# Question 3: Connect the Graph to the *F* Ratio
+
+Your explanation of how the graph maps onto the *F* ratio and the effects of the two hypothetical changes:
+
+TYPE YOUR ANSWER HERE
+
+# Question 4: Descriptive Statistics and ANOVA Results
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 5: Interpret the *p*-Value and *R*²
+
+Your interpretation of the *p*-value and *R*²:
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: Compare the Standard and Welch *F* Tests
+
+Your comparison of the group standard deviations and the standard and Welch results:
+
+TYPE YOUR ANSWER HERE
+
+# Question 7: AI Evaluation of the ANOVA Assumptions
+
+Your supplement paragraph:
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Apply Inference by Eye
+
+Your evaluation of each pair of conditions:
+
+TYPE YOUR ANSWER HERE
+
+# Question 9: Tukey Tests and Pairwise Effect Sizes
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your interpretation of the Tukey tests and pairwise effect sizes:
+
+TYPE YOUR ANSWER HERE
+
+# Question 10: Translational Abstract
+
+Your translational abstract:
+
+TYPE YOUR ANSWER HERE
+
+# Question 11: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````

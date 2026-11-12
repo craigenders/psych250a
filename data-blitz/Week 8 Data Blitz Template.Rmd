@@ -1,0 +1,112 @@
+---
+title: "Week 8 Data Blitz. ANOVA"
+author: "GROUP MEMBER NAMES"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# 1. Packages, Data Import, and Factor Conversion
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 2. Graph of Within-Group and Between-Group Variation
+
+Your prompt and AI's response:
+
+```
+PASTE YOUR PROMPT AND AI'S RESPONSE HERE
+```
+
+The display you chose and why:
+
+TYPE YOUR ANSWER HERE
+
+AI's code:
+
+```{r}
+# PASTE AI'S CODE HERE
+```
+
+# 3. Explanation of Within-Group and Between-Group Variation
+
+TYPE YOUR ANSWER HERE
+
+# 4. Descriptive Statistics, ANOVA, and Effect Size
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 5. Inference by Eye
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your evaluation of each pair of conditions:
+
+TYPE YOUR ANSWER HERE
+
+# 6. Tukey Pairwise Comparisons and Effect Sizes
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+Your interpretation of the Tukey tests and effect sizes and their consistency with Task 5:
+
+TYPE YOUR ANSWER HERE
+
+# 7. Pairwise Versus Planned Comparisons
+
+Your prompt and AI's response:
+
+```
+PASTE YOUR PROMPT AND AI'S RESPONSE HERE
+```
+
+Your choice and justification:
+
+TYPE YOUR ANSWER HERE
+
+# 8. Summary of Results
+
+TYPE YOUR ANSWER HERE
+
+# 9. Reflection on AI
+
+TYPE YOUR ANSWER HERE
