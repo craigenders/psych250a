@@ -1635,9 +1635,11 @@ that PDF to Gradescope. You can knit to HTML while working if you find
 its clickable table of contents more readable, but you must submit the
 PDF version.</p>
 <p><strong>The assignment is due Friday November 20 by 1:30 PM</strong>.
-The assignment is worth 24 points. Questions 1 through 12 will be
-assigned a score of 0 (no credit), 1 (partial credit), or a 2 (full
-credit). Question 13 is not graded.</p>
+The assignment is worth 18 points. Questions 1, 2, 4, and 6 ask only for
+R code and will be assigned a score of 0 (incorrect or incomplete) or 1
+(correct). Questions 3, 5, and 7 through 11 will be assigned a score of
+0 (no credit), 1 (partial credit), or a 2 (full credit). Question 12 is
+not graded.</p>
 </div>
 <div id="questions" class="section level1">
 <h1>Questions</h1>
@@ -1669,10 +1671,10 @@ run—although in any single sample, it can fail to produce equivalent
 groups. In the next question, you will use an independent-samples
 <em>t</em>-test and a standardized mean difference effect size to
 compare the two groups’ baseline illness severity scores
-(<code>SeverityWk0</code>). If random assignment worked as intended,
-what general magnitude would you expect for the <em>p</em>-value and for
-the standardized mean difference effect size (Cohen’s <em>d</em>)?
-Explain your reasoning for each prediction.</p>
+(<code>SeverityWk0</code>). If random assignment worked and the groups
+are equal at baseline, what general magnitude would you expect for the
+<em>p</em>-value and for the standardized mean difference effect size
+(Cohen’s <em>d</em>)? Explain your reasoning for each prediction.</p>
 <p>Your response should include your written answer.</p>
 </div>
 <div id="question-4-baseline-t-test-and-effect-size" class="section level2">
@@ -1722,21 +1724,29 @@ for each layer that describes what the layer does.</p>
 <p>Your response should include the resulting R code and your bulleted
 description of each layer; the graph will appear automatically when you
 knit the file. Your prompt and AI’s response will appear in your chat
-log in Question 13.</p>
+log in Question 12.</p>
 </div>
 <div id="question-8-report-the-results-in-apa-format" class="section level2">
 <h2>Question 8: Report the Results in APA Format</h2>
 <p>Write a brief passage that reports the results of the
-independent-samples <em>t</em>-test from Question 6 in APA format. Point
-readers to the graph from Question 7 that displays the group means
-(e.g., “see Figure 1”), then report the <em>t</em> statistic, degrees of
-freedom, <em>p</em>-value, and effect size (Cohen’s <em>d</em>). Also
-state whether the groups differed significantly at week 3 and which
-group had lower illness severity.</p>
+independent-samples <em>t</em>-test from Question 6 in APA format. This
+paragraph should be suitable for inclusion in a research report like a
+journal article or your final 251 report. A complete results passage
+does two things. First, it reports the statistical quantities from your
+output: the <em>t</em> statistic, degrees of freedom, <em>p</em>-value,
+and effect size (Cohen’s <em>d</em>). Format these quantities according
+to the APA Style <a href="https://apastyle.apa.org/instructional-aids/numbers-statistics-guide.pdf">Numbers
+and Statistics Guide</a>. Second, it interprets those quantities in
+words. Authors commonly report the numbers but omit the interpretation,
+essentially asking readers to draw their own conclusions. Your passage
+should state whether the groups differed significantly at week 3, which
+group had lower illness severity, and how large the difference was.
+Point readers to the graph from Question 7 that displays the group means
+(e.g., “see Figure 1”).</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-9-ai-prompt-on-evaluating-within-group-normality" class="section level2">
-<h2>Question 9: AI Prompt on Evaluating Within-Group Normality</h2>
+<div id="question-9-ai-prompt-for-a-within-group-normality-check" class="section level2">
+<h2>Question 9: AI Prompt for a Within-Group Normality Check</h2>
 <p>The independent-samples <em>t</em>-test assumes that each group’s
 data follow a normal distribution. Write a self-contained prompt that
 explains to AI that you are performing an independent-samples
@@ -1747,25 +1757,21 @@ consequences of violating the normality assumption for the
 within-group normality, along with the pros and cons of each method.
 Group sizes often play an important role with assumptions, so provide
 that information in your prompt.</p>
-<p>Your prompt and AI’s response will appear in your chat log in
-Question 13.</p>
-</div>
-<div id="question-10-choose-and-implement-a-normality-check" class="section level2">
-<h2>Question 10: Choose and Implement a Normality Check</h2>
-<p>Based on AI’s response to Question 9, choose one method for
-evaluating within-group normality and explain why you chose it,
-referring to the pros and cons that AI described. Then, in the same
-chat, ask AI to generate R code that implements your chosen method,
-using only base R and the packages already loaded in this assignment.
-Make sure that your prompt provides the name of your data frame, the
-outcome variable, the grouping variable, and the group labels so that AI
-can produce working code. Run the resulting code.</p>
+<p>Based on AI’s response, choose one method for evaluating within-group
+normality and explain why you chose it, referring to the pros and cons
+that AI described. Then, in the same chat, ask AI to generate R code
+that implements your chosen method, using only base R and the packages
+already loaded in this assignment. Make sure that your prompt provides
+the name of your data frame, the outcome variable, the grouping
+variable, and the group labels so that AI can produce working code. Run
+the resulting code.</p>
 <p>Your response should include your choice of method, your rationale,
 and the resulting R code; the results will appear automatically when you
-knit the file.</p>
+knit the file. Your prompts and AI’s responses will appear in your chat
+log in Question 12.</p>
 </div>
-<div id="question-11-assumptions-for-an-online-supplement" class="section level2">
-<h2>Question 11: Assumptions for an Online Supplement</h2>
+<div id="question-10-assumptions-for-an-online-supplement" class="section level2">
+<h2>Question 10: Assumptions for an Online Supplement</h2>
 <p>Because journal page space is limited, researchers often provide more
 detailed results in an online supplement. Write a paragraph suitable for
 such a supplement that describes the assumptions of the Welch
@@ -1773,14 +1779,14 @@ such a supplement that describes the assumptions of the Welch
 homogeneity of variance, so make clear which assumptions the Welch test
 does and does not make. Then report your evaluation of within-group
 normality, supporting it with specific features of the output from
-Question 10 and assuming that output is included in the supplement. If
+Question 9 and assuming that output is included in the supplement. If
 you conclude that the normality assumption is not met, include a caveat,
-informed by AI’s response to Question 9, that explains how the violation
+informed by AI’s response in Question 9, that explains how the violation
 might affect the interpretation of your <em>t</em>-test results.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-12-interpret-the-confidence-interval" class="section level2">
-<h2>Question 12: Interpret the Confidence Interval</h2>
+<div id="question-11-interpret-the-confidence-interval" class="section level2">
+<h2>Question 11: Interpret the Confidence Interval</h2>
 <p>The output from Question 6 includes a 95% confidence interval for the
 difference between the population means. Using the “extreme populations”
 interpretation presented in the lecture slides (attributable to Cumming
@@ -1793,14 +1799,14 @@ whether the interval and the <em>p</em>-value lead to the same
 conclusion about the null hypothesis, and explain why.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-13-chat-log" class="section level2">
-<h2>Question 13: Chat Log</h2>
+<div id="question-12-chat-log" class="section level2">
+<h2>Question 12: Chat Log</h2>
 <p>This question is not graded. It collects your prompts and AI’s
-responses in one place so that graders can locate them for Questions 7,
-9, and 10. After completing Question 12, click anywhere in the Copilot
+responses in one place so that graders can locate them for Questions 7
+and 9. After completing Question 11, click anywhere in the Copilot
 conversation, select the entire chat (Ctrl+A on Windows, Cmd+A on Mac),
 copy it, and paste it between the two lines of backticks in the Question
-13 section of the template. The pasted text will show “You said:” before
+12 section of the template. The pasted text will show “You said:” before
 your prompts and “Copilot said:” before AI’s responses. When you are
 done, knit the file to a PDF before submitting.</p>
 </div>

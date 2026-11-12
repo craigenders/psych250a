@@ -99,11 +99,7 @@ Your APA-style passage:
 
 TYPE YOUR ANSWER HERE
 
-# Question 9: AI Prompt on Evaluating Within-Group Normality
-
-No response is needed here; your prompt and AI's response will appear in your chat log in Question 13.
-
-# Question 10: Choose and Implement a Normality Check
+# Question 9: AI Prompt for a Within-Group Normality Check
 
 Your chosen method and your rationale:
 
@@ -115,19 +111,19 @@ AI's code:
 # PASTE AI'S CODE HERE
 ```
 
-# Question 11: Assumptions for an Online Supplement
+# Question 10: Assumptions for an Online Supplement
 
 Your supplement paragraph:
 
 TYPE YOUR ANSWER HERE
 
-# Question 12: Interpret the Confidence Interval
+# Question 11: Interpret the Confidence Interval
 
 Your interpretation of the confidence limits and whether the interval is consistent with the *p*-value:
 
 TYPE YOUR ANSWER HERE
 
-# Question 13: Chat Log
+# Question 12: Chat Log
 
 `````
 PASTE YOUR CHAT LOG HERE
