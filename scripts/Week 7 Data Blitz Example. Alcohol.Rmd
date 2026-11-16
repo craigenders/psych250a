@@ -1,0 +1,166 @@
+---
+title: "Week 7 Data Blitz Example. Alcohol"
+author: "Psych 250a"
+date: "Friday November 13"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{css, echo=FALSE}
+body {
+  font-size: 18px;
+}
+.main-container {
+  max-width: 1500px !important;
+}
+```
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 100)
+```
+
+This document works through the [Week 7 Data Blitz](https://craigenders.github.io/psych250a/data-blitz/Week%207%20Data%20Blitz.%20Independent-Samples%20t-Test.html) using `Alcohol.csv`, comparing females and males (`Male`) on drinking days per month (`AlcDays`). It is one way to complete the activity, not the only acceptable one; written answers are examples of what a complete response covers.
+
+# 1. Research Question
+
+Do females and males differ with respect to the number of days per month they drink alcohol (`AlcDays`)?
+
+Males should drink on more days per month than females, because surveys of adult drinking consistently find that men drink more often and more heavily than women.
+
+A two-tailed test is defensible even with this directional prediction. A result in the unexpected direction would be surprising but important, and a one-tailed test could not detect it. The two-tailed test is also the convention in psychology, so readers will not suspect that the test was chosen after seeing the data to make a borderline result significant.
+
+# 2. Packages, Data Import, and Factor Conversion
+
+```{r}
+# load R packages
+library(ggplot2)
+library(summarytools)
+library(psych)
+
+# store the web address of the raw data file
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/Alcohol.csv"
+
+# read the file at that address into a data frame named Alcohol
+Alcohol <- read.csv(filepath, stringsAsFactors = TRUE)
+
+# convert Male from 0/1 codes to a factor with descriptive labels
+Alcohol$Male <- factor(Alcohol$Male, levels = c(0, 1), labels = c("Female", "Male"))
+
+# frequency distribution to confirm the labels are attached correctly
+freq(Alcohol$Male)
+```
+
+
+
+# 3. Descriptive Statistics by Group
+
+```{r}
+# descriptive statistics for every variable separately for each group (psych package)
+describeBy(Alcohol, group = Alcohol$Male)
+```
+
+# 4. Evaluation of the Mean Difference
+
+Males drink on an average of 3.34 days per month and females on an average of 1.55 days, a difference of 1.79 days. Relative to the 0 to 30 range the difference is modest, but it is large relative to the low means: males drink on more than twice as many days. The difference seems more consistent with the prediction than with the null hypothesis, although the large standard deviations (4.18 for females and 6.47 for males) call for a formal test.
+
+# 5. Standard Error
+
+```{r}
+# Welch's t-test for AlcDays, stored in an object
+results_AlcDays <- t.test(AlcDays ~ Male, data = Alcohol)
+
+# standard error of the mean difference for AlcDays
+results_AlcDays$stderr
+```
+
+The standard error of the mean difference is 0.29 days, the typical distance between a sample mean difference and the population mean difference across many hypothetical samples of these sizes. The observed difference of 1.79 days is more than six standard errors from zero, far larger than sampling error would typically produce. This refines the Task 4 conclusion: the difference is inconsistent with the null hypothesis.
+
+# 6. Independent-Samples *t*-Test and Effect Size
+
+The *t*-test results were stored in Task 5; printing the objects shows the full output. `cohen.d()` gives the standardized mean difference.
+
+```{r}
+# Welch's t-test results for AlcDays
+results_AlcDays
+
+# standardized mean difference effect size for AlcDays (psych package)
+cohen.d(AlcDays ~ Male, data = Alcohol)
+```
+
+Males drink on 1.79 more days per month than females, *t*(1057.49) = −6.15, *p* < .001, with an effect size of about 0.34 in absolute value, a small effect. The sign of *t* reflects the order of subtraction (female minus male). `cohen.d()` subtracts in the other order (male minus female), so its effect size is positive.
+
+# 7. Interpretation of the *p*-Value
+
+The *p*-value is less than .001, so we use .001 as its value. It is a conditional probability. The condition is that the null hypothesis is true: in the population, females and males drink on the same average number of days per month. Given that condition, the probability of drawing samples of these sizes whose mean difference is at least 1.79 days from zero, in either direction, is less than .001, fewer than 1 in 1,000 such samples. Data like ours would be very unusual if the null hypothesis were true.
+
+# 8. Interpretation of the Confidence Interval
+
+The 95% confidence interval for the population mean difference (female minus male) runs from −2.36 to −1.22 days. The lower limit is the most negative population mean difference that could plausibly have produced the observed −1.79: if the population difference were −2.36, the observed value would sit at the upper edge of the middle 95% of that population’s sampling distribution. The upper limit, −1.22, is the population difference closest to zero for which −1.79 sits at the lower edge of the middle 95%. The observed difference and its standard error are fixed; the hypothetical population differences vary. Zero lies outside the interval, so a population with no difference is not a plausible source of these data. The interval leads to the same conclusion as the *p*-value: reject the null hypothesis.
+
+# 9. Welch’s and Student’s *t*-Tests
+
+Example prompt:
+
+> I am comparing two independent groups with an independent-samples t-test in R. R's t.test() function uses Welch's t-test by default rather than the classic Student's t-test. Compare and contrast the two procedures: what each assumes about the population variances, how each computes the standard error and degrees of freedom, and the circumstances (for example, unequal variances combined with unequal group sizes) under which their results are similar or different. Then tell me which procedure the methodological literature recommends as a default for psychology research. Support your conclusions with citations to published methodological studies and include links or DOIs so I can verify each source. In my data, the two groups are females (n = 846) and males (n = 654), and the outcome is drinking days per month (0 to 30).
+
+AI's response is not reproduced here; groups' responses will differ. Before relying on any source AI cites, open the link and confirm that the article exists and says what AI claims. The sources below are real and are the ones most often cited on this question.
+
+Example one-paragraph summary for a lab document:
+
+R uses Welch’s *t*-test by default. The classic Student’s test pools the two group variances into a single estimate, which is correct only if the population variances are equal. Welch’s test estimates each group’s variance separately and adjusts the degrees of freedom accordingly. When the variances are equal, the two tests give nearly identical results, so little is lost by using Welch’s test. When the variances differ and the group sizes are unequal, Student’s test can be badly wrong: its Type I error rate rises above .05 when the smaller group has the larger variance and falls below .05 when the larger group has the larger variance. Simulation studies show that Welch’s test controls the Type I error rate across these conditions (Delacre et al., 2017; Ruxton, 2006), and testing equal variances first and then choosing a test performs worse than using Welch’s test unconditionally (Zimmerman, 2004). In these data the smaller group (males, n = 654) has a standard deviation about 50% larger than the larger group (females, n = 846; 6.47 vs. 4.18), exactly the situation in which Student’s test is too liberal. We therefore report Welch’s test.
+
+Delacre, M., Lakens, D., & Leys, C. (2017). Why psychologists should by default use Welch's *t*-test instead of Student's *t*-test. *International Review of Social Psychology, 30*(1), 92–101. https://doi.org/10.5334/irsp.82
+
+Ruxton, G. D. (2006). The unequal variance *t*-test is an underused alternative to Student's *t*-test and the Mann–Whitney *U* test. *Behavioral Ecology, 17*(4), 688–690. https://doi.org/10.1093/beheco/ark016
+
+Zimmerman, D. W. (2004). A note on preliminary tests of equality of variances. *British Journal of Mathematical and Statistical Psychology, 57*(1), 173–181. https://doi.org/10.1348/000711004849222
+
+For comparison, the classic Student's test can be requested with `var.equal = TRUE`. This is not part of the task, but it shows concretely how much the choice matters in these data.
+
+```{r}
+# classic Student's t-test for AlcDays, assuming equal variances
+t.test(AlcDays ~ Male, data = Alcohol, var.equal = TRUE)
+```
+
+The two tests differ in the direction the literature predicts. Because the smaller male group has the larger variance, Student’s pooled standard error is too small (0.28 vs. 0.29) and its *t* is inflated: *t*(1498) = −6.48 with Student’s test versus *t*(1057.49) = −6.15 with Welch’s. The difference is modest here because the group sizes are not extremely unequal, and the effect is strong enough that the conclusion does not change, but in a sample with a weaker effect Student’s test could produce a significant result that Welch’s test would not.
+
+# 10. Within-Group Normality
+
+```{r}
+# histogram with density curve for AlcDays, one panel per Male group
+ggplot(Alcohol, aes(x = AlcDays, colour = Male)) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 1) +
+  geom_density() +
+  facet_wrap(~ Male)
+```
+
+Both distributions are severely right-skewed, with a spike at zero and a long right tail that ends in a small cluster at 30 days. The median is 0 in both groups. The skew is more extreme for females (skewness 4.45, kurtosis 22.86) than for males (2.58 and 6.37), because more females report no drinking at all and the few frequent drinkers sit far from the rest of the distribution. The normality assumption is clearly violated in both groups. Because the groups are large, the *t*-test’s *p*-value and interval for the mean difference remain approximately correct, but the means are pulled upward by the heavy right tail.
+
+# 11. Answer to the Research Question
+
+Males drink on more days per month than females (3.34 vs. 1.55), a difference of 1.79 days, *t*(1057.49) = −6.15, *p* < .001, *d* ≈ 0.34, with a 95% confidence interval of 1.22 to 2.36 more drinking days for males. The effect is small but clearly different from zero, and it is consistent with the prediction.
+
+Welch’s test does not assume equal variances, which matters here because the male standard deviation is about 50% larger than the female standard deviation. The normality assumption is clearly violated in both groups: most adults report no drinking days (69% of females and 56% of males), and a few drink nearly every day, producing severely right-skewed distributions. Because the groups are large (654 and 846), the sampling distribution of the mean difference is close to normal and the *p*-value and interval are trustworthy. The bigger concern is substantive: with a median of 0 in both groups, the mean difference reflects how many males and females drink at all and how often the frequent drinkers drink, not the behavior of a typical adult.
+
+# 12. Reflection on AI
+
+Responses will vary. Useful points to raise in discussion: whether the Task 9 citations checked out when the links were opened, whether AI recommended Welch’s test unconditionally or tied the recommendation to unequal variances and unequal group sizes, and whether AI’s explanation of the standard error matched the lecture’s definition.

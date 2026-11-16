@@ -1,0 +1,217 @@
+---
+title: "Week 7 Data Blitz Example. VideoSpeed"
+author: "Psych 250a"
+date: "Friday November 13"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{css, echo=FALSE}
+body {
+  font-size: 18px;
+}
+.main-container {
+  max-width: 1500px !important;
+}
+```
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 100)
+```
+
+This document works through the [Week 7 Data Blitz](https://craigenders.github.io/psych250a/data-blitz/Week%207%20Data%20Blitz.%20Independent-Samples%20t-Test.html) using `VideoSpeed.csv`, comparing participants who watched at normal speed and participants who watched at a faster speed (`TwoSpeeds`) on immediate recall (`ImmediateRecall`) and delayed recall (`DelayedRecall`). It is one way to complete the activity, not the only acceptable one; written answers are examples of what a complete response covers.
+
+# 1. Research Question
+
+Do participants who watched lecture videos at normal speed (1.0x) and participants who watched at a faster speed (1.5x or 2.5x) differ with respect to immediate recall (`ImmediateRecall`) and delayed recall about nine days later (`DelayedRecall`)?
+
+Participants who watched at normal speed should recall more on both tests, because faster playback leaves less time to encode the material. The difference may be larger on the delayed test if faster viewing produces shallower learning that fades more quickly.
+
+A two-tailed test is defensible even with this directional prediction. Faster playback could plausibly help, for example by holding attention better, and a one-tailed test could not detect that result. The two-tailed test is also the convention in psychology, so readers will not suspect that the test was chosen after seeing the data.
+
+# 2. Packages, Data Import, and Factor Conversion
+
+```{r}
+# load R packages
+library(ggplot2)
+library(summarytools)
+library(psych)
+
+# store the web address of the raw data file
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/VideoSpeed.csv"
+
+# read the file at that address into a data frame named VideoSpeed
+VideoSpeed <- read.csv(filepath, stringsAsFactors = TRUE)
+
+# convert TwoSpeeds from 0/1 codes to a factor with descriptive labels
+VideoSpeed$TwoSpeeds <- factor(VideoSpeed$TwoSpeeds, levels = c(0, 1), labels = c("1.0x", "1.5x or 2.5x"))
+
+# frequency distribution to confirm the labels are attached correctly
+freq(VideoSpeed$TwoSpeeds)
+```
+
+
+
+# 3. Descriptive Statistics by Group
+
+```{r}
+# descriptive statistics for every variable separately for each group (psych package)
+describeBy(VideoSpeed, group = VideoSpeed$TwoSpeeds)
+```
+
+# 4. Evaluation of the Mean Difference
+
+## ImmediateRecall
+
+Participants who watched at normal speed score 64.93% on the immediate test and those who watched at a faster speed 57.75%, a difference of 7.18 percentage points. The difference is about half a standard deviation (13.12 and 15.73) and about a tenth of the 20 to 93 observed range. It seems more consistent with the prediction than with the null hypothesis, but with groups of this size a formal test is needed.
+
+## DelayedRecall
+
+Participants who watched at normal speed score 58.26% on the delayed test and those who watched at a faster speed 50.23%, a difference of 8.03 percentage points. The difference is a little over half a standard deviation (12.92 and 15.05) and about a tenth of the 17 to 93 observed range. It seems more consistent with the prediction than with the null hypothesis.
+
+# 5. Standard Error
+
+```{r}
+# Welch's t-test for ImmediateRecall, stored in an object
+results_ImmediateRecall <- t.test(ImmediateRecall ~ TwoSpeeds, data = VideoSpeed)
+
+# standard error of the mean difference for ImmediateRecall
+results_ImmediateRecall$stderr
+
+# Welch's t-test for DelayedRecall, stored in an object
+results_DelayedRecall <- t.test(DelayedRecall ~ TwoSpeeds, data = VideoSpeed)
+
+# standard error of the mean difference for DelayedRecall
+results_DelayedRecall$stderr
+```
+
+## ImmediateRecall
+
+The standard error of the mean difference is 2.27 percentage points, the typical distance between a sample mean difference and the population mean difference across many hypothetical samples of these sizes. The observed difference of 7.18 points is more than three standard errors from zero, larger than sampling error would typically produce. This refines the Task 4 conclusion: the difference is unlikely to be sampling error alone.
+
+## DelayedRecall
+
+The standard error of the mean difference is 2.21 percentage points, the typical distance between a sample mean difference and the population mean difference across many hypothetical samples of these sizes. The observed difference of 8.03 points is about 3.6 standard errors from zero, larger than sampling error would typically produce. This refines the Task 4 conclusion: the difference is unlikely to be sampling error alone.
+
+# 6. Independent-Samples *t*-Test and Effect Size
+
+The *t*-test results were stored in Task 5; printing the objects shows the full output. `cohen.d()` gives the standardized mean difference.
+
+```{r}
+# Welch's t-test results for ImmediateRecall
+results_ImmediateRecall
+
+# standardized mean difference effect size for ImmediateRecall (psych package)
+cohen.d(ImmediateRecall ~ TwoSpeeds, data = VideoSpeed)
+
+# Welch's t-test results for DelayedRecall
+results_DelayedRecall
+
+# standardized mean difference effect size for DelayedRecall (psych package)
+cohen.d(DelayedRecall ~ TwoSpeeds, data = VideoSpeed)
+```
+
+For immediate recall, participants who watched at normal speed score 7.18 percentage points higher, *t*(131.41) = 3.16, *p* = .002, with an effect size of about 0.48 in absolute value, a medium effect. For delayed recall, they score 8.03 points higher, *t*(128.23) = 3.63, *p* < .001, with an effect size of about 0.56 in absolute value, also medium. The sign of *t* reflects the order of subtraction (1.0x minus faster); check the sign of the effect size against the group means, because `cohen.d()` may subtract in the other order.
+
+# 7. Interpretation of the *p*-Value
+
+## ImmediateRecall
+
+The *p*-value of .002 is a conditional probability. The condition is that the null hypothesis is true: in the population, normal-speed and faster-speed viewers have the same average immediate recall. Given that condition, .002 is the probability of drawing samples of these sizes whose mean difference is at least 7.18 points from zero, in either direction. Only about 2 in 1,000 such samples would produce a difference this large.
+
+## DelayedRecall
+
+The *p*-value is less than .001, so we use .001 as its value. It is a conditional probability. The condition is that the null hypothesis is true: in the population, normal-speed and faster-speed viewers have the same average delayed recall. Given that condition, the probability of drawing samples of these sizes whose mean difference is at least 8.03 points from zero, in either direction, is less than .001, fewer than 1 in 1,000 such samples.
+
+# 8. Interpretation of the Confidence Interval
+
+## ImmediateRecall
+
+The 95% confidence interval for the population mean difference (1.0x minus faster) runs from 2.68 to 11.68 percentage points. The lower limit is the smallest population mean difference that could plausibly have produced the observed 7.18: if the population difference were 2.68, the observed value would sit at the upper edge of the middle 95% of that population’s sampling distribution. The upper limit, 11.68, is the largest such population difference, with 7.18 at the lower edge. The observed difference and its standard error are fixed; the hypothetical population differences vary. Zero lies outside the interval, so the interval agrees with the *p*-value: reject the null hypothesis. The interval is wide, so the size of the population difference is estimated imprecisely.
+
+## DelayedRecall
+
+The 95% confidence interval for the population mean difference (1.0x minus faster) runs from 3.65 to 12.41 percentage points. The lower limit is the smallest population mean difference that could plausibly have produced the observed 8.03: if the population difference were 3.65, the observed value would sit at the upper edge of the middle 95% of that population’s sampling distribution. The upper limit, 12.41, is the largest such population difference, with 8.03 at the lower edge. The observed difference and its standard error are fixed; the hypothetical population differences vary. Zero lies outside the interval, so the interval agrees with the *p*-value: reject the null hypothesis.
+
+# 9. Welch’s and Student’s *t*-Tests
+
+Example prompt:
+
+> I am comparing two independent groups with an independent-samples t-test in R. R's t.test() function uses Welch's t-test by default rather than the classic Student's t-test. Compare and contrast the two procedures: what each assumes about the population variances, how each computes the standard error and degrees of freedom, and the circumstances (for example, unequal variances combined with unequal group sizes) under which their results are similar or different. Then tell me which procedure the methodological literature recommends as a default for psychology research. Support your conclusions with citations to published methodological studies and include links or DOIs so I can verify each source. In my data, the two groups are participants who watched at normal speed (n = 57) and participants who watched at 1.5x or 2.5x speed (n = 115), and the outcomes are immediate and delayed recall test scores (percentage correct).
+
+AI's response is not reproduced here; groups' responses will differ. Before relying on any source AI cites, open the link and confirm that the article exists and says what AI claims. The sources below are real and are the ones most often cited on this question.
+
+Example one-paragraph summary for a lab document:
+
+R uses Welch’s *t*-test by default. The classic Student’s test pools the two group variances into a single estimate, which is correct only if the population variances are equal. Welch’s test estimates each group’s variance separately and adjusts the degrees of freedom accordingly. When the variances are equal, the two tests give nearly identical results, so little is lost by using Welch’s test. When the variances differ and the group sizes are unequal, Student’s test can be badly wrong: its Type I error rate rises above .05 when the smaller group has the larger variance and falls below .05 when the larger group has the larger variance. Simulation studies show that Welch’s test controls the Type I error rate across these conditions (Delacre et al., 2017; Ruxton, 2006), and testing equal variances first and then choosing a test performs worse than using Welch’s test unconditionally (Zimmerman, 2004). In these data the faster-speed group is twice as large as the normal-speed group (115 vs. 57) and has the larger standard deviation on both tests, so we report Welch’s test.
+
+Delacre, M., Lakens, D., & Leys, C. (2017). Why psychologists should by default use Welch's *t*-test instead of Student's *t*-test. *International Review of Social Psychology, 30*(1), 92–101. https://doi.org/10.5334/irsp.82
+
+Ruxton, G. D. (2006). The unequal variance *t*-test is an underused alternative to Student's *t*-test and the Mann–Whitney *U* test. *Behavioral Ecology, 17*(4), 688–690. https://doi.org/10.1093/beheco/ark016
+
+Zimmerman, D. W. (2004). A note on preliminary tests of equality of variances. *British Journal of Mathematical and Statistical Psychology, 57*(1), 173–181. https://doi.org/10.1348/000711004849222
+
+For comparison, the classic Student's test can be requested with `var.equal = TRUE`. This is not part of the task, but it shows concretely how much the choice matters in these data.
+
+```{r}
+# classic Student's t-test for ImmediateRecall, assuming equal variances
+t.test(ImmediateRecall ~ TwoSpeeds, data = VideoSpeed, var.equal = TRUE)
+
+# classic Student's t-test for DelayedRecall, assuming equal variances
+t.test(DelayedRecall ~ TwoSpeeds, data = VideoSpeed, var.equal = TRUE)
+```
+
+The two tests differ modestly. Because the larger faster-speed group has the larger standard deviation, Student’s pooled standard error is slightly too large and its *t* slightly too small: for immediate recall, *t*(170) = 2.97 with Student’s test versus *t*(131.41) = 3.16 with Welch’s; for delayed recall, *t*(170) = 3.45 versus *t*(128.23) = 3.63. The conclusions do not change.
+
+# 10. Within-Group Normality
+
+```{r}
+# histogram with density curve for ImmediateRecall, one panel per TwoSpeeds group
+ggplot(VideoSpeed, aes(x = ImmediateRecall, colour = TwoSpeeds)) +
+  geom_histogram(aes(y = after_stat(density))) +
+  geom_density() +
+  facet_wrap(~ TwoSpeeds)
+
+# histogram with density curve for DelayedRecall, one panel per TwoSpeeds group
+ggplot(VideoSpeed, aes(x = DelayedRecall, colour = TwoSpeeds)) +
+  geom_histogram(aes(y = after_stat(density))) +
+  geom_density() +
+  facet_wrap(~ TwoSpeeds)
+```
+
+## ImmediateRecall
+
+Both distributions are close to symmetric (skewness −0.12 for normal speed and −0.02 for faster speeds) and slightly flatter than normal (kurtosis −0.58 and −0.54). The histograms show no extreme values. The normality assumption is reasonably well satisfied in both groups.
+
+## DelayedRecall
+
+The faster-speed group’s distribution is close to symmetric (skewness −0.13, kurtosis −0.44). The normal-speed group’s distribution has a mild negative skew (−0.50) and slightly heavy tails (0.88), driven by one or two low scores (the minimum is 18%). These are small departures, and the normality assumption is reasonably well satisfied.
+
+# 11. Answer to the Research Question
+
+Participants who watched at normal speed recalled more than participants who watched at a faster speed, both immediately (64.93% vs. 57.75%), *t*(131.41) = 3.16, *p* = .002, *d* ≈ 0.48, 95% CI [2.68, 11.68], and about nine days later (58.26% vs. 50.23%), *t*(128.23) = 3.63, *p* < .001, *d* ≈ 0.56, 95% CI [3.65, 12.41]. Both effects are medium-sized and consistent with the prediction. The delayed difference is slightly larger than the immediate one, in line with the idea that faster viewing produces learning that fades more quickly, but the two confidence intervals overlap heavily, so these data do not establish that the effect grows over time.
+
+Welch’s test does not assume equal variances. The normality assumption is reasonably well satisfied: all four distributions are close to symmetric with skewness and kurtosis near zero, the largest departure being a mild negative skew in delayed recall for the normal-speed group. With 57 and 115 participants, these small departures do not threaten the results. Combining the 1.5x and 2.5x conditions into one group hides any difference between those two speeds, a question the three-group comparison in Week 8 can address.
+
+# 12. Reflection on AI
+
+Responses will vary. Useful points to raise in discussion: whether the Task 9 citations checked out when the links were opened, whether AI recommended Welch’s test unconditionally or tied the recommendation to unequal variances and unequal group sizes, and whether AI’s explanation of the standard error matched the lecture’s definition.

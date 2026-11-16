@@ -1,0 +1,166 @@
+---
+title: "Week 7 Data Blitz Example. Smoking"
+author: "Psych 250a"
+date: "Friday November 13"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{css, echo=FALSE}
+body {
+  font-size: 18px;
+}
+.main-container {
+  max-width: 1500px !important;
+}
+```
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 100)
+```
+
+This document works through the [Week 7 Data Blitz](https://craigenders.github.io/psych250a/data-blitz/Week%207%20Data%20Blitz.%20Independent-Samples%20t-Test.html) using `Smoking.csv`, comparing young adults whose parents did not smoke and young adults with a parent who smoked (`ParSmoke`) on cigarettes smoked per day (`CigsPerDay`). It is one way to complete the activity, not the only acceptable one; written answers are examples of what a complete response covers.
+
+# 1. Research Question
+
+Do young adults whose parents did not smoke and young adults with a parent who smoked differ with respect to the number of cigarettes they smoke per day (`CigsPerDay`)?
+
+Young adults with a parent who smoked should smoke more cigarettes per day, through modeling, easier access to cigarettes, and shared genetic risk.
+
+A two-tailed test is defensible even with this directional prediction. A result in the unexpected direction would be surprising but important, and a one-tailed test could not detect it. The two-tailed test is also the convention in psychology, so readers will not suspect that the test was chosen after seeing the data.
+
+# 2. Packages, Data Import, and Factor Conversion
+
+```{r}
+# load R packages
+library(ggplot2)
+library(summarytools)
+library(psych)
+
+# store the web address of the raw data file
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/Smoking.csv"
+
+# read the file at that address into a data frame named Smoking
+Smoking <- read.csv(filepath, stringsAsFactors = TRUE)
+
+# convert ParSmoke from 0/1 codes to a factor with descriptive labels
+Smoking$ParSmoke <- factor(Smoking$ParSmoke, levels = c(0, 1), labels = c("Nonsmoking parents", "Smoker parent"))
+
+# frequency distribution to confirm the labels are attached correctly
+freq(Smoking$ParSmoke)
+```
+
+
+
+# 3. Descriptive Statistics by Group
+
+```{r}
+# descriptive statistics for every variable separately for each group (psych package)
+describeBy(Smoking, group = Smoking$ParSmoke)
+```
+
+# 4. Evaluation of the Mean Difference
+
+Young adults with a parent who smoked smoke an average of 7.02 cigarettes per day and those whose parents did not smoke an average of 4.09, a difference of 2.93 cigarettes. That is about 70% more cigarettes per day and a substantial part of each group’s standard deviation (4.10 and 4.66), although it is small relative to the 0 to 50 range, which is stretched by a few extreme values. The difference seems more consistent with the prediction than with the null hypothesis.
+
+# 5. Standard Error
+
+```{r}
+# Welch's t-test for CigsPerDay, stored in an object
+results_CigsPerDay <- t.test(CigsPerDay ~ ParSmoke, data = Smoking)
+
+# standard error of the mean difference for CigsPerDay
+results_CigsPerDay$stderr
+```
+
+The standard error of the mean difference is 0.20 cigarettes, the typical distance between a sample mean difference and the population mean difference across many hypothetical samples of these sizes. The observed difference of 2.93 cigarettes is almost 15 standard errors from zero, which sampling error alone essentially never produces. This confirms the Task 4 conclusion that the data are inconsistent with the null hypothesis.
+
+# 6. Independent-Samples *t*-Test and Effect Size
+
+The *t*-test results were stored in Task 5; printing the objects shows the full output. `cohen.d()` gives the standardized mean difference.
+
+```{r}
+# Welch's t-test results for CigsPerDay
+results_CigsPerDay
+
+# standardized mean difference effect size for CigsPerDay (psych package)
+cohen.d(CigsPerDay ~ ParSmoke, data = Smoking)
+```
+
+Young adults with a parent who smoked smoke 2.93 more cigarettes per day, *t*(1829.09) = −14.79, *p* < .001, with an effect size of about 0.67 in absolute value, a medium-to-large effect. The sign of *t* reflects the order of subtraction (nonsmoking parents minus smoker parent); check the sign of the effect size against the group means, because `cohen.d()` may subtract in the other order.
+
+# 7. Interpretation of the *p*-Value
+
+The *p*-value is less than .001, so we use .001 as its value. It is a conditional probability. The condition is that the null hypothesis is true: in the population, young adults with and without a smoking parent smoke the same average number of cigarettes per day. Given that condition, the probability of drawing samples of these sizes whose mean difference is at least 2.93 cigarettes from zero, in either direction, is less than .001, fewer than 1 in 1,000 such samples.
+
+# 8. Interpretation of the Confidence Interval
+
+The 95% confidence interval for the population mean difference (nonsmoking parents minus smoker parent) runs from −3.32 to −2.54 cigarettes. The lower limit is the most negative population mean difference that could plausibly have produced the observed −2.93: if the population difference were −3.32, the observed value would sit at the upper edge of the middle 95% of that population’s sampling distribution. The upper limit, −2.54, is the population difference closest to zero for which −2.93 sits at the lower edge of the middle 95%. The observed difference and its standard error are fixed; the hypothetical population differences vary. Zero is far outside the interval, so the interval agrees with the *p*-value: reject the null hypothesis.
+
+# 9. Welch’s and Student’s *t*-Tests
+
+Example prompt:
+
+> I am comparing two independent groups with an independent-samples t-test in R. R's t.test() function uses Welch's t-test by default rather than the classic Student's t-test. Compare and contrast the two procedures: what each assumes about the population variances, how each computes the standard error and degrees of freedom, and the circumstances (for example, unequal variances combined with unequal group sizes) under which their results are similar or different. Then tell me which procedure the methodological literature recommends as a default for psychology research. Support your conclusions with citations to published methodological studies and include links or DOIs so I can verify each source. In my data, the two groups are young adults whose parents did not smoke (n = 1,089) and young adults with a parent who smoked (n = 911), and the outcome is cigarettes smoked per day (0 to 50).
+
+AI's response is not reproduced here; groups' responses will differ. Before relying on any source AI cites, open the link and confirm that the article exists and says what AI claims. The sources below are real and are the ones most often cited on this question.
+
+Example one-paragraph summary for a lab document:
+
+R uses Welch’s *t*-test by default. The classic Student’s test pools the two group variances into a single estimate, which is correct only if the population variances are equal. Welch’s test estimates each group’s variance separately and adjusts the degrees of freedom accordingly. When the variances are equal, the two tests give nearly identical results, so little is lost by using Welch’s test. When the variances differ and the group sizes are unequal, Student’s test can be badly wrong: its Type I error rate rises above .05 when the smaller group has the larger variance and falls below .05 when the larger group has the larger variance. Simulation studies show that Welch’s test controls the Type I error rate across these conditions (Delacre et al., 2017; Ruxton, 2006), and testing equal variances first and then choosing a test performs worse than using Welch’s test unconditionally (Zimmerman, 2004). In these data the group sizes (1,089 and 911) and standard deviations (4.10 and 4.66) are fairly similar, so the two tests should agree, but we report Welch’s test as the safer default.
+
+Delacre, M., Lakens, D., & Leys, C. (2017). Why psychologists should by default use Welch's *t*-test instead of Student's *t*-test. *International Review of Social Psychology, 30*(1), 92–101. https://doi.org/10.5334/irsp.82
+
+Ruxton, G. D. (2006). The unequal variance *t*-test is an underused alternative to Student's *t*-test and the Mann–Whitney *U* test. *Behavioral Ecology, 17*(4), 688–690. https://doi.org/10.1093/beheco/ark016
+
+Zimmerman, D. W. (2004). A note on preliminary tests of equality of variances. *British Journal of Mathematical and Statistical Psychology, 57*(1), 173–181. https://doi.org/10.1348/000711004849222
+
+For comparison, the classic Student's test can be requested with `var.equal = TRUE`. This is not part of the task, but it shows concretely how much the choice matters in these data.
+
+```{r}
+# classic Student's t-test for CigsPerDay, assuming equal variances
+t.test(CigsPerDay ~ ParSmoke, data = Smoking, var.equal = TRUE)
+```
+
+As expected, the two tests agree closely here: Student’s test gives *t*(1998) = −14.96 and Welch’s test *t*(1829.09) = −14.79. With similar group sizes and standard deviations, the choice of test makes almost no difference, which is why Welch’s test costs little to use by default.
+
+# 10. Within-Group Normality
+
+```{r}
+# histogram with density curve for CigsPerDay, one panel per ParSmoke group
+ggplot(Smoking, aes(x = CigsPerDay, colour = ParSmoke)) +
+  geom_histogram(aes(y = after_stat(density)), binwidth = 1) +
+  geom_density() +
+  facet_wrap(~ ParSmoke)
+```
+
+Both distributions are right-skewed. Among young adults whose parents did not smoke, the skew is severe (skewness 3.45, kurtosis 22.89): most smoke few cigarettes, and a handful of extreme values, up to 50 per day, create a long right tail. Among those with a smoking parent, the skew is moderate (1.51, kurtosis 3.69). The normality assumption is not satisfied, especially in the first group. With 911 and 1,089 young adults, the sampling distribution of the mean difference will still be close to normal, so the *t*-test results are trustworthy, but the extreme values deserve a check for data entry errors.
+
+# 11. Answer to the Research Question
+
+Young adults with a parent who smoked smoke more cigarettes per day than young adults whose parents did not smoke (7.02 vs. 4.09), a difference of 2.93 cigarettes, *t*(1829.09) = −14.79, *p* < .001, *d* ≈ 0.67, with a 95% confidence interval of 2.54 to 3.32 more cigarettes per day for the smoker-parent group. The effect is medium to large and consistent with the prediction.
+
+Welch’s test does not assume equal variances. The normality assumption is violated in both groups, especially among young adults whose parents did not smoke, whose distribution is strongly right-skewed with a few extreme values (up to 50 cigarettes). Because the groups are large (911 and 1,089), the sampling distribution of the mean difference is close to normal and the *p*-value and interval are trustworthy. The medians (3 vs. 6 cigarettes) tell the same story as the means, so the extreme values are not driving the conclusion.
+
+# 12. Reflection on AI
+
+Responses will vary. Useful points to raise in discussion: whether the Task 9 citations checked out when the links were opened, whether AI recommended Welch’s test unconditionally or tied the recommendation to unequal variances and unequal group sizes, and whether AI’s explanation of the standard error matched the lecture’s definition.

@@ -1,0 +1,166 @@
+---
+title: "Week 7 Data Blitz Example. ADHD"
+author: "Psych 250a"
+date: "Friday November 13"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{css, echo=FALSE}
+body {
+  font-size: 18px;
+}
+.main-container {
+  max-width: 1500px !important;
+}
+```
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 100)
+```
+
+This document works through the [Week 7 Data Blitz](https://craigenders.github.io/psych250a/data-blitz/Week%207%20Data%20Blitz.%20Independent-Samples%20t-Test.html) using `ADHD.csv`, comparing children without and with an ADHD diagnosis (`ADHD`) on the attention behaviors sum score (`Attention`). It is one way to complete the activity, not the only acceptable one; written answers are examples of what a complete response covers.
+
+# 1. Research Question
+
+Do children without an ADHD diagnosis and children with an ADHD diagnosis differ with respect to attention-related behavior (`Attention`)?
+
+Children with ADHD should have lower attention scores, since the SWAN items describe the behaviors that define the diagnosis.
+
+A two-tailed test is defensible even with this directional prediction. A result in the unexpected direction would be surprising but important, and a one-tailed test could not detect it. The two-tailed test is also the convention in psychology, so readers will not suspect that the test was chosen after seeing the data.
+
+# 2. Packages, Data Import, and Factor Conversion
+
+```{r}
+# load R packages
+library(ggplot2)
+library(summarytools)
+library(psych)
+
+# store the web address of the raw data file
+filepath <- "https://raw.githubusercontent.com/craigenders/psych250a/main/data/ADHD.csv"
+
+# read the file at that address into a data frame named ADHD
+ADHD <- read.csv(filepath, stringsAsFactors = TRUE)
+
+# convert ADHD from 0/1 codes to a factor with descriptive labels
+ADHD$ADHD <- factor(ADHD$ADHD, levels = c(0, 1), labels = c("Control", "ADHD"))
+
+# frequency distribution to confirm the labels are attached correctly
+freq(ADHD$ADHD)
+```
+
+
+
+# 3. Descriptive Statistics by Group
+
+```{r}
+# descriptive statistics for every variable separately for each group (psych package)
+describeBy(ADHD, group = ADHD$ADHD)
+```
+
+# 4. Evaluation of the Mean Difference
+
+Control children have a mean attention score of 36.66 and children with ADHD a mean of 23.22, a difference of 13.44 points on a scale that ranges from 9 to 45. The difference is more than a third of the possible range and larger than either group’s standard deviation (6.75 and 8.83). It is far more consistent with the predicted difference than with the null hypothesis.
+
+# 5. Standard Error
+
+```{r}
+# Welch's t-test for Attention, stored in an object
+results_Attention <- t.test(Attention ~ ADHD, data = ADHD)
+
+# standard error of the mean difference for Attention
+results_Attention$stderr
+```
+
+The standard error of the mean difference is 0.57 points, the typical distance between a sample mean difference and the population mean difference across many hypothetical samples of these sizes. The observed difference of 13.44 points is more than 23 standard errors from zero, which sampling error alone essentially never produces. This confirms the Task 4 conclusion that the data are inconsistent with the null hypothesis.
+
+# 6. Independent-Samples *t*-Test and Effect Size
+
+The *t*-test results were stored in Task 5; printing the objects shows the full output. `cohen.d()` gives the standardized mean difference.
+
+```{r}
+# Welch's t-test results for Attention
+results_Attention
+
+# standardized mean difference effect size for Attention (psych package)
+cohen.d(Attention ~ ADHD, data = ADHD)
+```
+
+Control children score 13.44 points higher than children with ADHD, *t*(432.64) = 23.59, *p* < .001, with an effect size of about 1.60 in absolute value, a very large effect. The sign of *t* reflects the order of subtraction (control minus ADHD). `cohen.d()` subtracts in the other order (ADHD minus control), so its effect size is negative.
+
+# 7. Interpretation of the *p*-Value
+
+The *p*-value is less than .001, so we use .001 as its value. It is a conditional probability. The condition is that the null hypothesis is true: in the population, children with and without ADHD have the same average attention score. Given that condition, the probability of drawing samples of these sizes whose mean difference is at least 13.44 points from zero, in either direction, is less than .001, fewer than 1 in 1,000 such samples. Data like ours would be extremely unusual if the null hypothesis were true.
+
+# 8. Interpretation of the Confidence Interval
+
+The 95% confidence interval for the population mean difference (control minus ADHD) runs from 12.32 to 14.56 points. The lower limit is the smallest population mean difference that could plausibly have produced the observed 13.44: if the population difference were 12.32, the observed value would sit at the upper edge of the middle 95% of that population’s sampling distribution. The upper limit, 14.56, is the largest such population difference, with 13.44 at the lower edge. The observed difference and its standard error are fixed; the hypothetical population differences vary. Zero is far outside the interval, so a population with no difference is not a plausible source of these data. The interval agrees with the *p*-value.
+
+# 9. Welch’s and Student’s *t*-Tests
+
+Example prompt:
+
+> I am comparing two independent groups with an independent-samples t-test in R. R's t.test() function uses Welch's t-test by default rather than the classic Student's t-test. Compare and contrast the two procedures: what each assumes about the population variances, how each computes the standard error and degrees of freedom, and the circumstances (for example, unequal variances combined with unequal group sizes) under which their results are similar or different. Then tell me which procedure the methodological literature recommends as a default for psychology research. Support your conclusions with citations to published methodological studies and include links or DOIs so I can verify each source. In my data, the two groups are control children (n = 209) and children with ADHD (n = 730), and the outcome is an attention behaviors sum score (9 to 45).
+
+AI's response is not reproduced here; groups' responses will differ. Before relying on any source AI cites, open the link and confirm that the article exists and says what AI claims. The sources below are real and are the ones most often cited on this question.
+
+Example one-paragraph summary for a lab document:
+
+R uses Welch’s *t*-test by default. The classic Student’s test pools the two group variances into a single estimate, which is correct only if the population variances are equal. Welch’s test estimates each group’s variance separately and adjusts the degrees of freedom accordingly. When the variances are equal, the two tests give nearly identical results, so little is lost by using Welch’s test. When the variances differ and the group sizes are unequal, Student’s test can be badly wrong: its Type I error rate rises above .05 when the smaller group has the larger variance and falls below .05 when the larger group has the larger variance. Simulation studies show that Welch’s test controls the Type I error rate across these conditions (Delacre et al., 2017; Ruxton, 2006), and testing equal variances first and then choosing a test performs worse than using Welch’s test unconditionally (Zimmerman, 2004). In these data the groups are very unequal in size (209 vs. 730) and the larger ADHD group has a standard deviation about 30% larger than the control group (8.83 vs. 6.75), so we report Welch’s test.
+
+Delacre, M., Lakens, D., & Leys, C. (2017). Why psychologists should by default use Welch's *t*-test instead of Student's *t*-test. *International Review of Social Psychology, 30*(1), 92–101. https://doi.org/10.5334/irsp.82
+
+Ruxton, G. D. (2006). The unequal variance *t*-test is an underused alternative to Student's *t*-test and the Mann–Whitney *U* test. *Behavioral Ecology, 17*(4), 688–690. https://doi.org/10.1093/beheco/ark016
+
+Zimmerman, D. W. (2004). A note on preliminary tests of equality of variances. *British Journal of Mathematical and Statistical Psychology, 57*(1), 173–181. https://doi.org/10.1348/000711004849222
+
+For comparison, the classic Student's test can be requested with `var.equal = TRUE`. This is not part of the task, but it shows concretely how much the choice matters in these data.
+
+```{r}
+# classic Student's t-test for Attention, assuming equal variances
+t.test(Attention ~ ADHD, data = ADHD, var.equal = TRUE)
+```
+
+The two tests differ noticeably. Because the larger ADHD group has the larger variance, Student’s pooled standard error is too large (0.66 vs. 0.57) and its *t* is too small: *t*(937) = 20.36 with Student’s test versus *t*(432.64) = 23.59 with Welch’s. This is the conservative direction of error described in the literature, in which Student’s test loses power. The effect here is so large that the conclusion does not change, but with a smaller effect Student’s test could miss a real difference that Welch’s test would detect.
+
+# 10. Within-Group Normality
+
+```{r}
+# histogram with density curve for Attention, one panel per ADHD group
+ggplot(ADHD, aes(x = Attention, colour = ADHD)) +
+  geom_histogram(aes(y = after_stat(density))) +
+  geom_density() +
+  facet_wrap(~ ADHD)
+```
+
+The control group’s distribution is negatively skewed (skewness −0.87, kurtosis 0.76): most control children score near the top of the scale, and the 45-point ceiling compresses the upper tail. The ADHD group’s distribution is mildly positively skewed (0.54) with slightly light tails (−0.36). Neither departure is severe, and with 209 and 730 children the sampling distribution of the mean difference will be very close to normal, so normality is not a concern.
+
+# 11. Answer to the Research Question
+
+Children with and without ADHD differ in attention-related behavior. Control children score 13.44 points higher on the attention behaviors scale than children with ADHD (36.66 vs. 23.22), *t*(432.64) = 23.59, *p* < .001, *d* ≈ 1.60, with a 95% confidence interval of 12.32 to 14.56 points. This is a very large effect, consistent with the prediction. An effect this large is unsurprising, because the items on the scale describe the behaviors used to make the diagnosis.
+
+Welch’s test does not assume equal variances, which matters here because both the group sizes and the standard deviations differ. The normality assumption is reasonably satisfied: the control distribution is negatively skewed because many control children score near the 45-point ceiling, and the ADHD distribution is mildly positively skewed, but neither departure is severe. With 209 and 730 children, these departures do not threaten the *t*-test results.
+
+# 12. Reflection on AI
+
+Responses will vary. Useful points to raise in discussion: whether the Task 9 citations checked out when the links were opened, whether AI recommended Welch’s test unconditionally or tied the recommendation to unequal variances and unequal group sizes, and whether AI’s explanation of the standard error matched the lecture’s definition.
