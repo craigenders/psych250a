@@ -6,3 +6,8 @@
 .Rapp.history
 # FUSE placeholder files left by the folder bridge
 .fuse_hidden*
+
+# answer keys are never committed (knit-all.R keeps them in Dropbox)
+*Answer Key*
+*Optimal Answers*
+*Gold Standard*

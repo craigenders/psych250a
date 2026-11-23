@@ -1,0 +1,86 @@
+---
+title: "Week 10 Data Blitz. Correlation and Regression"
+author: "GROUP MEMBER NAMES"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 2
+    theme: cosmo
+    highlight: haddock
+editor_options:
+  chunk_output_type: console
+knit: (function(input, ...) rmarkdown::render(input, output_file = xfun::with_ext(basename(input), "html"), output_dir = dirname(input)))
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# 1. Packages, Data Import, and Data Summary
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 2. Scatterplot Matrix and Correlation Matrix
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 3. Predictor With the Highest *R*²
+
+TYPE YOUR ANSWER HERE
+
+# 4. Correlation Between Your Variables
+
+TYPE YOUR ANSWER HERE
+
+# 5. Point-Biserial Correlation
+
+TYPE YOUR ANSWER HERE
+
+# 6. Scatterplot, Regression, and Confidence Intervals
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# 7. Interpretation of the Intercept
+
+TYPE YOUR ANSWER HERE
+
+# 8. Significance Test for the Intercept
+
+TYPE YOUR ANSWER HERE
+
+# 9. Interpretation of the Slope
+
+TYPE YOUR ANSWER HERE
+
+# 10. Confidence Interval for the Slope
+
+TYPE YOUR ANSWER HERE
+
+# 11. Reflection on AI
+
+TYPE YOUR ANSWER HERE
