@@ -1,0 +1,118 @@
+---
+title: "Psych 250a — Week 10 Assignment. Correlation and Regression"
+author: "YOUR NAME HERE"
+date: "`r format(Sys.Date(), '%B %d, %Y')`"
+output:
+  html_document:
+    toc: true
+    toc_float:
+      collapsed: false
+      smooth_scroll: false
+    toc_depth: 3
+    theme: cosmo
+    highlight: haddock
+  pdf_document:
+    toc: true
+    toc_depth: 3
+    latex_engine: xelatex
+header-includes:
+  - \usepackage{fvextra}
+  - \DefineVerbatimEnvironment{Highlighting}{Verbatim}{breaklines,breakanywhere,commandchars=\\\{\}}
+  - \fvset{breaklines=true, breakanywhere=true}
+  - \RecustomVerbatimEnvironment{verbatim}{Verbatim}{breaklines,breakanywhere}
+editor_options:
+  chunk_output_type: console
+---
+
+```{r include=FALSE}
+knitr::opts_chunk$set(
+  echo = TRUE,
+  message = FALSE,
+  warning = FALSE,
+  error = TRUE,
+  comment = "",
+  fig.width = 8,
+  fig.height = 5)
+
+options(scipen = 999, width = 80)
+```
+
+# Question 1: Import and Summarize the Data
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 2: Scatterplot Matrix and Correlation Matrix
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 3: Predictor With the Highest *R*²
+
+Your choice and reasoning:
+
+TYPE YOUR ANSWER HERE
+
+# Question 4: Interpret the Sleep–Pain Correlation
+
+Your interpretation of the correlation:
+
+TYPE YOUR ANSWER HERE
+
+# Question 5: Interpret the Point-Biserial Correlation
+
+Your interpretation of the point-biserial correlation:
+
+TYPE YOUR ANSWER HERE
+
+# Question 6: Scatterplot, Regression, and Confidence Intervals
+
+Your code:
+
+```{r}
+# TYPE YOUR CODE HERE
+```
+
+# Question 7: AI Explanation of the Confidence Band
+
+Your explanation of the confidence band:
+
+TYPE YOUR ANSWER HERE
+
+# Question 8: Interpret the Intercept
+
+Your interpretation of the intercept:
+
+TYPE YOUR ANSWER HERE
+
+# Question 9: Interpret the Slope
+
+Your interpretation of the slope:
+
+TYPE YOUR ANSWER HERE
+
+# Question 10: AI Investigation of a Reviewer’s Concern
+
+The R code you ran:
+
+```{r}
+# PASTE THE R CODE YOU RAN HERE
+```
+
+# Question 11: Response to the Reviewer
+
+Your response to the reviewer:
+
+TYPE YOUR ANSWER HERE
+
+# Question 12: Chat Log
+
+`````
+PASTE YOUR CHAT LOG HERE
+`````
