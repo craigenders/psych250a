@@ -1505,7 +1505,7 @@ font-size: 0.95em;
 <h1 class="title toc-ignore">Week 10 Assignment. Correlation and
 Regression</h1>
 <h4 class="author">Psych 250a</h4>
-<h4 class="date">Due [DAY, DATE] by 1:30 PM</h4>
+<h4 class="date">Due Friday December 11 by 1:30 PM</h4>
 
 </div>
 
@@ -1518,6 +1518,13 @@ font-size: 18px;
 max-width: 1500px !important;
 }
 </style>
+<div id="optional-assignment" class="section level1">
+<h1>Optional Assignment</h1>
+<p>This assignment is optional. Your score on this assignment will
+replace your lowest assignment score. If you are satisfied with your
+current assignment scores, you do not need to complete it, and skipping
+it will have no effect on your grade.</p>
+</div>
 <div id="data" class="section level1">
 <h1>Data</h1>
 <p>These data come from a health psychology study in which 131
@@ -1653,11 +1660,12 @@ PDF. The PDF will be saved in the same folder as the .Rmd file. Upload
 that PDF to Gradescope. You can knit to HTML while working if you find
 its clickable table of contents more readable, but you must submit the
 PDF version.</p>
-<p><strong>The assignment is due [DAY, DATE] by 1:30 PM</strong>. The
-assignment is worth 19 points. Questions 1, 2, and 6 will be assigned a
-score of 0 (incorrect or incomplete) or 1 (correct). Questions 3 through
-5 and 7 through 11 will be assigned a score of 0 (no credit), 1 (partial
-credit), or a 2 (full credit). Question 12 is not graded.</p>
+<p><strong>The assignment is due Friday December 11 by 1:30 PM</strong>.
+The assignment is worth 13 points. Questions 1, 2, and 5 will be
+assigned a score of 0 (incorrect or incomplete) or 1 (correct).
+Questions 3, 4, and 6 through 8 will be assigned a score of 0 (no
+credit), 1 (partial credit), or a 2 (full credit). Question 9 is not
+graded.</p>
 </div>
 <div id="questions" class="section level1">
 <h1>Questions</h1>
@@ -1690,25 +1698,16 @@ Matrix</a> sections of the Week 10 lab.</p>
 <p>Your response should include your R code. The results will appear
 automatically when you knit the file.</p>
 </div>
-<div id="question-3-predictor-with-the-highest-r²" class="section level2">
-<h2>Question 3: Predictor With the Highest <em>R</em>²</h2>
-<p>The next analysis uses pain ratings (<code>Pain</code>) as the
-outcome variable in a regression. Based on your results from Question 2,
-which of the remaining variables in your correlation matrix
-(<code>Sleep</code>, <code>PosAff</code>, or <code>Female</code>) would
-produce the highest <em>R</em>²? Explain your reasoning.</p>
-<p>Your response should include your written answer.</p>
-</div>
-<div id="question-4-interpret-the-sleeppain-correlation" class="section level2">
-<h2>Question 4: Interpret the Sleep–Pain Correlation</h2>
+<div id="question-3-interpret-the-sleeppain-correlation" class="section level2">
+<h2>Question 3: Interpret the Sleep–Pain Correlation</h2>
 <p>Consider the correlation between <code>Sleep</code> and
 <code>Pain</code> from Question 2. State the value of the correlation,
 then provide an interpretation that includes its direction and its
 strength.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-5-interpret-the-point-biserial-correlation" class="section level2">
-<h2>Question 5: Interpret the Point-Biserial Correlation</h2>
+<div id="question-4-interpret-the-point-biserial-correlation" class="section level2">
+<h2>Question 4: Interpret the Point-Biserial Correlation</h2>
 <p>Consider the correlation between <code>Female</code> and
 <code>Pain</code> from Question 2. This correlation is different from
 the others because <code>Female</code> is a binary variable (0 = male, 1
@@ -1721,8 +1720,8 @@ then provide an interpretation that includes its direction and its
 strength.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-6-scatterplot-regression-and-confidence-intervals" class="section level2">
-<h2>Question 6: Scatterplot, Regression, and Confidence Intervals</h2>
+<div id="question-5-scatterplot-regression-and-confidence-intervals" class="section level2">
+<h2>Question 5: Scatterplot, Regression, and Confidence Intervals</h2>
 <p>Use the <code>ggplot2</code> package to obtain a scatterplot with a
 regression line for an analysis where <code>Sleep</code> is the
 predictor and <code>Pain</code> is the outcome. Keep the shaded band
@@ -1737,9 +1736,9 @@ lab.</p>
 <p>Your response should include your R code. The results will appear
 automatically when you knit the file.</p>
 </div>
-<div id="question-7-ai-explanation-of-the-confidence-band" class="section level2">
-<h2>Question 7: AI Explanation of the Confidence Band</h2>
-<p>Your graph from Question 6 surrounds the regression line with a
+<div id="question-6-ai-explanation-of-the-confidence-band" class="section level2">
+<h2>Question 6: AI Explanation of the Confidence Band</h2>
+<p>Your graph from Question 5 surrounds the regression line with a
 shaded band that is narrow near the middle of the data and widens toward
 the extremes, like a funnel. Write a self-contained prompt asking AI to
 a) explain what this band represents, b) why it has the shape it does,
@@ -1753,12 +1752,12 @@ three points in language that a fellow graduate student who has not
 taken this course could understand. Your explanation should be in your
 own words and not simply copy AI’s response verbatim.</p>
 <p>Your response should include your written answer; your prompt and
-AI’s response will appear in your chat log in Question 12.</p>
+AI’s response will appear in your chat log in Question 9.</p>
 </div>
-<div id="question-8-interpret-the-intercept" class="section level2">
-<h2>Question 8: Interpret the Intercept</h2>
+<div id="question-7-interpret-the-intercept" class="section level2">
+<h2>Question 7: Interpret the Intercept</h2>
 <p>Provide an interpretation of the intercept coefficient from your
-regression analysis in Question 6. Your answer should explain what the
+regression analysis in Question 5. Your answer should explain what the
 intercept represents in terms of the variables in this study and include
 its numerical value. Then evaluate whether the intercept is a meaningful
 value in this data set. In some analyses, the intercept is a prediction
@@ -1767,71 +1766,22 @@ observed data. Is that the case here? Explain why or why not, using the
 data table and your results from Question 1.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-9-interpret-the-slope" class="section level2">
-<h2>Question 9: Interpret the Slope</h2>
+<div id="question-8-interpret-the-slope" class="section level2">
+<h2>Question 8: Interpret the Slope</h2>
 <p>Provide an interpretation of the slope coefficient from your
-regression analysis in Question 6.</p>
+regression analysis in Question 5.</p>
 <p>Your response should include your written answer.</p>
 </div>
-<div id="question-10-ai-investigation-of-a-reviewers-concern" class="section level2">
-<h2>Question 10: AI Investigation of a Reviewer’s Concern</h2>
-<p>Suppose you submitted a manuscript describing your regression
-analysis from Question 6, and one of the reviewers raised the following
-concern: “Each participant contributed up to 21 daily assessments, so
-the data file contains multiple rows per person, one for each day. The
-regression analysis treats all of these rows as if they came from
-different people. I suspect this might be a problem.”</p>
-<p>Use AI as a collaborator to investigate the reviewer’s concern over a
-series of prompts in the same chat.</p>
-<p>First, paste the reviewer’s concern into AI. Ask AI what assumption
-the reviewer is alluding to and what would need to be true about the
-data in this study for the assumption to hold.</p>
-<p>Second, ask AI for the simplest way to check whether the problem
-applies to these data, using only base R and the packages you loaded in
-Question 1 (<code>estimatr</code>, <code>GGally</code>,
-<code>ggplot2</code>, <code>psych</code>, and
-<code>summarytools</code>). Ask AI to explain why this analysis provides
-information about the assumption and why it recommends this
-approach.</p>
-<p>Third, if you approve of the suggestion, ask AI to generate the R
-code for the analysis. AI cannot see your data, so tell it the data
-frame name (<code>assign10</code>), the variable names
-(<code>Sleep</code> and <code>Pain</code>), and that each row is one day
-of ratings from one participant (<code>Person</code>). If it is easier,
-upload a screenshot of the data table in these instructions instead of
-typing the variable names. Run the code.</p>
-<p>Fourth, paste the R output into AI and ask it to explain what the
-results show about the reviewer’s concern. This analysis is almost
-certainly new to you, so tell AI that you are taking a first-year
-graduate introductory statistics course that has covered t-tests, ANOVA,
-correlation, and regression. Ask it to explain the results in terms of
-concepts you have encountered in this course.</p>
-<p>Finally, ask AI what consequences the problem has for your regression
-results and what analysis options researchers use to address it.</p>
-<p>Your response should include the R code you ran. The results will
-appear automatically when you knit the file. Your prompts and AI’s
-responses will appear in your chat log in Question 12.</p>
-</div>
-<div id="question-11-response-to-the-reviewer" class="section level2">
-<h2>Question 11: Response to the Reviewer</h2>
-<p>Using what you learned in Question 10, write a thorough response to
-the reviewer that explains a) whether the reviewer’s concern is valid,
-b) the likely consequences for your regression results, c) whether the
-problem applies to these data, citing specific results from your
-analysis in Question 10, and d) what you would need to do to address it
-(describe the approach; you do not need to carry it out).</p>
-<p>Your response should include your written answer.</p>
-</div>
-<div id="question-12-chat-log" class="section level2">
-<h2>Question 12: Chat Log</h2>
+<div id="question-9-chat-log" class="section level2">
+<h2>Question 9: Chat Log</h2>
 <p>This question is not graded. It collects your prompts and AI’s
-responses in one place so that graders can locate them for Questions 7
-and 10. After completing Question 11, click anywhere in the Copilot
-conversation, select the entire chat (Ctrl+A on Windows, Cmd+A on Mac),
-copy it, and paste it between the two lines of backticks in the Question
-12 section of the template. The pasted text will show “You said:” before
-your prompts and “Copilot said:” before AI’s responses. When you are
-done, knit the file to a PDF before submitting.</p>
+responses in one place so that graders can locate them for Question 6.
+After completing Question 8, click anywhere in the Copilot conversation,
+select the entire chat (Ctrl+A on Windows, Cmd+A on Mac), copy it, and
+paste it between the two lines of backticks in the Question 9 section of
+the template. The pasted text will show “You said:” before your prompts
+and “Copilot said:” before AI’s responses. When you are done, knit the
+file to a PDF before submitting.</p>
 </div>
 </div>
 

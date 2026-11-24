@@ -53,25 +53,19 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 3: Predictor With the Highest *R*²
-
-Your choice and reasoning:
-
-TYPE YOUR ANSWER HERE
-
-# Question 4: Interpret the Sleep–Pain Correlation
+# Question 3: Interpret the Sleep–Pain Correlation
 
 Your interpretation of the correlation:
 
 TYPE YOUR ANSWER HERE
 
-# Question 5: Interpret the Point-Biserial Correlation
+# Question 4: Interpret the Point-Biserial Correlation
 
 Your interpretation of the point-biserial correlation:
 
 TYPE YOUR ANSWER HERE
 
-# Question 6: Scatterplot, Regression, and Confidence Intervals
+# Question 5: Scatterplot, Regression, and Confidence Intervals
 
 Your code:
 
@@ -79,39 +73,25 @@ Your code:
 # TYPE YOUR CODE HERE
 ```
 
-# Question 7: AI Explanation of the Confidence Band
+# Question 6: AI Explanation of the Confidence Band
 
 Your explanation of the confidence band:
 
 TYPE YOUR ANSWER HERE
 
-# Question 8: Interpret the Intercept
+# Question 7: Interpret the Intercept
 
 Your interpretation of the intercept:
 
 TYPE YOUR ANSWER HERE
 
-# Question 9: Interpret the Slope
+# Question 8: Interpret the Slope
 
 Your interpretation of the slope:
 
 TYPE YOUR ANSWER HERE
 
-# Question 10: AI Investigation of a Reviewer’s Concern
-
-The R code you ran:
-
-```{r}
-# PASTE THE R CODE YOU RAN HERE
-```
-
-# Question 11: Response to the Reviewer
-
-Your response to the reviewer:
-
-TYPE YOUR ANSWER HERE
-
-# Question 12: Chat Log
+# Question 9: Chat Log
 
 `````
 PASTE YOUR CHAT LOG HERE
